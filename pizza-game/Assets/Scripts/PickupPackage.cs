@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class PickupPackage : MonoBehaviour
 {
+    public Vector3 offset = new Vector3(0,0,0);
     GameObject currentPackage = null;
+
     void pickUpPackage(GameObject package){
         currentPackage = package;
-        package.transform.SetParent(gameObject.transform);
+
+        currentPackage.transform.SetParent(gameObject.transform);
+        Destroy(currentPackage.GetComponent<Rigidbody>());
+
+        currentPackage.transform.localPosition = offset;
+        currentPackage.transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
     void dropPackage(){
         if (currentPackage == null) return;
+
+        currentPackage.AddComponent<Rigidbody>();
         currentPackage.transform.parent = null;
         currentPackage = null;
     }
@@ -24,11 +33,14 @@ public class PickupPackage : MonoBehaviour
             dropPackage();
         }
     }
+    void FixedUpdate(){
+
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (currentPackage == null){
             if (collision.gameObject.GetComponent<Package>() != null){
-            pickUpPackage(collision.gameObject);
+                pickUpPackage(collision.gameObject);
             }
         }
     }

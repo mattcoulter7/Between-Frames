@@ -6,6 +6,7 @@ public class FlightController : MonoBehaviour
 {
     public float maxForce = 2f;
     public float yRotationSpeed = 3f;
+    public float[] speedModes = new float[4]{50f,100f,150f,200f};
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -14,6 +15,21 @@ public class FlightController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void HandleSpeedMode(){
+        bool[] selectedSpeedModes = new bool[4]{
+            Input.GetKey(KeyCode.Alpha1),
+            Input.GetKey(KeyCode.Alpha2),
+            Input.GetKey(KeyCode.Alpha3),
+            Input.GetKey(KeyCode.Alpha4)
+        };
+
+        for (int i = 0; i < selectedSpeedModes.Length; i++){
+            if (selectedSpeedModes[i]){
+                maxForce = speedModes[i];
+            }
+        }
     }
 
     // Update is called once per frame
@@ -43,5 +59,9 @@ public class FlightController : MonoBehaviour
 
         // handle rotations
         transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * yRotationSpeed, 0));
+
+        // handle speed modes
+        HandleSpeedMode();
+
     }
 }
