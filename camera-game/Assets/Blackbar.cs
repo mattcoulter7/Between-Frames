@@ -2,132 +2,67 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blackbar : MonoBehaviour
+public class Blackbar : BoneWeightedBoxController
 {
-    public float cameraYAnchor = 0f; // the height of camera to anchored to (0,1)
-    public float localYAnchor = 0f; // the local height to be anchored to the camera (-1,1)
-    public float scaledYAnchor {
-        get {
-            return localYAnchor * transform.localScale.y / 2; // scale according to local height
-        }
+    public enum ViewPortAnchorMode {
+        BOTTOM,
+        TOP
     }
-    public float distanceFromCamera {
-        get {
-            Vector3 cameraPos = Camera.main.transform.position;
-            return originalDepth - cameraPos.z;
-        }
+    public ViewPortAnchorMode viewportAnchor = ViewPortAnchorMode.TOP;
+    public float distance = 10f;
+    public float leftHeightOffset = 0.2f; // the left height in viewport units
+    public float rightHeightOffset = 0.2f; // the right height in viewport units
+    void Start(){
     }
-    private float originalDepth = 0f;
-    // Start is called before the first frame update
-    public Vector3 currentFrontLeft
-    {
-        get
-        {
-            Vector3 localPos = new Vector3(-transform.localScale.x / 2, scaledYAnchor, -transform.localScale.z / 2);
-            return transform.position + localPos;
-        }
-    }
-    public Vector3 currentBackLeft
-    {
-        get
-        {
-            Vector3 localPos = new Vector3(-transform.localScale.x / 2, scaledYAnchor, transform.localScale.z / 2);
-            return transform.position + localPos;
-        }
-    }
-    public Vector3 targetLeft
-    {
-        get
-        {
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0, cameraYAnchor, 0));
-            float originOffset = Camera.main.transform.position.z - ray.origin.z; // since ray cast origin is in front of camera, need to account for that
-            float distance = (distanceFromCamera + originOffset) / ray.direction.z;
-            return ray.GetPoint(distance);
-        }
-    }
-    public Vector3 currentFrontRight
-    {
-        get
-        {
-            Vector3 localPos = new Vector3(transform.localScale.x / 2, scaledYAnchor, -transform.localScale.z / 2);
-            return transform.position + localPos;
-        }
-    }
-    public Vector3 currentBackRight
-    {
-        get
-        {
-            Vector3 localPos = new Vector3(transform.localScale.x / 2, scaledYAnchor, transform.localScale.z / 2);
-            return transform.position + localPos;
-        }
-    }
-    public Vector3 targetRight
-    {
-        get
-        {
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(1, cameraYAnchor, 0));
-            float originOffset = Camera.main.transform.position.z - ray.origin.z; // since ray cast origin is in front of camera, need to account for that
-            float distance = (distanceFromCamera + originOffset) / ray.direction.z;
-            return ray.GetPoint(distance);
-        }
-    }
-
-    public float positionOffset
-    { 
-        // a value in world units of shift to ensure there are no gaps in black bars
-        get
-        {
-            float objectWidth = currentFrontRight.x - currentFrontLeft.x;
-            return objectWidth * offsetScale;
-        }
-    }
-    public float pixelsWidth {
-        get {
-            // calculate the object width in pixels
-            Vector2 frontLeft = Camera.main.WorldToScreenPoint(currentFrontLeft);
-            Vector2 frontRight = Camera.main.WorldToScreenPoint(currentFrontRight);
-            return frontRight.x - frontLeft.x;
-        }
-    }
-    public float pixelsOffset {
-        get {
-            // calculate the offset pixels
-            Vector2 frontLeft = Camera.main.WorldToScreenPoint(currentFrontLeft);
-            Vector2 backLeft = Camera.main.WorldToScreenPoint(currentBackLeft);
-            return backLeft.x - frontLeft.x;
-        }
-    }
-    public float offsetScale
-    {
-        get
-        {
-            return pixelsOffset / pixelsWidth;
-        }
-    }
-
-    void Start()
-    {
-        originalDepth = currentFrontRight.z;
-    }
-
+    
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Debug.DrawLine(Camera.main.transform.position, targetLeft, Color.green);
-        Debug.DrawLine(Camera.main.transform.position, targetRight, Color.green);
-        Debug.DrawLine(Camera.main.transform.position, currentFrontLeft, Color.red);
-        Debug.DrawLine(Camera.main.transform.position, currentFrontRight, Color.red);
+        // calculate top rays
+        Ray topLeftRay = Camera.main.ViewportPointToRay(new Vector3(0,(float)viewportAnchor,0));
+        Ray topRightRay = Camera.main.ViewportPointToRay(new Vector3(1,(float)viewportAnchor,0));
 
+        // calculate top positions
+        Vector3 targetTopLeftFront = topLeftRay.GetPoint(distance);
+        Vector3 targetTopLeftBack = topLeftRay.GetPoint(distance + 5);
+        Vector3 targetTopRightFront = topRightRay.GetPoint(distance);
+        Vector3 targetTopRightBack = topRightRay.GetPoint(distance + 5);
 
-        // rescale x to fit screen width
-        float currentWidth = transform.localScale.x;
-        float targetWidth = (this.targetRight - this.targetLeft).x + (positionOffset * 2);
+        // calculate bottom rays
+        float adjustedHeightLeft = (float)viewportAnchor - leftHeightOffset;
+        float adjustedHeightRight = (float)viewportAnchor - rightHeightOffset;
+        if (viewportAnchor == ViewPortAnchorMode.BOTTOM){
+            adjustedHeightLeft *= -1;
+            adjustedHeightRight *= -1;
+        }
+        Ray bottomLeftRay = Camera.main.ViewportPointToRay(new Vector3(0,adjustedHeightLeft,0));
+        Ray bottomRightRay = Camera.main.ViewportPointToRay(new Vector3(1,adjustedHeightRight,0));
 
-        // reposition  to left anchor
-        Vector3 toTargetPos = targetLeft - currentFrontLeft;
+        // calculate bottom positions
+        Vector3 targetBottomLeftFront = bottomLeftRay.GetPoint(distance);
+        Vector3 targetBottomLeftBack = bottomLeftRay.GetPoint(distance + 5);
+        Vector3 targetBottomRightFront = bottomRightRay.GetPoint(distance);
+        Vector3 targetBottomRightBack = bottomRightRay.GetPoint(distance + 5);
 
-        transform.localScale = new Vector3(targetWidth, transform.localScale.y, transform.localScale.z);
-        transform.position = transform.position + toTargetPos - new Vector3(positionOffset,0,0);
+        // recalculate origin
+        Ray middleRay = Camera.main.ViewportPointToRay(new Vector3(0.5f,0,0));
+        Vector3 newOrigin = middleRay.GetPoint(distance);
+        newOrigin.y = (targetTopLeftFront - targetBottomLeftBack).y;
+        
+        // set new origin (ensures object is still rendered)
+        transform.position = newOrigin;
+
+        // set top positions
+        topLeftFront.position = targetTopLeftFront;
+        topLeftBack.position = targetTopLeftBack;
+        topRightFront.position = targetTopRightFront;
+        topRightBack.position = targetTopRightBack;
+
+        // set bottom positions
+        bottomLeftFront.position = targetBottomLeftFront;
+        bottomLeftBack.position = targetBottomLeftBack;
+        bottomRightFront.position = targetBottomRightFront;
+        bottomRightBack.position = targetBottomRightBack;
     }
 }
 
