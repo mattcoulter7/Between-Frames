@@ -6,13 +6,24 @@ public class Blackbar : MonoBehaviour
 {
     public float cameraYAnchor = 0f; // the height of camera to anchored to (0,1)
     public float localYAnchor = 0f; // the local height to be anchored to the camera (-1,1)
-    public float distanceFromCamera = 0f;
+    public float scaledYAnchor {
+        get {
+            return localYAnchor * transform.localScale.y / 2; // scale according to local height
+        }
+    }
+    public float distanceFromCamera {
+        get {
+            Vector3 cameraPos = Camera.main.transform.position;
+            return originalDepth - cameraPos.z;
+        }
+    }
+    private float originalDepth = 0f;
     // Start is called before the first frame update
     public Vector3 currentFrontLeft
     {
         get
         {
-            Vector3 localPos = new Vector3(-transform.localScale.x / 2, localYAnchor, -transform.localScale.z / 2);
+            Vector3 localPos = new Vector3(-transform.localScale.x / 2, scaledYAnchor, -transform.localScale.z / 2);
             return transform.position + localPos;
         }
     }
@@ -20,7 +31,7 @@ public class Blackbar : MonoBehaviour
     {
         get
         {
-            Vector3 localPos = new Vector3(-transform.localScale.x / 2, localYAnchor, transform.localScale.z / 2);
+            Vector3 localPos = new Vector3(-transform.localScale.x / 2, scaledYAnchor, transform.localScale.z / 2);
             return transform.position + localPos;
         }
     }
@@ -38,7 +49,7 @@ public class Blackbar : MonoBehaviour
     {
         get
         {
-            Vector3 localPos = new Vector3(transform.localScale.x / 2, localYAnchor, -transform.localScale.z / 2);
+            Vector3 localPos = new Vector3(transform.localScale.x / 2, scaledYAnchor, -transform.localScale.z / 2);
             return transform.position + localPos;
         }
     }
@@ -46,7 +57,7 @@ public class Blackbar : MonoBehaviour
     {
         get
         {
-            Vector3 localPos = new Vector3(transform.localScale.x / 2, localYAnchor, transform.localScale.z / 2);
+            Vector3 localPos = new Vector3(transform.localScale.x / 2, scaledYAnchor, transform.localScale.z / 2);
             return transform.position + localPos;
         }
     }
@@ -96,10 +107,7 @@ public class Blackbar : MonoBehaviour
 
     void Start()
     {
-        localYAnchor *= transform.localScale.y / 2; // scale according to local height
-
-        Vector3 cameraPos = Camera.main.transform.position;
-        distanceFromCamera = (currentFrontRight - cameraPos).z;
+        originalDepth = currentFrontRight.z;
     }
 
     // Update is called once per frame
