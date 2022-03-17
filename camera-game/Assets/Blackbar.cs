@@ -9,6 +9,7 @@ public class Blackbar : BoneWeightedBoxController
         TOP
     }
     public ViewPortAnchorMode viewportAnchor = ViewPortAnchorMode.TOP;
+    float moveSpeed = 0.1f;
     public float distance = 10f;
     public float leftHeightOffset = 0.2f; // the left height in viewport units
     public float rightHeightOffset = 0.2f; // the right height in viewport units
@@ -29,8 +30,8 @@ public class Blackbar : BoneWeightedBoxController
         Vector3 targetTopRightBack = topRightRay.GetPoint(distance + 5);
 
         // calculate bottom rays
-        float adjustedHeightLeft = (float)viewportAnchor - leftHeightOffset;
-        float adjustedHeightRight = (float)viewportAnchor - rightHeightOffset;
+        float adjustedHeightLeft = (float)viewportAnchor - leftHeightOffset * moveSpeed;
+        float adjustedHeightRight = (float)viewportAnchor - rightHeightOffset * moveSpeed;
         if (viewportAnchor == ViewPortAnchorMode.BOTTOM){
             adjustedHeightLeft *= -1;
             adjustedHeightRight *= -1;
@@ -43,6 +44,10 @@ public class Blackbar : BoneWeightedBoxController
         Vector3 targetBottomLeftBack = bottomLeftRay.GetPoint(distance + 5);
         Vector3 targetBottomRightFront = bottomRightRay.GetPoint(distance);
         Vector3 targetBottomRightBack = bottomRightRay.GetPoint(distance + 5);
+
+        // bottom should be flat so objects aren't pushed off of platform
+        targetBottomLeftBack.y = targetBottomLeftFront.y;
+        targetBottomRightBack.y = targetBottomRightFront.y;
 
         // recalculate origin
         Ray middleRay = Camera.main.ViewportPointToRay(new Vector3(0.5f,0,0));
