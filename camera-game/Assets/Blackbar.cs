@@ -49,6 +49,12 @@ public class Blackbar : BoneWeightedBoxController
         targetBottomLeftBack.y = targetBottomLeftFront.y;
         targetBottomRightBack.y = targetBottomRightFront.y;
 
+        // sides should be as wide as the back to ensure bottom is flat
+        targetBottomLeftFront.x = targetBottomLeftBack.x;
+        targetBottomRightFront.x = targetBottomRightBack.x;
+        targetTopLeftFront.x = targetTopLeftBack.x;
+        targetTopRightFront.x = targetTopRightBack.x;
+
         // recalculate origin
         Ray middleRay = Camera.main.ViewportPointToRay(new Vector3(0.5f,0,0));
         Vector3 newOrigin = middleRay.GetPoint(distance);
