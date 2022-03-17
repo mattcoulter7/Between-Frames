@@ -61,30 +61,36 @@ public class Blackbar : MonoBehaviour
         }
     }
 
-    public Vector3 positionOffset
-    { // a multiplier to ensure there are no gaps
+    public float positionOffset
+    { 
+        // a value in world units of shift to ensure there are no gaps in black bars
         get
         {
             float objectWidth = currentFrontRight.x - currentFrontLeft.x;
-            float offsetWidth = objectWidth * offsetScale;
-            return new Vector3(-offsetWidth,0,0);
+            return objectWidth * offsetScale;
+        }
+    }
+    public float pixelsWidth {
+        get {
+            // calculate the object width in pixels
+            Vector2 frontLeft = Camera.main.WorldToScreenPoint(currentFrontLeft);
+            Vector2 frontRight = Camera.main.WorldToScreenPoint(currentFrontRight);
+            return frontRight.x - frontLeft.x;
+        }
+    }
+    public float pixelsOffset {
+        get {
+            // calculate the offset pixels
+            Vector2 frontLeft = Camera.main.WorldToScreenPoint(currentFrontLeft);
+            Vector2 backLeft = Camera.main.WorldToScreenPoint(currentBackLeft);
+            return backLeft.x - frontLeft.x;
         }
     }
     public float offsetScale
     {
         get
         {
-            // calculate the object width in pixels
-            Vector2 frontLeft = Camera.main.WorldToScreenPoint(currentFrontLeft);
-            Vector2 frontRight = Camera.main.WorldToScreenPoint(currentFrontRight);
-            float objectWidthPixels = frontRight.x - frontLeft.x;
-
-            // calculate the offset pixels
-            Vector2 backLeft = Camera.main.WorldToScreenPoint(currentBackLeft);
-            float pixelOffsetDistance = backLeft.x - frontLeft.x;
-
-            // calculate scale
-            return pixelOffsetDistance / objectWidthPixels;
+            return pixelsOffset / pixelsWidth;
         }
     }
 
@@ -104,18 +110,16 @@ public class Blackbar : MonoBehaviour
         Debug.DrawLine(Camera.main.transform.position, currentFrontLeft, Color.red);
         Debug.DrawLine(Camera.main.transform.position, currentFrontRight, Color.red);
 
-        // reposition  to left anchor
-        Vector3 toTargetPos = targetLeft - currentFrontLeft;
-        transform.position = transform.position + toTargetPos + positionOffset;
 
         // rescale x to fit screen width
-        float currentWidth = (this.currentFrontRight - this.currentFrontLeft).x;
-        float targetWidth = (this.targetRight - this.targetLeft).x;
+        float currentWidth = transform.localScale.x;
+        float targetWidth = (this.targetRight - this.targetLeft).x + (positionOffset * 2);
 
-        float currentScale = transform.localScale.x;
-        float targetScale = currentScale * (targetWidth / currentWidth) * (1 + offsetScale * 2);
+        // reposition  to left anchor
+        Vector3 toTargetPos = targetLeft - currentFrontLeft;
 
-        transform.localScale = new Vector3(targetScale, transform.localScale.y, transform.localScale.z);
+        transform.localScale = new Vector3(targetWidth, transform.localScale.y, transform.localScale.z);
+        transform.position = transform.position + toTargetPos - new Vector3(positionOffset,0,0);
     }
 }
 
