@@ -123,31 +123,19 @@ public class Blackbar : BoneWeightedBoxController
 
         // calculate bottom positions
 
-        /*// bottom should be flat so objects aren't pushed off of platform
+        // bottom should be flat so objects aren't pushed off of platform
         targetBottomLeftBack.y = targetBottomLeftFront.y;
         targetBottomRightBack.y = targetBottomRightFront.y;
 
         // sides should be as wide as the back to ensure bottom is flat
-        targetBottomLeftFront.x = targetBottomLeftBack.x;
-        targetBottomRightFront.x = targetBottomRightBack.x;
-        targetTopLeftFront.x = targetTopLeftBack.x;
-        targetTopRightFront.x = targetTopRightBack.x;
+        /*targetBottomLeftBack.x = targetBottomLeftFront.x;
+        targetBottomRightBack.x = targetBottomRightFront.x;*/
 
-        // recalculate origin
-        Ray middleRay = Camera.main.ViewportPointToRay(new Vector3(0.5f,0,0));
-        Vector3 newOrigin = middleRay.GetPoint(distance);
-        newOrigin.y = (targetTopLeftFront - targetBottomLeftBack).y;
-        
-        // set new origin (ensures object is still rendered)
-        transform.position = newOrigin;*/
-
-        // set top positions
+        // set all positions
         topLeftFront.position = targetTopLeftFront;
         topLeftBack.position = targetTopLeftBack;
         topRightFront.position = targetTopRightFront;
         topRightBack.position = targetTopRightBack;
-
-        // set bottom positions
         bottomLeftFront.position = targetBottomLeftFront;
         bottomLeftBack.position = targetBottomLeftBack;
         bottomRightFront.position = targetBottomRightFront;
