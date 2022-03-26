@@ -5,16 +5,21 @@ using UnityEngine;
 public class CameraEdgeProjection : MonoBehaviour
 {
     private readonly Plane[] planes = new Plane[6];
-    public Vector3 getProjection(Vector3 origin, float degrees){
-        degrees = MathUtils.nfmod(degrees,360);
-        
+    private Camera _camera;
+    void Start()
+    {
+        _camera = GetComponent<Camera>();
+    }
+    public Vector3 getProjection(Vector3 origin, float degrees)
+    {
+        degrees = MathUtils.nfmod(degrees, 360);
         // Wherever you get these to from
-        Vector3 dir = Quaternion.Euler(0,0,degrees) * Vector3.right;
+        Vector3 dir = Quaternion.Euler(0, 0, degrees) * Vector3.right;
         var ray = new Ray(origin, dir);
 
         var currentMinDistance = float.MaxValue;
         var hitPoint = Vector3.zero;
-        GeometryUtility.CalculateFrustumPlanes(Camera.main, planes);
+        GeometryUtility.CalculateFrustumPlanes(_camera, planes);
         for (var i = 0; i < 4; i++)
         {
             // Raycast against the plane
@@ -34,15 +39,42 @@ public class CameraEdgeProjection : MonoBehaviour
 
     public Vector3 roundVectorToViewportCorner(float basedOnAngle, bool flip)
     {
-        basedOnAngle = MathUtils.nfmod(basedOnAngle,360);
-        if (basedOnAngle <= 45 || basedOnAngle > 315){ // right
-            return flip ? new Vector3(1,0,0) : new Vector3(1,1,0); // bottom right | top right
-        } else if (basedOnAngle <= 135 && basedOnAngle > 45){ // top
-            return flip ? new Vector3(1,1,0) : new Vector3(0,1,0);
-        } else if (basedOnAngle <= 225 && basedOnAngle > 135){ // left
-            return flip ? new Vector3(0,1,0) : new Vector3(0,0,0);
-        } else if (basedOnAngle <= 315 && basedOnAngle > 225){ // bottom
-            return flip ? new Vector3(0,0,0) : new Vector3(1,0,0);
+        basedOnAngle = MathUtils.nfmod(basedOnAngle, 360);
+        if (basedOnAngle <= 45 || basedOnAngle > 315)
+        { // right
+            return flip ? new Vector3(1, 0, 0) : new Vector3(1, 1, 0); // bottom right | top right
+        }
+        else if (basedOnAngle <= 135 && basedOnAngle > 45)
+        { // top
+            return flip ? new Vector3(1, 1, 0) : new Vector3(0, 1, 0);
+        }
+        else if (basedOnAngle <= 225 && basedOnAngle > 135)
+        { // left
+            return flip ? new Vector3(0, 1, 0) : new Vector3(0, 0, 0);
+        }
+        else if (basedOnAngle <= 315 && basedOnAngle > 225)
+        { // bottom
+            return flip ? new Vector3(0, 0, 0) : new Vector3(1, 0, 0);
+        }
+        return new Vector3();
+    }
+    public Vector3 roundVectorToViewportCorner(Vector3 relativePosition, bool flip)
+    {
+        if (relativePosition.x > 0.9999f && relativePosition.y > 0 && relativePosition.y <= 1)
+        { // right
+            return flip ? new Vector3(1, 0, 0) : new Vector3(1, 1, 0); // bottom right | top right
+        }
+        else if (relativePosition.y > 0.9999f && relativePosition.x > 0 && relativePosition.x <= 1)
+        { // top
+            return flip ? new Vector3(1, 1, 0) : new Vector3(0, 1, 0);
+        }
+        else if (relativePosition.x < 0.0001f && relativePosition.y >= 0 && relativePosition.y < 1)
+        { // left
+            return flip ? new Vector3(0, 1, 0) : new Vector3(0, 0, 0);
+        }
+        else if (relativePosition.y < 0.0001f && relativePosition.x >= 0 && relativePosition.x < 1)
+        { // bottom
+            return flip ? new Vector3(0, 0, 0) : new Vector3(1, 0, 0);
         }
         return new Vector3();
     }

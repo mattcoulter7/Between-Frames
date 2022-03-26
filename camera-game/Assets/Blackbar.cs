@@ -11,6 +11,7 @@ public class Blackbar : BoneWeightedBoxController
             return 10f;
         }
     }
+    public float barWidth = 90f;
     public float rotation = 90f;
     public float leftAngleDepth = 20f; // the left height in viewport units
     public float rightAngleDepth = 20f; // the right height in viewport units
@@ -18,14 +19,14 @@ public class Blackbar : BoneWeightedBoxController
     {
         get
         {
-            return rotation + 45;
+            return rotation + barWidth / 2;
         }
     }
     float topRightAngle
     {
         get
         {
-            return rotation - 45;
+            return rotation - barWidth / 2;
         }
     }
     float bottomLeftAngle
@@ -44,19 +45,23 @@ public class Blackbar : BoneWeightedBoxController
     }
     private Camera _camera;
     private CameraEdgeProjection _cameraEdgeProjection;
-    private Transform _origin;
+    private BlackbarController _controller;
     void Start(){
         _camera = Camera.main;
         _cameraEdgeProjection = _camera.GetComponent<CameraEdgeProjection>();
-        _origin = transform.parent;
+        _controller = transform.parent.gameObject.GetComponent<BlackbarController>();
     }
     void FixedUpdate()
     {
         // calculate anchors
-        Vector3 anchorBottomLeft = _cameraEdgeProjection.getProjection(_origin.position,bottomLeftAngle);
-        Vector3 anchorBottomRight = _cameraEdgeProjection.getProjection(_origin.position,bottomRightAngle);
-        Vector3 anchorTopLeft = _cameraEdgeProjection.roundVectorToViewportCorner(bottomLeftAngle,true);
-        Vector3 anchorTopRight = _cameraEdgeProjection.roundVectorToViewportCorner(bottomRightAngle,false);
+        Vector3 anchorBottomLeft = _cameraEdgeProjection.getProjection(_controller.origin,bottomLeftAngle);
+        Vector3 anchorBottomRight = _cameraEdgeProjection.getProjection(_controller.origin,bottomRightAngle);
+        anchorBottomLeft = _camera.WorldToViewportPoint(anchorBottomLeft);
+        anchorBottomRight = _camera.WorldToViewportPoint(anchorBottomRight);
+
+        Vector3 anchorTopLeft = _cameraEdgeProjection.roundVectorToViewportCorner(anchorBottomLeft,true);
+        Vector3 anchorTopRight = _cameraEdgeProjection.roundVectorToViewportCorner(anchorBottomRight,false);
+
 
         // calculate rays
         Ray topLeftRay = _camera.ViewportPointToRay(anchorTopLeft);
@@ -93,6 +98,9 @@ public class Blackbar : BoneWeightedBoxController
         bottomLeftBack.position = targetBottomLeftBack;
         bottomRightFront.position = targetBottomRightFront;
         bottomRightBack.position = targetBottomRightBack;
+
+        Debug.DrawLine(_controller.origin,targetBottomLeftFront);
+        Debug.DrawLine(_controller.origin,targetBottomRightFront);
     }
 }
 

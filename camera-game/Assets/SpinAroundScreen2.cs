@@ -15,7 +15,6 @@ public class SpinAroundScreen2 : MonoBehaviour
         return a - b * Mathf.Floor(a / b);
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -49,3 +48,22 @@ public class SpinAroundScreen2 : MonoBehaviour
         //lineRenderer.SetPosition(1, hitPoint);
     }
 }
+
+/*
+public class SpinAroundScreen2 : MonoBehaviour
+{
+    public Vector3 origin = new Vector3(0, 0, 0);
+    public float degrees = 0f;
+    private readonly Plane[] planes = new Plane[6];
+    // Start is called before the first frame update
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector3 hitPoint = Camera.main.GetComponent<CameraEdgeProjection>().getProjection(origin,degrees);
+        transform.position = hitPoint;
+
+        Debug.DrawLine(origin,hitPoint,Color.red);
+    }
+}
+*/
