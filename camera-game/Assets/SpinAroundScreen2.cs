@@ -5,20 +5,23 @@ using UnityEngine;
 public class SpinAroundScreen2 : MonoBehaviour
 {
     public Vector3 origin = new Vector3(0, 0, 0);
-    public Vector3 direction = new Vector3(1, 0, 0);
     public float degrees = 0f;
     private readonly Plane[] planes = new Plane[6];
     // Start is called before the first frame update
-    void Start()
-    {
 
+    float nfmod(float a, float b)
+    {
+        // custom modulus function to ensure a positive number
+        return a - b * Mathf.Floor(a / b);
     }
+
 
     // Update is called once per frame
     void Update()
     {
+        degrees = nfmod(degrees,360);
         // Wherever you get these to from
-        Vector2 dir = (Vector2)(Quaternion.Euler(0,0,degrees) * Vector2.right);
+        Vector3 dir = Quaternion.Euler(0,0,degrees) * Vector3.right;
         var ray = new Ray(origin, dir);
 
         var currentMinDistance = float.MaxValue;
@@ -41,7 +44,7 @@ public class SpinAroundScreen2 : MonoBehaviour
         transform.position = hitPoint;
         Debug.Log(hitPoint);
 
-        Debug.DrawLine(Camera.main.transform.position,hitPoint,Color.red);
+        Debug.DrawLine(origin,hitPoint,Color.red);
         // Now the hitPoint should contain the point where your ray hits the screen frustrum/"border"
         //lineRenderer.SetPosition(1, hitPoint);
     }
