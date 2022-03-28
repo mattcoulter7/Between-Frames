@@ -41,7 +41,6 @@ public class SpinAroundScreen2 : MonoBehaviour
             }
         }
         transform.position = hitPoint;
-        Debug.Log(hitPoint);
 
         Debug.DrawLine(origin,hitPoint,Color.red);
         // Now the hitPoint should contain the point where your ray hits the screen frustrum/"border"

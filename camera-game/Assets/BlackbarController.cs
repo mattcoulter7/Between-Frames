@@ -28,6 +28,7 @@ public class BlackbarController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        rotation = MathUtils.nfmod(rotation,360);
         for (int i = 0; i < blackbars.Length; i++){
             blackbars[i].rotation = initialRotations[i] + rotation;
         }
