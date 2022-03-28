@@ -51,17 +51,45 @@ public class Blackbar : BoneWeightedBoxController
         _cameraEdgeProjection = _camera.GetComponent<CameraEdgeProjection>();
         _controller = transform.parent.gameObject.GetComponent<BlackbarController>();
     }
+
+    void ShiftPoint(ref Vector3 point){
+        // applies transformation to point to ensure origin relevance to origin
+    }
     void FixedUpdate()
     {
         // calculate anchors
-        Vector3 anchorBottomLeft = _cameraEdgeProjection.getProjection(_controller.origin,bottomLeftAngle);
-        Vector3 anchorBottomRight = _cameraEdgeProjection.getProjection(_controller.origin,bottomRightAngle);
+        Vector3 anchorBottomLeft = _cameraEdgeProjection.getProjection(new Vector3(0,0,0),bottomLeftAngle);
+        Vector3 anchorBottomRight = _cameraEdgeProjection.getProjection(new Vector3(0,0,0),bottomRightAngle);
+
+        Debug.DrawLine(_controller.origin,anchorBottomLeft,Color.cyan);
+        Debug.DrawLine(_controller.origin,anchorBottomRight,Color.cyan);
+
+        anchorBottomLeft += _controller.origin;
+        anchorBottomRight += _controller.origin;
+
+        Debug.DrawLine(_controller.origin,anchorBottomLeft,Color.blue);
+        Debug.DrawLine(_controller.origin,anchorBottomRight,Color.blue);
+
+        // recalculate based on angle of new transformations
+        Vector3 midPoint = Vector3.Lerp(anchorBottomLeft, anchorBottomRight, 0.5f);
+        midPoint.z = _controller.origin.z;
+        Debug.DrawLine(_controller.origin,midPoint,Color.blue);
+        float toRightAngle = Vector2.SignedAngle(anchorBottomRight - midPoint,Vector2.right);
+        anchorBottomRight = _cameraEdgeProjection.getProjection(midPoint,toRightAngle);
+        float toLeftAngle = Vector2.SignedAngle(anchorBottomLeft - midPoint,Vector2.right);
+        anchorBottomLeft = _cameraEdgeProjection.getProjection(midPoint,toLeftAngle);
+
+        //anchorBottomLeft = _cameraEdgeProjection.getProjection(new Vector3(0,0,0),anchorBottomLeftAngle);
+        //float anchorBottomRightAngle = Vector2.SignedAngle(anchorBottomRight,Vector2.right);
+        //anchorBottomRight = _cameraEdgeProjection.getProjection(new Vector3(0,0,0),anchorBottomRightAngle);
+
         anchorBottomLeft = _camera.WorldToViewportPoint(anchorBottomLeft);
         anchorBottomRight = _camera.WorldToViewportPoint(anchorBottomRight);
 
         Vector3 anchorTopLeft = _cameraEdgeProjection.roundVectorToViewportCorner(anchorBottomLeft,true);
         Vector3 anchorTopRight = _cameraEdgeProjection.roundVectorToViewportCorner(anchorBottomRight,false);
-
+        //Vector3 anchorTopLeft = _cameraEdgeProjection.roundVectorToViewportCorner(bottomLeftAngle,true);
+        //Vector3 anchorTopRight = _cameraEdgeProjection.roundVectorToViewportCorner(bottomRightAngle,false);
 
         // calculate rays
         Ray topLeftRay = _camera.ViewportPointToRay(anchorTopLeft);
