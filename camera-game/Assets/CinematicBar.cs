@@ -37,7 +37,7 @@ public class CinematicBar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void LateUpdate()
     {
         // establish target position on top, left, bottom, right of screen
         Vector2 top = new Vector2(0.5f,1f) + origin;
@@ -59,9 +59,7 @@ public class CinematicBar : MonoBehaviour
         );
 
         Vector3 worldPos = _camera.ViewportToWorldPoint(target) - (transform.right * distance);
-        _rectanglePoints.left = worldPos;
-        transform.rotation = Quaternion.Euler(0,0,rotation);
-        //transform.LookAt(lookAt); maybeeeee
+        //transform.LookAt(lookAt); // maybeeeee
 
         // calculate the width to ensure no gaps behind
         // get screen intersection based on transform.right
@@ -75,6 +73,8 @@ public class CinematicBar : MonoBehaviour
         
         // set transform.localScale.y to magnitude of this vector
         Vector3 toScreenIntersection = screenIntersection - worldPos;
+        _rectanglePoints.left = worldPos;
+        transform.rotation = Quaternion.Euler(0,0,rotation);
         transform.localScale = new Vector3(
             toScreenIntersection.magnitude,
             transform.localScale.y,
