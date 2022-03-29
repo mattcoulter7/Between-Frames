@@ -78,4 +78,18 @@ public class CameraEdgeProjection : MonoBehaviour
         }
         return new Vector3();
     }
+
+    public Vector3 getCornerFromAngle(float degrees){
+        degrees = MathUtils.nfmod(degrees,360);
+        if (degrees >= 0 && degrees < 90) {
+            return new Vector3(1,1,0); // top right
+        } else if (degrees >= 90 && degrees < 180) {
+            return new Vector3(0,1,0); // top left
+        } else if (degrees >= 180 && degrees < 270) {
+            return new Vector3(0,0,0); // bottom left
+        } else if (degrees >= 270 && degrees < 360) {
+            return new Vector3(1,0,0); // bottom right
+        }
+        return new Vector3();
+    }
 }
