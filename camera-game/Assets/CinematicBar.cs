@@ -26,6 +26,15 @@ public class CinematicBar : MonoBehaviour
     private RectanglePoints _rectanglePoints;
     private Camera _camera;
     private CameraEdgeProjection _cameraEdgeProjection;
+    private Vector2 aspectRatio {
+        get {
+            return _controller.maintainPlayableArea ? new Vector2(
+                Screen.height,
+                Screen.width
+            ).normalized : new Vector2(1,1); 
+            
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,13 +46,13 @@ public class CinematicBar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         // establish target position on top, left, bottom, right of screen
-        Vector2 top = new Vector2(0.5f,1f) + origin;
-        Vector2 left = new Vector2(0f,0.5f) + origin; 
-        Vector2 bottom = new Vector2(0.5f,0) + origin;
-        Vector2 right = new Vector2(1f,0.5f) + origin;
+        Vector2 top = new Vector2(0.5f,1f) * aspectRatio + origin;
+        Vector2 left = new Vector2(0f,0.5f) * aspectRatio + origin; 
+        Vector2 bottom = new Vector2(0.5f,0) * aspectRatio + origin;
+        Vector2 right = new Vector2(1f,0.5f) * aspectRatio + origin;
 
         // draw an ellipse through these points
         Vector2 radii = new Vector2(
@@ -64,21 +73,20 @@ public class CinematicBar : MonoBehaviour
         // calculate the width to ensure no gaps behind
         // get screen intersection based on transform.right
         float angle = Vector2.SignedAngle(Vector2.right,transform.right);
-        
-        // get vector from worldpos and screenintersection
         Vector3 screenIntersection = _cameraEdgeProjection.getCornerFromAngle(angle);
         screenIntersection.z = 10;
         screenIntersection = _camera.ViewportToWorldPoint(screenIntersection);
-        Debug.DrawLine(worldPos,screenIntersection);
+        
+        // get vector from worldpos and screenintersection
+        Vector3 toScreenIntersection = screenIntersection - worldPos;
         
         // set transform.localScale.y to magnitude of this vector
-        Vector3 toScreenIntersection = screenIntersection - worldPos;
-        _rectanglePoints.left = worldPos;
+        _rectanglePoints.left = worldPos; //Vector3.Lerp(_rectanglePoints.left,worldPos,0.5f);
         transform.rotation = Quaternion.Euler(0,0,rotation);
-        transform.localScale = new Vector3(
+        /*transform.localScale = new Vector3(
             toScreenIntersection.magnitude,
             transform.localScale.y,
             transform.localScale.z
-        );
+        );*/
     }
 }

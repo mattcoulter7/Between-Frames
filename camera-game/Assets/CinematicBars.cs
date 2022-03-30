@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CinematicBars : MonoBehaviour
 {
+    public bool maintainPlayableArea = false;
     public float rotation = 0f;
     public Vector2 offset = new Vector2(0.5f,0.5f);
     public float distance = 0f;
