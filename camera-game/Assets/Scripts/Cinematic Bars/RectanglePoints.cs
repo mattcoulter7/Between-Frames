@@ -40,16 +40,4 @@ public class RectanglePoints : MonoBehaviour
             transform.position = value + transform.right * width / 2;
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CinematicBars : MonoBehaviour
+public class CinematicBarManager : MonoBehaviour
 {
     public bool maintainPlayableArea = false;
     public float rotation = 0f;

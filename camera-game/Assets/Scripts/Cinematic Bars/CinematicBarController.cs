@@ -6,7 +6,7 @@ public class CinematicBarController : MonoBehaviour
 {
     public float zoomSpeed = 1f;
     public float rotateSpeed = 1f;
-    private CinematicBars _cinematicBars;
+    private CinematicBarManager _cinematicBars;
     private Vector3 _lastMousePos = new Vector3(0f,0f,0f);
 
     private Vector3 _mousePos = new Vector3(0f,0f,0f);
@@ -14,14 +14,15 @@ public class CinematicBarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _cinematicBars = GetComponent<CinematicBars>();
+        _cinematicBars = GetComponent<CinematicBarManager>();
     }
 
     CinematicBar GetMouseInteractCinematicBar(){
         CinematicBar cinematicBar = null;
         Ray ray = Camera.main.ScreenPointToRay(_mousePos);
         if (Physics.Raycast(ray,out RaycastHit hitInfo)){
-            CinematicBar barComponent = hitInfo.collider.gameObject.GetComponent<CinematicBar>();
+            GameObject visibleBar = hitInfo.collider.gameObject;
+            CinematicBar barComponent = visibleBar.GetComponent<FollowTransform>().targetTransform.gameObject.GetComponent<CinematicBar>();
             if (barComponent){
                 cinematicBar = barComponent;
             }
@@ -35,8 +36,8 @@ public class CinematicBarController : MonoBehaviour
         // get mouse pos
         _mousePos = Input.mousePosition;
         _mouseMovement = _lastMousePos - _mousePos;
+
         // handle zooming to change distance
-        
         float scrollAmount = Input.mouseScrollDelta.y;
         if (scrollAmount != 0f){
             // find object mouse is intersecting
@@ -49,14 +50,15 @@ public class CinematicBarController : MonoBehaviour
             }
         }
 
-        // click to move origin
+        // click and drag left mouse button to move origin
         if (Input.GetMouseButton(0)){
             _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(_mouseMovement);;
         }
 
         // move mouse right whilst holding left mouse button to rotate
         if (Input.GetMouseButton(1)){
-            _cinematicBars.rotation += _mouseMovement.x * rotateSpeed;
+            float rotateAmount = _mouseMovement.x;
+            _cinematicBars.rotation += rotateAmount * rotateSpeed;
         }
 
         // track last mouse position
