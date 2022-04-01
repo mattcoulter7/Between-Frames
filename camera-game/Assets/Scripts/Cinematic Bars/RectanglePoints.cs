@@ -17,6 +17,13 @@ public class RectanglePoints : MonoBehaviour
             return transform.localScale.x;
         }
     }
+    public float depth
+    {
+        get
+        {
+            return transform.localScale.z;
+        }
+    }
     // todo add other points
     public Vector3 bottom
     {
@@ -38,6 +45,28 @@ public class RectanglePoints : MonoBehaviour
         set
         {
             transform.position = value + transform.right * width / 2;
+        }
+    }
+    public Vector3 backleft
+    {
+        get
+        {
+            return transform.position - transform.right * width / 2 + transform.forward * depth / 2;
+        }
+        set
+        {
+            transform.position = value + transform.right * width / 2 - transform.forward * depth / 2;
+        }
+    }
+    public Vector3 frontleft
+    {
+        get
+        {
+            return transform.position - transform.right * width / 2 - transform.forward * depth / 2;
+        }
+        set
+        {
+            transform.position = value + transform.right * width / 2 + transform.forward * depth / 2;
         }
     }
 }
