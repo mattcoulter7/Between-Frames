@@ -103,7 +103,7 @@ public class CinematicBar : MonoBehaviour
         Vector3 v2 = new Vector3(frontViewportPos.x-0.5f, frontViewportPos.y-0.5f);
         float crossProduct = v1.x*v2.y - v1.y*v2.x;
         if (crossProduct < 0){
-            Debug.Log("Overlap");
+            //Debug.Log("Overlap");
             Vector3 backViewportPos = _camera.WorldToViewportPoint(_rectanglePoints.backleft);
             Ray backRay = _camera.ViewportPointToRay(backViewportPos);
             float angle = Vector3.SignedAngle(Vector3.forward,backRay.direction,Vector3.right) * Mathf.Deg2Rad;
