@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+ using System.Collections;
  
  public class playerMovement : MonoBehaviour {
      
@@ -17,7 +17,7 @@ using System.Collections;
      }
  
      void FixedUpdate () {
-         if (Input.GetKey (KeyCode.W)){
+         if (Input.GetKeyDown (KeyCode.W)){
              GetComponent<Rigidbody>().velocity = new Vector2(0, jumpHeight);
          }else if (Input.GetKey(KeyCode.A)){
              GetComponent<Rigidbody>().velocity = new Vector2(-moveSpeed, 0);
@@ -25,4 +25,6 @@ using System.Collections;
              GetComponent<Rigidbody>().velocity = new Vector2(moveSpeed, 0);
          }
      }
+
+     //fix jump or remove mechanic
  } 
