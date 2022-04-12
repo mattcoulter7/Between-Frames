@@ -58,7 +58,7 @@ public class RectanglePoints : MonoBehaviour
             transform.position = value + transform.right * width / 2 - transform.forward * depth / 2;
         }
     }
-    public Vector3 frontleft
+    public Vector3 frontLeft
     {
         get
         {
@@ -67,6 +67,63 @@ public class RectanglePoints : MonoBehaviour
         set
         {
             transform.position = value + transform.right * width / 2 + transform.forward * depth / 2;
+        }
+    }
+
+    public Vector3 frontBottomLeft 
+    {
+        get 
+        {
+            return frontLeft - transform.up * height / 2;
+        }
+        set 
+        {
+            frontLeft = value + transform.up * height / 2;
+        }
+    }
+    public Vector3 frontTopLeft 
+    {
+        get 
+        {
+            return frontLeft + transform.up * height / 2;
+        }
+        set 
+        {
+            frontLeft = value - transform.up * height / 2;
+        }
+    }
+    public Vector3 frontRight
+    {
+        get
+        {
+            return transform.position + transform.right * width / 2 - transform.forward * depth / 2;
+        }
+        set
+        {
+            transform.position = value - transform.right * width / 2 + transform.forward * depth / 2;
+        }
+    }
+
+    public Vector3 frontBottomRight
+    {
+        get 
+        {
+            return frontRight - transform.up * height / 2;
+        }
+        set 
+        {
+            frontLeft = value + transform.up * height / 2;
+        }
+    }
+    public Vector3 frontTopRight
+    {
+        get 
+        {
+            return frontRight + transform.up * height / 2;
+        }
+        set 
+        {
+            frontRight = value - transform.up * height / 2;
         }
     }
 }
