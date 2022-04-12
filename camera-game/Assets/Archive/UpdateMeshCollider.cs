@@ -5,6 +5,7 @@ using System;
 
 public class UpdateMeshCollider : MonoBehaviour
 {
+    public SkinnedMeshRenderer meshRenderer;
      public float SignedVolumeOfTriangle(Vector3 p1, Vector3 p2, Vector3 p3)
      {
          float v321 = p3.x * p2.y * p1.z;
@@ -35,14 +36,13 @@ public class UpdateMeshCollider : MonoBehaviour
      }
     void Update()
     {
-        SkinnedMeshRenderer skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         MeshCollider meshCollider = GetComponent<MeshCollider>();
-        if (skinnedMeshRenderer && meshCollider)
+        if (meshRenderer && meshCollider)
         {
             Mesh colliderMesh = new Mesh();
-            skinnedMeshRenderer.BakeMesh(colliderMesh);
+            meshRenderer.BakeMesh(colliderMesh);
 
-            if (VolumeOfMesh(colliderMesh) > 0.0001){
+            if (VolumeOfMesh(colliderMesh) > 0.0001f){
                 meshCollider.sharedMesh = null;
                 meshCollider.sharedMesh = colliderMesh;
             }

@@ -255,6 +255,11 @@ RectTransform:
   m_AnchoredPosition: {x: -40.222954, y: -1.7475433}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!137 &137278994 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8815057874582027812, guid: 89ae693a4b21e9749b13600aeab37ebc, type: 3}
+  m_PrefabInstance: {fileID: 2114709873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &160429208
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a92a12b11b4e4b419d97324914600d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 137278994}
 --- !u!64 &389921894
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -500,7 +506,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &389921895
@@ -1258,8 +1264,8 @@ GameObject:
   - component: {fileID: 696255713}
   - component: {fileID: 696255717}
   - component: {fileID: 696255716}
-  - component: {fileID: 696255715}
   - component: {fileID: 696255714}
+  - component: {fileID: 696255715}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -1275,7 +1281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696255712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.84, y: 0, z: 0.61}
+  m_LocalPosition: {x: -39.84, y: 1.62, z: 0.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287979708}
@@ -1292,8 +1298,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2097,6 +2103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a92a12b11b4e4b419d97324914600d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1655097032}
 --- !u!64 &1180723143
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2108,7 +2115,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1184300550
@@ -2865,6 +2872,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!137 &1655097032 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8815057874582027812, guid: 89ae693a4b21e9749b13600aeab37ebc, type: 3}
+  m_PrefabInstance: {fileID: 1290327893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1661415875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5540608082578704496, guid: 89ae693a4b21e9749b13600aeab37ebc, type: 3}
