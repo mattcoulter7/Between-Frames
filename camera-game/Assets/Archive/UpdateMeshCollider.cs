@@ -43,7 +43,7 @@ public class UpdateMeshCollider : MonoBehaviour
             meshRenderer.BakeMesh(colliderMesh);
 
             if (VolumeOfMesh(colliderMesh) > 0.0001f){
-                meshCollider.sharedMesh = null;
+                //meshCollider.sharedMesh = null;
                 meshCollider.sharedMesh = colliderMesh;
             }
         }

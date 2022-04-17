@@ -70,6 +70,12 @@ public class RectanglePoints : MonoBehaviour
         }
     }
 
+    public Vector3 localFrontLeft {
+        get {
+            return frontLeft - transform.position;
+        }
+    }
+
     public Vector3 frontBottomLeft 
     {
         get 

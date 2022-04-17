@@ -7,6 +7,7 @@ public class CinematicBar : MonoBehaviour
     public bool fixPlayArea = false;
     public bool useFrontInstead = false;
     public float rotationOffset = 0f; // rotation in degrees
+    public bool rotateToCamera = false;
     public float rotation
     {
         get
@@ -95,8 +96,11 @@ public class CinematicBar : MonoBehaviour
         );*/
 
         // update transform values
+        // calculate x rotation so that you do not see the depth of the rectangle
         transform.rotation = Quaternion.Euler(_camera.transform.eulerAngles.x, _camera.transform.eulerAngles.y, rotation);
 
+
+        ///transform.LookAt(_camera.transform);
         _rectanglePoints.backleft = worldPos; // must set last as position is determined by rotation and scale
                                               //Debug.DrawLine(transform.position,_rectanglePoints.backleft);
 
@@ -109,6 +113,8 @@ public class CinematicBar : MonoBehaviour
         if (fixPlayArea)
         {
             Vector3 frontViewportPos = _camera.WorldToViewportPoint(_rectanglePoints.frontLeft);
+            Ray frontRay = _camera.ViewportPointToRay(frontViewportPos);
+            float frontAngle = Vector3.SignedAngle(Vector3.forward, frontRay.direction, Vector3.right) * Mathf.Deg2Rad;
             Vector3 v1 = -transform.up; // down
             Vector3 v2 = new Vector3(frontViewportPos.x - 0.5f, frontViewportPos.y - 0.5f);
             float crossProduct = v1.x * v2.y - v1.y * v2.x;
@@ -117,10 +123,18 @@ public class CinematicBar : MonoBehaviour
                 //Debug.Log("Overlap");
                 Vector3 backViewportPos = _camera.WorldToViewportPoint(_rectanglePoints.backleft);
                 Ray backRay = _camera.ViewportPointToRay(backViewportPos);
-                float angle = Vector3.SignedAngle(Vector3.forward, backRay.direction, Vector3.right) * Mathf.Deg2Rad;
-                float scaledDistance = (depth - transform.localScale.z) / Mathf.Cos(angle);
+                float backAngle = Vector3.SignedAngle(Vector3.forward, backRay.direction, Vector3.right) * Mathf.Deg2Rad;
+                if (rotateToCamera)
+                {
+                    transform.rotation = Quaternion.Euler(frontAngle, _camera.transform.eulerAngles.y, _camera.transform.eulerAngles.z);
+                }
+
+                if (fixPlayArea)
+                {
+                float scaledDistance = (depth - transform.localScale.z) / Mathf.Cos(backAngle);
                 Vector3 backPoint = backRay.GetPoint(scaledDistance);
-                _rectanglePoints.frontLeft = worldPos = backPoint;
+                    _rectanglePoints.frontLeft = worldPos = backPoint;
+                }
             }
         }
 

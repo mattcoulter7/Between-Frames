@@ -5,13 +5,29 @@ using UnityEngine;
 public class FollowTransform : MonoBehaviour
 {
     public Transform targetTransform;
-    //public float smoothness = 1f;
+    public bool followPosition = true;
+    public bool localPosition = false;
+    public bool followRotation = true;
+    public bool localRotation = false;
+    public bool followScale = true;
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = targetTransform.position; //Vector3.Lerp(targetTransform.position,targetTransform.position,smoothness);
-        transform.rotation = targetTransform.rotation; //Quaternion.Lerp(transform.rotation,targetTransform.rotation,smoothness);
-        transform.localScale = targetTransform.localScale; //Vector3.Lerp(transform.localScale,targetTransform.localScale,smoothness);
+        if (followPosition){
+            if (localPosition){
+                transform.localPosition = targetTransform.position - transform.parent.position; 
+            } else {
+                transform.position = targetTransform.position;
+            }
+        }
+        if (followRotation){
+            if (localRotation){
+                transform.localRotation = targetTransform.localRotation;
+            } else {
+                transform.rotation = targetTransform.rotation;
+            }
+        } 
+        if (followScale) transform.localScale = targetTransform.localScale;
     }
 }
