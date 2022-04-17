@@ -17,6 +17,7 @@ public class Flash : MonoBehaviour
     void Start()
     {
         flashImage = GetComponent<Image>();
+        flashImage.enabled = true;
         Color col = flashImage.color;
         col.a = 0.0f;
         flashImage.color = col;
