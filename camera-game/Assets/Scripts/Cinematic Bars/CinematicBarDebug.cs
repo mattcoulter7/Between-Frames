@@ -13,6 +13,13 @@ public class CinematicBarDebug : MonoBehaviour
         
     }
 
+    public Vector3 GetMiddlePoint(){
+        RectanglePoints topRectanglePoints = top.GetComponent<RectanglePoints>();
+        RectanglePoints bottomRectanglePoints = bottom.GetComponent<RectanglePoints>();
+
+        return topRectanglePoints.left + (bottomRectanglePoints.left - topRectanglePoints.left) / 2;
+    }
+
     // Update is called once per frame
     void Update()
     {

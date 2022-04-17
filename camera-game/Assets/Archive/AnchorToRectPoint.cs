@@ -8,12 +8,7 @@ public class AnchorToRectPoint : MonoBehaviour
         FrontLeft
     }
     public AnchorMode anchorMode;
-    private RectanglePoints _rectanglePoints;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _rectanglePoints = GetComponentInChildren<RectanglePoints>();
-    }
+    public RectanglePoints _rectanglePoints;
 
     // Update is called once per frame
     void Update()
