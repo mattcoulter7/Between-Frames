@@ -14,9 +14,8 @@ static public class EventDispatcher
     // returns functions under an identifier, has safety check in place
     static List<Delegate> GetHandlerList(string identifier){
         List<Delegate> existing;
-        try {
-            existing = handlers[identifier];
-        } catch(Exception e){
+        handlers.TryGetValue(identifier,out existing);
+        if (existing == null){
             handlers.Add(identifier,new List<Delegate>());
             existing = handlers[identifier];
         }
@@ -42,10 +41,5 @@ static public class EventDispatcher
         }
 
         return resultSet;
-    }
-
-    static MethodInfo GetMethodInfo(Delegate d)
-    {
-        return d.Method;
     }
 }
