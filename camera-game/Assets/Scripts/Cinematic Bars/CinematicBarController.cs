@@ -25,10 +25,10 @@ public class CinematicBarController : MonoBehaviour
         CinematicBar cinematicBar = null;
         Ray ray = Camera.main.ScreenPointToRay(_mousePos);
         if (Physics.Raycast(ray,out RaycastHit hitInfo)){
-            FollowTransform followTransform = hitInfo.collider.gameObject.GetComponent<FollowTransform>();
+            FollowPosition followTransform = hitInfo.collider.gameObject.GetComponent<FollowPosition>();
             if (followTransform == null) return null;
             
-            CinematicBar barComponent = followTransform.targetTransform.gameObject.GetComponent<CinematicBar>();
+            CinematicBar barComponent = followTransform.target.gameObject.GetComponent<CinematicBar>();
             if (barComponent){
                 cinematicBar = barComponent;
             }
