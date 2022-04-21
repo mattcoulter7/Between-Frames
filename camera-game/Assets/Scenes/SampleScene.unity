@@ -2393,18 +2393,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 520686043}
         m_TargetAssemblyTypeName: DoorManager, Assembly-CSharp
-        m_MethodName: GoTo
-        m_Mode: 5
+        m_MethodName: Enter
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1173473997}
+          m_ObjectArgumentAssemblyTypeName: Door, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: GoshenTestRealm
           m_BoolArgument: 0
         m_CallState: 2
-  targetSceneName: 
-  waitTime: 0
+  targetSceneName: GoshenTestRealm
+  waitTime: 2
 --- !u!1 &1180723136
 GameObject:
   m_ObjectHideFlags: 0
