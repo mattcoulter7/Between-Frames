@@ -12,7 +12,7 @@ INDEX
 ## The Team
 
 **Jackson Bloomfield:** 3D Modelling & Textures, Concept art, Game Design
-**Tony Lam:** Game Designer, Project Manager
+**Tony Lam:** Game Designer, Project Manager, Research
 **Hari Pranavoo:** Game Designer, Project Manager
 **Matt Coulter:** Lead Programmer
 **Goshen Telan:** Sound Design, Programming 
