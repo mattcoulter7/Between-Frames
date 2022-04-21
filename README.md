@@ -42,6 +42,7 @@ The chosen platform to our deliverable will be on PC (Keyboard + Mouse or Contro
 
 ## The Schedule
 - Detailed schedule broken down into tasks, milestones, deliverables and dependencies across the remaining weeks of Semester
+
 The wiki may also include pages for additional or archival project reference / details, such as:
 - Narrative: synopsis / back-story / characters / settings
 - Paper design of game-play mechanics
