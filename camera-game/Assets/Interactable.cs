@@ -6,13 +6,18 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public List<GameObject> whoCanInteract = new List<GameObject>(); // list of people who can interact
+    public List<string> whoCanInteract = new List<string>(); // list of people who can interact
     public List<Interaction> interactions = new List<Interaction>(); // list of available interactions that can happen
 
     bool canInteract = false; // true when player is in boumds
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    bool matchesTag(string tagName)
+    {
+        return whoCanInteract.Contains(tagName);
     }
 
     // Update is called once per frame
@@ -32,7 +37,7 @@ public class Interactable : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (whoCanInteract.Contains(other.gameObject))
+        if (matchesTag(other.tag))
         {
             canInteract = true;
         }
@@ -40,7 +45,7 @@ public class Interactable : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (whoCanInteract.Contains(other.gameObject))
+        if (matchesTag(other.tag))
         {
             canInteract = false;
         }
