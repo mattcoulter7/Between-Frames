@@ -839,8 +839,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maintainPlayableArea: 1
   rotation: 0
+  rotationSnapping: 1
+  rotationSnap: 7.5
+  offsetSnapping: 1
+  offsetSnap: {x: 0.05, y: 0.05}
   _offset: {x: 0.5, y: 0.5}
+  distanceSnapping: 1
   distance: 3
+  distanceSnap: 0.5
 --- !u!114 &401267619
 MonoBehaviour:
   m_ObjectHideFlags: 0

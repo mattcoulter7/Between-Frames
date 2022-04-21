@@ -12,7 +12,7 @@ public class CinematicBar : MonoBehaviour
     {
         get
         {
-            return _controller.rotation + rotationOffset;
+            return _controller.rotationSnapped + rotationOffset;
         }
     }
     public float distanceOffset = 0f; // distance offset from ellipse position
@@ -20,7 +20,7 @@ public class CinematicBar : MonoBehaviour
     {
         get
         {
-            return _controller.distance + distanceOffset;
+            return _controller.distanceSnapped + distanceOffset;
         }
     }
     public Vector2 origin
