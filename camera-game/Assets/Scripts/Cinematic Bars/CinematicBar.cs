@@ -27,7 +27,7 @@ public class CinematicBar : MonoBehaviour
     {
         get
         {
-            return _controller.offset;
+            return _controller.snappedOffset;
         }
     }
     public float depth = 10f;

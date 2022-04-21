@@ -9,4 +9,9 @@ public class MathUtils {
         // custom modulus function to ensure a positive number
         return a - b * Mathf.Floor(a / b);
     }
+
+    static public float roundFloatToStep(float value, float step)
+    {
+        return step * (Mathf.Round(value / step));
+    }
 }
