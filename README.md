@@ -8,9 +8,9 @@ Logo..
 
 INDEX
 
---
+
 ## The Team
---
+
 **Jackson Bloomfield:** 3D Modelling & Textures, Concept art, Game Design
 **Tony Lam:** Game Designer, Project Manager
 **Hari Pranavoo:** Game Designer, Project Manager
