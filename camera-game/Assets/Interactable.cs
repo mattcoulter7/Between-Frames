@@ -18,7 +18,6 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(canInteract);
         if (canInteract)
         {
             foreach (Interaction interaction in interactions)
