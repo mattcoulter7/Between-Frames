@@ -28,7 +28,7 @@ public class playerMovement : MonoBehaviour {
 
     	_inputs = Vector3.zero;
         _inputs.x = Input.GetAxis("Horizontal");
-        _inputs.z = Input.GetAxis("Vertical");
+        //_inputs.z = Input.GetAxis("Vertical");
 
         if(_inputs != Vector3.zero){
         	transform.forward = _inputs;
@@ -108,26 +108,4 @@ public class playerMovement : MonoBehaviour {
     //     playerVelocity.y += gravityValue * Time.deltaTime;
     //     controller.Move(playerVelocity * Time.deltaTime);
     // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//v2
-
-
-
-
-    
-
 } 
