@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 4179591245770497228}
   - component: {fileID: 4179591245770497227}
   - component: {fileID: 4179591245770497226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VincentRigged
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -733,6 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5811722958562505433}
   - component: {fileID: 3187870696863183674}
+  - component: {fileID: 4613098110477806023}
   m_Layer: 0
   m_Name: Plane.002
   m_TagString: Untagged
@@ -834,6 +835,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 9.313226e-10, y: 0.0049193203, z: -0.003138855}
     m_Extent: {x: 0.015560118, y: 0.02147828, z: 0.008744796}
   m_DirtyAABB: 0
+--- !u!114 &4613098110477806023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6940137503454157615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ae2df027576aa48b7509ee1c2e9035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderObject: {fileID: 4179591245770497227}
 --- !u!1 &7164747743598321257
 GameObject:
   m_ObjectHideFlags: 0
