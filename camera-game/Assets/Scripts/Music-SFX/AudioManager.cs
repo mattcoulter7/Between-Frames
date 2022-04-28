@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-            //s.source.loop = s.loop;
+            s.source.loop = s.loop;
         }
     }
 
@@ -38,8 +38,8 @@ public class AudioManager : MonoBehaviour
     {
 
         Play("BGM");
-        Play("Water");
-        Play("Wind");
+        //Play("Water");
+        //Play("Wind");
     }
 
     public void Play(string name)
