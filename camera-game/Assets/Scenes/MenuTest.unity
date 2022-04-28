@@ -844,8 +844,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 825f0961ba55346c9bd1b09ec461a9b4, type: 3}
+    - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
       propertyPath: sounds.Array.data[0].name
       value: BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223867705172804617, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
       propertyPath: m_Name
