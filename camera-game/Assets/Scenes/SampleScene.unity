@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1055,6 +1055,17 @@ Transform:
   m_Father: {fileID: 98260532}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &803574620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+  m_PrefabInstance: {fileID: 1405648367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65399aff437540dbbc2fc05b18f156c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &825047669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,6 +2324,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+      propertyPath: sounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
       propertyPath: sounds.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: 825f0961ba55346c9bd1b09ec461a9b4, type: 3}
@@ -2321,12 +2336,32 @@ PrefabInstance:
       value: BGM
       objectReference: {fileID: 0}
     - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 57d3ff95b12ae43f998a07674705a079, type: 3}
+    - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: Shutterfx1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
       propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+      propertyPath: sounds.Array.data[1].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223867705172804616, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 223867705172804617, guid: 7edad9dcd080d4df085b15ce6586dd8e, type: 3}
       propertyPath: m_Name
@@ -3097,6 +3132,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1057098893244758971, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
+      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057098893244758971, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
+      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057098893244758971, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
+      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 803574620}
+    - target: {fileID: 1057098893244758971, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
+      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057098893244758971, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
+      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057098893244758971, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
+      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057098893244758971, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
+      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Shutterfx1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057098893244758971, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
+      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1057098893244758974, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
       propertyPath: m_Name
       value: CinematicBars
