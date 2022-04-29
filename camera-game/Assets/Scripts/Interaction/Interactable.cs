@@ -10,10 +10,6 @@ public class Interactable : MonoBehaviour
     public List<Interaction> interactions = new List<Interaction>(); // list of available interactions that can happen
 
     bool canInteract = false; // true when player is in boumds
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     bool matchesTag(string tagName)
     {
@@ -40,6 +36,7 @@ public class Interactable : MonoBehaviour
         if (matchesTag(other.tag))
         {
             canInteract = true;
+            EventDispatcher.Dispatch("InteractionEntered",this);
         }
     }
 
@@ -48,6 +45,7 @@ public class Interactable : MonoBehaviour
         if (matchesTag(other.tag))
         {
             canInteract = false;
+            EventDispatcher.Dispatch("InteractionExited",this);
         }
     }
 }

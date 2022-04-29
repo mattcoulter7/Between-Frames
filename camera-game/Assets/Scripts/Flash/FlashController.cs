@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FlashController : MonoBehaviour
 {
     public Flash flash;
     public float timeBetweenFlash = 5f;
+    public UnityEvent onFlash;
+
     private Coroutine _instance = null;
 
     // Update is called once per frame
@@ -20,6 +23,7 @@ public class FlashController : MonoBehaviour
 
     IEnumerator DoFlash()
     {
+        onFlash.Invoke();
         flash.doCameraFlash = true;
 
         //yield on a new YieldInstruction that waits for 5 seconds.

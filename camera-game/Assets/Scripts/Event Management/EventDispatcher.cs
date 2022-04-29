@@ -34,7 +34,7 @@ static public class EventDispatcher
     {
         List<object> resultSet = new List<object>();
 
-        List<Delegate> callbacks = handlers[identifier];
+        List<Delegate> callbacks = GetHandlerList(identifier);
         foreach (Delegate callback in callbacks)
         {
             callback.DynamicInvoke(paramSet);
