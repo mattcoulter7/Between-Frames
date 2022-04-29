@@ -6,22 +6,22 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject options;
-    public GameObject credits;
+    //public GameObject credits;
     public void OnPlay(){
         SceneManager.LoadScene("SampleScene");
     }
 
     public void OnOptions(){
         options.SetActive(true);
-        credits.SetActive(false);
+        //credits.SetActive(false);
         gameObject.SetActive(false);
     }
 
-     public void OnCredits(){
-        options.SetActive(false);
-        credits.SetActive(true);
-        gameObject.SetActive(false);
-    }
+    // public void OnCredits(){
+    //    options.SetActive(false);
+    //    credits.SetActive(true);
+    //    gameObject.SetActive(false);
+    //}
 
     public void OnExit(){
         Application.Quit();
