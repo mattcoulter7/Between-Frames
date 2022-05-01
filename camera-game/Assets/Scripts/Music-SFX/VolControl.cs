@@ -1,32 +1,79 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class VolControl : MonoBehaviour
 {
-    [SerializeField] private Slider volSlider = null;
-    //[SerializeField] private Slider sfxSlider = null;
+    private static readonly string FirstPlay = "FirstPlay";
+    private static readonly string BGMPref = "BGMPref";
+    private static readonly string SFXPref = "SFXPref";
+    private int firstPlayInt;
+
+    [SerializeField] private Slider BGMSlider = null;
+    [SerializeField] private Slider SFXSlider = null;
+    private float BGMFloat, SFXFloat;
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("VolVal"))
+        firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+
+        if (firstPlayInt == 0)
         {
-            LoadValues();
+            BGMFloat = 1f;
+            SFXFloat = 0.108f;
+
+            BGMSlider.value = BGMFloat;
+            SFXSlider.value = SFXFloat;
+            PlayerPrefs.SetFloat(BGMPref, BGMFloat);
+            PlayerPrefs.SetFloat(SFXPref, SFXFloat);
+            PlayerPrefs.SetInt(FirstPlay, -1);
         }
         else
         {
-            volSlider.value = 1.0f;
+            BGMFloat = PlayerPrefs.GetFloat(BGMPref);
+            BGMSlider.value = BGMFloat;
+
+            SFXFloat = PlayerPrefs.GetFloat(SFXPref);
+            SFXSlider.value = SFXFloat;
         }
-        Debug.Log("vol is:" + volSlider.value);
+        //if (PlayerPrefs.HasKey("VolVal"))
+        //{
+        //    LoadValues();
+        //}
+        //else
+        //{
+        //    volSlider.value = 1.0f;
+        //}
+        //Debug.Log("vol is:" + volSlider.value);
     }
 
     public void SaveVol()
     {
-        float volumeVal = volSlider.value;
+        float volumeVal = BGMSlider.value;
         PlayerPrefs.SetFloat("VolVal", volumeVal);
         LoadValues();
+
+        
     }
+
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetFloat(BGMPref, BGMSlider.value);
+        PlayerPrefs.SetFloat(SFXPref, SFXSlider.value);
+    }
+    
+    public void UpdateBGMVol(Sound BGM)
+    {
+        BGM.volume = BGMSlider.value;
+    }
+
+    public void UpdateSFXVol(Sound[] sounds)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            sounds[i].volume = SFXSlider.value;
+        }
+    }
+
 
     // Just in case we  want to reset the  volume everytime the game is opened. Otherwise it will save even on exit.
     // public void ResetVol(){
@@ -35,7 +82,7 @@ public class VolControl : MonoBehaviour
     void LoadValues()
     {
         float volumeVal = PlayerPrefs.GetFloat("VolVal");
-        volSlider.value = volumeVal;
+        BGMSlider.value = volumeVal;
         AudioListener.volume = volumeVal;
     }
 }
