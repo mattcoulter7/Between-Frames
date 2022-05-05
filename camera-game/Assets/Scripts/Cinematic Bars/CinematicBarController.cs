@@ -10,6 +10,7 @@ public class CinematicBarController : MonoBehaviour
     public bool enableRotation = true;
     public float zoomSpeed = 1f;
     public float rotateSpeed = 1f;
+    public float moveSpeed = 1f;
     private CinematicBarManager _cinematicBars;
     private Vector3 _lastMousePos = new Vector3(0f,0f,0f);
 
@@ -26,7 +27,7 @@ public class CinematicBarController : MonoBehaviour
     {
         // get mouse pos
         _mousePos = Input.mousePosition;
-        _mouseMovement = _lastMousePos - _mousePos;
+        _mouseMovement = (_lastMousePos - _mousePos);
 
         // handle zooming to change distance
         float scrollAmount = Input.mouseScrollDelta.y;
@@ -37,7 +38,7 @@ public class CinematicBarController : MonoBehaviour
 
         // click and drag left mouse button to move origin
         if (enablePan && Input.GetMouseButton(0)){
-            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(_mouseMovement);;
+            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(_mouseMovement * moveSpeed);;
         }
 
         // move mouse right whilst holding left mouse button to rotate
