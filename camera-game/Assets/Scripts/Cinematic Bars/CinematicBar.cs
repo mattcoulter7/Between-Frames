@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CinematicBar : MonoBehaviour
 {
-    public bool fixPlayArea = false;
     public bool useFrontInstead = false;
     public float rotationOffset = 0f; // rotation in degrees
     public bool rotateToCamera = false;
@@ -27,7 +26,7 @@ public class CinematicBar : MonoBehaviour
     {
         get
         {
-            return _controller.snappedOffset;
+            return _controller.offsetSnapped;
         }
     }
     public float depth = 10f;
@@ -80,21 +79,6 @@ public class CinematicBar : MonoBehaviour
         worldPos -= transform.right * distance; // move the points inwards or outwards from the origin
 
 
-
-        // calculate the width to ensure no gaps behind
-        // get screen intersection based on transform.right
-        /*float angle = Vector2.SignedAngle(Vector2.right,transform.right);
-        Vector3 screenIntersection = _cameraEdgeProjection.getCornerFromAngle(angle);
-        screenIntersection.z = depth;
-        screenIntersection = _camera.ViewportToWorldPoint(screenIntersection);
-        // get vector from worldpos and screenintersection
-        Vector3 toScreenIntersection = screenIntersection - worldPos;*/
-        /*transform.localScale = new Vector3(
-            toScreenIntersection.magnitude,
-            transform.localScale.y,
-            transform.localScale.z
-        );*/
-
         // update transform values
         // calculate x rotation so that you do not see the depth of the rectangle
         transform.rotation = Quaternion.Euler(_camera.transform.eulerAngles.x, _camera.transform.eulerAngles.y, rotation);
@@ -103,40 +87,6 @@ public class CinematicBar : MonoBehaviour
         ///transform.LookAt(_camera.transform);
         _rectanglePoints.backleft = worldPos; // must set last as position is determined by rotation and scale
                                               //Debug.DrawLine(transform.position,_rectanglePoints.backleft);
-
-
-        // due to perspective, the gap between the two objects becomes inconsitent.
-        // we can fix this by casting a ray at the front position, then setting the back position
-        // (x,y) values to the ray at a consistent depth
-        // if the object position is > 50% of screen, cast at back, set at front
-
-        if (fixPlayArea)
-        {
-            Vector3 frontViewportPos = _camera.WorldToViewportPoint(_rectanglePoints.frontLeft);
-            Ray frontRay = _camera.ViewportPointToRay(frontViewportPos);
-            float frontAngle = Vector3.SignedAngle(Vector3.forward, frontRay.direction, Vector3.right) * Mathf.Deg2Rad;
-            Vector3 v1 = -transform.up; // down
-            Vector3 v2 = new Vector3(frontViewportPos.x - 0.5f, frontViewportPos.y - 0.5f);
-            float crossProduct = v1.x * v2.y - v1.y * v2.x;
-            if (crossProduct < 0)
-            {
-                //Debug.Log("Overlap");
-                Vector3 backViewportPos = _camera.WorldToViewportPoint(_rectanglePoints.backleft);
-                Ray backRay = _camera.ViewportPointToRay(backViewportPos);
-                float backAngle = Vector3.SignedAngle(Vector3.forward, backRay.direction, Vector3.right) * Mathf.Deg2Rad;
-                if (rotateToCamera)
-                {
-                    transform.rotation = Quaternion.Euler(frontAngle, _camera.transform.eulerAngles.y, _camera.transform.eulerAngles.z);
-                }
-
-                if (fixPlayArea)
-                {
-                float scaledDistance = (depth - transform.localScale.z) / Mathf.Cos(backAngle);
-                Vector3 backPoint = backRay.GetPoint(scaledDistance);
-                    _rectanglePoints.frontLeft = worldPos = backPoint;
-                }
-            }
-        }
 
     }
 }
