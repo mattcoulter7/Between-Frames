@@ -21,21 +21,6 @@ public class CinematicBarController : MonoBehaviour
         _cinematicBars = GetComponent<CinematicBarManager>();
     }
 
-    CinematicBar GetMouseInteractCinematicBar(){
-        CinematicBar cinematicBar = null;
-        Ray ray = Camera.main.ScreenPointToRay(_mousePos);
-        if (Physics.Raycast(ray,out RaycastHit hitInfo)){
-            FollowPosition followTransform = hitInfo.collider.gameObject.GetComponent<FollowPosition>();
-            if (followTransform == null) return null;
-            
-            CinematicBar barComponent = followTransform.target.gameObject.GetComponent<CinematicBar>();
-            if (barComponent){
-                cinematicBar = barComponent;
-            }
-        }
-        return cinematicBar;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -46,14 +31,8 @@ public class CinematicBarController : MonoBehaviour
         // handle zooming to change distance
         float scrollAmount = Input.mouseScrollDelta.y;
         if (enableZoom && scrollAmount != 0f){
-            // find object mouse is intersecting
-            CinematicBar bar = GetMouseInteractCinematicBar();
-            if (enableIndividualZoom && bar != null){
-                bar.distanceOffset += scrollAmount * zoomSpeed;
-            } else {
-                // if it is one of the black bars, chane that instead of both
-                _cinematicBars.distance += scrollAmount * zoomSpeed;
-            }
+            // if it is one of the black bars, chane that instead of both
+            _cinematicBars.distance += scrollAmount * zoomSpeed;
         }
 
         // click and drag left mouse button to move origin

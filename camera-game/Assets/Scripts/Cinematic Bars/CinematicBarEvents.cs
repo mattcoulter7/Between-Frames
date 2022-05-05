@@ -19,16 +19,16 @@ public class CinematicBarEvents : MonoBehaviour
     {
         cinematicBarManager = GetComponent<CinematicBarManager>();
         _lastDistance = cinematicBarManager.distanceSnapped;
-        _lastOffset = cinematicBarManager.snappedOffset;
+        _lastOffset = cinematicBarManager.offsetSnapped;
         _lastRotation = cinematicBarManager.rotationSnapped;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = cinematicBarManager.distanceSnapped;
-        Vector3 offset  = cinematicBarManager.snappedOffset;
-        float rotation = cinematicBarManager.rotationSnapped;
+        float distance = cinematicBarManager.distance;
+        Vector3 offset  = cinematicBarManager.offset;
+        float rotation = cinematicBarManager.rotation;
 
         if (!distance.Equals(_lastDistance))
         {

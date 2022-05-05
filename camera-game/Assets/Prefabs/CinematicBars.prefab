@@ -179,7 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c21cd78933b58409f41eec81c0c443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixPlayArea: 0
   useFrontInstead: 0
   rotationOffset: 270
   rotateToCamera: 0
@@ -249,14 +248,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maintainPlayableArea: 1
-  rotation: 0
-  rotationSnapping: 1
+  _rotation: 0
+  enableRotationSnapping: 1
   rotationSnap: 7.5
-  offsetSnapping: 1
-  offsetSnap: {x: 0.05, y: 0.05}
+  enableRotationLimit: 1
+  maxRotation: 90
   _offset: {x: 0.5, y: 0.5}
-  distanceSnapping: 1
-  distance: 3
+  enableOffsetSnapping: 1
+  offsetSnap: {x: 0.05, y: 0.05}
+  enableOffsetLimit: 1
+  minOffset: {x: 0.3, y: 0.35}
+  maxOffset: {x: 0.7, y: 0.65}
+  _distance: 2.5
+  enableDistanceLimit: 1
+  minDistance: 2.5
+  maxDistance: 5.25
+  enableDistanceSnapping: 1
   distanceSnap: 0.5
 --- !u!114 &1057098893244758973
 MonoBehaviour:
@@ -887,7 +894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c21cd78933b58409f41eec81c0c443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixPlayArea: 0
   useFrontInstead: 0
   rotationOffset: 90
   rotateToCamera: 0
@@ -1029,23 +1035,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 386043d107510694782d2a61f06fcb5c, type: 3}
   m_PrefabInstance: {fileID: 1057098893005720533}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1057098894446040199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174224241571247748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b254172c89edeb54c992278b7e7eeffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1057098894087954134}
-  offset: {x: 0, y: 0, z: 90}
-  xMultiplier: 0
-  yMultiplier: 0
-  zMultiplier: -1
 --- !u!114 &1057098894446040197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,6 +1052,23 @@ MonoBehaviour:
   xMultiplier: 1
   yMultiplier: 1
   zMultiplier: 1
+--- !u!114 &1057098894446040199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174224241571247748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b254172c89edeb54c992278b7e7eeffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1057098894087954134}
+  offset: {x: 0, y: 0, z: 90}
+  xMultiplier: 0
+  yMultiplier: 0
+  zMultiplier: -1
 --- !u!4 &657851734750522430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 386043d107510694782d2a61f06fcb5c, type: 3}
