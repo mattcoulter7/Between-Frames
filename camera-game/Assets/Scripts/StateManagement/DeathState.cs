@@ -9,7 +9,7 @@ public class DeathState : State
     protected override void Awake()
     {
         base.Awake();
-        stateMachine.RegisterState(deathAnimationVariable, this);
+        stateMachine.RegisterState("Dead", this);
     }
 
     public override void Enter()
