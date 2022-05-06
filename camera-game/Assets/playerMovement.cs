@@ -8,6 +8,7 @@ public class playerMovement : MonoBehaviour {
     public float jumpHeight;
     public float groundDistance = 0.2f;
     public LayerMask Ground;
+    public LayerMask Ground2;
     
     private Rigidbody _body;
     private Vector3 _inputs = Vector3.zero;
@@ -24,9 +25,10 @@ public class playerMovement : MonoBehaviour {
      
      // Update is called once per frame
     void Update () {
-    	_isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, Ground, QueryTriggerInteraction.Ignore);
+        // look at downwards raycast for grounding
+    	_isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, Ground | Ground2, QueryTriggerInteraction.Ignore);
 
-    	_inputs = Vector3.zero;
+        _inputs = Vector3.zero;
         _inputs.x = Input.GetAxis("Horizontal");
         //_inputs.z = Input.GetAxis("Vertical");
 
