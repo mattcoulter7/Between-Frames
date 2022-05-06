@@ -15,12 +15,10 @@ public class PlayerKiller : MonoBehaviour
     public List<KillCondition> killConditions = new List<KillCondition>();
     public UnityEvent onKill;
 
-    CollisionList _collisionList;
     CapsuleCollider _myCol;
     bool ready = false;
     void Start()
     {
-        _collisionList = GetComponent<CollisionList>();
         _myCol = GetComponent<CapsuleCollider>();
         //Start the coroutine we define below named ExampleCoroutine.
         StartCoroutine(ExampleCoroutine());
