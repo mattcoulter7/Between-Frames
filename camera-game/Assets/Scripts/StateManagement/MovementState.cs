@@ -19,13 +19,13 @@ public class MovementState : State
     public string walkingAnimationVariable = "isWalking";
     private Transform _groundChecker;
 
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         stateMachine.RegisterState("Movement", this);
     }
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
 

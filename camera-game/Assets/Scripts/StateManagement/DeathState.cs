@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class DeathState : State
 {
     public string deathAnimationVariable = "isDead";
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         stateMachine.RegisterState(deathAnimationVariable, this);

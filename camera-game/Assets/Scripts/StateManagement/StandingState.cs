@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class StandingState : State
 {
     bool movementInput = false;
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         stateMachine.RegisterState("Standing", this);

@@ -10,11 +10,11 @@ public abstract class State : MonoBehaviour
     public UnityEvent OnExit;
     protected StateMachine stateMachine;
     protected Animator animator;
-    public virtual void Awake(){
+    protected virtual void Awake(){
         stateMachine = GetComponent<StateMachine>();
         animator = GetComponent<Animator>();
     }
-    public virtual void Start(){
+    protected virtual void Start(){
     }
     public virtual void Enter(){
         OnEnter.Invoke();
