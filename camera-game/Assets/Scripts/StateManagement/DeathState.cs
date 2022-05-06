@@ -5,16 +5,17 @@ using System.Collections;
 using System.Collections.Generic;
 public class DeathState : State
 {
+    public string deathAnimationVariable = "isDead";
     public override void Awake()
     {
         base.Awake();
-        stateMachine.RegisterState("Dead", this);
+        stateMachine.RegisterState(deathAnimationVariable, this);
     }
 
     public override void Enter()
     {
         base.Enter();
-        animator.SetBool("isDead",true);
+        animator.SetBool(deathAnimationVariable,true);
     }
 
     public override void HandleInput()

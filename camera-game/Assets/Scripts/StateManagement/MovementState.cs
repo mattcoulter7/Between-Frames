@@ -16,7 +16,9 @@ public class MovementState : State
     private Vector3 _inputs = Vector3.zero;
     private bool _jumpInput = false;
     public bool _isGrounded = false;
+    public string walkingAnimationVariable = "isWalking";
     private Transform _groundChecker;
+
     public override void Awake()
     {
         base.Awake();
@@ -41,7 +43,7 @@ public class MovementState : State
         if (_inputs == Vector3.zero)
         {
             stateMachine.ChangeState("Movement");
-            animator.SetBool("isWalking", false);
+            animator.SetBool(walkingAnimationVariable, false);
         }
     }
     public override void LogicUpdate()
@@ -52,7 +54,7 @@ public class MovementState : State
         if (_inputs != Vector3.zero)
         {
             transform.forward = _inputs;
-            animator.SetBool("isWalking", true);
+            animator.SetBool(walkingAnimationVariable, true);
         }
 
         if (_jumpInput && _isGrounded)

@@ -493,10 +493,10 @@ GameObject:
   - component: {fileID: 4179591245770497227}
   - component: {fileID: 1276476072941970085}
   - component: {fileID: 912659348131138910}
+  - component: {fileID: 3501153769209855447}
+  - component: {fileID: 4580877619546804284}
   - component: {fileID: 3999900718289742686}
   - component: {fileID: 4270205103940544798}
-  - component: {fileID: 4580877619546804284}
-  - component: {fileID: 3501153769209855447}
   m_Layer: 8
   m_Name: VincentRigged
   m_TagString: Player
@@ -603,6 +603,38 @@ MonoBehaviour:
           m_StringArgument: isDead
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3501153769209855447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945590631490033019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: Standing
+  currentState: {fileID: 0}
+--- !u!114 &4580877619546804284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945590631490033019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f4879a24f6b894db7c02f3d89fded5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3999900718289742686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,6 +653,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  deathAnimationVariable: isDead
 --- !u!114 &4270205103940544798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,38 +682,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _isGrounded: 1
---- !u!114 &4580877619546804284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3945590631490033019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9f4879a24f6b894db7c02f3d89fded5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &3501153769209855447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3945590631490033019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultState: Standing
-  currentState: {fileID: 0}
+  walkingAnimationVariable: isWalking
 --- !u!1 &4352018815266113361
 GameObject:
   m_ObjectHideFlags: 0
