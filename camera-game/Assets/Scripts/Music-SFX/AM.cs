@@ -15,16 +15,17 @@ public class AM : MonoBehaviour
     private float bgmLevel;
     private float sfxLevel;
 
-    public void setBGMLevel(float value) {
+    public void setBGMLevel(float value)
+    {
+        bgmLevel = value;
         UpdateBGMVol();
         PlayerPrefs.SetFloat(BGMPref, value);
-        bgmLevel = value;
     }
     public void setSFXLevel(float value)
     {
+        sfxLevel = value;
         UpdateSFXVol();
         PlayerPrefs.SetFloat(SFXPref, value);
-        sfxLevel = value;
     }
 
 
