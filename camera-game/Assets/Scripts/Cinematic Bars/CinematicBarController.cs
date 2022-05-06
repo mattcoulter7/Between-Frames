@@ -10,6 +10,7 @@ public class CinematicBarController : MonoBehaviour
     public bool enableRotation = true;
     public float zoomSpeed = 1f;
     public float rotateSpeed = 1f;
+    public float moveSpeed = 1f;
     private CinematicBarManager _cinematicBars;
     private Vector3 _lastMousePos = new Vector3(0f,0f,0f);
 
@@ -21,44 +22,23 @@ public class CinematicBarController : MonoBehaviour
         _cinematicBars = GetComponent<CinematicBarManager>();
     }
 
-    CinematicBar GetMouseInteractCinematicBar(){
-        CinematicBar cinematicBar = null;
-        Ray ray = Camera.main.ScreenPointToRay(_mousePos);
-        if (Physics.Raycast(ray,out RaycastHit hitInfo)){
-            FollowPosition followTransform = hitInfo.collider.gameObject.GetComponent<FollowPosition>();
-            if (followTransform == null) return null;
-            
-            CinematicBar barComponent = followTransform.target.gameObject.GetComponent<CinematicBar>();
-            if (barComponent){
-                cinematicBar = barComponent;
-            }
-        }
-        return cinematicBar;
-    }
-
     // Update is called once per frame
     void Update()
     {
         // get mouse pos
         _mousePos = Input.mousePosition;
-        _mouseMovement = _lastMousePos - _mousePos;
+        _mouseMovement = (_lastMousePos - _mousePos);
 
         // handle zooming to change distance
         float scrollAmount = Input.mouseScrollDelta.y;
         if (enableZoom && scrollAmount != 0f){
-            // find object mouse is intersecting
-            CinematicBar bar = GetMouseInteractCinematicBar();
-            if (enableIndividualZoom && bar != null){
-                bar.distanceOffset += scrollAmount * zoomSpeed;
-            } else {
-                // if it is one of the black bars, chane that instead of both
-                _cinematicBars.distance += scrollAmount * zoomSpeed;
-            }
+            // if it is one of the black bars, chane that instead of both
+            _cinematicBars.distance += scrollAmount * zoomSpeed;
         }
 
         // click and drag left mouse button to move origin
         if (enablePan && Input.GetMouseButton(0)){
-            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(_mouseMovement);;
+            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(_mouseMovement * moveSpeed);;
         }
 
         // move mouse right whilst holding left mouse button to rotate
