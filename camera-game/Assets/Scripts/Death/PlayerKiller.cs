@@ -49,7 +49,7 @@ public class PlayerKiller : MonoBehaviour
                 out direction,
                 out distance
             );
-            Debug.Log(distance);
+            //Debug.Log(distance);
             if (distance > condition.squishTolerance){
                 kill = true;
             }
@@ -58,7 +58,7 @@ public class PlayerKiller : MonoBehaviour
         if (kill)
         {
             onKill.Invoke();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
