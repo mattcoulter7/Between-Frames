@@ -5,26 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject mainMenuUI;
     public GameObject options;
     public GameObject credits;
     public void OnPlay(){
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("UITest");
     }
 
     public void OnOptions(){
         options.SetActive(true);
         credits.SetActive(false);
-        gameObject.SetActive(false);
+        mainMenuUI.SetActive(false);
     }
 
     public void OnCredits()
     {
         options.SetActive(false);
         credits.SetActive(true);
-        gameObject.SetActive(false);
+        mainMenuUI.SetActive(false);
     }
 
     public void OnExit(){
         Application.Quit();
+    }
+
+    public void Back()
+    {
+        options.SetActive(false);
+        credits.SetActive(false);
+        mainMenuUI.SetActive(true);
     }
 }

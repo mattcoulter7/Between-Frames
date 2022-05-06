@@ -8,29 +8,56 @@ public class AudioManager : MonoBehaviour
     private static readonly string FirstPlay = "FirstPlay";
     private static readonly string BGMPref = "BGMPref";
     private static readonly string SFXPref = "SFXPref";
+  
     private int firstPlayInt;
 
-    [SerializeField] private Slider BGMSlider = null;
+    //public bool CarryOverScene;
+
+    public Slider BGMSlider;
+    //GameObject SliderContainer;
+
+    string MusicSlider = "MusicSlider";
+    //string MusicContainer = "MusicContainer";
+
+    //[SerializeField] private Slider BGMSlider = null;
     [SerializeField] private Slider SFXSlider = null;
+
     private float BGMFloat, SFXFloat;
 
     public Sound BGM;
     public Sound[] sounds;
 
     public static AudioManager instance;
-    // Start is called before the first frame update
+   
+
+
     void Awake()
     {
-        if (instance == null)
+        //SliderContainer = FindInactiveObjectByName(MusicContainer);
+        //BGMSlider = SliderContainer.GetComponent<Slider>();
+        //SpriteRenderer[] activeAndInactive = GameObject.FindObjectsOfType<SpriteRenderer>(true);
+
+        Invoke("FindSlider", 0.1f);//BGMSlider = GameObject.Find(MusicSlider).GetComponent<Slider>();// ;GameObject.FindObjectOfType<Slider>(true)
+
+        //if (CarryOverScene)
+        //{
+        if (instance != null)
         {
-            instance = this;
+            Debug.Log("GO is: " + gameObject);
+            Destroy(gameObject);
+
         }
         else
         {
-            Destroy(gameObject); 
+            DontDestroyOnLoad(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+            
+        //}
+        //else
+        //{ Destroy(gameObject); }
+
+        
 
         BGM.source = gameObject.AddComponent<AudioSource>();
         BGM.source.clip = BGM.clip;
@@ -61,6 +88,7 @@ public class AudioManager : MonoBehaviour
         {
            
             s.source.volume = s.volume;
+            s.source.volume = SFXSlider.value;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
@@ -68,9 +96,15 @@ public class AudioManager : MonoBehaviour
 
     }
 
-
+    // Start is called before the first frame update
     void Start()
     {
+
+        //SliderContainer = GameObject.transform.Find(MusicContainer).gameObject;
+        //BGMSlider = SliderContainer.GetComponent<Slider>();
+       
+
+
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
         if (firstPlayInt == 0)
@@ -143,4 +177,50 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    void FindSlider()
+    {
+        BGMSlider = GameObject.Find(MusicSlider).GetComponent<Slider>();
+    }
+
 }
+
+
+/* the code graveyeard
+
+GameObject FindInactiveObjectByName(string name)
+{
+    Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+    for (int i = 0; i < objs.Length; i++)
+    {
+        if (objs[i].hideFlags == HideFlags.None)
+        {
+            if (objs[i].name == name)
+            {
+                return objs[i].gameObject;
+            }
+        }
+    }
+    return null;
+}
+
+Context:
+void Start()
+    {
+
+        SliderContainer = GameObject.transform.Find(MusicContainer).gameObject;
+        BGMSlider = SliderContainer.GetComponent<Slider>();
+
+
+
+if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
+            DontDestroyOnLoad(gameObject);
+
+*/

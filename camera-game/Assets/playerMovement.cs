@@ -28,18 +28,18 @@ public class playerMovement : MonoBehaviour {
 
     	_inputs = Vector3.zero;
         _inputs.x = Input.GetAxis("Horizontal");
-        //_inputs.z = Input.GetAxis("Vertical");
 
         if(_inputs != Vector3.zero){
         	transform.forward = _inputs;
         }
 
-        if (Input.GetKeyDown (KeyCode.W) && _isGrounded){
+        if (Input.GetButtonDown("Jump") && _isGrounded)
+        {//Input.GetKeyDown (KeyCode.W)
             _body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
             _isGrounded = false;
         }
 
- 
+
     }
  
     void FixedUpdate () {

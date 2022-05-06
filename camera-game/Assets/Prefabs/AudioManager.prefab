@@ -44,9 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65399aff437540dbbc2fc05b18f156c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CarryOverScene: 0
+  BGMSlider: {fileID: 0}
+  SFXSlider: {fileID: 0}
+  BGM:
+    name: 
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   sounds:
   - name: 
     clip: {fileID: 0}
     volume: 0
     pitch: 0
+    loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
