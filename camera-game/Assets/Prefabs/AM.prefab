@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5476640189305926657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5476640189305926656}
+  - component: {fileID: 5476640189305926663}
+  - component: {fileID: 5476640189305926662}
+  m_Layer: 0
+  m_Name: AM
+  m_TagString: AudioList
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5476640189305926656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476640189305926657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1301.2848, y: 557.8692, z: -11.3214035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5476640189305926663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476640189305926657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e053f2ffd045340c59006acbb2dbba3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGM:
+  - name: BGM
+    clip: {fileID: 8300000, guid: f41fe67021ebd4617bdf2a42bd13e3cf, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - name: BGM2
+    clip: {fileID: 8300000, guid: 825f0961ba55346c9bd1b09ec461a9b4, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  sounds: []
+--- !u!114 &5476640189305926662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476640189305926657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b97ad3e433e4adcb6de099e9dfc26c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
