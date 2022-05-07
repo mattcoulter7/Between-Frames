@@ -42,7 +42,7 @@ public class MovementState : State
     {
         if (_inputs == Vector3.zero)
         {
-            stateMachine.ChangeState("Movement");
+            stateMachine.ChangeState("Standing");
             animator.SetBool(walkingAnimationVariable, false);
         }
     }
