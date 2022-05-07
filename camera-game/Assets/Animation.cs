@@ -28,4 +28,12 @@ public class Animation : MonoBehaviour
 
         anim.SetBool("isWalking", Input.GetButton("Horizontal"));
     }
+
+    public void EnableState(string name){
+        anim.SetBool(name, true);
+    }
+
+    public void DisableState(string name){
+        anim.SetBool(name, false);
+    }
 }

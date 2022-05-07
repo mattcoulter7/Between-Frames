@@ -491,7 +491,12 @@ GameObject:
   - component: {fileID: 4434459496330481601}
   - component: {fileID: 4179591245770497228}
   - component: {fileID: 4179591245770497227}
-  - component: {fileID: 4179591245770497226}
+  - component: {fileID: 1276476072941970085}
+  - component: {fileID: 912659348131138910}
+  - component: {fileID: 3501153769209855447}
+  - component: {fileID: 4580877619546804284}
+  - component: {fileID: 3999900718289742686}
+  - component: {fileID: 4270205103940544798}
   m_Layer: 8
   m_Name: VincentRigged
   m_TagString: Player
@@ -508,7 +513,7 @@ Transform:
   m_GameObject: {fileID: 3945590631490033019}
   m_LocalRotation: {x: 0, y: 0.708463, z: 0, w: 0.7057479}
   m_LocalPosition: {x: 2.78, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4700218936271642463}
@@ -546,7 +551,27 @@ CapsuleCollider:
   m_Height: 4.01
   m_Direction: 1
   m_Center: {x: 0, y: 1.98, z: 0}
---- !u!114 &4179591245770497226
+--- !u!95 &1276476072941970085
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945590631490033019}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 38f9aee4900c17f439b93f99ea6a5e2e, type: 3}
+  m_Controller: {fileID: 9100000, guid: d9e60cc9a0481ce4590bd47146b5116b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &912659348131138910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -555,16 +580,109 @@ MonoBehaviour:
   m_GameObject: {fileID: 3945590631490033019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b747005b622c41a7abddf399363518b, type: 3}
+  m_Script: {fileID: 11500000, guid: 81997db9b8bac134e982612f3f235a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  jumpHeight: 0.5
-  groundDistance: 0.2
+  killConditions:
+  - col: {fileID: 0}
+    squishTolerance: 0.25
+  - col: {fileID: 0}
+    squishTolerance: 0.5
+  onKill:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Animation, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: isDead
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3501153769209855447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945590631490033019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: Standing
+  currentState: {fileID: 0}
+--- !u!114 &4580877619546804284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945590631490033019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f4879a24f6b894db7c02f3d89fded5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3999900718289742686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945590631490033019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa351c6d2333f7d49a918b3485dcfbf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  deathAnimationVariable: isDead
+--- !u!114 &4270205103940544798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945590631490033019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 332d8319fd799be489d00425ed234a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  moveSpeed: 1.2
+  jumpHeight: 0.85
+  groundDistance: 0.075
   Ground:
     serializedVersion: 2
     m_Bits: 256
+  Ground2:
+    serializedVersion: 2
+    m_Bits: 64
   _isGrounded: 1
+  walkingAnimationVariable: isWalking
 --- !u!1 &4352018815266113361
 GameObject:
   m_ObjectHideFlags: 0

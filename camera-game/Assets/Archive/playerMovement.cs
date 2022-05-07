@@ -14,7 +14,6 @@ public class playerMovement : MonoBehaviour {
     private Vector3 _inputs = Vector3.zero;
     public bool _isGrounded = false;
     private Transform _groundChecker;
-
  
      // Use this for initialization
     void Start () {
