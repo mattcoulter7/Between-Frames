@@ -36,7 +36,7 @@ public class Rewinder : MonoBehaviour
                 yield return null;
             }
         }
-        EventDispatcher.Dispatch("OnRewindFinish",this);
+        EventDispatcher.Instance.Dispatch("OnRewindFinish",this);
     }
     public void BeginRewind()
     {

@@ -4,15 +4,18 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-static public class EventDispatcher
+// handler class for managed instance/static functions
+public class EventDispatcher : MonoBehaviour
 {
-    // handler class for managed instance/static functions
-
+    public static EventDispatcher Instance;
+    void Awake(){
+        Instance = this;
+    }
     // dataset for storing functions against an identifier
-    static Dictionary<string, List<Delegate>> handlers = new Dictionary<string, List<Delegate>> { };
+    Dictionary<string, List<Delegate>> handlers = new Dictionary<string, List<Delegate>> { };
     
     // returns functions under an identifier, has safety check in place
-    static List<Delegate> GetHandlerList(string identifier){
+    List<Delegate> GetHandlerList(string identifier){
         List<Delegate> existing;
         handlers.TryGetValue(identifier,out existing);
         if (existing == null){
@@ -23,14 +26,14 @@ static public class EventDispatcher
     }
 
     // Add a new event listener to call a function
-    static public void AddEventListener(string identifier, Delegate func)
+    public void AddEventListener(string identifier, Delegate func)
     {
         List<Delegate> existing = GetHandlerList(identifier);
         existing.Add(func);
     }
     
     // dispatch the function
-    static public List<object> Dispatch(string identifier, params object[] paramSet)
+    public List<object> Dispatch(string identifier, params object[] paramSet)
     {
         List<object> resultSet = new List<object>();
 

@@ -15,7 +15,7 @@ public class RewindState : State
     protected override void Start()
     {
         base.Start();
-        EventDispatcher.AddEventListener("OnRewindFinish", (Action<Rewinder>)OnRewindFinish);
+        EventDispatcher.Instance.AddEventListener("OnRewindFinish", (Action<Rewinder>)OnRewindFinish);
         _rb = GetComponent<Rigidbody>();
     }
 
