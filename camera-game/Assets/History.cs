@@ -50,7 +50,7 @@ public class History : MonoBehaviour
     void Update()
     {
         HistoryItem lastHistory = history.Count > 0 ? history[history.Count - 1] : null;
-        if (Time.frameCount % 10 == 0)
+        if (Time.frameCount % frameRecordInterval == 0)
         {
             if (transformHistory)
             {
