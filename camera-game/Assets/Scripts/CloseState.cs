@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GateOpenState : State
+public class CloseState : State
 {
-    public string openAnimationVariable = "isOpen";
+    public string toggledAnimationVariable = "isOpen";
     protected override void Awake()
     {
         base.Awake();
-        stateMachine.RegisterState("GateOpen", this);
+        stateMachine.RegisterState("GateClosed", this);
     }
 
     public override void Enter()
     {
         base.Enter();
-        animator.SetBool(openAnimationVariable,true);
+        animator.SetBool(toggledAnimationVariable,false);
+    }
+    public override void Exit()
+    {
+        base.Exit();
     }
 
     public override void HandleInput()
