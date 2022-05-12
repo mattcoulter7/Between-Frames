@@ -14,6 +14,10 @@ public class TimedTrigger : Trigger
         base.OnTriggerStart();
         StartCoroutine(Timer());
     }
+    public override void OnTriggerExit()
+    {
+        base.OnTriggerExit();
+    }
     IEnumerator Timer(){
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(_duration);

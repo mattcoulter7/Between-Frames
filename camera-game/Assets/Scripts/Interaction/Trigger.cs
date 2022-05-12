@@ -32,4 +32,13 @@ public class Trigger : MonoBehaviour
         _activated = false;
         onTriggerExit.Invoke();
     }
+
+    public virtual void OnTriggerToggle(){
+        _activated = !_activated;
+        if (_activated){
+            OnTriggerStart();
+        } else {
+            OnTriggerExit();
+        }
+    }
 }
