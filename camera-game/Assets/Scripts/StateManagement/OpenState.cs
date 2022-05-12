@@ -8,7 +8,7 @@ public class OpenState : State
     protected override void Awake()
     {
         base.Awake();
-        stateMachine.RegisterState("GateOpen", this);
+        stateMachine.RegisterState("Open", this);
     }
 
     public override void Enter()

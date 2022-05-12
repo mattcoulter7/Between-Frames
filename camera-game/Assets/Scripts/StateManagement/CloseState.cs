@@ -8,7 +8,7 @@ public class CloseState : State
     protected override void Awake()
     {
         base.Awake();
-        stateMachine.RegisterState("GateClosed", this);
+        stateMachine.RegisterState("Close", this);
     }
 
     public override void Enter()
