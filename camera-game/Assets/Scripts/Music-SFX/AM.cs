@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-
+using UnityEngine.SceneManagement;
 
 public class AM : MonoBehaviour
 {
@@ -11,6 +11,9 @@ public class AM : MonoBehaviour
     public static AM Instance;
 
     private int firstPlayInt;
+
+    //private Scene currentScene;
+    //private string sceneName = currentScene.name;
 
     private float bgmLevel;
     private float sfxLevel;
@@ -62,11 +65,13 @@ public class AM : MonoBehaviour
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
         }
+
+       
     }
 
     void Update()
     {
-        
+        //currentScene = SceneManager.GetActiveScene();
     }
 
     // Start is called before the first frame update
@@ -75,7 +80,6 @@ public class AM : MonoBehaviour
         setBGMLevel(PlayerPrefs.GetFloat(BGMPref));
         setSFXLevel(PlayerPrefs.GetFloat(SFXPref));
 
-       
         foreach (Sound song in BGM)
         {
             if (song.playOnAwake)
@@ -96,7 +100,36 @@ public class AM : MonoBehaviour
 
 
         }
+
+        EventDispatcher.Instance.AddEventListener("OnSceneLoad", (Action<Scene>)OnSceneLoad);
+        //Scene currentScene = SceneManager.GetActiveScene();
+        //string sceneName = currentScene.name;
+        //if (sceneName == "MenuTest")
+        //{
+        //    PlayBGM("MenuMusic");
+        //    Debug.Log("Menu should be playing");
+        //}
+        //else //(sceneName != "MenuTest")
+        //{
+
+        //    for (int i = 0; i < BGM.Length; i++)
+        //    {
+        //        if (BGM[i].source.isPlaying)
+        //        {
+
+        //            BGM[i].source.Stop();
+        //            Debug.Log("Something should have stopped");
+
+        //        }
+
+        //    }
+        //}
     }
+
+    public void OnSceneLoad(Scene scene) {
+        //play music
+    }
+
 
     public void SaveSettings()
     {
@@ -128,7 +161,21 @@ public class AM : MonoBehaviour
             Debug.LogWarning("Sound: " + name + "not found");
             return;
         }
-        song.source.Play();
+
+        for (int i = 0; i < BGM.Length; i++)
+        {
+            if (BGM[i].source.isPlaying && BGM[i].name != song.name)
+            {
+                Debug.Log("BGM name: " + BGM[i].name);
+                Debug.Log("Song name: " + song.name);
+                BGM[i].source.Stop();
+                Debug.Log("Something should have stopped");
+                
+            }
+            song.source.Play();
+        }
+
+        
         
     }
     public void PlaySFX(string name)

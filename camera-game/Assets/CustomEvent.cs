@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.SceneManagement;
 public class CustomEvent : MonoBehaviour
 {
     public enum Event {
@@ -52,6 +52,7 @@ public class CustomEvent : MonoBehaviour
     void Start()
     {
         HandleInvoke(Event.OnStart);
+        EventDispatcher.Instance.Dispatch("OnSceneLoad",SceneManager.GetActivwScene());
     }
 
     // Update is called once per frame
