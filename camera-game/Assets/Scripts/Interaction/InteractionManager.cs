@@ -8,15 +8,15 @@ public class InteractionManager : MonoBehaviour
     public List<Interaction> currentInteractions;
 
     void Start(){
-        EventDispatcher.AddEventListener("InteractionEntered", (Action<Interactable>)AddInteractions);
-        EventDispatcher.AddEventListener("InteractionExited", (Action<Interactable>)RemoveInteractions);
+        EventDispatcher.Instance.AddEventListener("InteractionEntered", (Action<Interactable>)AddInteractions);
+        EventDispatcher.Instance.AddEventListener("InteractionExited", (Action<Interactable>)RemoveInteractions);
     }
     public void AddInteractions(Interactable interactable){
         foreach (Interaction interaction in interactable.interactions){
             currentInteractions.Add(interaction);
         }
 
-        EventDispatcher.Dispatch("InteractionsChanged",this);
+        EventDispatcher.Instance.Dispatch("InteractionsChanged",this);
     }
 
     public void RemoveInteractions(Interactable interactable){
@@ -24,6 +24,6 @@ public class InteractionManager : MonoBehaviour
             currentInteractions.Remove(interaction);
         }
 
-        EventDispatcher.Dispatch("InteractionsChanged",this);
+        EventDispatcher.Instance.Dispatch("InteractionsChanged",this);
     }
 }

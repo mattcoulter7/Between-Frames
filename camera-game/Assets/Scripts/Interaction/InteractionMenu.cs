@@ -11,7 +11,7 @@ public class InteractionMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventDispatcher.AddEventListener("InteractionsChanged", (Action<InteractionManager>)OnInteractionsChanged);
+        EventDispatcher.Instance.AddEventListener("InteractionsChanged", (Action<InteractionManager>)OnInteractionsChanged);
     }
 
     void ClearAllInteractions()

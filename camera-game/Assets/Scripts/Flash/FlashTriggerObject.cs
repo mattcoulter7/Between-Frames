@@ -19,7 +19,7 @@ public class FlashTriggerObject : MonoBehaviour
     void Start()
     {
         // listen to the flash event
-        EventDispatcher.AddEventListener("Flash", (Action<Image>)OnFlashStart);
+        EventDispatcher.Instance.AddEventListener("Flash", (Action<Image>)OnFlashStart);
     }
 
     // Update is called once per frame

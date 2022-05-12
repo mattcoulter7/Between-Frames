@@ -23,6 +23,7 @@ public class DeathState : State
     }
     public override void HandleShouldChangeState()
     {
+        stateMachine.ChangeState("Rewind");
     }
     public override void LogicUpdate()
     {

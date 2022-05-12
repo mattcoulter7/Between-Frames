@@ -36,7 +36,7 @@ public class Interactable : MonoBehaviour
         if (matchesTag(other.tag))
         {
             canInteract = true;
-            EventDispatcher.Dispatch("InteractionEntered",this);
+            EventDispatcher.Instance.Dispatch("InteractionEntered",this);
         }
     }
 
@@ -45,7 +45,7 @@ public class Interactable : MonoBehaviour
         if (matchesTag(other.tag))
         {
             canInteract = false;
-            EventDispatcher.Dispatch("InteractionExited",this);
+            EventDispatcher.Instance.Dispatch("InteractionExited",this);
         }
     }
 }
