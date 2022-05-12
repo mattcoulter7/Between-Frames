@@ -6,7 +6,9 @@ public class Rewinder : MonoBehaviour
 {
     static public Rewinder Instance;
     public List<History> historyComponents;
-    public float rewindSpeed = 1;
+    public float rewindDuration = 1; // seconds
+    public int rewindfps = 60;
+    public float rewindSpeed = 1; // scale of real time
     void Awake(){
         Instance = this;
     }
@@ -22,13 +24,20 @@ public class Rewinder : MonoBehaviour
         return historyItems;
     }
     IEnumerator Rewind(){
+        float targetFrameCount = rewindfps * rewindDuration;
+
         int startFrame = Time.frameCount;
         int highestFrameCount = historyItems[0].frameCount;
+        int lowestFrameCount = historyItems[historyItems.Count - 1].frameCount;
+        int numFrames = highestFrameCount - lowestFrameCount;
+
+        float frameScalar = targetFrameCount / numFrames;
+
         while (historyItems.Count > 0){
             int currentFrame = Time.frameCount;
             int frameProgress = currentFrame - startFrame;
             History.HistoryItem currentHistoryItem = historyItems[0];
-            float frameOffset = (highestFrameCount - currentHistoryItem.frameCount) / rewindSpeed;
+            float frameOffset = (highestFrameCount - currentHistoryItem.frameCount) * frameScalar;
             if (frameProgress >= frameOffset){
                 currentHistoryItem.Load();
                 historyItems.RemoveAt(0);

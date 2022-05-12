@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class RectangleToRayCast : BoneWeightedBoxController
 {
-    public GameObject cinematicBar;
     public float distance = 10f;
     public float depth = 5f;
-    private RectanglePoints _rectanglePoints;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _rectanglePoints = cinematicBar.GetComponent<RectanglePoints>();
-    }
+    public RectanglePoints rectanglePoints;
 
     private float getScaledDistance(Ray ray)
     {
@@ -24,10 +18,10 @@ public class RectangleToRayCast : BoneWeightedBoxController
     // Update is called once per frame
     void Update()
     {
-        Vector3 targetTopLeft = _rectanglePoints.frontTopLeft;
-        Vector3 targetBottomLeft = _rectanglePoints.frontBottomLeft;
-        Vector3 targetTopRight = _rectanglePoints.frontTopRight;
-        Vector3 targetBottomRight = _rectanglePoints.frontBottomRight;
+        Vector3 targetTopLeft = rectanglePoints.frontTopLeft;
+        Vector3 targetBottomLeft = rectanglePoints.frontBottomLeft;
+        Vector3 targetTopRight = rectanglePoints.frontTopRight;
+        Vector3 targetBottomRight = rectanglePoints.frontBottomRight;
 
         Ray topLeftRay = Camera.main.ViewportPointToRay(
             Camera.main.WorldToViewportPoint(targetTopLeft)
