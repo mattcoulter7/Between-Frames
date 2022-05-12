@@ -52,7 +52,7 @@ public class CustomEvent : MonoBehaviour
     void Start()
     {
         HandleInvoke(Event.OnStart);
-        EventDispatcher.Instance.Dispatch("OnSceneLoad",SceneManager.GetActivwScene());
+        EventDispatcher.Instance.Dispatch("OnSceneLoad",SceneManager.GetActiveScene());
     }
 
     // Update is called once per frame
