@@ -7,7 +7,10 @@ public class CustomEvent : MonoBehaviour
 {
     public enum Event {
         OnAwake=0,
-        OnStart=1
+        OnStart=1,
+        OnTriggerEnter=2,
+        OnTriggerExit=3,
+        OnUpdate=4
     }
 
     [System.Serializable]
@@ -50,6 +53,13 @@ public class CustomEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        HandleInvoke(Event.OnUpdate);
+    }
+
+    void OnTriggerEnter(Collider other){
+        HandleInvoke(Event.OnTriggerEnter);
+    }
+    void OnTriggerExit(Collider other){
+        HandleInvoke(Event.OnTriggerExit);
     }
 }
