@@ -12,7 +12,9 @@ public class CustomEvent : MonoBehaviour
         OnTriggerExit=3,
         OnUpdate=4,
         OnCollisionEnter=5,
-        OnCollisionExit=6
+        OnCollisionExit=6,
+        OnCollisionStay=7,
+        OnTriggerStay=8
     }
 
     [System.Serializable]
@@ -64,11 +66,17 @@ public class CustomEvent : MonoBehaviour
     void OnTriggerExit(Collider other){
         HandleInvoke(Event.OnTriggerExit);
     }
+    void OnTriggerStay(Collider other){
+        HandleInvoke(Event.OnTriggerStay);
+    }
 
     void OnCollisionEnter(Collision other){
         HandleInvoke(Event.OnCollisionEnter);
     }
     void OnCollisionExit(Collision other){
         HandleInvoke(Event.OnCollisionExit);
+    }
+    void OnCollisionStay(Collision other){
+        HandleInvoke(Event.OnCollisionStay);
     }
 }
