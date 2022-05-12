@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45140028, g: 0.50089264, b: 0.5723171, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140094, g: 0.50089335, b: 0.5723181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &42235306
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3064785966488595896, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_Name
+      value: TestGate
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064785966488595898, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
 --- !u!1 &98260531
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +213,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &120877684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3064785966488595896, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+  m_PrefabInstance: {fileID: 42235306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &120877685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120877684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ebdd00e9791a841a88476ceff27af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  closedAnimationVariable: isClosed
+--- !u!114 &120877686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120877684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869d8921a590feb46871720f09d86c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  openAnimationVariable: isOpen
+--- !u!114 &120877687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120877684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: GateClosed
+  currentState: {fileID: 0}
 --- !u!64 &152240966 stripped
 MeshCollider:
   m_CorrespondingSourceObject: {fileID: 1057098894074529753, guid: 0954792fb24e99c44972dab8c7f03e82, type: 3}
@@ -1422,9 +1536,6 @@ GameObject:
   - component: {fileID: 1497466638}
   - component: {fileID: 1497466637}
   - component: {fileID: 1497466636}
-  - component: {fileID: 1497466639}
-  - component: {fileID: 1497466641}
-  - component: {fileID: 1497466640}
   - component: {fileID: 1497466642}
   m_Layer: 0
   m_Name: Gate1
@@ -1512,58 +1623,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497466634}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1497466639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497466634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultState: GateClosed
-  currentState: {fileID: 0}
---- !u!114 &1497466640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497466634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 869d8921a590feb46871720f09d86c53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  openAnimationVariable: isOpen
---- !u!114 &1497466641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497466634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ebdd00e9791a841a88476ceff27af5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  closedAnimationVariable: isClosed
 --- !u!95 &1497466642
 Animator:
   serializedVersion: 4
@@ -1737,6 +1796,7 @@ GameObject:
   - component: {fileID: 1851017953}
   - component: {fileID: 1851017957}
   - component: {fileID: 1851017956}
+  - component: {fileID: 1851017952}
   m_Layer: 0
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -1849,7 +1909,7 @@ MonoBehaviour:
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1497466639}
+      - m_Target: {fileID: 120877687}
         m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
         m_MethodName: ChangeState
         m_Mode: 5
@@ -1864,7 +1924,7 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1497466639}
+      - m_Target: {fileID: 120877687}
         m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
         m_MethodName: ChangeState
         m_Mode: 5
