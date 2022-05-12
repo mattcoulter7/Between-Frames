@@ -500,6 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderObject: {fileID: 0}
+  targetLayer: 9
 --- !u!54 &548371448
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -528,64 +529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061677c2a353a29428a50405ab395b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFlashStart:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 548371445}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: set_tag
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Flashed
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 548371451}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 102a6452cfdf962468ae52f4e9285049, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onFlashStop:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 548371445}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: set_tag
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Untagged
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 548371451}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: cbefb60166a6a9440b5b030c1365a0bf, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  whileFlash:
-    m_PersistentCalls:
-      m_Calls: []
-  flashDuration: 5
 --- !u!136 &548371450
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1549,7 +1492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b3c5b1166f7a1a445974ce42b453cf6c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7057479
+      value: 0.70574796
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b3c5b1166f7a1a445974ce42b453cf6c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1938,6 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderObject: {fileID: 1812070437}
+  targetLayer: 10
 --- !u!1 &1497466634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,14 +2116,13 @@ MonoBehaviour:
   moveSpeed: 1.2
   jumpHeight: 0.85
   groundDistance: 0.075
-  Ground:
+  ground:
     serializedVersion: 2
-    m_Bits: 256
-  Ground2:
-    serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 832
   _isGrounded: 1
   walkingAnimationVariable: isWalking
+  jumpingAnimationVariable: isJumping
+  fallingAnimationVariable: isFalling
 --- !u!114 &1812070433
 MonoBehaviour:
   m_ObjectHideFlags: 0
