@@ -7,12 +7,12 @@ public class InteractionUIBindings : MonoBehaviour
     [System.Serializable]
     public class Binding
     {
-        public KeyCode keyCode;
+        public string keyCode;
         public Sprite sprite;
     }
     public List<Binding> bindings;
 
-    public Sprite GetSprite(KeyCode keyCode)
+    public Sprite GetSprite(string keyCode)
     {
         foreach (Binding binding in bindings)
         {

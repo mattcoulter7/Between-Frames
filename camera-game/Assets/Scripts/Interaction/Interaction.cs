@@ -7,10 +7,10 @@ using UnityEngine.Events;
 public class Interaction
 {
     public string label; // how the users identifies the interaction
-    public KeyCode method; // how the user triggers the action
+    public string method; // how the user triggers the action
     public UnityEvent onInteract; // what happens when this interaciton happens
     public bool Triggered(){
-        return Input.GetKey(method);
+        return Input.GetAxis(method) != 0;
     }
 
     public void Interact(){
