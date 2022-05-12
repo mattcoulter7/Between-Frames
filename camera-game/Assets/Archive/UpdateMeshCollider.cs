@@ -36,15 +36,17 @@ public class UpdateMeshCollider : MonoBehaviour
      }
     void Update()
     {
-        MeshCollider meshCollider = GetComponent<MeshCollider>();
-        if (meshRenderer && meshCollider)
+        MeshCollider[] meshColliders = GetComponents<MeshCollider>();
+        if (meshRenderer && meshColliders.Length > 0)
         {
             Mesh colliderMesh = new Mesh();
             meshRenderer.BakeMesh(colliderMesh);
 
             if (VolumeOfMesh(colliderMesh) > 0.0001f){
                 //meshCollider.sharedMesh = null;
-                meshCollider.sharedMesh = colliderMesh;
+                foreach (MeshCollider collider in meshColliders){
+                    collider.sharedMesh = colliderMesh;
+                }
             }
         }
     }

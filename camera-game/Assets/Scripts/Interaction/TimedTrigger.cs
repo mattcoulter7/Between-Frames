@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class TimedTrigger : Trigger
 {
-    public float _duration;
+    public float duration;
     public override void OnTriggerStart()
     {
         base.OnTriggerStart();
@@ -20,7 +20,7 @@ public class TimedTrigger : Trigger
     }
     IEnumerator Timer(){
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(_duration);
+        yield return new WaitForSeconds(duration);
         OnTriggerExit();
     }
 }
