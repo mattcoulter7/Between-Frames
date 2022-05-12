@@ -15,7 +15,10 @@ public class DeathState : State
     public override void Enter()
     {
         base.Enter();
+        base.Enter();
+        if (animator != null){
         animator.SetBool(deathAnimationVariable,true);
+        }
     }
 
     public override void HandleInput()

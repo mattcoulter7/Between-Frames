@@ -43,7 +43,10 @@ public class MovementState : State
         if (_inputs == Vector3.zero)
         {
             stateMachine.ChangeState("Standing");
-            animator.SetBool(walkingAnimationVariable, false);
+            if (animator != null)
+            {
+                animator.SetBool(walkingAnimationVariable, false);
+            }
         }
     }
     public override void LogicUpdate()
@@ -54,7 +57,10 @@ public class MovementState : State
         if (_inputs != Vector3.zero)
         {
             transform.forward = _inputs;
+            if (animator != null)
+            {
             animator.SetBool(walkingAnimationVariable, true);
+            }
         }
 
         if (_jumpInput && _isGrounded)

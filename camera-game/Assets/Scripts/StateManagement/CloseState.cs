@@ -14,7 +14,9 @@ public class CloseState : State
     public override void Enter()
     {
         base.Enter();
-        animator.SetBool(toggledAnimationVariable,false);
+        if (animator != null){
+            animator.SetBool(toggledAnimationVariable,false);
+        }
     }
     public override void Exit()
     {

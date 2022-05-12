@@ -23,8 +23,8 @@ public class FlashController : MonoBehaviour
 
     IEnumerator DoFlash()
     {
-        onFlash.Invoke();
         flash.doCameraFlash = true;
+        onFlash.Invoke();
 
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(timeBetweenFlash);

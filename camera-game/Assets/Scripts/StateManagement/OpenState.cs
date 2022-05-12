@@ -14,7 +14,10 @@ public class OpenState : State
     public override void Enter()
     {
         base.Enter();
-        animator.SetBool(toggledAnimationVariable,true);
+        if (animator != null)
+        {
+            animator.SetBool(toggledAnimationVariable, true);
+        }
     }
     public override void Exit()
     {
