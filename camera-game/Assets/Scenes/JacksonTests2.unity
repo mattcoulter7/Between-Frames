@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45140034, g: 0.5008926, b: 0.5723171, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140028, g: 0.50089264, b: 0.5723171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -378,25 +378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061677c2a353a29428a50405ab395b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFlashStart:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 548371445}, m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine, m_MethodName: set_tag, m_Mode: 5, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: Flashed, m_BoolArgument: 0}, m_CallState: 2}
-      - {m_Target: {fileID: 548371451}, m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine, m_MethodName: set_material, m_Mode: 2, m_Arguments: {m_ObjectArgument: {fileID: 2100000, guid: 102a6452cfdf962468ae52f4e9285049, type: 2}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
-  onFlashStop:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 548371445}, m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine, m_MethodName: set_tag, m_Mode: 5, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: Untagged, m_BoolArgument: 0}, m_CallState: 2}
-      - {m_Target: {fileID: 548371451}, m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine, m_MethodName: set_material, m_Mode: 2, m_Arguments: {m_ObjectArgument: {fileID: 2100000, guid: cbefb60166a6a9440b5b030c1365a0bf, type: 2}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
-  whileFlash:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  flashDuration: 5
-  _currentlyFlashed: 0
-  _currentlyVisible: 0
 --- !u!136 &548371450
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1671,6 +1652,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2659d4213dc274a49b300f82834284d4, type: 3}
+--- !u!1 &1603355568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1603355570}
+  - component: {fileID: 1603355569}
+  m_Layer: 0
+  m_Name: ResetManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1603355569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603355568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092a71855b9ac4dffa2bf25933cb54cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 856315087}
+        m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
+        m_MethodName: ChangeState
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Rewind
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  whileTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  actionString: Reset
+--- !u!4 &1603355570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603355568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.165314, y: -2.4285371, z: 0.21029335}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1683759122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2095121769745705945, guid: 86633d531d117314ba48731c5bd6af17, type: 3}
@@ -1712,6 +1759,18 @@ Transform:
   m_Father: {fileID: 1383566624}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1851017952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851017950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061677c2a353a29428a50405ab395b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1851017953
 BoxCollider:
   m_ObjectHideFlags: 0
