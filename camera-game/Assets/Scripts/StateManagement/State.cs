@@ -18,6 +18,8 @@ public abstract class State : MonoBehaviour
     }
     public virtual void Enter(){
         OnEnter.Invoke();
+        // needs to process input and change state because state may change mid frame!
+        HandleInput();
     }
 
     public virtual void Exit(){

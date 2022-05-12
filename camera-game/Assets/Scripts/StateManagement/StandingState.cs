@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class StandingState : State
 {
     bool movementInput = false;
+    bool jumpInput = false;
     protected override void Awake()
     {
         base.Awake();
@@ -15,10 +16,11 @@ public class StandingState : State
     public override void HandleInput()
     {
         movementInput = (Input.GetAxis("Horizontal") != 0f) || Input.GetButton("Jump");
+        jumpInput = Input.GetButtonDown("Jump");
     }
     public override void HandleShouldChangeState()
     {
-        if (movementInput)
+        if (movementInput || jumpInput)
         {
             stateMachine.ChangeState("Movement");
         }

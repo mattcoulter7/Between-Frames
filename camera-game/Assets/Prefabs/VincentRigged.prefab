@@ -677,14 +677,13 @@ MonoBehaviour:
   moveSpeed: 1.2
   jumpHeight: 0.85
   groundDistance: 0.075
-  Ground:
+  ground:
     serializedVersion: 2
-    m_Bits: 256
-  Ground2:
-    serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   _isGrounded: 1
   walkingAnimationVariable: isWalking
+  jumpingAnimationVariable: isJumping
+  fallingAnimationVariable: isFalling
 --- !u!114 &5767068608954657776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,6 +999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderObject: {fileID: 4179591245770497227}
+  targetLayer: 10
 --- !u!1 &7164747743598321257
 GameObject:
   m_ObjectHideFlags: 0

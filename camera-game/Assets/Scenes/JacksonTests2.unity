@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45140034, g: 0.5008926, b: 0.5723171, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140094, g: 0.50089335, b: 0.5723181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderObject: {fileID: 0}
+  targetLayer: 9
 --- !u!54 &548371448
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -974,6 +975,26 @@ PrefabInstance:
     - target: {fileID: 3945590631490033019, guid: 879952a51a5aa5945b45636e06fb8c3e, type: 3}
       propertyPath: m_Name
       value: VincentRigged (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270205103940544798, guid: 879952a51a5aa5945b45636e06fb8c3e, type: 3}
+      propertyPath: _isGrounded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270205103940544798, guid: 879952a51a5aa5945b45636e06fb8c3e, type: 3}
+      propertyPath: Ground.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270205103940544798, guid: 879952a51a5aa5945b45636e06fb8c3e, type: 3}
+      propertyPath: ground.m_Bits
+      value: 832
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270205103940544798, guid: 879952a51a5aa5945b45636e06fb8c3e, type: 3}
+      propertyPath: grounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270205103940544798, guid: 879952a51a5aa5945b45636e06fb8c3e, type: 3}
+      propertyPath: grounds.Array.data[0].m_Bits
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 4434459496330481601, guid: 879952a51a5aa5945b45636e06fb8c3e, type: 3}
       propertyPath: m_RootOrder

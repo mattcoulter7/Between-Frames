@@ -9,14 +9,15 @@ public class MovementState : State
     public float moveSpeed;
     public float jumpHeight;
     public float groundDistance = 0.2f;
-    public LayerMask Ground;
-    public LayerMask Ground2;
+    public LayerMask ground;
 
     private Rigidbody _body;
     private Vector3 _inputs = Vector3.zero;
     private bool _jumpInput = false;
     public bool _isGrounded = false;
     public string walkingAnimationVariable = "isWalking";
+    public string jumpingAnimationVariable = "isJumping";
+    public string fallingAnimationVariable = "isFalling";
     private Transform _groundChecker;
 
     protected override void Awake()
@@ -40,7 +41,7 @@ public class MovementState : State
     }
     public override void HandleShouldChangeState()
     {
-        if (_inputs == Vector3.zero)
+        if (_isGrounded && _inputs == Vector3.zero)
         {
             stateMachine.ChangeState("Standing");
             if (animator != null)
@@ -52,21 +53,45 @@ public class MovementState : State
     public override void LogicUpdate()
     {
         // look at downwards raycast for grounding
-        _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, Ground | Ground2, QueryTriggerInteraction.Ignore);
-
-        if (_inputs != Vector3.zero)
+        _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
+        if (_isGrounded) // on ground
         {
-            transform.forward = _inputs;
-            if (animator != null)
+            animator.SetBool(fallingAnimationVariable, false);
+            animator.SetBool(jumpingAnimationVariable, false);
+            if (_inputs != Vector3.zero) // is walking
             {
-            animator.SetBool(walkingAnimationVariable, true);
+                transform.forward = _inputs;
+                if (animator != null)
+                {
+                    animator.SetBool(walkingAnimationVariable, true);
+                }
+            }
+            else
+            { // is not walking
+                animator.SetBool(walkingAnimationVariable, false);
+            }
+
+            if (_jumpInput) // if jumping
+            {
+                _body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
+                _isGrounded = false;
+                if (animator != null)
+                {
+                    animator.SetBool(jumpingAnimationVariable, true);
+                }
             }
         }
-
-        if (_jumpInput && _isGrounded)
+        else // in air
         {
-            _body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
-            _isGrounded = false;
+            animator.SetBool(walkingAnimationVariable, false);
+            if (_body.velocity.y < 0)
+            {
+                if (animator != null)
+                {
+                    animator.SetBool(jumpingAnimationVariable, false);
+                    animator.SetBool(fallingAnimationVariable, true);
+                }
+            }
         }
     }
 

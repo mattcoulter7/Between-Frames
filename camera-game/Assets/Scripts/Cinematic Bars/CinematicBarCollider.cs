@@ -8,7 +8,7 @@ public class CinematicBarCollider : MonoBehaviour
 {
     public Collider colliderObject;
     int _originalLayer;
-    int _cinematicBarColliderLayer = 9;
+    public int targetLayer = 9;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class CinematicBarCollider : MonoBehaviour
 
     private void OnBecameVisible()
     {
-        colliderObject.gameObject.layer = _cinematicBarColliderLayer;
+        colliderObject.gameObject.layer = targetLayer;
     }
 
     private void OnBecameInvisible()
