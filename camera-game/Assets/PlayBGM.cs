@@ -6,6 +6,7 @@ public class PlayBGM : MonoBehaviour
 {
     public void Play(string name)
     {
+
         AM.Instance.PlayBGM(name);
     }
     // Start is called before the first frame update

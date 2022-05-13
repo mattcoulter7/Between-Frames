@@ -102,28 +102,7 @@ public class AM : MonoBehaviour
         }
 
         EventDispatcher.Instance.AddEventListener("OnSceneLoad", (Action<Scene>)OnSceneLoad);
-        //Scene currentScene = SceneManager.GetActiveScene();
-        //string sceneName = currentScene.name;
-        //if (sceneName == "MenuTest")
-        //{
-        //    PlayBGM("MenuMusic");
-        //    Debug.Log("Menu should be playing");
-        //}
-        //else //(sceneName != "MenuTest")
-        //{
-
-        //    for (int i = 0; i < BGM.Length; i++)
-        //    {
-        //        if (BGM[i].source.isPlaying)
-        //        {
-
-        //            BGM[i].source.Stop();
-        //            Debug.Log("Something should have stopped");
-
-        //        }
-
-        //    }
-        //}
+       
     }
 
     public void OnSceneLoad(Scene scene) {
@@ -164,7 +143,7 @@ public class AM : MonoBehaviour
 
         for (int i = 0; i < BGM.Length; i++)
         {
-            if (BGM[i].source.isPlaying && BGM[i].name != song.name)
+            if (BGM[i].source.isPlaying)
             {
                 Debug.Log("BGM name: " + BGM[i].name);
                 Debug.Log("Song name: " + song.name);
@@ -172,11 +151,12 @@ public class AM : MonoBehaviour
                 Debug.Log("Something should have stopped");
                 
             }
-            song.source.Play();
+            
         }
+        song.source.Play();
 
-        
-        
+
+
     }
     public void PlaySFX(string name)
     {
@@ -197,29 +177,55 @@ public class AM : MonoBehaviour
 //graveyard v2.0
 
 
- ////SliderContainer = GameObject.transform.Find(MusicContainer).gameObject;
-        ////BGMSlider = SliderContainer.GetComponent<Slider>();
+////SliderContainer = GameObject.transform.Find(MusicContainer).gameObject;
+////BGMSlider = SliderContainer.GetComponent<Slider>();
 
 
 
-        ////firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+////firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
-        //if (firstPlayInt == 0)
-        //{
-        //    //BGMFloat = 1f;
-        //    //SFXFloat = 0.108f;
+//if (firstPlayInt == 0)
+//{
+//    //BGMFloat = 1f;
+//    //SFXFloat = 0.108f;
 
-        //    //BGMSlider.value = BGMFloat;
-        //    //SFXSlider.value = SFXFloat;
-        //   // PlayerPrefs.SetFloat(BGMPref, BGMFloat);
-        //   // PlayerPrefs.SetFloat(SFXPref, SFXFloat);
-        //   // PlayerPrefs.SetInt(FirstPlay, -1);
-        //}
-        //else
-        //{
-        //   // BGMFloat = PlayerPrefs.GetFloat(BGMPref);
-        //   // BGMSlider.value = BGMFloat;
+//    //BGMSlider.value = BGMFloat;
+//    //SFXSlider.value = SFXFloat;
+//   // PlayerPrefs.SetFloat(BGMPref, BGMFloat);
+//   // PlayerPrefs.SetFloat(SFXPref, SFXFloat);
+//   // PlayerPrefs.SetInt(FirstPlay, -1);
+//}
+//else
+//{
+//   // BGMFloat = PlayerPrefs.GetFloat(BGMPref);
+//   // BGMSlider.value = BGMFloat;
 
-        //   // SFXFloat = PlayerPrefs.GetFloat(SFXPref);
-        //   // SFXSlider.value = SFXFloat;
-        //}
+//   // SFXFloat = PlayerPrefs.GetFloat(SFXPref);
+//   // SFXSlider.value = SFXFloat;
+//}
+
+
+
+
+//Scene currentScene = SceneManager.GetActiveScene();
+//string sceneName = currentScene.name;
+//if (sceneName == "MenuTest")
+//{
+//    PlayBGM("MenuMusic");
+//    Debug.Log("Menu should be playing");
+//}
+//else //(sceneName != "MenuTest")
+//{
+
+//    for (int i = 0; i < BGM.Length; i++)
+//    {
+//        if (BGM[i].source.isPlaying)
+//        {
+
+//            BGM[i].source.Stop();
+//            Debug.Log("Something should have stopped");
+
+//        }
+
+//    }
+//}

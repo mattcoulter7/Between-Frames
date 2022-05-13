@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject options;
     public GameObject credits;
     public void OnPlay(){
-        SceneManager.LoadScene("UITest");
+        SceneManager.LoadScene("JacksonTests2");
     }
 
     public void OnOptions(){
