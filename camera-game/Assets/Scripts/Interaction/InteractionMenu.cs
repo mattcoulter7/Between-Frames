@@ -31,8 +31,11 @@ public class InteractionMenu : MonoBehaviour
         {
             Vector3 targetPos = new Vector3(rectTransform.position.x,targetHeight,rectTransform.position.z);
             GameObject interactionLineObject = Instantiate(interactionLinePrefab);
-            interactionLineObject.transform.SetParent(transform);
-            interactionLineObject.transform.localPosition = targetPos;
+            
+            
+            RectTransform t = interactionLineObject.transform as RectTransform;
+            t.SetParent(transform);
+            t.anchoredPosition = targetPos;
 
             InteractionMenuLine helper = interactionLineObject.GetComponent<InteractionMenuLine>();
             helper.OnInitialise(interaction);

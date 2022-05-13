@@ -7,7 +7,7 @@ public class LookAtTransform : MonoBehaviour
     public Transform target;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (target){
             transform.LookAt(target);
