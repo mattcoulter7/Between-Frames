@@ -10,6 +10,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI;
 
+    void Awake()
+    {
+        Time.timeScale = 1f;    
+    }
     //public AudioManager theAM;
     //public DestroyAM destroyer;
 
