@@ -5,30 +5,66 @@ using System.Collections.Generic;
 public class StateMachine : MonoBehaviour
 {
     public string defaultState;
-    public State currentState;
+    public List<State> history = new List<State> { null };
+    public State currentState
+    {
+        get
+        {
+            if (history.Count == 0) history.Add(null);
+            return history[0];
+        }
+        set
+        {
+            if (history.Count == 0) history.Add(null);
+            history[0] = value;
+        }
+    }
     Dictionary<string, State> states = new Dictionary<string, State>();
     void Start()
     {
-        ChangeState(defaultState);
+        if (defaultState != "") AddState(defaultState);
     }
 
     void Update()
     {
-        currentState.HandleInput();
-        currentState.HandleShouldChangeState();
-        currentState.LogicUpdate();
+        if (currentState != null) currentState.HandleInput();
+        if (currentState != null) currentState.HandleShouldChangeState();
+        if (currentState != null) currentState.LogicUpdate();
     }
 
     void FixedUpdate()
     {
-        currentState.PhysicsUpdate();
+        if (currentState != null) currentState.PhysicsUpdate();
     }
 
-    public void ChangeState(string state)
+    public void ChangeState(string state) // overrides the current state
     {
         if (currentState != null) currentState.Exit();
-        currentState = states[state];
+        State stateObj = states[state];
+        currentState = stateObj;
         currentState.Enter();
+    }
+
+    public void AddState(string state) // adds to front of history
+    {
+        if (currentState != null) currentState.Exit();
+
+        State stateObj = states[state];
+        if (currentState == null) currentState = stateObj;
+        else history.Insert(0, stateObj);
+
+        currentState.Enter();
+    }
+
+    public void RemoveState() // removes from of history
+    {
+        if (currentState != null)
+        {
+            currentState.Exit();
+            history.RemoveAt(0);
+
+            if (currentState != null) currentState.Enter();
+        }
     }
 
     public void RegisterState(string value, State obj)
