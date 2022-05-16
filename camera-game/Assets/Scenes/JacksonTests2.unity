@@ -1166,36 +1166,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3448134425970873350, guid: ce03fd29cfb174365992fe26d76b587b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce03fd29cfb174365992fe26d76b587b, type: 3}
---- !u!1 &868765231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4259810605579778160, guid: ce03fd29cfb174365992fe26d76b587b, type: 3}
-  m_PrefabInstance: {fileID: 868765230}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &868765232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4259810606143549150, guid: ce03fd29cfb174365992fe26d76b587b, type: 3}
-  m_PrefabInstance: {fileID: 868765230}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &868765233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868765231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1527cf2ff43cd834fb12bc712f21db08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  menuUI: {fileID: 868765232}
-  menuName: Options
 --- !u!114 &910886199 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7398623562862095876, guid: e9670f841255e774da87ea79e0cf6810, type: 3}

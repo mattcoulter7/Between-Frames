@@ -283,9 +283,9 @@ GameObject:
   - component: {fileID: 487780680341241505}
   - component: {fileID: 2499310317414817811}
   - component: {fileID: 4303585846957417045}
-  - component: {fileID: 3448134425970873350}
   - component: {fileID: 2324707328992673270}
   - component: {fileID: 4161060198307973960}
+  - component: {fileID: 7360279619432607173}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -433,25 +433,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   pauseMenuUI: {fileID: 4259810606904898104}
---- !u!114 &3448134425970873350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4259810605579778160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda2aba8cdcea374f9c5d696e50a463f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  optionsMenuUI: {fileID: 4259810606143549150}
 --- !u!114 &2324707328992673270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +465,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultState: Gameplay
   history: []
+--- !u!114 &7360279619432607173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259810605579778160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1527cf2ff43cd834fb12bc712f21db08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  menuUI: {fileID: 4259810606143549150}
+  menuName: Options
 --- !u!1 &4259810605694778235
 GameObject:
   m_ObjectHideFlags: 0
