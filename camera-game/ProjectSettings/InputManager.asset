@@ -341,4 +341,68 @@ InputManager:
     type: 0
     axis: 0
     joyNum: 0
+  - serializedVersion: 3
+    m_Name: ZoomFrame
+    descriptiveName: Zooms the Frame towards eachother
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 1
+    axis: 2
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: RotateFrame
+    descriptiveName: Rotates the Frame around Pivot Point
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: mouse 1
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 1
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: ShiftFrameX
+    descriptiveName: Transforms the position of the Frame
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: mouse 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 1
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: ShiftFrameY
+    descriptiveName: Transforms the position of the Frame
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: mouse 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 1
+    axis: 1
+    joyNum: 0
   m_UsePhysicalKeys: 0
