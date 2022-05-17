@@ -12,10 +12,6 @@ public class CinematicBarController : MonoBehaviour
     public float rotateSpeed = 1f;
     public float moveSpeed = 1f;
     private CinematicBarManager _cinematicBars;
-    private Vector3 _lastMousePos = new Vector3(0f,0f,0f);
-
-    private Vector3 _mousePos = new Vector3(0f,0f,0f);
-    private Vector3 _mouseMovement = new Vector3(0f,0f,0f);
     // Start is called before the first frame update
     void Start()
     {
@@ -25,29 +21,29 @@ public class CinematicBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // get mouse pos
-        _mousePos = Input.mousePosition;
-        _mouseMovement = (_lastMousePos - _mousePos);
+        float zoomFrame = Input.GetAxis("ZoomFrame");
+        float shiftFrameX = Input.GetButton("ShiftFrameX") ? Input.GetAxis("ShiftFrameX") : 0;
+        float shiftFrameY = Input.GetButton("ShiftFrameY") ? Input.GetAxis("ShiftFrameY") : 0;
+        Vector2 shiftFrame = new Vector2(shiftFrameX, shiftFrameY);
+        float rotateFrame = Input.GetButton("RotateFrame") ? Input.GetAxis("RotateFrame") : 0;
 
         // handle zooming to change distance
-        float scrollAmount = Input.mouseScrollDelta.y;
-        if (enableZoom && scrollAmount != 0f){
+        if (enableZoom && zoomFrame != 0f)
+        {
             // if it is one of the black bars, chane that instead of both
-            _cinematicBars.distance += scrollAmount * zoomSpeed;
+            _cinematicBars.distance += zoomFrame * zoomSpeed;
         }
 
         // click and drag left mouse button to move origin
-        if (enablePan && Input.GetMouseButton(0)){
-            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(_mouseMovement * moveSpeed);;
+        if (enablePan && shiftFrame != Vector2.zero)
+        {
+            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed); ;
         }
 
         // move mouse right whilst holding left mouse button to rotate
-        if (enableRotation && Input.GetMouseButton(1)){
-            float rotateAmount = _mouseMovement.x;
-            _cinematicBars.rotation += rotateAmount * rotateSpeed;
+        if (enableRotation && rotateFrame != 0)
+        {
+            _cinematicBars.rotation += rotateFrame * rotateSpeed;
         }
-
-        // track last mouse position
-        _lastMousePos = _mousePos;
     }
 }
