@@ -5,6 +5,8 @@ using System.Collections;
 public class Flash : MonoBehaviour
 {
     ///////////////////////////////////////////////////
+    public FlashEvent flashEvent;
+    ///////////////////////////////////////////////////
     public float flashTimelength = .2f;
     public bool doCameraFlash = false;
 
@@ -29,6 +31,8 @@ public class Flash : MonoBehaviour
         if (doCameraFlash && !flashing)
         {
             CameraFlash();
+            flashEvent.playFlashFX();
+            
         }
         else
         {
