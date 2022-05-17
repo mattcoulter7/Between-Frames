@@ -169,6 +169,10 @@ public class AM : MonoBehaviour
         s.source.Play();
     }
 
+    public void KillYourself()
+    {
+        Destroy(gameObject);
+    }
 
 
 }
