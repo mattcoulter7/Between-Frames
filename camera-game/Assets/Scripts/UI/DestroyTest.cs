@@ -8,7 +8,7 @@ public class DestroyTest : MonoBehaviour
 
     public void DestroyAM()
     {
-        AM.Instance.KillYourself();
+        //AM.Instance.KillYourself();
         //Destroy(AM.Instance);
         Debug.Log("DESTROYED");
     }

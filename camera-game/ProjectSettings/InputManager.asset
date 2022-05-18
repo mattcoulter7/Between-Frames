@@ -236,7 +236,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick button 3
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: space
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -404,5 +404,21 @@ InputManager:
     invert: 1
     type: 1
     axis: 1
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Flash
+    descriptiveName: Flash mechanic invoked
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: mouse 2
+    altNegativeButton: 
+    altPositiveButton: f
+    gravity: 0
+    dead: 0
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 0
+    axis: 0
     joyNum: 0
   m_UsePhysicalKeys: 0

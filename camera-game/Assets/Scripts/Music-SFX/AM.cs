@@ -41,8 +41,10 @@ public class AM : MonoBehaviour
         
         Instance = this;
 
-        Debug.Log("BGM Pref is " + PlayerPrefs.GetFloat(BGMPref));
-        Debug.Log("SFX Pref is " + PlayerPrefs.GetFloat(SFXPref));
+        
+
+        //Debug.Log("BGM Pref is " + PlayerPrefs.GetFloat(BGMPref));
+        //Debug.Log("SFX Pref is " + PlayerPrefs.GetFloat(SFXPref));
 
         foreach (Sound song in BGM)
         {
@@ -80,29 +82,48 @@ public class AM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        setBGMLevel(PlayerPrefs.GetFloat(BGMPref));
-        setSFXLevel(PlayerPrefs.GetFloat(SFXPref));
+        firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
-        foreach (Sound song in BGM)
+        if (firstPlayInt == 0)
         {
-            if (song.playOnAwake)
-            {
-                PlayBGM(song.name);
-            }
+            bgmLevel = 1f;
+            sfxLevel = 1f;
 
+            setBGMLevel(bgmLevel);
+            setSFXLevel(sfxLevel);
 
+            PlayerPrefs.SetInt(FirstPlay, -1);
         }
+        else
+        {
+            setBGMLevel(PlayerPrefs.GetFloat(BGMPref));
+            setSFXLevel(PlayerPrefs.GetFloat(SFXPref));
+        }
+        //setBGMLevel(PlayerPrefs.GetFloat(BGMPref));
+        //setSFXLevel(PlayerPrefs.GetFloat(SFXPref));
+
+
+
+        //foreach (Sound song in BGM)
+        //{
+        //    if (song.playOnAwake)
+        //    {
+        //        PlayBGM(song.name);
+        //    }
+
+
+        //}
         
 
-        foreach (Sound s in sounds)
-        {
-            if (s.playOnAwake)
-            {
-                PlaySFX(s.name);
-            }
+        //foreach (Sound s in sounds)
+        //{
+        //    if (s.playOnAwake)
+        //    {
+        //        PlaySFX(s.name);
+        //    }
 
 
-        }
+        //}
 
         EventDispatcher.Instance.AddEventListener("OnSceneLoad", (Action<Scene>)OnSceneLoad);
        
@@ -172,10 +193,10 @@ public class AM : MonoBehaviour
         s.source.Play();
     }
 
-    public void KillYourself()
-    {
-        Destroy(gameObject);
-    }
+    //public void KillYourself()
+    //{
+    //    Destroy(gameObject);
+    //}
 
 
 }
