@@ -37,7 +37,9 @@ public class AM : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance != null) return;
+        
+        Instance = this;
 
         Debug.Log("BGM Pref is " + PlayerPrefs.GetFloat(BGMPref));
         Debug.Log("SFX Pref is " + PlayerPrefs.GetFloat(SFXPref));
