@@ -14,7 +14,7 @@ public class FlashController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_instance == null && Input.GetKeyDown(KeyCode.Space))
+        if (_instance == null && Input.GetButtonDown("Flash"))
         {
             //Start the coroutine we define below named ExampleCoroutine.
             _instance = StartCoroutine(DoFlash());
