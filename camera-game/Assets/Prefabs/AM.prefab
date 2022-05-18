@@ -82,6 +82,13 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Flash
+    clip: {fileID: 8300000, guid: faae7e6667dc04e4db7316741725d70b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &2346111616123011502
 MonoBehaviour:
   m_ObjectHideFlags: 0
