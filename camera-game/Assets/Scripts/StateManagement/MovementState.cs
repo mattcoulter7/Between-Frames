@@ -20,6 +20,9 @@ public class MovementState : State
     public string fallingAnimationVariable = "isFalling";
     private Transform _groundChecker;
 
+    public UnityEvent whileWalking;
+    public UnityEvent onJump;
+
     protected override void Awake()
     {
         base.Awake();
@@ -64,6 +67,7 @@ public class MovementState : State
                 if (animator != null)
                 {
                     animator.SetBool(walkingAnimationVariable, true);
+                    whileWalking.Invoke();
                 }
             }
             else
@@ -73,6 +77,7 @@ public class MovementState : State
 
             if (_jumpInput) // if jumping
             {
+                onJump.Invoke();
                 _body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
                 _isGrounded = false;
                 if (animator != null)

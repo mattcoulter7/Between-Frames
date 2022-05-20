@@ -89,6 +89,13 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: HouseFootsteps
+    clip: {fileID: 8300000, guid: d7609a76887ea48ec865ebab37e5d41d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &2346111616123011502
 MonoBehaviour:
   m_ObjectHideFlags: 0
