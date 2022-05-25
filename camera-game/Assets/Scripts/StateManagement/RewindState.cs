@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class RewindState : State
 {
     Rigidbody _rb;
+    public UnityEvent onRewindFinish;
     protected override void Awake()
     {
         base.Awake();
@@ -50,6 +51,7 @@ public class RewindState : State
 
     void OnRewindFinish(Rewinder rewinder)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        onRewindFinish.Invoke();
     }
 }
