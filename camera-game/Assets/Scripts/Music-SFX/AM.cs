@@ -203,10 +203,22 @@ public class AM : MonoBehaviour
         s.source.Stop();
     }
 
-    //public void KillYourself()
-    //{
-    //    Destroy(gameObject);
-    //}
+   public Sound GetSFX(string name)
+   {
+
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return null;
+        }
+        else
+        {
+            return s;
+        }
+
+    }
+
 
 
 }
