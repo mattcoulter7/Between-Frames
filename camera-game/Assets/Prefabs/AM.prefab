@@ -50,7 +50,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f41fe67021ebd4617bdf2a42bd13e3cf, type: 3}
     volume: 0.5
     pitch: 1
-    loop: 0
+    loop: 1
     playOnAwake: 0
     source: {fileID: 0}
   - name: MenuMusic
@@ -94,6 +94,20 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: e67728701ac9a41bfbdbff1f654faef9, type: 3}
+    volume: 0.221
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: BarMoveRolloff
+    clip: {fileID: 8300000, guid: bbd87d842a7174dbe8c8cb4b69af8acb, type: 3}
+    volume: 0.221
+    pitch: 1
+    loop: 0
     playOnAwake: 0
     source: {fileID: 0}
 --- !u!114 &2346111616123011502
