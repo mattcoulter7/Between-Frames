@@ -15,6 +15,9 @@ public class MovementState : State
     private Vector3 _inputs = Vector3.zero;
     private bool _jumpInput = false;
     public bool _isGrounded = false;
+
+    //TESTING
+    public bool _isWalking = false;
     public string walkingAnimationVariable = "isWalking";
     public string jumpingAnimationVariable = "isJumping";
     public string fallingAnimationVariable = "isFalling";
@@ -103,5 +106,22 @@ public class MovementState : State
     public override void PhysicsUpdate()
     {
         _body.MovePosition(_body.position + _inputs * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    //TESTING
+
+    private void Update()
+    {
+        if (_isWalking)
+        {
+            whileWalking.Invoke();
+        }
+
+        //if(!_isWalking)
+        //{
+        //    OnExit.Invoke();
+        //}
+
+
     }
 }
