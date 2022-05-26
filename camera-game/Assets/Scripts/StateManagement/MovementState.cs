@@ -127,9 +127,9 @@ public class MovementState : State
     }
 
     //play sound function from animator
-    public void Step()
-    {
-        PlayStep.Invoke();
-    }
+    //public void Step()
+    //{
+    //    PlayStep.Invoke();
+    //}
 
 }

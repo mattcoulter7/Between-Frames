@@ -10,6 +10,7 @@ public class PlaySound : MonoBehaviour
     {
 
         AM.Instance.PlaySFX(name);
+        Debug.Log("Played sound from PlaySound");
     }
 
     public void PlayLooped(string name)

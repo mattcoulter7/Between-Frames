@@ -11,7 +11,7 @@ public class PlayStepForAnim : MonoBehaviour
         SoundEvent = GameObject.Find("SoundEvent");
     }
 
-    public void Step()
+    private void Step()
     {
         SoundEvent.GetComponent<PlaySound>().Play("HouseFootsteps");
     }
