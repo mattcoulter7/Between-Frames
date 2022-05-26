@@ -4060,7 +4060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1916885117
 Transform:
   m_ObjectHideFlags: 0
@@ -5352,8 +5352,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2585833225058460147, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585833225058460147, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.38
+      value: 2.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585833225058460147, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585833225058460147, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585833225058460147, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585833225058460147, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2707782520205144384, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5439,6 +5459,10 @@ PrefabInstance:
       propertyPath: rectanglePoints
       value: 
       objectReference: {fileID: 1161248457}
+    - target: {fileID: 3722670679848180380, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 102a6452cfdf962468ae52f4e9285049, type: 2}
     - target: {fileID: 3802977380926233624, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
       propertyPath: myCollider
       value: 
@@ -5587,6 +5611,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4485674689304808722, guid: 19dd8216ff35c484780e6e978550354f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485674689304808722, guid: 19dd8216ff35c484780e6e978550354f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.34
       objectReference: {fileID: 0}
@@ -5705,6 +5733,10 @@ PrefabInstance:
     - target: {fileID: 4485674689304808747, guid: 19dd8216ff35c484780e6e978550354f, type: 3}
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485674689304808748, guid: 19dd8216ff35c484780e6e978550354f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4485674690573282730, guid: 19dd8216ff35c484780e6e978550354f, type: 3}
       propertyPath: m_Materials.Array.data[0]
