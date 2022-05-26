@@ -165,8 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: GateClosed
-  currentState: {fileID: 0}
+  defaultState: Close
+  history:
+  - {fileID: 0}
 --- !u!114 &9010456236340682439
 MonoBehaviour:
   m_ObjectHideFlags: 0
