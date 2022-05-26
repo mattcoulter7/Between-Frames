@@ -17,13 +17,14 @@ public class MovementState : State
     public bool _isGrounded = false;
 
     //TESTING
-    public bool _isWalking = false;
+    //public bool _isWalking = false;
     public string walkingAnimationVariable = "isWalking";
     public string jumpingAnimationVariable = "isJumping";
     public string fallingAnimationVariable = "isFalling";
     private Transform _groundChecker;
 
-    public UnityEvent whileWalking;
+    //public UnityEvent whileWalking;
+    public UnityEvent PlayStep;
     public UnityEvent onJump;
 
     protected override void Awake()
@@ -70,7 +71,7 @@ public class MovementState : State
                 if (animator != null)
                 {
                     animator.SetBool(walkingAnimationVariable, true);
-                    whileWalking.Invoke();
+                   // whileWalking.Invoke();
                 }
             }
             else
@@ -112,10 +113,10 @@ public class MovementState : State
 
     private void Update()
     {
-        if (_isWalking)
-        {
-            whileWalking.Invoke();
-        }
+        //if (_isWalking)
+        //{
+        //    whileWalking.Invoke();
+        //}
 
         //if(!_isWalking)
         //{
@@ -124,4 +125,11 @@ public class MovementState : State
 
 
     }
+
+    //play sound function from animator
+    public void Step()
+    {
+        PlayStep.Invoke();
+    }
+
 }
