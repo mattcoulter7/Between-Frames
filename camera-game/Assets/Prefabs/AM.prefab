@@ -90,22 +90,15 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: HouseFootsteps
-    clip: {fileID: 8300000, guid: d7609a76887ea48ec865ebab37e5d41d, type: 3}
+    clip: {fileID: 8300000, guid: 77f2003777d824c1fbd2c12b45029e94, type: 3}
     volume: 0.5
-    pitch: 1
-    loop: 1
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Jump
-    clip: {fileID: 8300000, guid: e67728701ac9a41bfbdbff1f654faef9, type: 3}
-    volume: 0.221
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: BarMoveRolloff
-    clip: {fileID: 8300000, guid: bbd87d842a7174dbe8c8cb4b69af8acb, type: 3}
-    volume: 0.221
+  - name: Jump
+    clip: {fileID: 8300000, guid: e67728701ac9a41bfbdbff1f654faef9, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
     playOnAwake: 0
