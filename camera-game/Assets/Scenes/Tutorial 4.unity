@@ -1599,6 +1599,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383566624}
     m_Modifications:
+    - target: {fileID: 3064785966465611706, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 88caf3e3c855edb41b79ff6a7ccf7ce5, type: 2}
     - target: {fileID: 3064785966488595896, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
       propertyPath: m_Name
       value: TestGate
@@ -3293,10 +3297,6 @@ PrefabInstance:
     - target: {fileID: 630763613663510501, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510502, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: _distance
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Enabled

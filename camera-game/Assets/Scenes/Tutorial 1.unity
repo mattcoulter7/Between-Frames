@@ -2270,7 +2270,7 @@ PrefabInstance:
     - target: {fileID: 3699637011329277989, guid: 006535387aff4964cbfffeac572c470d, type: 3}
       propertyPath: historyComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1900911932}
     - target: {fileID: 3699637011329277990, guid: 006535387aff4964cbfffeac572c470d, type: 3}
       propertyPath: m_Name
       value: RewindManager
@@ -3285,6 +3285,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1900911932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6883886270383592233, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
+  m_PrefabInstance: {fileID: 605915788}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9567fb6e1daf6a74c8d38cd41b118d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1944294385 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 630763613659912236, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
