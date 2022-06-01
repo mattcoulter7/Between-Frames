@@ -13,7 +13,7 @@ public class PlayStepForAnim : MonoBehaviour
 
     private void Step()
     {
-        SoundEvent.GetComponent<PlaySound>().Play("HouseFootsteps");
+        SoundEvent.GetComponent<PlaySound>().PlaySteps();
     }
 
 }

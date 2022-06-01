@@ -3190,7 +3190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.0058, y: -1.5029}
+  m_AnchoredPosition: {x: -7.0058594, y: -1.5029297}
   m_SizeDelta: {x: 40.046, y: 47.0516}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1513205483
@@ -4130,7 +4130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -37.1159, y: 26.7904}
+  m_AnchoredPosition: {x: -37.115845, y: 26.790405}
   m_SizeDelta: {x: -1473.7468, y: -728.6202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114561393
@@ -4295,14 +4295,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: AM
       objectReference: {fileID: 0}
-    - target: {fileID: 5476640189305926657, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476640189305926663, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BGM.Array.data[0].loop
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5476640189305926662, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}

@@ -103,6 +103,20 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Step1
+    clip: {fileID: 8300000, guid: 77f2003777d824c1fbd2c12b45029e94, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Step2
+    clip: {fileID: 8300000, guid: 1973bbafaf7a744b0b6bfefffd839f8a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &2346111616123011502
 MonoBehaviour:
   m_ObjectHideFlags: 0

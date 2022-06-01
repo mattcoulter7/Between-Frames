@@ -34,4 +34,9 @@ public class PlaySound : MonoBehaviour
 
     }
 
+    public void PlaySteps()
+    {
+        AM.Instance.PlayFootsteps();
+    }
+
 }

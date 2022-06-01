@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4931455742765385090}
   - component: {fileID: 4931455742765385089}
   - component: {fileID: 4931455742765385088}
+  - component: {fileID: 38901963}
   m_Layer: 0
   m_Name: SoundEvent
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: LevelMusic
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &4931455742765385088
@@ -72,5 +73,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 178acad9035314dbfa3b18e4324f3ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &38901963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4931455742765385103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8175030d83b466b93fc821a6c83812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

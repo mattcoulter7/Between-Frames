@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class AM : MonoBehaviour
 {
@@ -30,18 +32,25 @@ public class AM : MonoBehaviour
         UpdateSFXVol();
         PlayerPrefs.SetFloat(SFXPref, value);
     }
-
-
+    public List<Sound> stepSounds;
     public Sound[] BGM;
     public Sound[] sounds;
 
+
+
     void Awake()
     {
+
         if (Instance != null) return;
-        
+
         Instance = this;
 
-        
+        //adding footsteps to array
+        Sound Step1 = GetSFX("Step1");
+        Sound Step2 = GetSFX("Step2");
+        stepSounds.Add(Step1);
+        stepSounds.Add(Step2);
+        Debug.Log("Name: " + stepSounds[0].GetType());
 
         //Debug.Log("BGM Pref is " + PlayerPrefs.GetFloat(BGMPref));
         //Debug.Log("SFX Pref is " + PlayerPrefs.GetFloat(SFXPref));
@@ -219,6 +228,11 @@ public class AM : MonoBehaviour
 
     }
 
+    public void PlayFootsteps()
+    {
+        Sound stepToPlay = (Sound)stepSounds[UnityEngine.Random.Range(0, stepSounds.Count)];
+        stepToPlay.source.Play();
+    }
 
 
 }

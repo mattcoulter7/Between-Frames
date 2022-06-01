@@ -54,7 +54,7 @@ public class PlayBarSound : MonoBehaviour
                                  //private AIcontroller aicontroler;
     void Start()
     {
-       
+        m_HighAccel = SetUpEngineAudioSource(AM.Instance.GetSFX("BarMoveRolloff").source.clip); //remember to change this into a string reference
     }
     public void StartSound()
     {
@@ -62,7 +62,7 @@ public class PlayBarSound : MonoBehaviour
         //m_CarController = GetComponent<CarController>();
 
         // setup the simple audio source
-        m_HighAccel = SetUpEngineAudioSource(AM.Instance.GetSFX("BarMoveRolloff").source.clip); //remember to change this into a string reference
+        
 
         // if we have four channel audio setup the four audio sources
         //if (engineSoundStyle == EngineAudioOptions.FourChannel)
