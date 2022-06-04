@@ -153,7 +153,7 @@ public class AM : MonoBehaviour
     {
         for (int i = 0; i < BGM.Length; i++)
         {
-            BGM[i].source.volume = bgmLevel;
+            BGM[i].source.volume = bgmLevel * BGM[i].volume;
         }
     }
 
@@ -161,9 +161,10 @@ public class AM : MonoBehaviour
     {
         for (int i = 0; i < sounds.Length; i++)
         {
-            sounds[i].source.volume = sfxLevel;
+            sounds[i].source.volume = sfxLevel * sounds[i].volume;      //eg. 0.5 x 0.5 = 0.25
         }
     }
+
 
     public void PlayBGM(string name)
     {
