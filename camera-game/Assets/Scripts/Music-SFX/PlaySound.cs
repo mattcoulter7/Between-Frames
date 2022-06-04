@@ -27,6 +27,19 @@ public class PlaySound : MonoBehaviour
        
     }
 
+    //Ensures the sound only plays once
+    public void PlayOnce(string name)
+    {
+        //startedPlaying = true;
+        if(!startedPlaying)
+        {
+            AM.Instance.PlaySFX(name);
+            startedPlaying = true;
+        }
+
+
+    }
+
     public void StopLooped(string name)
     {
         startedPlaying = false;
