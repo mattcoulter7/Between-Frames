@@ -15,6 +15,8 @@ public class MovementState : State
     private Vector3 _inputs = Vector3.zero;
     private bool _jumpInput = false;
     public bool _isGrounded = false;
+    //Testing
+    public bool _isGroundedLastFrame = false;
 
     public string walkingAnimationVariable = "isWalking";
     public string jumpingAnimationVariable = "isJumping";
@@ -22,6 +24,9 @@ public class MovementState : State
     private Transform _groundChecker;
 
     public UnityEvent onJump;
+    public UnityEvent onLand;
+
+    
 
     protected override void Awake()
     {
@@ -57,6 +62,14 @@ public class MovementState : State
     {
         // look at downwards raycast for grounding
         _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
+
+        //Testing
+        if (_isGrounded && !_isGroundedLastFrame)
+        {
+            onLand.Invoke();
+        }
+        _isGroundedLastFrame = _isGrounded;
+        ////////////////////////////////////
         if (_isGrounded) // on ground
         {
             animator.SetBool(fallingAnimationVariable, false);
@@ -103,28 +116,5 @@ public class MovementState : State
     {
         _body.MovePosition(_body.position + _inputs * moveSpeed * Time.fixedDeltaTime);
     }
-
-    //TESTING
-
-    private void Update()
-    {
-        //if (_isWalking)
-        //{
-        //    whileWalking.Invoke();
-        //}
-
-        //if(!_isWalking)
-        //{
-        //    OnExit.Invoke();
-        //}
-
-
-    }
-
-    //play sound function from animator
-    //public void Step()
-    //{
-    //    PlayStep.Invoke();
-    //}
 
 }
