@@ -32,6 +32,7 @@ public class MovementState : State
     {
         base.Awake();
         stateMachine.RegisterState("Movement", this);
+
     }
 
     protected override void Start()
