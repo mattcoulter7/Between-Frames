@@ -356,7 +356,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7398623562862095876, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
   m_PrefabInstance: {fileID: 42235306}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 501552629}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
@@ -900,6 +900,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2323701316429860228, guid: 797c496eadebbcf4fb8a99b7261bba00, type: 3}
   m_PrefabInstance: {fileID: 2323701316566944283}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &501552629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3064785966488595896, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+  m_PrefabInstance: {fileID: 42235306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &501552633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501552629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4943098a4b1f6f5489609bd054f88904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPropertyRecords: []
+  animationEventRecords:
+  - functionName: SetBool
+    baseType: Animator
+    unityProperty: GetBool
+    unityMethodParams:
+    - isOpen
+    animationEvents: []
+  frameCount: 0
+  onRewindStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewindStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &512554262
 GameObject:
   m_ObjectHideFlags: 0
@@ -7017,7 +7049,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7398623562862095876, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
   m_PrefabInstance: {fileID: 1901086938}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1086108313}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
@@ -7270,6 +7302,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e118b97e1e2c9d64c884460c68069b3d, type: 3}
   m_PrefabInstance: {fileID: 924551496}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086108313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3064785966488595896, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+  m_PrefabInstance: {fileID: 1901086938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1086108317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086108313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4943098a4b1f6f5489609bd054f88904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPropertyRecords: []
+  animationEventRecords:
+  - functionName: SetBool
+    baseType: Animator
+    unityProperty: GetBool
+    unityMethodParams:
+    - isOpen
+    animationEvents: []
+  frameCount: 0
+  onRewindStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewindStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1104293096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8644054970347428346, guid: f0379fb309588e746b720c814cc9af82, type: 3}
@@ -7716,7 +7780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1012ab678bb8d4ca1459c0105cd357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewindSpeed: 5
+  rewindSpeed: 1
 --- !u!1 &1383566623
 GameObject:
   m_ObjectHideFlags: 0
@@ -8320,6 +8384,7 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
+  animationEventRecords: []
   frameCount: 0
   onRewindStart:
     m_PersistentCalls:
@@ -8540,6 +8605,7 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
+  animationEventRecords: []
   frameCount: 0
   onRewindStart:
     m_PersistentCalls:
@@ -10969,6 +11035,7 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
+  animationEventRecords: []
   frameCount: 0
   onRewindStart:
     m_PersistentCalls:

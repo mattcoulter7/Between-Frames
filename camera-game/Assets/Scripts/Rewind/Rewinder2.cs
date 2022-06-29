@@ -30,7 +30,8 @@ public class Rewinder2 : MonoBehaviour
     {
         foreach (RewindInstance rewindInstance in _rewindInstances)
         {
-            rewindInstance.StartRewind(rewindSpeed);
+            if (rewindInstance.isActiveAndEnabled)
+                rewindInstance.StartRewind(rewindSpeed);
         }
     }
 
@@ -38,7 +39,8 @@ public class Rewinder2 : MonoBehaviour
     {
         foreach (RewindInstance rewindInstance in _rewindInstances)
         {
-            rewindInstance.StopRewind();
+            if (rewindInstance.isActiveAndEnabled)
+                rewindInstance.StopRewind();
         }
     }
 }

@@ -67,4 +67,69 @@ static public class AnimationCurveExtension
         }
         return scaledKeys;
     }
+
+
+
+
+    static public AnimationEvent GetLatest(this AnimationEvent[] self)
+    {
+        return self.Aggregate(self[0], (prev, curr) => curr.time > prev.time ? curr : prev);
+    }
+    static public AnimationEvent GetEarliest(this AnimationEvent[] self)
+    {
+        return self.Aggregate(self[0], (prev, curr) => curr.time < prev.time ? curr : prev);
+    }
+    static public AnimationEvent[] GetReversed(this AnimationEvent[] self)
+    {
+        AnimationEvent[] reversedKeys = self;
+        if (reversedKeys.Length == 0) return reversedKeys;
+
+        //1. calculate min and max
+        AnimationEvent earlistKey = reversedKeys.GetEarliest();
+        float earlistTime = earlistKey.time;
+
+        AnimationEvent latestKey = reversedKeys.GetLatest();
+        float latestTime = latestKey.time;
+
+        for (int i = 0; i < reversedKeys.Length; i++)
+        {
+            //2.subtract max from each
+            reversedKeys[i].time -= latestTime;
+
+            //3.make positive
+            reversedKeys[i].time = Mathf.Abs(reversedKeys[i].time);
+
+            //4. re add the min
+            reversedKeys[i].time += earlistTime;
+        }
+        return reversedKeys;
+    }
+    static public AnimationEvent[] GetOffset(this AnimationEvent[] self, float time)
+    {
+        AnimationEvent[] offsetKeys = self;
+        if (offsetKeys.Length == 0) return offsetKeys;
+
+        for (int i = 0; i < offsetKeys.Length; i++)
+        {
+            offsetKeys[i].time += time;
+        }
+        return offsetKeys;
+    }
+
+    static public AnimationEvent[] GetWithinRange(this AnimationEvent[] self, float? minTime = null, float? maxTime = null)
+    {
+        return self.Where((kf) =>
+            (minTime.HasValue ? kf.time >= minTime.Value : true) &&
+            (maxTime.HasValue ? kf.time <= maxTime.Value : true)
+        ).ToArray();
+    }
+    static public AnimationEvent[] GetScaled(this AnimationEvent[] self, float timeScale = 1f)
+    {
+        AnimationEvent[] scaledKeys = self;
+        for (int i = 0; i < scaledKeys.Length; i++)
+        {
+            scaledKeys[i].time *= timeScale;
+        }
+        return scaledKeys;
+    }
 }
