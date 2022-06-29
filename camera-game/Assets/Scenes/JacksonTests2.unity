@@ -356,7 +356,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7398623562862095876, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
   m_PrefabInstance: {fileID: 42235306}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501552629}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
@@ -900,38 +900,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2323701316429860228, guid: 797c496eadebbcf4fb8a99b7261bba00, type: 3}
   m_PrefabInstance: {fileID: 2323701316566944283}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &501552629 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3064785966488595896, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
-  m_PrefabInstance: {fileID: 42235306}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &501552633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501552629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4943098a4b1f6f5489609bd054f88904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationPropertyRecords: []
-  animationEventRecords:
-  - functionName: SetBool
-    baseType: Animator
-    unityProperty: GetBool
-    unityMethodParams:
-    - isOpen
-    animationEvents: []
-  frameCount: 0
-  onRewindStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onRewindStop:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &512554262
 GameObject:
   m_ObjectHideFlags: 0
@@ -7307,6 +7275,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3064785966488595896, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
   m_PrefabInstance: {fileID: 1901086938}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1086108316 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3064785966488595899, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
+  m_PrefabInstance: {fileID: 1901086938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1086108317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7321,11 +7294,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationPropertyRecords: []
   animationEventRecords:
-  - functionName: SetBool
-    baseType: Animator
-    unityProperty: GetBool
-    unityMethodParams:
-    - isOpen
+  - valueGetter:
+      objectReference: {fileID: 1086108316}
+      targets:
+      - name: GetBool
+        paramSet:
+          parameters:
+          - paramType: 2
+            floatParameter: 0
+            stringParameter: isOpen
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+    valueSetter:
+      objectReference: {fileID: 1086108316}
+      targets:
+      - name: SetBool
+        paramSet:
+          parameters:
+          - paramType: 2
+            floatParameter: 0
+            stringParameter: isOpen
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+    functionName: SetBool
     animationEvents: []
   frameCount: 0
   onRewindStart:

@@ -20,7 +20,8 @@ public enum ParamType{
     STRING,
     INTEGER,
     BOOLEAN,
-    OBJECT
+    OBJECT,
+    CUSTOM_GETTER
 }
 
 [System.Serializable]
@@ -30,6 +31,7 @@ public class ConfigurableParam {
     public string stringParameter;
     public int intParameter;
     public bool boolParameter;
+    public DynamicModifier customGetter;
     public UnityEngine.Object objectParameter;
 
     public object GetParameter()
@@ -47,6 +49,8 @@ public class ConfigurableParam {
                 return objectParameter;
             case ParamType.STRING:
                 return stringParameter;
+            case ParamType.CUSTOM_GETTER:
+                return customGetter.GetValue();
             default:
                 return null;
         }
@@ -83,7 +87,9 @@ public class TargetInfo
 
         _propertyInfo = parentType.GetProperty(target);
         _fieldInfo = parentType.GetField(target);
-        _methodInfo = parentType.GetMethods(BindingFlags.Public | BindingFlags.Instance).First(m => m.Name == target);
+
+        MethodInfo[] methods = parentType.GetMethods();
+        _methodInfo = parentType.GetMethods().First(m => m.Name == target && m.GetParameters().Length == parameters.Length);
     }
 
     public System.Type GetTargetType()
@@ -115,7 +121,10 @@ public class TargetInfo
         else if (_fieldInfo != null)
             _fieldInfo.SetValue(parent, value);
         else if (_methodInfo != null)
-            _methodInfo.Invoke(parent, new object[] { value });
+        {
+            if (parameters.Length > 0) parameters[parameters.Length - 1] = value;
+            _methodInfo.Invoke(parent, parameters);
+        }
         else 
             throw new InvalidTargetException(target, parentType);
     }
@@ -141,35 +150,35 @@ public struct Target
 [System.Serializable]
 public class DynamicModifier
 {
-    public Component component; // component for where the chain attaches to
-    public Target[] chainTargets; // chain which which direct compiler to the property/method 
+    public UnityEngine.Object objectReference; // component for where the chain attaches to
+    public Target[] targets; // chain which which direct compiler to the property/method 
 
-    private List<TargetInfo> chainTargetInfos;
+    private List<TargetInfo> _chainTargets;
     public void OnInitialise()
     {
-        chainTargetInfos = new List<TargetInfo>();
+        _chainTargets = new List<TargetInfo>();
 
-        object parent = component;
+        object parent = objectReference;
 
         // create TargetInfo objects for each chain link which allow us to easily get/set/call the property/method etc.
-        for (int i = 0; i < chainTargets.Length; i++)
+        for (int i = 0; i < targets.Length; i++)
         {
-            Target target = chainTargets[i];
+            Target target = targets[i];
 
             // store the target info reference
             TargetInfo targetInfo = new TargetInfo(parent, target.name, target.paramSet.GetParams());
-            chainTargetInfos.Add(targetInfo);
+            _chainTargets.Add(targetInfo);
         }
     }
     public object GetValue()
     {
-        TargetInfo targetInfo = chainTargetInfos[chainTargetInfos.Count - 1];
+        TargetInfo targetInfo = _chainTargets[_chainTargets.Count - 1];
         return targetInfo.GetTargetValue();
     }
 
     public void SetValue(object value)
     {
-        TargetInfo targetInfo = chainTargetInfos[chainTargetInfos.Count - 1];
+        TargetInfo targetInfo = _chainTargets[_chainTargets.Count - 1];
         targetInfo.SetTargetValue(value);
     }
 }

@@ -10,12 +10,6 @@ using System;
 
 public class RewindInstance : MonoBehaviour
 {
-    public float floatParameter;
-    public string stringParameter;
-    public int intParameter;
-    public bool boolParameter;
-    public object objectParameter;
-
     public AnimationPropertyRecord[] animationPropertyRecords;
     public AnimationEventRecord[] animationEventRecords;
     public int frameCount = 0;
@@ -40,7 +34,7 @@ public class RewindInstance : MonoBehaviour
         }
         foreach (AnimationEventRecord record in animationEventRecords)
         {
-            record.OnInitialise(gameObject);
+            record.OnInitialise();
         }
         _animation = gameObject.AddComponent<Animation>();
         _animation.playAutomatically = false;
@@ -163,12 +157,8 @@ public class RewindInstance : MonoBehaviour
 
 
     // hacky intermediate function for call methods with a boolean parameter
-    public void BooleanRedirectTrue(string variableName)
+    public void OnEventFire(CustomAnimationEventMessage mediator)
     {
-        GetComponent<Animator>().SetBool(variableName,true);
-    }
-    public void BooleanRedirectFalse(string variableName)
-    {
-        GetComponent<Animator>().SetBool(variableName,false);
+        mediator.valueSetter.SetValue(mediator.value);
     }
 }
