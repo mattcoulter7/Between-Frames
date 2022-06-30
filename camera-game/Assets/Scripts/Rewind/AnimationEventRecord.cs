@@ -10,23 +10,44 @@ using UnityEngine;
 public class CustomAnimationEventMessage : ScriptableObject
 {
     public DynamicModifier valueSetter;
-    public object value;
+    public object value
+    {
+        get
+        {
+            return _value;
+        }
+        set
+        {
+            _value = value;
+            try
+            {
+                _boolValue = (bool)value;
+            }
+            catch (InvalidCastException e) { }
+            try
+            {
+                _stringValue = (string)value;
+            }
+            catch (InvalidCastException e) { }
+            try
+            {
+                _intValue = (int)value;
+            }
+            catch (InvalidCastException e) { }
+            try
+            {
+                _floatValue = (float)value;
+            }
+            catch (InvalidCastException e) { }
+        }
+    }
 
     // debug properties
-    private bool boolValue;
-    private string stringValue;
-    private int intValue;
-    private float floatValue;
-    public CustomAnimationEventMessage(DynamicModifier valueSetter, object value) : base()
-    {
-        this.valueSetter = valueSetter;
-        this.value = value;
-
-        boolValue = (bool)value;
-        stringValue = (string)value;
-        intValue = (int)value;
-        floatValue = (float)value;
-    }
+    private object _value;
+    private bool _boolValue;
+    private string _stringValue;
+    private int _intValue;
+    private float _floatValue;
 }
 
 // OBSERVES FUNCTION CHANGES
@@ -57,7 +78,7 @@ public class AnimationEventRecord : AnimationRecord
         if (lastValue != null)
         {
             // create an event frame right before the new frame with existing value to fix interpolation issues.
-            animationEvents.Add(CreateAnimationEvent(lastValue));
+            animationEvents.Add(CreateAnimationEvent(lastValue,-0.1f));
         }
         // create the actual event frame
         animationEvents.Add(CreateAnimationEvent(value));
@@ -68,11 +89,11 @@ public class AnimationEventRecord : AnimationRecord
         clip.events = animationEvents.ToArray();
     }
 
-    private AnimationEvent CreateAnimationEvent(object value)
+    private AnimationEvent CreateAnimationEvent(object value,float timeOffset = 0f)
     {
         AnimationEvent e;
         e = new AnimationEvent();
-        e.time = Time.time - 0.0001f;
+        e.time = Time.time + timeOffset;
         e.functionName = "OnEventFire";
 
         CustomAnimationEventMessage mediator;
