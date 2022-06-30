@@ -7335,7 +7335,6 @@ MonoBehaviour:
             objectParameter: {fileID: 0}
     functionName: SetBool
     animationEvents: []
-  frameCount: 0
   onRewindStart:
     m_PersistentCalls:
       m_Calls: []
@@ -8332,9 +8331,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPropertyRecords:
-  - animationProperty: _offset.x
-    baseType: CinematicBarManager
-    unityProperty: _offset.x
+  - valueGetter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: _offset
+        paramSet:
+          parameters: []
+      - name: x
+        paramSet:
+          parameters: []
+    animationProperty: _offset.x
     timeline:
       serializedVersion: 2
       m_Curve: []
@@ -8347,9 +8353,16 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
-  - animationProperty: _offset.y
-    baseType: CinematicBarManager
-    unityProperty: _offset.y
+  - valueGetter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: _offset
+        paramSet:
+          parameters: []
+      - name: y
+        paramSet:
+          parameters: []
+    animationProperty: _offset.y
     timeline:
       serializedVersion: 2
       m_Curve: []
@@ -8362,9 +8375,13 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
-  - animationProperty: _rotation
-    baseType: CinematicBarManager
-    unityProperty: _rotation
+  - valueGetter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: _rotation
+        paramSet:
+          parameters: []
+    animationProperty: _rotation
     timeline:
       serializedVersion: 2
       m_Curve: []
@@ -8377,9 +8394,13 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
-  - animationProperty: _distance
-    baseType: CinematicBarManager
-    unityProperty: _distance
+  - valueGetter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: _distance
+        paramSet:
+          parameters: []
+    animationProperty: _distance
     timeline:
       serializedVersion: 2
       m_Curve: []
@@ -8393,13 +8414,23 @@ MonoBehaviour:
       m_PostInfinity: 0
       m_RotationOrder: 0
   animationEventRecords: []
-  frameCount: 0
   onRewindStart:
     m_PersistentCalls:
       m_Calls: []
   onRewindStop:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1822367886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 630763613663510502, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+  m_PrefabInstance: {fileID: 630763614009910340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822367859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfcf72940301ed45a7b133e4f5ac978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1822593394
 GameObject:
   m_ObjectHideFlags: 0
@@ -8568,9 +8599,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPropertyRecords:
-  - animationProperty: localPosition.x
-    baseType: Transform
-    unityProperty: localPosition.x
+  - valueGetter:
+      objectReference: {fileID: 1839036367}
+      targets:
+      - name: localPosition
+        paramSet:
+          parameters: []
+      - name: x
+        paramSet:
+          parameters: []
+    animationProperty: localPosition.x
     timeline:
       serializedVersion: 2
       m_Curve: []
@@ -8583,9 +8621,16 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
-  - animationProperty: localPosition.y
-    baseType: Transform
-    unityProperty: localPosition.y
+  - valueGetter:
+      objectReference: {fileID: 1839036367}
+      targets:
+      - name: localPosition
+        paramSet:
+          parameters: []
+      - name: y
+        paramSet:
+          parameters: []
+    animationProperty: localPosition.y
     timeline:
       serializedVersion: 2
       m_Curve: []
@@ -8598,9 +8643,16 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
-  - animationProperty: localEulerAnglesRaw.z
-    baseType: Transform
-    unityProperty: localEulerAngles.z
+  - valueGetter:
+      objectReference: {fileID: 1839036367}
+      targets:
+      - name: localEulerAngles
+        paramSet:
+          parameters: []
+      - name: z
+        paramSet:
+          parameters: []
+    animationProperty: localEulerAnglesRaw.z
     timeline:
       serializedVersion: 2
       m_Curve: []
@@ -8614,7 +8666,6 @@ MonoBehaviour:
       m_PostInfinity: 0
       m_RotationOrder: 0
   animationEventRecords: []
-  frameCount: 0
   onRewindStart:
     m_PersistentCalls:
       m_Calls:
@@ -10359,6 +10410,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 102a6452cfdf962468ae52f4e9285049, type: 2}
     - target: {fileID: 3802977380926233624, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802977380926233624, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
       propertyPath: myCollider
       value: 
       objectReference: {fileID: 995599968}
@@ -11013,9 +11068,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPropertyRecords:
-  - animationProperty: localPosition.x
-    baseType: Transform
-    unityProperty: localPosition.x
+  - valueGetter:
+      objectReference: {fileID: 543450652542984415}
+      targets:
+      - name: localPosition
+        paramSet:
+          parameters: []
+      - name: x
+        paramSet:
+          parameters: []
+    animationProperty: localPosition.x
     timeline:
       serializedVersion: 2
       m_Curve: []
@@ -11028,9 +11090,16 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
-  - animationProperty: localPosition.y
-    baseType: Transform
-    unityProperty: localPosition.y
+  - valueGetter:
+      objectReference: {fileID: 543450652542984415}
+      targets:
+      - name: localPosition
+        paramSet:
+          parameters: []
+      - name: y
+        paramSet:
+          parameters: []
+    animationProperty: localPosition.y
     timeline:
       serializedVersion: 2
       m_Curve: []
@@ -11044,7 +11113,6 @@ MonoBehaviour:
       m_PostInfinity: 0
       m_RotationOrder: 0
   animationEventRecords: []
-  frameCount: 0
   onRewindStart:
     m_PersistentCalls:
       m_Calls:

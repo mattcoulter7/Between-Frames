@@ -12,27 +12,28 @@ public class RewindInstance : MonoBehaviour
 {
     public AnimationPropertyRecord[] animationPropertyRecords;
     public AnimationEventRecord[] animationEventRecords;
-    public int frameCount = 0;
     public UnityEvent onRewindStart;
     public UnityEvent onRewindStop;
 
+    private AnimationRecord[] _animationRecords; // abstracted array containing both properties & events
     private Animation _animation;
     private AnimationClip _rewindAnimationClip;
     private bool _isRewinding = false;
     private float _startTime = 0f;
     private float _stopTime = 0f;
+
+    [Header("Debug Properties")]
+    private int _frameCount = 0;
     private float _rewindClipActualDuration;
     private float _rewindClipCalculatedDuration;
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        foreach (AnimationPropertyRecord record in animationPropertyRecords)
-        {
-            record.OnInitialise(gameObject);
-        }
-        foreach (AnimationEventRecord record in animationEventRecords)
+        AbstractAnimationRecords();
+
+        foreach (AnimationRecord record in _animationRecords)
         {
             record.OnInitialise();
         }
@@ -69,15 +70,11 @@ public class RewindInstance : MonoBehaviour
 
     public void Record(bool optimise = true)
     {
-        frameCount = 0;
-        foreach (AnimationPropertyRecord record in animationPropertyRecords)
+        _frameCount = 0;
+        foreach (AnimationRecord record in _animationRecords)
         {
             record.Record(optimise);
-            frameCount += record.timeline.keys.Length;
-        }
-        foreach (AnimationEventRecord record in animationEventRecords)
-        {
-            record.Record(optimise);
+            _frameCount += record.frameCount;
         }
     }
 
@@ -121,18 +118,14 @@ public class RewindInstance : MonoBehaviour
         }
 
         _animation.Play(_rewindAnimationClip.name);
-        _startTime = _animation[_rewindAnimationClip.name].time;
+        _startTime = Time.time;
         onRewindStart.Invoke();
     }
 
     public void StopRewind()
     {
         _isRewinding = false;
-        _stopTime = _animation[_rewindAnimationClip.name].time;
-        if (_stopTime == 0)
-        {
-            _stopTime = animationPropertyRecords[0].rewind.keys.GetLatest().time;
-        }
+        _stopTime = Time.time;
         _animation.Stop(_rewindAnimationClip.name);
         float rewindDuration = _stopTime - _startTime;
         foreach (AnimationPropertyRecord record in animationPropertyRecords)
@@ -151,10 +144,17 @@ public class RewindInstance : MonoBehaviour
         }
         _rewindAnimationClip.ClearCurves();
         _rewindAnimationClip.events = new AnimationEvent[] { };
-
+        Record(false);
         onRewindStop.Invoke();
     }
 
+    private void AbstractAnimationRecords()
+    {
+        List<AnimationRecord> animationRecords = new List<AnimationRecord>();
+        animationRecords.AddRange(animationPropertyRecords);
+        animationRecords.AddRange(animationEventRecords);
+        _animationRecords = animationRecords.ToArray();
+    }
 
     // hacky intermediate function for call methods with a boolean parameter
     public void OnEventFire(CustomAnimationEventMessage mediator)

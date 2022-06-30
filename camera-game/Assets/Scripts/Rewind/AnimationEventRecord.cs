@@ -11,76 +11,76 @@ public class CustomAnimationEventMessage : ScriptableObject
 {
     public DynamicModifier valueSetter;
     public object value;
+
+    // debug properties
+    private bool boolValue;
+    private string stringValue;
+    private int intValue;
+    private float floatValue;
     public CustomAnimationEventMessage(DynamicModifier valueSetter, object value) : base()
     {
         this.valueSetter = valueSetter;
         this.value = value;
+
+        boolValue = (bool)value;
+        stringValue = (string)value;
+        intValue = (int)value;
+        floatValue = (float)value;
     }
 }
 
 // OBSERVES FUNCTION CHANGES
 [System.Serializable]
-public class AnimationEventRecord
+public class AnimationEventRecord : AnimationRecord
 {
-    public DynamicModifier valueGetter; // Used for fetching the property value
     public DynamicModifier valueSetter; // Used for setting the value property
     public string functionName; // function called to update variable
     public List<AnimationEvent> animationEvents;
 
-    private object lastValue;
+    public override object lastValue => animationEvents.Count > 0 ? ((CustomAnimationEventMessage)(animationEvents[animationEvents.Count - 1].objectReferenceParameter)).value : null;
+    public override int frameCount => animationEvents.Count;
 
     // Update is called once per frame
-    public void OnInitialise()
+    public override void OnInitialise()
     {
-        valueGetter.OnInitialise();
+        base.OnInitialise();
         valueSetter.OnInitialise();
     }
 
-    public void Record(bool optimise = true)
+    public override void Record(bool optimise = true)
     {
         // list to values from a given path (could be a variable or a method that returns something)
         object value = valueGetter.GetValue();
 
-        
-        if (optimise && Equals(value, lastValue))
-        {
-            return;
-        }
+        if (optimise && Equals(value, lastValue)) return;
 
-        AnimationEvent e;
-        CustomAnimationEventMessage mediator;
         if (lastValue != null)
         {
             // create an event frame right before the new frame with existing value to fix interpolation issues.
-            e = new AnimationEvent();
-            e.time = Time.time - 0.0001f;
-            e.functionName = "OnEventFire";
-
-
-            mediator = ScriptableObject.CreateInstance<CustomAnimationEventMessage>();
-            mediator.valueSetter = valueSetter;
-            mediator.value = lastValue;
-            e.objectReferenceParameter = mediator;
-
-            animationEvents.Add(e);
+            animationEvents.Add(CreateAnimationEvent(lastValue));
         }
-
         // create the actual event frame
+        animationEvents.Add(CreateAnimationEvent(value));
+    }
+
+    public override void Apply(AnimationClip clip)
+    {
+        clip.events = animationEvents.ToArray();
+    }
+
+    private AnimationEvent CreateAnimationEvent(object value)
+    {
+        AnimationEvent e;
         e = new AnimationEvent();
-        e.time = Time.time;
+        e.time = Time.time - 0.0001f;
         e.functionName = "OnEventFire";
 
+        CustomAnimationEventMessage mediator;
         mediator = ScriptableObject.CreateInstance<CustomAnimationEventMessage>();
         mediator.valueSetter = valueSetter;
         mediator.value = value;
         e.objectReferenceParameter = mediator;
 
-        lastValue = value;
-        animationEvents.Add(e);
-    }
-
-    public void Apply(AnimationClip clip)
-    {
-        clip.events = animationEvents.ToArray();
+        return e;
     }
 }

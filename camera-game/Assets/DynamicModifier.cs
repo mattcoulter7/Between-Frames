@@ -70,26 +70,33 @@ public class ParamSet
 public class TargetInfo
 {
     public object parent;
+    public TargetInfo parentTargetInfo;
     public string target;
     public object[] parameters;
     public System.Type parentType;
-    
+
+    private object GetParent() => parentTargetInfo == null ? parent : parentTargetInfo.GetTargetValue();
     private PropertyInfo _propertyInfo;
     private FieldInfo _fieldInfo;
     private MethodInfo _methodInfo;
     
-    public TargetInfo(object parent,string target,object[] parameters)
+    public TargetInfo(object parent, TargetInfo parentTargetInfo,string target,object[] parameters)
     {
         this.target = target;
         this.parent = parent;
+        this.parentTargetInfo = parentTargetInfo;
         this.parameters = parameters;
-        parentType = parent.GetType();
+        parentType = GetParent().GetType();
 
         _propertyInfo = parentType.GetProperty(target);
         _fieldInfo = parentType.GetField(target);
 
         MethodInfo[] methods = parentType.GetMethods();
-        _methodInfo = parentType.GetMethods().First(m => m.Name == target && m.GetParameters().Length == parameters.Length);
+        try
+        {
+            _methodInfo = parentType.GetMethods().First(m => m.Name == target && m.GetParameters().Length == parameters.Length);
+        }
+        catch (InvalidOperationException e) { }
     }
 
     public System.Type GetTargetType()
@@ -105,25 +112,27 @@ public class TargetInfo
     }
     public object GetTargetValue()
     {
+        object p = GetParent();
         if (_propertyInfo != null)
-            return _propertyInfo.GetValue(parent, null);
+            return _propertyInfo.GetValue(p, null);
         if (_fieldInfo != null)
-            return _fieldInfo.GetValue(parent);
+            return _fieldInfo.GetValue(p);
         if (_methodInfo != null)
-            return _methodInfo.Invoke(parent, parameters);
+            return _methodInfo.Invoke(p, parameters);
         throw new InvalidTargetException(target, parentType);
     }
 
     public void SetTargetValue(object value)
     {
+        object p = GetParent();
         if (_propertyInfo != null)
-            _propertyInfo.SetValue(parent, value);
+            _propertyInfo.SetValue(p, value);
         else if (_fieldInfo != null)
-            _fieldInfo.SetValue(parent, value);
+            _fieldInfo.SetValue(p, value);
         else if (_methodInfo != null)
         {
             if (parameters.Length > 0) parameters[parameters.Length - 1] = value;
-            _methodInfo.Invoke(parent, parameters);
+            _methodInfo.Invoke(p, parameters);
         }
         else 
             throw new InvalidTargetException(target, parentType);
@@ -159,6 +168,7 @@ public class DynamicModifier
         _chainTargets = new List<TargetInfo>();
 
         object parent = objectReference;
+        TargetInfo parentTargetInfo = null;
 
         // create TargetInfo objects for each chain link which allow us to easily get/set/call the property/method etc.
         for (int i = 0; i < targets.Length; i++)
@@ -166,7 +176,9 @@ public class DynamicModifier
             Target target = targets[i];
 
             // store the target info reference
-            TargetInfo targetInfo = new TargetInfo(parent, target.name, target.paramSet.GetParams());
+            TargetInfo targetInfo = new TargetInfo(parent, parentTargetInfo, target.name, target.paramSet.GetParams());
+            parentTargetInfo = targetInfo;
+
             _chainTargets.Add(targetInfo);
         }
     }
