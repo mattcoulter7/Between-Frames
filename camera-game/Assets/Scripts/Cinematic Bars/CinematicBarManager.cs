@@ -89,6 +89,13 @@ public class CinematicBarManager : MonoBehaviour
             _distance = value;
         }
     }
+    public float normalizedDistance
+    {
+        get
+        {
+            return enableDistanceLimit ? (distance - minDistance) / (maxDistance - minDistance) : 0;
+        }
+    }
     public float distanceSnapped
     {
         get
