@@ -5041,28 +5041,8 @@ PrefabInstance:
       value: 0.10289937
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: zoomSpeed
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: zoomSpeedCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: zoomSpeedScale.m_Curve.Array.size
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: zoomSpeedCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: zoomSpeedCurve.m_Curve.Array.data[1].time
-      value: 0.9978355
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: zoomSpeedScale.m_Curve.Array.data[0].time
@@ -5073,14 +5053,6 @@ PrefabInstance:
       value: 5.056082
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: zoomSpeedCurve.m_Curve.Array.data[0].value
-      value: 1.0070801
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: zoomSpeedCurve.m_Curve.Array.data[1].value
-      value: 0.2215502
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: zoomSpeedScale.m_Curve.Array.data[0].value
       value: 1.041573
       objectReference: {fileID: 0}
@@ -5089,24 +5061,12 @@ PrefabInstance:
       value: 0.011791229
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: zoomSpeedCurve.m_Curve.Array.data[1].inSlope
-      value: 0.087190606
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: zoomSpeedScale.m_Curve.Array.data[0].inSlope
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: zoomSpeedScale.m_Curve.Array.data[1].inSlope
       value: 0.02059831
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: zoomSpeedCurve.m_Curve.Array.data[1].inWeight
-      value: 0.05411285
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: zoomSpeedCurve.m_Curve.Array.data[1].outSlope
-      value: 0.087190606
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: zoomSpeedScale.m_Curve.Array.data[0].outSlope
