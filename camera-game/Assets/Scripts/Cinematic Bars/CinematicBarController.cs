@@ -9,6 +9,14 @@ public class CinematicBarController : MonoBehaviour
     public bool enablePan = true;
     public bool enableRotation = true;
     public float zoomSpeed = 1f;
+    public AnimationCurve zoomSpeedCurve;
+    public float scaledZoomSpeed
+    {
+        get
+        {
+            return zoomSpeed * zoomSpeedCurve.Evaluate(_cinematicBars.normalizedDistance);
+        }
+    }
     public float rotateSpeed = 1f;
     public float moveSpeed = 1f;
     private CinematicBarManager _cinematicBars;
@@ -31,7 +39,7 @@ public class CinematicBarController : MonoBehaviour
         if (enableZoom && zoomFrame != 0f)
         {
             // if it is one of the black bars, chane that instead of both
-            _cinematicBars.distance += zoomFrame * zoomSpeed;
+            _cinematicBars.distance += zoomFrame * scaledZoomSpeed;
         }
 
         // click and drag left mouse button to move origin

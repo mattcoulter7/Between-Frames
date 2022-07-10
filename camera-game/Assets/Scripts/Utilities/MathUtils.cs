@@ -12,6 +12,6 @@ public class MathUtils {
 
     static public float roundFloatToStep(float value, float step)
     {
-        return step * (Mathf.Round(value / step));
+        return step * (Mathf.Ceil(value / step));
     }
 }
