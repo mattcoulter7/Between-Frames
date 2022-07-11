@@ -31,4 +31,7 @@ public class VideoController : MonoBehaviour
     {
         videoPlayer.Play();
     }
+
+    // NOTES:
+    //Whole canvas is kind of laggy. Could consider leaving it as a quad with video player texture. Also might solve pause render ordedr problem
 }
