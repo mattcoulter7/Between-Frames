@@ -58,7 +58,7 @@ public class PlayerKiller : MonoBehaviour
         if (kill)
         {
             onKill.Invoke();
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("Killed");            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e053f2ffd045340c59006acbb2dbba3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stepSounds: []
   BGM:
   - name: LevelMusic
     clip: {fileID: 8300000, guid: f41fe67021ebd4617bdf2a42bd13e3cf, type: 3}
@@ -70,6 +71,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: DeathSound
     clip: {fileID: 8300000, guid: 751ca5986d77b4161bcf04645c15f3a8, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: DeathChime
+    clip: {fileID: 8300000, guid: eb6ec807100204853802f86be98e50cf, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
@@ -103,6 +111,13 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Land
+    clip: {fileID: 8300000, guid: eee9dbeadca12419da779404a7583d01, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   - name: Step1
     clip: {fileID: 8300000, guid: 77f2003777d824c1fbd2c12b45029e94, type: 3}
     volume: 0.5
@@ -115,6 +130,27 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: DoorClose
+    clip: {fileID: 8300000, guid: 8d31b7340b2158c4eb0ad5870f479ce6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: 507bb89e4ddc19145ac58bc63a26e2a1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: RewindSFX
+    clip: {fileID: 8300000, guid: 3b7f3972f38bf4009a41351a79d2b700, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
     playOnAwake: 0
     source: {fileID: 0}
 --- !u!114 &2346111616123011502

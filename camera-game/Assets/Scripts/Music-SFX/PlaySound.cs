@@ -5,12 +5,16 @@ using UnityEngine;
 public class PlaySound : MonoBehaviour
 {
     private bool startedPlaying = false;
-
+    private bool soundPlayed;
+    private void Start()
+    {
+        soundPlayed = false;
+    }
     public void Play(string name)
     {
 
         AM.Instance.PlaySFX(name);
-        Debug.Log("Played sound from PlaySound");
+        //Debug.Log("Played sound from PlaySound");
     }
 
     public void PlayLooped(string name)
@@ -51,5 +55,17 @@ public class PlaySound : MonoBehaviour
     {
         AM.Instance.PlayFootsteps();
     }
+
+    //Fading in and out of a loop (hopefully)
+    public void FadeInLoop(string name)
+    {
+        AM.Instance.PlayFadeIn(name);
+    }
+
+    public void FadeOutLoop(string name)
+    {
+        AM.Instance.StopFadeOut(name);
+    }
+
 
 }

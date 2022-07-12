@@ -229,6 +229,33 @@ public class AM : MonoBehaviour
 
     }
 
+    // New Addition 12 Jul 2022
+    public void PlayFadeIn(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return;
+        }
+        s.source.volume = 0;
+        s.source.Play();
+        StartCoroutine(FadeAudioSource.StartFade(s.source, (float)0.2, 1));
+    }
+
+    public void StopFadeOut(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return;
+        }
+        StartCoroutine(FadeAudioSource.StartFade(s.source, 5, 0));
+        s.source.Stop();
+        
+    }
+
     public void PlayFootsteps()
     {
         Sound stepToPlay = (Sound)stepSounds[UnityEngine.Random.Range(0, stepSounds.Count)];
