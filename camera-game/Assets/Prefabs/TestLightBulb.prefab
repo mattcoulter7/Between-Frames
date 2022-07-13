@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2707782521438347894}
   - component: {fileID: 2707782521438347895}
   - component: {fileID: 2707782521438347892}
+  - component: {fileID: 4987726416343913587}
   m_Layer: 0
   m_Name: TestLightBulb
   m_TagString: Untagged
@@ -84,7 +85,7 @@ MonoBehaviour:
       m_Calls: []
   bounds:
   - {fileID: 0}
-  myCollider: {fileID: 0}
+  myCollider: {fileID: 2451981689160298641}
   penetrationDepth: 0.5
   automaticInvokation: 0
 --- !u!114 &3802977380926233624
@@ -123,7 +124,7 @@ MonoBehaviour:
   bounds:
   - {fileID: 0}
   - {fileID: 0}
-  myCollider: {fileID: 0}
+  myCollider: {fileID: 2451981689160298641}
   penetrationDepth: 0.5
   automaticInvokation: 1
 --- !u!114 &2707782521438347894
@@ -203,6 +204,57 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   toggledAnimationVariable: isOpen
+--- !u!114 &4987726416343913587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2707782521438347888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a3ea2dc4f10184c8fbf5a335f5057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  isRecording: 0
+  rewindProperties:
+  - getter:
+      objectReference: {fileID: 2707782521438347894}
+      targets:
+      - name: currentState
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 2707782521438347894}
+      targets:
+      - name: ChangeState
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  onRewindStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewindStop:
+    m_PersistentCalls:
+      m_Calls: []
+  onContinue:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2623347759289091608
 PrefabInstance:
   m_ObjectHideFlags: 0

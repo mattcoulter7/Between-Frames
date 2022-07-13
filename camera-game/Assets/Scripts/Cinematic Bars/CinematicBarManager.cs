@@ -108,4 +108,9 @@ public class CinematicBarManager : MonoBehaviour
     public float maxDistance = 0f;
     public bool enableDistanceSnapping = false;
     public float distanceSnap = 5f;
+
+    // helper method for easy Unity integrations
+    public void SetOffset(Vector2 value) => offset = value;
+    public void SetDistance(float value) => distance = value;
+    public void SetRotation(float value) => rotation = value;
 }

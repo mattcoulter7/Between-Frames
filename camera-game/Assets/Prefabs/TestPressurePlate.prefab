@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4485674689304808741}
   - component: {fileID: 4485674689304808746}
   - component: {fileID: 4485674689304808747}
+  - component: {fileID: 4014385104765531805}
   m_Layer: 0
   m_Name: TestPressurePlate
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4485674689304808723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.87, y: -2.701, z: 0.4}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4234290038065390808}
@@ -49,7 +50,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 0.4, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4485674689304808744
 MonoBehaviour:
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bindings:
-  - eventType: 5
+  - eventType: 7
     unityEvent:
       m_PersistentCalls:
         m_Calls:
@@ -218,6 +219,57 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   toggledAnimationVariable: isOpen
+--- !u!114 &4014385104765531805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4485674689304808723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a3ea2dc4f10184c8fbf5a335f5057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  isRecording: 0
+  rewindProperties:
+  - getter:
+      objectReference: {fileID: 4485674689304808741}
+      targets:
+      - name: currentState
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 4485674689304808741}
+      targets:
+      - name: ChangeState
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  onRewindStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewindStop:
+    m_PersistentCalls:
+      m_Calls: []
+  onContinue:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &7891745731505250536
 PrefabInstance:
   m_ObjectHideFlags: 0

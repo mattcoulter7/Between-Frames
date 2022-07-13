@@ -832,6 +832,7 @@ GameObject:
   - component: {fileID: 630763613663510503}
   - component: {fileID: 630763613663510496}
   - component: {fileID: 630763613663510497}
+  - component: {fileID: 1138631152560989959}
   m_Layer: 6
   m_Name: CinematicBars 1
   m_TagString: Untagged
@@ -882,10 +883,10 @@ MonoBehaviour:
   enableOffsetLimit: 1
   minOffset: {x: 0.3, y: 0.35}
   maxOffset: {x: 0.7, y: 0.65}
-  _distance: 5
+  _distance: 2.5
   enableDistanceLimit: 1
   minDistance: 2.5
-  maxDistance: 5.25
+  maxDistance: 4.75
   enableDistanceSnapping: 1
   distanceSnap: 0.05
 --- !u!114 &630763613663510503
@@ -979,6 +980,135 @@ MonoBehaviour:
   onDistance:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1138631152560989959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630763613663510500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a3ea2dc4f10184c8fbf5a335f5057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  isRecording: 0
+  rewindProperties:
+  - getter:
+      objectReference: {fileID: 630763613663510502}
+      targets:
+      - name: offset
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 630763613663510502}
+      targets:
+      - name: offset
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  - getter:
+      objectReference: {fileID: 630763613663510502}
+      targets:
+      - name: distance
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 630763613663510502}
+      targets:
+      - name: distance
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  - getter:
+      objectReference: {fileID: 630763613663510502}
+      targets:
+      - name: rotation
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 630763613663510502}
+      targets:
+      - name: rotation
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  onRewindStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 630763613663510503}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRewindStop:
+    m_PersistentCalls:
+      m_Calls: []
+  onContinue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 630763613663510503}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &630763613680638194
 GameObject:
   m_ObjectHideFlags: 0
