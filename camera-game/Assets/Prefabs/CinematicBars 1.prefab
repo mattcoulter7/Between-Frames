@@ -906,6 +906,30 @@ MonoBehaviour:
   enablePan: 1
   enableRotation: 1
   zoomSpeed: 0.25
+  zoomSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.0070801
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.9978355
+      value: 0.2215502
+      inSlope: 0.087190606
+      outSlope: 0.087190606
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.05411285
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   rotateSpeed: 0.05
   moveSpeed: 1
 --- !u!114 &630763613663510496
