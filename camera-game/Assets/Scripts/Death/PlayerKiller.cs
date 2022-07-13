@@ -17,11 +17,14 @@ public class PlayerKiller : MonoBehaviour
 
     CapsuleCollider _myCol;
     bool ready = false;
+
+    public bool dead;
     void Start()
     {
         _myCol = GetComponent<CapsuleCollider>();
         //Start the coroutine we define below named ExampleCoroutine.
         StartCoroutine(ExampleCoroutine());
+        dead = false;
     }
     IEnumerator ExampleCoroutine()
     {
@@ -55,9 +58,10 @@ public class PlayerKiller : MonoBehaviour
             }
         }
 
-        if (kill)
+        if (kill && !dead)
         {
             onKill.Invoke();
+            dead = true;
             Debug.Log("Killed");            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
