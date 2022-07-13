@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Rewinder2 : MonoBehaviour
 {
+    public bool automaticallyStartRecording = true;
     public float rewindDuration = 4f;
     public float rewindSpeed = 1f;
 
@@ -15,29 +16,42 @@ public class Rewinder2 : MonoBehaviour
     public UnityEvent onRewindStop; // stops all the rewind
     public UnityEvent onContinue; // returns to normal play mode
 
+    public string rewindInputBind;
+
     private RewindInstance2[] _rewindInstances;
     // Start is called before the first frame update
     void Start()
     {
         _rewindInstances = FindObjectsOfType<RewindInstance2>();
+        if (automaticallyStartRecording)
+        {
+            StartRecording();
+        }
+    }
+
+    public void StartRecording()
+    {
         isRecording = true;
         foreach (RewindInstance2 rewindInstance in _rewindInstances)
         {
             rewindInstance.isRecording = true;
         }
     }
+    public void StopRecording()
+    {
+        isRecording = false;
+        foreach (RewindInstance2 rewindInstance in _rewindInstances)
+        {
+            rewindInstance.isRecording = false;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isRewinding && Input.GetKeyDown(KeyCode.K))
+        if (!isRewinding && Input.GetButtonDown(rewindInputBind))
         {
             RewindForSeconds();
-        }
-
-        if (!isRecording && Input.GetKeyDown(KeyCode.Return))
-        {
-            Continue();
         }
     }
 

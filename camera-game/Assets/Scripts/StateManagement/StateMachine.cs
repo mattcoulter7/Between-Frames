@@ -41,11 +41,11 @@ public class StateMachine : MonoBehaviour
     {
         if (currentState != null) currentState.Exit();
         currentState = stateObj;
-        currentState.Enter();
+        if (currentState != null) currentState.Enter();
     }
     public void ChangeState(string state) // overrides the current state
     {
-        State stateObj = states[state];
+        State stateObj = state == "" ? null : states[state];
         ChangeState(stateObj);
     }
 
