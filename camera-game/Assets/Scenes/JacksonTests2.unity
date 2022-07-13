@@ -7635,6 +7635,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1359873002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7662118698753256586, guid: cd2cfea3bd396db40ad831a759626ec3, type: 3}
+  m_PrefabInstance: {fileID: 7662118698061235428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1371867493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7937,12 +7942,57 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7662118698753256596, guid: cd2cfea3bd396db40ad831a759626ec3, type: 3}
   m_PrefabInstance: {fileID: 7662118698061235428}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1359873002}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d7f293c45fec7042949544fdbbf1430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1522624626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7662118698753256597, guid: cd2cfea3bd396db40ad831a759626ec3, type: 3}
+  m_PrefabInstance: {fileID: 7662118698061235428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359873002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1522624628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359873002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a3ea2dc4f10184c8fbf5a335f5057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  rewindProperties:
+  - getter:
+      objectReference: {fileID: 1522624626}
+      targets:
+      - name: color
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 1522624626}
+      targets:
+      - name: color
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+  onRewindStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewindStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1683759122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2095121769745705945, guid: 86633d531d117314ba48731c5bd6af17, type: 3}
@@ -8458,7 +8508,7 @@ MonoBehaviour:
     setter:
       objectReference: {fileID: 1822367886}
       targets:
-      - name: SetOffset
+      - name: offset
         paramSet:
           parameters:
           - paramType: 0
@@ -8485,7 +8535,7 @@ MonoBehaviour:
     setter:
       objectReference: {fileID: 1822367886}
       targets:
-      - name: SetDistance
+      - name: distance
         paramSet:
           parameters:
           - paramType: 0
@@ -8512,7 +8562,7 @@ MonoBehaviour:
     setter:
       objectReference: {fileID: 1822367886}
       targets:
-      - name: SetRotation
+      - name: rotation
         paramSet:
           parameters:
           - paramType: 0
@@ -8714,39 +8764,9 @@ MonoBehaviour:
     setter:
       objectReference: {fileID: 1839036367}
       targets:
-      - name: SetPositionAndRotation
+      - name: position
         paramSet:
-          parameters:
-          - paramType: 0
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 0}
-              targets: []
-            objectParameter: {fileID: 0}
-            initialiseParameter:
-              typeName: 
-              paramSet:
-                parameters: []
-          - paramType: 6
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 1839036367}
-              targets:
-              - name: rotation
-                paramSet:
-                  parameters: []
-                targetSetIndex: 0
-            objectParameter: {fileID: 0}
-            initialiseParameter:
-              typeName: 
-              paramSet:
-                parameters: []
+          parameters: []
         targetSetIndex: 0
   - getter:
       objectReference: {fileID: 1839036367}
@@ -8758,40 +8778,10 @@ MonoBehaviour:
     setter:
       objectReference: {fileID: 1839036367}
       targets:
-      - name: SetPositionAndRotation
+      - name: rotation
         paramSet:
-          parameters:
-          - paramType: 6
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 1839036367}
-              targets:
-              - name: position
-                paramSet:
-                  parameters: []
-                targetSetIndex: 0
-            objectParameter: {fileID: 0}
-            initialiseParameter:
-              typeName: 
-              paramSet:
-                parameters: []
-          - paramType: 0
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 0}
-              targets: []
-            objectParameter: {fileID: 0}
-            initialiseParameter:
-              typeName: 
-              paramSet:
-                parameters: []
-        targetSetIndex: 1
+          parameters: []
+        targetSetIndex: 0
   onRewindStart:
     m_PersistentCalls:
       m_Calls: []
@@ -11210,7 +11200,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6001349722020595283, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
   m_PrefabInstance: {fileID: 6883886270487624758}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6883886270487624768
+--- !u!114 &6883886270487624775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11234,39 +11224,9 @@ MonoBehaviour:
     setter:
       objectReference: {fileID: 543450652542984415}
       targets:
-      - name: SetPositionAndRotation
+      - name: position
         paramSet:
-          parameters:
-          - paramType: 0
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 0}
-              targets: []
-            objectParameter: {fileID: 0}
-            initialiseParameter:
-              typeName: 
-              paramSet:
-                parameters: []
-          - paramType: 6
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 543450652542984415}
-              targets:
-              - name: rotation
-                paramSet:
-                  parameters: []
-                targetSetIndex: 0
-            objectParameter: {fileID: 0}
-            initialiseParameter:
-              typeName: 
-              paramSet:
-                parameters: []
+          parameters: []
         targetSetIndex: 0
   - getter:
       objectReference: {fileID: 543450652542984415}
@@ -11278,40 +11238,10 @@ MonoBehaviour:
     setter:
       objectReference: {fileID: 543450652542984415}
       targets:
-      - name: SetPositionAndRotation
+      - name: rotation
         paramSet:
-          parameters:
-          - paramType: 6
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 543450652542984415}
-              targets:
-              - name: position
-                paramSet:
-                  parameters: []
-                targetSetIndex: 0
-            objectParameter: {fileID: 0}
-            initialiseParameter:
-              typeName: 
-              paramSet:
-                parameters: []
-          - paramType: 0
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 0}
-              targets: []
-            objectParameter: {fileID: 0}
-            initialiseParameter:
-              typeName: 
-              paramSet:
-                parameters: []
-        targetSetIndex: 1
+          parameters: []
+        targetSetIndex: 0
   onRewindStart:
     m_PersistentCalls:
       m_Calls: []
