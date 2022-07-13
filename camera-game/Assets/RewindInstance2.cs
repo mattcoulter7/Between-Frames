@@ -19,24 +19,33 @@ public class RewindInstance2 : MonoBehaviour
         public List<Frame> frames = new List<Frame> { };
     }
     public bool isRewinding = false;
+    public bool isRecording = false;
     public List<RewindProperty> rewindProperties = new List<RewindProperty> { };
     public List<FrameCollection> frames = new List<FrameCollection> { };
+
     public UnityEvent onRewindStart;
     public UnityEvent onRewindStop;
+    public UnityEvent onContinue;
 
     public void StartRewind()
     {
-        if (!isRewinding) onRewindStart.Invoke();
+        onRewindStart.Invoke();
         isRewinding = true;
+        isRecording = false;
     }
     public void StopRewind()
     {
-        if (isRewinding) onRewindStop.Invoke();
+        onRewindStop.Invoke();
         isRewinding = false;
     }
+    public void Continue()
+    {
+        onContinue.Invoke();
+        isRecording = true;
+    }
 
-        // Start is called before the first frame update
-        private void Start()
+    // Start is called before the first frame update
+    private void Start()
     {
         foreach (RewindProperty prop in rewindProperties)
         {
@@ -45,21 +54,16 @@ public class RewindInstance2 : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-            StartRewind();
-        if (Input.GetKeyUp(KeyCode.L))
-            StopRewind();
-    }
-
     private void FixedUpdate()
     {
         if (isRewinding)
+        {
             Rewind();
-        else
+        }
+        else if (isRecording)
+        {
             Record();
+        }
     }
 
     private void Record()
@@ -79,7 +83,6 @@ public class RewindInstance2 : MonoBehaviour
     {
         if (frames.Count == 0)
         {
-            StopRewind();
             return;
         }
 
