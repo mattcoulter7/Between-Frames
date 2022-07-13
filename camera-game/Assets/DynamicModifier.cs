@@ -15,24 +15,58 @@ class InvalidTargetException : Exception
 
 [System.Serializable]
 public enum ParamType{ 
-    NULL,
-    FLOAT,
-    STRING,
-    INTEGER,
-    BOOLEAN,
-    OBJECT,
-    CUSTOM_GETTER
+    NULL = 0,
+    FLOAT = 1,
+    STRING = 2,
+    INTEGER = 3,
+    BOOLEAN = 4,
+    OBJECT = 5,
+    CUSTOM_GETTER = 6,
+    INITIALISE_PARAM = 7
 }
+
+[System.Serializable]
+public class InitialiseParam {
+    public string typeName;
+    public ParamSet paramSet;
+    public void OnInitialise()
+    {
+        paramSet.OnInitialise();
+    }
+    public object GetObject()
+    {
+        Type t = Type.GetType(typeName);
+        
+        return Activator.CreateInstance(t, paramSet.GetParams());
+    }
+}
+
 
 [System.Serializable]
 public class ConfigurableParam {
     public ParamType paramType;
+
     public float floatParameter;
     public string stringParameter;
     public int intParameter;
     public bool boolParameter;
     public DynamicModifier customGetter;
     public UnityEngine.Object objectParameter;
+    public InitialiseParam initialiseParameter;
+    public void OnInitialise()
+    {
+        switch (paramType)
+        {
+            case ParamType.CUSTOM_GETTER:
+                customGetter.OnInitialise();
+                break;
+            case ParamType.INITIALISE_PARAM:
+                initialiseParameter.OnInitialise();
+                break;
+            default:
+                break;
+        }
+    }
 
     public object GetParameter()
     {
@@ -51,6 +85,8 @@ public class ConfigurableParam {
                 return stringParameter;
             case ParamType.CUSTOM_GETTER:
                 return customGetter.GetValue();
+            case ParamType.INITIALISE_PARAM:
+                return initialiseParameter.GetObject();
             default:
                 return null;
         }
@@ -61,6 +97,13 @@ public class ConfigurableParam {
 public class ParamSet
 {
     public ConfigurableParam[] parameters;
+    public void OnInitialise()
+    {
+        foreach (ConfigurableParam param in parameters)
+        {
+            param.OnInitialise();
+        }
+    }
     public object[] GetParams()
     {
         return parameters.Select(p => p.GetParameter()).ToArray();
@@ -72,7 +115,7 @@ public class TargetInfo
     public object parent;
     public TargetInfo parentTargetInfo;
     public string target;
-    public object[] parameters;
+    public ParamSet paramSet;
     public System.Type parentType;
 
     private object GetParent() => parentTargetInfo == null ? parent : parentTargetInfo.GetTargetValue();
@@ -80,12 +123,12 @@ public class TargetInfo
     private FieldInfo _fieldInfo;
     private MethodInfo _methodInfo;
     
-    public TargetInfo(object parent, TargetInfo parentTargetInfo,string target,object[] parameters)
+    public TargetInfo(object parent, TargetInfo parentTargetInfo,string target, ParamSet paramSet)
     {
         this.target = target;
         this.parent = parent;
         this.parentTargetInfo = parentTargetInfo;
-        this.parameters = parameters;
+        this.paramSet = paramSet;
         parentType = GetParent().GetType();
 
         _propertyInfo = parentType.GetProperty(target);
@@ -94,7 +137,7 @@ public class TargetInfo
         MethodInfo[] methods = parentType.GetMethods();
         try
         {
-            _methodInfo = parentType.GetMethods().First(m => m.Name == target && m.GetParameters().Length == parameters.Length);
+            _methodInfo = parentType.GetMethods().First(m => m.Name == target && m.GetParameters().Length == paramSet.parameters.Length);
         }
         catch (InvalidOperationException e) { }
     }
@@ -118,7 +161,7 @@ public class TargetInfo
         if (_fieldInfo != null)
             return _fieldInfo.GetValue(p);
         if (_methodInfo != null)
-            return _methodInfo.Invoke(p, parameters);
+            return _methodInfo.Invoke(p, paramSet.GetParams());
         throw new InvalidTargetException(target, parentType);
     }
 
@@ -131,6 +174,7 @@ public class TargetInfo
             _fieldInfo.SetValue(p, value);
         else if (_methodInfo != null)
         {
+            object[] parameters = paramSet.GetParams();
             if (parameters.Length > 0) parameters[parameters.Length - 1] = value;
             _methodInfo.Invoke(p, parameters);
         }
@@ -176,11 +220,17 @@ public class DynamicModifier
             Target target = targets[i];
 
             // store the target info reference
-            TargetInfo targetInfo = new TargetInfo(parent, parentTargetInfo, target.name, target.paramSet.GetParams());
+            target.paramSet.OnInitialise();
+            TargetInfo targetInfo = new TargetInfo(parent, parentTargetInfo, target.name, target.paramSet);
             parentTargetInfo = targetInfo;
 
             _chainTargets.Add(targetInfo);
         }
+    }
+    public object Invoke()
+    {
+        TargetInfo targetInfo = _chainTargets[_chainTargets.Count - 1];
+        return targetInfo.GetTargetValue();
     }
     public object GetValue()
     {
