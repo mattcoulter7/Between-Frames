@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6883886270487624758}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6883886270487624759}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9567fb6e1daf6a74c8d38cd41b118d54, type: 3}
   m_Name: 
@@ -7017,7 +7017,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7398623562862095876, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
   m_PrefabInstance: {fileID: 1901086938}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086108313}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
@@ -7038,7 +7038,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2707782521438347897, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
   m_PrefabInstance: {fileID: 2707782521609474321}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1429764294}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5964d923dc995f84faaa46374968cbdd, type: 3}
@@ -7270,77 +7270,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e118b97e1e2c9d64c884460c68069b3d, type: 3}
   m_PrefabInstance: {fileID: 924551496}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1086108313 stripped
+--- !u!1 &1058749020 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3064785966488595896, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
-  m_PrefabInstance: {fileID: 1901086938}
+  m_CorrespondingSourceObject: {fileID: 4485674689304808723, guid: 19dd8216ff35c484780e6e978550354f, type: 3}
+  m_PrefabInstance: {fileID: 4485674690071562189}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1086108316 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3064785966488595899, guid: e9670f841255e774da87ea79e0cf6810, type: 3}
-  m_PrefabInstance: {fileID: 1901086938}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1086108317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086108313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4943098a4b1f6f5489609bd054f88904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationPropertyRecords: []
-  animationEventRecords:
-  - valueGetter:
-      objectReference: {fileID: 1086108316}
-      targets:
-      - name: GetBool
-        paramSet:
-          parameters:
-          - paramType: 2
-            floatParameter: 0
-            stringParameter: isOpen
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 0}
-              targets: []
-            objectParameter: {fileID: 0}
-    valueSetter:
-      objectReference: {fileID: 1086108316}
-      targets:
-      - name: SetBool
-        paramSet:
-          parameters:
-          - paramType: 2
-            floatParameter: 0
-            stringParameter: isOpen
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 0}
-              targets: []
-            objectParameter: {fileID: 0}
-          - paramType: 0
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 0}
-              targets: []
-            objectParameter: {fileID: 0}
-    functionName: SetBool
-    animationEvents: []
-  onRewindStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onRewindStop:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1104293096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8644054970347428346, guid: f0379fb309588e746b720c814cc9af82, type: 3}
@@ -7834,6 +7768,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8174687495287539425, guid: c0fb8f06b5980d6429a0b515db7b3a5f, type: 3}
   m_PrefabInstance: {fileID: 8174687496063753431}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1429764294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2707782521438347888, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
+  m_PrefabInstance: {fileID: 2707782521609474321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1429764297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2707782521438347894, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
+  m_PrefabInstance: {fileID: 2707782521609474321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429764294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1429764299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429764294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a3ea2dc4f10184c8fbf5a335f5057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  rewindProperties:
+  - getter:
+      objectReference: {fileID: 1429764297}
+      targets:
+      - name: currentState
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 1429764297}
+      targets:
+      - name: ChangeState
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  onRewindStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewindStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1514675409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8337,9 +8334,11 @@ MonoBehaviour:
       - name: _offset
         paramSet:
           parameters: []
+        targetSetIndex: 0
       - name: x
         paramSet:
           parameters: []
+        targetSetIndex: 0
     animationProperty: _offset.x
     timeline:
       serializedVersion: 2
@@ -8359,9 +8358,11 @@ MonoBehaviour:
       - name: _offset
         paramSet:
           parameters: []
+        targetSetIndex: 0
       - name: y
         paramSet:
           parameters: []
+        targetSetIndex: 0
     animationProperty: _offset.y
     timeline:
       serializedVersion: 2
@@ -8381,6 +8382,7 @@ MonoBehaviour:
       - name: _rotation
         paramSet:
           parameters: []
+        targetSetIndex: 0
     animationProperty: _rotation
     timeline:
       serializedVersion: 2
@@ -8400,6 +8402,7 @@ MonoBehaviour:
       - name: _distance
         paramSet:
           parameters: []
+        targetSetIndex: 0
     animationProperty: _distance
     timeline:
       serializedVersion: 2
@@ -8431,6 +8434,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfcf72940301ed45a7b133e4f5ac978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1822367890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822367859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a3ea2dc4f10184c8fbf5a335f5057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  rewindProperties:
+  - getter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: offset
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: SetOffset
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  - getter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: distance
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: SetDistance
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  - getter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: rotation
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 1822367886}
+      targets:
+      - name: SetRotation
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  onRewindStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewindStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1822593394
 GameObject:
   m_ObjectHideFlags: 0
@@ -8586,7 +8690,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6758134818991948524, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
   m_PrefabInstance: {fileID: 6758134818278192419}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1839036370
+--- !u!114 &1839036374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8595,112 +8699,105 @@ MonoBehaviour:
   m_GameObject: {fileID: 304951522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4943098a4b1f6f5489609bd054f88904, type: 3}
+  m_Script: {fileID: 11500000, guid: 95a3ea2dc4f10184c8fbf5a335f5057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationPropertyRecords:
-  - valueGetter:
+  isRewinding: 0
+  rewindProperties:
+  - getter:
       objectReference: {fileID: 1839036367}
       targets:
-      - name: localPosition
+      - name: position
         paramSet:
           parameters: []
-      - name: x
-        paramSet:
-          parameters: []
-    animationProperty: localPosition.x
-    timeline:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-    rewind:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-  - valueGetter:
+        targetSetIndex: 0
+    setter:
       objectReference: {fileID: 1839036367}
       targets:
-      - name: localPosition
+      - name: SetPositionAndRotation
         paramSet:
-          parameters: []
-      - name: y
-        paramSet:
-          parameters: []
-    animationProperty: localPosition.y
-    timeline:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-    rewind:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-  - valueGetter:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+          - paramType: 6
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 1839036367}
+              targets:
+              - name: rotation
+                paramSet:
+                  parameters: []
+                targetSetIndex: 0
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  - getter:
       objectReference: {fileID: 1839036367}
       targets:
-      - name: localEulerAngles
+      - name: rotation
         paramSet:
           parameters: []
-      - name: z
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 1839036367}
+      targets:
+      - name: SetPositionAndRotation
         paramSet:
-          parameters: []
-    animationProperty: localEulerAnglesRaw.z
-    timeline:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-    rewind:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-  animationEventRecords: []
+          parameters:
+          - paramType: 6
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 1839036367}
+              targets:
+              - name: position
+                paramSet:
+                  parameters: []
+                targetSetIndex: 0
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 1
   onRewindStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1839036372}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_isKinematic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   onRewindStop:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1839036372}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_isKinematic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!54 &1839036372 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 6758134818991948531, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-  m_PrefabInstance: {fileID: 6758134818278192419}
-  m_PrefabAsset: {fileID: 0}
+      m_Calls: []
 --- !u!1 &1848349235
 GameObject:
   m_ObjectHideFlags: 0
@@ -8882,6 +8979,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4485674689304808722, guid: 19dd8216ff35c484780e6e978550354f, type: 3}
   m_PrefabInstance: {fileID: 4485674690071562189}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1851017954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4485674689304808741, guid: 19dd8216ff35c484780e6e978550354f, type: 3}
+  m_PrefabInstance: {fileID: 4485674690071562189}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058749020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1851017958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058749020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a3ea2dc4f10184c8fbf5a335f5057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  rewindProperties:
+  - getter:
+      objectReference: {fileID: 1851017954}
+      targets:
+      - name: currentState
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 1851017954}
+      targets:
+      - name: ChangeState
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  onRewindStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewindStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1879587784
 GameObject:
   m_ObjectHideFlags: 0
@@ -11034,7 +11189,7 @@ PrefabInstance:
       objectReference: {fileID: 2096119920}
     - target: {fileID: 6883886270383592233, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: killConditions.Array.data[0].col
@@ -11055,7 +11210,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6001349722020595283, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
   m_PrefabInstance: {fileID: 6883886270487624758}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6883886270487624761
+--- !u!114 &6883886270487624768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11064,90 +11219,105 @@ MonoBehaviour:
   m_GameObject: {fileID: 6883886270487624759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4943098a4b1f6f5489609bd054f88904, type: 3}
+  m_Script: {fileID: 11500000, guid: 95a3ea2dc4f10184c8fbf5a335f5057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationPropertyRecords:
-  - valueGetter:
+  isRewinding: 0
+  rewindProperties:
+  - getter:
       objectReference: {fileID: 543450652542984415}
       targets:
-      - name: localPosition
+      - name: position
         paramSet:
           parameters: []
-      - name: x
-        paramSet:
-          parameters: []
-    animationProperty: localPosition.x
-    timeline:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-    rewind:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-  - valueGetter:
+        targetSetIndex: 0
+    setter:
       objectReference: {fileID: 543450652542984415}
       targets:
-      - name: localPosition
+      - name: SetPositionAndRotation
+        paramSet:
+          parameters:
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+          - paramType: 6
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 543450652542984415}
+              targets:
+              - name: rotation
+                paramSet:
+                  parameters: []
+                targetSetIndex: 0
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 0
+  - getter:
+      objectReference: {fileID: 543450652542984415}
+      targets:
+      - name: rotation
         paramSet:
           parameters: []
-      - name: y
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 543450652542984415}
+      targets:
+      - name: SetPositionAndRotation
         paramSet:
-          parameters: []
-    animationProperty: localPosition.y
-    timeline:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-    rewind:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
-      m_RotationOrder: 0
-  animationEventRecords: []
+          parameters:
+          - paramType: 6
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 543450652542984415}
+              targets:
+              - name: position
+                paramSet:
+                  parameters: []
+                targetSetIndex: 0
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+          - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+        targetSetIndex: 1
   onRewindStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6883886270487624767}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_isKinematic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   onRewindStop:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6883886270487624767}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_isKinematic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!54 &6883886270487624767 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 6883886270383592212, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-  m_PrefabInstance: {fileID: 6883886270487624758}
-  m_PrefabAsset: {fileID: 0}
+      m_Calls: []
 --- !u!1001 &7420585792941400343
 PrefabInstance:
   m_ObjectHideFlags: 0

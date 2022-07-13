@@ -117,18 +117,20 @@ public class TargetInfo
     public string target;
     public ParamSet paramSet;
     public System.Type parentType;
+    public int targetSetIndex; // when calling SetValue on DynamicModifier, what parameter index does the new value belong
 
     private object GetParent() => parentTargetInfo == null ? parent : parentTargetInfo.GetTargetValue();
     private PropertyInfo _propertyInfo;
     private FieldInfo _fieldInfo;
     private MethodInfo _methodInfo;
     
-    public TargetInfo(object parent, TargetInfo parentTargetInfo,string target, ParamSet paramSet)
+    public TargetInfo(object parent, TargetInfo parentTargetInfo,string target, ParamSet paramSet,int targetSetIndex = 0)
     {
         this.target = target;
         this.parent = parent;
         this.parentTargetInfo = parentTargetInfo;
         this.paramSet = paramSet;
+        this.targetSetIndex = targetSetIndex;
         parentType = GetParent().GetType();
 
         _propertyInfo = parentType.GetProperty(target);
@@ -175,7 +177,7 @@ public class TargetInfo
         else if (_methodInfo != null)
         {
             object[] parameters = paramSet.GetParams();
-            if (parameters.Length > 0) parameters[parameters.Length - 1] = value;
+            if (targetSetIndex <= parameters.Length - 1) parameters[targetSetIndex] = value;
             _methodInfo.Invoke(p, parameters);
         }
         else 
@@ -193,11 +195,7 @@ public struct Target
 {
     public string name; // chain which which direct compiler to the property/method 
     public ParamSet paramSet; // method path which returns the current value
-    public Target(string name, ParamSet paramSet)
-    {
-        this.name = name;
-        this.paramSet = paramSet;
-    }
+    public int targetSetIndex; // when calling SetValue on DynamicModifier, what parameter index does the new value belong
 }
 
 [System.Serializable]
@@ -221,7 +219,7 @@ public class DynamicModifier
 
             // store the target info reference
             target.paramSet.OnInitialise();
-            TargetInfo targetInfo = new TargetInfo(parent, parentTargetInfo, target.name, target.paramSet);
+            TargetInfo targetInfo = new TargetInfo(parent, parentTargetInfo, target.name, target.paramSet, target.targetSetIndex);
             parentTargetInfo = targetInfo;
 
             _chainTargets.Add(targetInfo);

@@ -37,12 +37,16 @@ public class StateMachine : MonoBehaviour
         if (currentState != null) currentState.PhysicsUpdate();
     }
 
-    public void ChangeState(string state) // overrides the current state
+    public void ChangeState(State stateObj) // overrides the current state
     {
         if (currentState != null) currentState.Exit();
-        State stateObj = states[state];
         currentState = stateObj;
         currentState.Enter();
+    }
+    public void ChangeState(string state) // overrides the current state
+    {
+        State stateObj = states[state];
+        ChangeState(stateObj);
     }
 
     public void AddState(string state) // adds to front of history
