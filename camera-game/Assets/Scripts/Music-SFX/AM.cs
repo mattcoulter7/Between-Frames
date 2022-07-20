@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using System.Collections.Generic;
 
 public class AM : MonoBehaviour
@@ -11,7 +12,8 @@ public class AM : MonoBehaviour
     public static readonly string BGMPref = "BGMPref";
     public static readonly string SFXPref = "SFXPref";
     public static AM Instance;
-
+    public AudioMixerGroup musicMixerGroup;
+    public AudioMixerGroup sfxMixerGroup;
     private int firstPlayInt;
 
     //private Scene currentScene;
@@ -64,6 +66,9 @@ public class AM : MonoBehaviour
             song.source.loop = song.loop;
             song.source.playOnAwake = song.playOnAwake;
             song.source.volume = PlayerPrefs.GetFloat(BGMPref);
+            song.mixerGroup = musicMixerGroup;
+            song.source.outputAudioMixerGroup = song.mixerGroup;
+            
 
         }
         //BGM
@@ -78,6 +83,8 @@ public class AM : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
+            s.mixerGroup = sfxMixerGroup;
+            s.source.outputAudioMixerGroup = s.mixerGroup;
         }
 
        
@@ -251,6 +258,7 @@ public class AM : MonoBehaviour
             Debug.LogWarning("Sound: " + name + "not found");
             return;
         }
+        
         StartCoroutine(FadeAudioSource.StartFade(s.source, 5, 0));
         s.source.Stop();
         
