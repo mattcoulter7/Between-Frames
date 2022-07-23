@@ -270,7 +270,11 @@ public class AM : MonoBehaviour
         stepToPlay.source.Play();
     }
 
-
+    //Effects changing
+    public void highPassFilter()
+    {
+        //sfxMixerGroup.
+    }
 }
 
 

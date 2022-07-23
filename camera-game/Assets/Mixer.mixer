@@ -14,6 +14,22 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-3225504190394096406
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2244a052f041b41d8a18aebeb9b31550
+  m_EffectName: Distortion
+  m_MixLevel: 5d54e34d183f7442ea81e007c2467b36
+  m_Parameters:
+  - m_ParameterName: Level
+    m_GUID: bc249e39369e946958b93d947f49b5cd
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-2059971006042182522
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -33,6 +49,24 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-1501171364818958177
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 743d2030d20af44898817321750279a1
+  m_EffectName: Highpass
+  m_MixLevel: 79436bbc021c64efc9ebde3c19d8c0b4
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 44bf52e830e7e4b82825c9a8901c4fe8
+  - m_ParameterName: Resonance
+    m_GUID: 0f78644db8fd7444da2ef0ce65536add
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-433832731802775027
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -48,6 +82,8 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -337059684856430680}
+  - {fileID: -1501171364818958177}
+  - {fileID: -3225504190394096406}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -81,7 +117,11 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 7c72dadd1ba664de68ebb7d8e34af968
+    name: MusicVolume
+  - guid: b4cfb7a184f4a4b739f900ee2afd7c0d
+    name: SFXVolume
   m_AudioMixerGroupViews:
   - guids:
     - 0f4673129d73444aca73d0c9e70fcbf3
@@ -136,5 +176,9 @@ AudioMixerSnapshotController:
   m_SnapshotID: dd1ccb3c535b4445c98143fbe278cbf1
   m_FloatValues:
     b4cfb7a184f4a4b739f900ee2afd7c0d: 0.10800299
+    44bf52e830e7e4b82825c9a8901c4fe8: 10
+    bc249e39369e946958b93d947f49b5cd: 0
+    0f78644db8fd7444da2ef0ce65536add: 10
     7c72dadd1ba664de68ebb7d8e34af968: 0.025578512
+    194e968f153934fe68aed658f0f565d8: 10
   m_TransitionOverrides: {}

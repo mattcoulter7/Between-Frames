@@ -275,7 +275,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 237115784}
   m_HandleRect: {fileID: 1876923650}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -284,8 +284,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1513205486}
         m_TargetAssemblyTypeName: FindManager, Assembly-CSharp
-        m_MethodName: UpdateBGMVol
-        m_Mode: 0
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1762,7 +1762,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1619324559}
   m_HandleRect: {fileID: 740696895}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -1771,8 +1771,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1513205486}
         m_TargetAssemblyTypeName: FindManager, Assembly-CSharp
-        m_MethodName: UpdateSFXVol
-        m_Mode: 0
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3245,6 +3245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6ac6c337d70420c8e7c20d29749fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 4540d3e97719d4c84b8419baee6451c4, type: 2}
   BGMSlider: {fileID: 112167964}
   SFXSlider: {fileID: 433753454}
 --- !u!114 &1513205487

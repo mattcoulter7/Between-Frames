@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +7,28 @@ public class AMAssist : MonoBehaviour
     private static readonly string BGMPref = "BGMPref";
     private static readonly string SFXPref = "SFXPref";
 
+    [SerializeField] AudioMixer mixer;
     [SerializeField] private Slider BGMSlider = null;
     [SerializeField] private Slider SFXSlider = null;
+
+    const string MIXER_MUSIC = "MusicVolume";
+    const string MIXER_SFX = "SFXVolume";
+
+    private void Awake()
+    {
+        BGMSlider.onValueChanged.AddListener(SetMusicVolume);
+        SFXSlider.onValueChanged.AddListener(SetSFXVolume);
+    }
+
+    void SetMusicVolume(float value)
+    {
+        mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20);
+    }
+
+    void SetSFXVolume(float value)
+    {
+        mixer.SetFloat(MIXER_SFX, Mathf.Log10(value) * 20);
+    }
 
     private void Start()
     {
