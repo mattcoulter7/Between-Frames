@@ -7185,6 +7185,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e118b97e1e2c9d64c884460c68069b3d, type: 3}
+--- !u!4 &992514719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5756649170321893028, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
+  m_PrefabInstance: {fileID: 6883886270487624758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &995599964 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2929988699115715401, guid: 6fc0866a7fcd016439ab6ed8a1580b88, type: 3}
@@ -9445,6 +9450,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 7420585792121609057, guid: 2c2cf0f4eadc895499f2609711b67fce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.266
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420585792121609057, guid: 2c2cf0f4eadc895499f2609711b67fce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.258
+      objectReference: {fileID: 0}
     - target: {fileID: 7420585792121609071, guid: 2c2cf0f4eadc895499f2609711b67fce, type: 3}
       propertyPath: interactions.Array.data[0].method
       value: Interact
@@ -10804,6 +10817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractionCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8419325619510804830, guid: abedd5814fbc10d42a2d83ec784dc3c0, type: 3}
+      propertyPath: worldTransform
+      value: 
+      objectReference: {fileID: 992514719}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abedd5814fbc10d42a2d83ec784dc3c0, type: 3}
 --- !u!1001 &8644054971434677522
