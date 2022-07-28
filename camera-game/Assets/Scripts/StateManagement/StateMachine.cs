@@ -22,7 +22,7 @@ public class StateMachine : MonoBehaviour
     Dictionary<string, State> states = new Dictionary<string, State>();
     void Start()
     {
-        if (defaultState != "") AddState(defaultState);
+        if (defaultState != "") ChangeState(defaultState);
     }
 
     void Update()
