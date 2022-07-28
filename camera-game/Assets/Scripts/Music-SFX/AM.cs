@@ -202,7 +202,7 @@ public class AM : MonoBehaviour
     public void PlaySFX(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        if (s == null) 
         {
             Debug.LogWarning("Sound: " + name + "not found");
             return;
@@ -245,9 +245,9 @@ public class AM : MonoBehaviour
             Debug.LogWarning("Sound: " + name + "not found");
             return;
         }
-        s.source.volume = 0;
+        //s.source.volume = 0;
         s.source.Play();
-        StartCoroutine(FadeAudioSource.StartFade(s.source, (float)0.2, 1));
+        //StartCoroutine(FadeAudioSource.StartFade(s.source, (float)0.2, 1));
     }
 
     public void StopFadeOut(string name)
@@ -258,9 +258,13 @@ public class AM : MonoBehaviour
             Debug.LogWarning("Sound: " + name + "not found");
             return;
         }
+
+        //float.Equals()
         
-        StartCoroutine(FadeAudioSource.StartFade(s.source, 5, 0));
-        s.source.Stop();
+        //StartCoroutine(FadeAudioSource.StartFade(s.source, 5, 0));
+        //StartCoroutine(FadeAudioSource.StartFade(s.source, 2, (float)0.0001));
+
+        //s.source.Stop();
         
     }
 

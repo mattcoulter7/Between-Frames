@@ -17,6 +17,13 @@ public class PlaySound : MonoBehaviour
         //Debug.Log("Played sound from PlaySound");
     }
 
+    public void Stop(string name)
+    {
+
+        AM.Instance.StopSFX(name);
+        //Debug.Log("Played sound from PlaySound");
+    }
+
     public void PlayLooped(string name)
     {
         if (!startedPlaying)
