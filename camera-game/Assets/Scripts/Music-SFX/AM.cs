@@ -52,7 +52,7 @@ public class AM : MonoBehaviour
         Sound Step2 = GetSFX("Step2");
         stepSounds.Add(Step1);
         stepSounds.Add(Step2);
-        Debug.Log("Name: " + stepSounds[0].GetType());
+        //Debug.Log("Name: " + stepSounds[0].GetType());
 
         //Debug.Log("BGM Pref is " + PlayerPrefs.GetFloat(BGMPref));
         //Debug.Log("SFX Pref is " + PlayerPrefs.GetFloat(SFXPref));
