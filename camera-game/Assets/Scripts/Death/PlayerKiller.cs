@@ -26,6 +26,10 @@ public class PlayerKiller : MonoBehaviour
         StartCoroutine(ExampleCoroutine());
         dead = false;
     }
+    public void Reset()
+    {
+        dead = false;
+    }
     IEnumerator ExampleCoroutine()
     {
         //yield on a new YieldInstruction that waits for 5 seconds.
@@ -60,9 +64,8 @@ public class PlayerKiller : MonoBehaviour
 
         if (kill && !dead)
         {
-            onKill.Invoke();
             dead = true;
-            Debug.Log("Killed");            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            onKill.Invoke();
         }
     }
 }
