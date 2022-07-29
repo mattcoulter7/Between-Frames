@@ -83,6 +83,7 @@ public class RewindInstance2 : MonoBehaviour
     {
         if (frames.Count == 0)
         {
+            EventDispatcher.Instance.Dispatch("RewindConsumed", this);
             return;
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,14 +20,24 @@ public class Rewinder2 : MonoBehaviour
     public string rewindInputBind;
 
     private RewindInstance2[] _rewindInstances;
+    private Coroutine rewindCoroutine = null;
     // Start is called before the first frame update
     void Start()
     {
+        EventDispatcher.Instance.AddEventListener("RewindConsumed", (Action<RewindInstance2>)RewindConsumed);
         _rewindInstances = FindObjectsOfType<RewindInstance2>();
         if (automaticallyStartRecording)
         {
             StartRecording();
         }
+    }
+    void RewindConsumed(RewindInstance2 rewindInstance)
+    {
+        if (rewindCoroutine != null)
+        {
+            StopCoroutine(rewindCoroutine);
+        }
+        StopRewind();
     }
 
     public void StartRecording()
@@ -57,13 +68,14 @@ public class Rewinder2 : MonoBehaviour
 
     public void RewindForSeconds()
     {
-        StartCoroutine(RewindCoroutine());
+        rewindCoroutine = StartCoroutine(RewindCoroutine());
     }
     private IEnumerator RewindCoroutine()
     {
         StartRewind();
         yield return new WaitForSeconds(rewindDuration);
         StopRewind();
+        rewindCoroutine = null;
     }
 
     public void StartRewind()
