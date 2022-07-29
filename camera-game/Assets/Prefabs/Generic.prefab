@@ -208,6 +208,10 @@ PrefabInstance:
       value: Reset
       objectReference: {fileID: 0}
     - target: {fileID: 835236993181872762, guid: 006535387aff4964cbfffeac572c470d, type: 3}
+      propertyPath: onRewindStop.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 835236993181872762, guid: 006535387aff4964cbfffeac572c470d, type: 3}
       propertyPath: onContinue.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlayerKiller, Assembly-CSharp
       objectReference: {fileID: 0}
