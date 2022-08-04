@@ -149,7 +149,7 @@ MonoBehaviour:
   - name: DoorClose
     clip: {fileID: 8300000, guid: 8d31b7340b2158c4eb0ad5870f479ce6, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 1
+    volume: 0.7
     pitch: 1
     loop: 0
     playOnAwake: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   - name: DoorOpen
     clip: {fileID: 8300000, guid: 507bb89e4ddc19145ac58bc63a26e2a1, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 1
+    volume: 0.7
     pitch: 1
     loop: 0
     playOnAwake: 0
