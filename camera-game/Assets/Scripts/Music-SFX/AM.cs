@@ -182,17 +182,21 @@ public class AM : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < BGM.Length - 1; i++)
+        for (int i = 0; i < BGM.Length; i++)
         {
-            if (BGM[i].source.isPlaying && BGM[i] != song)
+            Debug.Log("ARRAY POS " + i);
+
+            //BGM[i].source.Stop();
+
+            if (!BGM[i].Equals(song) && BGM[i].source.isPlaying)
             {
                 Debug.Log("BGM name: " + BGM[i].name);
                 Debug.Log("Song name: " + song.name);
                 BGM[i].source.Stop();
                 Debug.Log("Something should have stopped");
-                
+
             }
-            
+
         }
         song.source.Play();
 
