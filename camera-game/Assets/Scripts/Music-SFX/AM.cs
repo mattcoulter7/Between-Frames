@@ -182,9 +182,9 @@ public class AM : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < BGM.Length; i++)
+        for (int i = 0; i < BGM.Length - 1; i++)
         {
-            if (BGM[i].source.isPlaying)
+            if (BGM[i].source.isPlaying && BGM[i] != song)
             {
                 Debug.Log("BGM name: " + BGM[i].name);
                 Debug.Log("Song name: " + song.name);
@@ -220,7 +220,28 @@ public class AM : MonoBehaviour
         s.source.Stop();
     }
 
-   public Sound GetSFX(string name)
+    public void PauseSFX(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return;
+        }
+        s.source.Pause();
+    }
+
+    public void PauseAllSFX()
+    {
+        for (int i = 0; i < sounds.Length - 1; i++)
+        {
+            sounds[i].source.Pause();
+
+        }
+        
+    }
+
+    public Sound GetSFX(string name)
    {
 
         Sound s = Array.Find(sounds, sound => sound.name == name);
