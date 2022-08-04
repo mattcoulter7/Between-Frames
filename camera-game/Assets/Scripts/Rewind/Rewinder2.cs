@@ -16,6 +16,7 @@ public class Rewinder2 : MonoBehaviour
     public UnityEvent onRewindStart; // beings playing rewind
     public UnityEvent onRewindStop; // stops all the rewind
     public UnityEvent onContinue; // returns to normal play mode
+    public UnityEvent onRewindConsumed; // returns to normal play mode
 
     public string rewindInputBind;
 
@@ -38,6 +39,7 @@ public class Rewinder2 : MonoBehaviour
             StopCoroutine(rewindCoroutine);
         }
         StopRewind();
+        onRewindConsumed.Invoke();
     }
 
     public void StartRecording()

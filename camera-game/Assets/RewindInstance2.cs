@@ -17,6 +17,13 @@ public class RewindInstance2 : MonoBehaviour
     }
     public class FrameCollection {
         public List<Frame> frames = new List<Frame> { };
+        public bool hasFrames
+        {
+            get
+            {
+                return frames.Count > 0;
+            }
+        }
     }
     public bool isRewinding = false;
     public bool isRecording = false;
