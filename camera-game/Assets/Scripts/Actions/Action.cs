@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,4 +25,8 @@ public abstract class Action : MonoBehaviour
         OnRun();
     }
 
+    public void Invoke()
+    {
+        throw new NotImplementedException();
+    }
 }
