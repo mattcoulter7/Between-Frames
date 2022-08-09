@@ -17,6 +17,8 @@ public class MovementState : State
     public bool _isGrounded = false;
     //Testing
     public bool _isGroundedLastFrame = false;
+    public float timeBetweenLandSFX = 0.5f;
+    private Coroutine _instance = null;
 
     public string walkingAnimationVariable = "isWalking";
     public string jumpingAnimationVariable = "isJumping";
@@ -65,9 +67,9 @@ public class MovementState : State
         _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
 
         //Testing
-        if (_isGrounded && !_isGroundedLastFrame)
+        if (_isGrounded && !_isGroundedLastFrame && _instance == null)
         {
-            onLand.Invoke();
+            _instance = StartCoroutine(DoLand());
         }
         _isGroundedLastFrame = _isGrounded;
         ////////////////////////////////////
@@ -118,4 +120,21 @@ public class MovementState : State
         _body.MovePosition(_body.position + _inputs * moveSpeed * Time.fixedDeltaTime);
     }
 
+    IEnumerator DoLand()
+    {
+        
+        onLand.Invoke();
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(timeBetweenLandSFX);
+
+        StopCoroutine(_instance);
+        _instance = null;
+    }
+
 }
+//if (_instance == null && Input.GetButtonDown("Flash"))
+//{
+//    //Start the coroutine we define below named ExampleCoroutine.
+//    _instance = StartCoroutine(DoFlash());
+//}
