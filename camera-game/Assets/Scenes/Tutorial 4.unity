@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45140094, g: 0.50089335, b: 0.5723181, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140034, g: 0.5008926, b: 0.5723171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1223,7 +1223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7420585791780613082, guid: 2c2cf0f4eadc895499f2609711b67fce, type: 3}
       propertyPath: targetSceneName
-      value: Tutorial 5
+      value: JacksonTests2
       objectReference: {fileID: 0}
     - target: {fileID: 7420585791780613082, guid: 2c2cf0f4eadc895499f2609711b67fce, type: 3}
       propertyPath: onDoorEnter.m_PersistentCalls.m_Calls.Array.size
