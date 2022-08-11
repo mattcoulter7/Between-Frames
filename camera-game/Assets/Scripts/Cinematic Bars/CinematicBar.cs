@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is responsible for 
+/// </summary>
 public class CinematicBar : MonoBehaviour
 {
-    public bool useFrontInstead = false;
-    public float rotationOffset = 0f; // rotation in degrees
-    public bool rotateToCamera = false;
+    /// <summary>Rotation in degrees offset from the CinematicBarManager rotation</summary>
+    public float rotationOffset = 0f;
+
+    /// <summary>Rotation in degrees after rotationOffset is combined with the CinematicBarManager rotation</summary>
     public float rotation
     {
         get
@@ -14,7 +18,11 @@ public class CinematicBar : MonoBehaviour
             return _controller.rotationSnapped + rotationOffset;
         }
     }
-    public float distanceOffset = 0f; // distance offset from ellipse position
+    
+    /// <summary>Distance offset from CinematicBarManager distance</summary>
+    public float distanceOffset = 0f;
+    
+    /// <summary>Distance after distanceOffset is combined with the CinematicBarManager distance</summary>
     public float distance
     {
         get
@@ -22,6 +30,8 @@ public class CinematicBar : MonoBehaviour
             return _controller.distanceSnapped + distanceOffset;
         }
     }
+    
+    /// <summary>The CinematicBarManager's offset</summary>
     public Vector2 origin
     {
         get
@@ -29,12 +39,16 @@ public class CinematicBar : MonoBehaviour
             return _controller.offsetSnapped;
         }
     }
+    
+    /// <summary>The distance from the camera</summary>
     public float depth = 10f;
+
     private CinematicBarManager _controller;
     private RectanglePoints _rectanglePoints;
     private Camera _camera;
     private CameraEdgeProjection _cameraEdgeProjection;
-    Vector2 GetAspectRatio()
+
+    private Vector2 GetAspectRatio()
     {
         return _controller.maintainPlayableArea ? new Vector2(
             Screen.height,
@@ -43,7 +57,7 @@ public class CinematicBar : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _controller = GetComponentInParent<CinematicBarManager>();
         _rectanglePoints = GetComponent<RectanglePoints>();
@@ -52,7 +66,7 @@ public class CinematicBar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector2 aspectRatio = GetAspectRatio();
         // establish target position on top, left, bottom, right of screen
