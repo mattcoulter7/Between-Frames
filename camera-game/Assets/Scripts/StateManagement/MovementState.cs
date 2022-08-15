@@ -28,8 +28,6 @@ public class MovementState : State
     public UnityEvent onJump;
     public UnityEvent onLand;
 
-    
-
     protected override void Awake()
     {
         base.Awake();
