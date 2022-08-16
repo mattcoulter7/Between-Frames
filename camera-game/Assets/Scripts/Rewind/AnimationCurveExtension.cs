@@ -4,8 +4,16 @@ using UnityEngine;
 using System.Linq;
 using System;
 
+/// <summary>
+/// This extenstion class provides easy manipulation of Unity Keyframes
+/// </summary>
 static public class AnimationCurveExtension
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="self">The object which this method is being called from</param>
+    /// <returns></returns>
     static public Keyframe GetLatest(this Keyframe[] self)
     {
         return self.Aggregate(self[0], (prev, curr) => curr.time > prev.time ? curr : prev);

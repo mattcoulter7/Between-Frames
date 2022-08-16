@@ -4,9 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// This component is responsible for updating the object layer to the Cinematic Bar Collision layer
-///
 /// Must be placed on the renderer object
-///
 /// Updates the collision
 /// </summary>
 public class CinematicBarCollider : MonoBehaviour

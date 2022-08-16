@@ -159,6 +159,9 @@ public class CinematicBarManager : MonoBehaviour
     /// <summary>The rounded interval for distance</summary>
     public float distanceSnap = 5f;
 
+    /// <summary>Keeps the inside distance the same if true, otherwise keeps the length of the bar from edge of the screen the same</summary>
+    public bool maintainPlayableArea = true;
+
     /// <summary>Setter for offset (dedicated helped function for Unity inspector binding)</summary>
     /// <param name="value">The new value</param>
     public void SetOffset(Vector2 value) => offset = value;

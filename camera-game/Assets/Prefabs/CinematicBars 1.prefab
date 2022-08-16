@@ -667,9 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c21cd78933b58409f41eec81c0c443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useFrontInstead: 0
   rotationOffset: 270
-  rotateToCamera: 0
   distanceOffset: 0
   depth: 10.5
 --- !u!114 &630763613562749386
@@ -871,7 +869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfcf72940301ed45a7b133e4f5ac978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maintainPlayableArea: 1
   _rotation: 0
   enableRotationSnapping: 1
   rotationSnap: 3
@@ -889,6 +886,7 @@ MonoBehaviour:
   maxDistance: 4.75
   enableDistanceSnapping: 1
   distanceSnap: 0.05
+  maintainPlayableArea: 0
 --- !u!114 &630763613663510503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,7 +900,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableZoom: 1
-  enableIndividualZoom: 0
   enablePan: 1
   enableRotation: 1
   zoomSpeed: 0.25
@@ -2371,9 +2368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c21cd78933b58409f41eec81c0c443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useFrontInstead: 0
   rotationOffset: 90
-  rotateToCamera: 0
   distanceOffset: 0
   depth: 10.5
 --- !u!114 &630763615036267149

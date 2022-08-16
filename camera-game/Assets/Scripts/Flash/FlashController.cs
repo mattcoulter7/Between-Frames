@@ -3,16 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// This class handles trigger the flash based on user input
+/// It also controls the time in between flash
+/// </summary>
 public class FlashController : MonoBehaviour
 {
+    /// <summary>
+    /// Reference to the flash class which handles to UI
+    /// </summary>
     public Flash flash;
+
+    /// <summary>
+    /// Controls how long you have to wait in between flashes (seconds)
+    /// </summary>
     public float timeBetweenFlash = 5f;
+
+    /// <summary>
+    /// Custom UnityEvent for what happens when the flash occurs (such as playing a flash sound)
+    /// </summary>
     public UnityEvent onFlash;
 
     private Coroutine _instance = null;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (_instance == null && Input.GetButtonDown("Flash"))
         {
@@ -21,7 +36,7 @@ public class FlashController : MonoBehaviour
         }
     }
 
-    IEnumerator DoFlash()
+    private IEnumerator DoFlash()
     {
         flash.doCameraFlash = true;
         onFlash.Invoke();

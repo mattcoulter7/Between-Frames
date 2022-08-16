@@ -3,21 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
+/// <summary>
+/// This class allows the developer to configure user interactions with an object
+/// The interactions are designed to show when the user enter the collider, and hide when the user leaves the collider
+/// </summary>
 public class Interactable : MonoBehaviour
 {
+    /// <summary>
+    /// List of string tags for what can interact with the object
+    /// </summary>
     public List<string> whoCanInteract = new List<string>(); // list of people who can interact
+
+    /// <summary>
+    /// List of interactions that are possible with the object, i.e. open, break, pet etc.
+    /// </summary>
     public List<Interaction> interactions = new List<Interaction>(); // list of available interactions that can happen
 
-    bool canInteract = false; // true when player is in boumds
+    private bool canInteract = false; // true when player is in boumds
 
-    bool matchesTag(string tagName)
+    private bool matchesTag(string tagName)
     {
         return whoCanInteract.Contains(tagName);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (canInteract)
         {
@@ -31,7 +41,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (matchesTag(other.tag))
         {
@@ -40,7 +50,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (matchesTag(other.tag))
         {
