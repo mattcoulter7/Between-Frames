@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 /// <summary>
 /// This class is responsible for holding all of the variables for the
 /// transformations applied to CinematicBar
@@ -10,6 +9,7 @@ using UnityEngine;
 /// This class by itself does not perform any transformations, 
 /// but instead they are observed by CinematicBar
 /// </summary>
+[System.Serializable]
 public class CinematicBarManager : MonoBehaviour
 {
     [Header("Rotation")]

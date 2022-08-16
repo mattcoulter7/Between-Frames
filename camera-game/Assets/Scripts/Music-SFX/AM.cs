@@ -6,40 +6,40 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using System.Collections.Generic;
 
-//<summary>This Audio Manager class holds all the sound effects in the game.
-//It also holds the methods to play the sound effects and the audio mixer groups </summary>
+/// <summary>This Audio Manager class holds all the sound effects in the game.
+/// It also holds the methods to play the sound effects and the audio mixer groups </summary>
 
 public class AM : MonoBehaviour
 {
-    //<summary>String to save key for setting initial sound settings upon first play</summary>
+    /// <summary>String to save key for setting initial sound settings upon first play</summary>
     public static readonly string FirstPlay = "FirstPlay";
 
-    //<summary>String to save key for saving BGM vol settings</summary>
+    /// <summary>String to save key for saving BGM vol settings</summary>
     public static readonly string BGMPref = "BGMPref";
 
-    //<summary>String to save key for saving SFX vol settings</summary>
+    /// <summary>String to save key for saving SFX vol settings</summary>
     public static readonly string SFXPref = "SFXPref";
 
-    //<summary>This makes the AM a singleton</summary>
+    /// <summary>This makes the AM a singleton</summary>
     public static AM Instance;
 
-    //<summary>The mixer group for all music tracks</summary>
+    /// <summary>The mixer group for all music tracks</summary>
     [SerializeField]
     private AudioMixerGroup musicMixerGroup;
 
-    //<summary>The mixer group for all SFX tracks</summary>
+    /// <summary>The mixer group for all SFX tracks</summary>
     [SerializeField]
     private AudioMixerGroup sfxMixerGroup;
 
-    //<summary>This is seen in the inspector for testing purposes. It checks which footstep sounds are
-    // being put in the new array to be played later</summary>
+    /// <summary>This is seen in the inspector for testing purposes. It checks which footstep sounds are
+    /// being put in the new array to be played later</summary>
     [SerializeField]
     private List<Sound> stepSounds;
 
-    //<summary>Sound array for all the background music in the game</summary>
+    /// <summary>Sound array for all the background music in the game</summary>
     public Sound[] BGM;
 
-    //<summary>Sound array for all the sound effects in the game/summary>
+    /// <summary>Sound array for all the sound effects in the game/summary>
     public Sound[] sounds;
 
     private int firstPlayInt;
@@ -47,8 +47,8 @@ public class AM : MonoBehaviour
     private float bgmLevel;
     private float sfxLevel;
 
-    //<summary>This method sets the BGM level</summary>
-    //<param name="value">contains the number from the BGM vol slider which will change all the BGM track volumes</param>
+    /// <summary>This method sets the BGM level</summary>
+    /// <param name="value">contains the number from the BGM vol slider which will change all the BGM track volumes</param>
     public void setBGMLevel(float value)
     {
         bgmLevel = value;
@@ -56,8 +56,8 @@ public class AM : MonoBehaviour
         PlayerPrefs.SetFloat(BGMPref, value);
     }
 
-    //<summary>This method sets the SFX level</summary>
-    //<param name="value">contains the number from the SFX vol slider which will change all the SFX track volumes</param>
+    /// <summary>This method sets the SFX level</summary>
+    /// <param name="value">contains the number from the SFX vol slider which will change all the SFX track volumes</param>
     public void setSFXLevel(float value)
     {
         sfxLevel = value;
@@ -137,12 +137,12 @@ public class AM : MonoBehaviour
        
     }
 
-    //<summary>This runs a method when the scene loads in game</summary>
+    /// <summary>This runs a method when the scene loads in game</summary>
     public void OnSceneLoad(Scene scene) {
         //play music
     }
 
-    //<summary>This method updates all the tracks' volume in the BGM array</summary>
+    /// <summary>This method updates all the tracks' volume in the BGM array</summary>
     public void UpdateBGMVol()
     {
         for (int i = 0; i < BGM.Length; i++)
@@ -151,7 +151,7 @@ public class AM : MonoBehaviour
         }
     }
 
-    //<summary>This method updates all the tracks' volume in the SFX array</summary>
+    /// <summary>This method updates all the tracks' volume in the SFX array</summary>
     public void UpdateSFXVol()
     {
         for (int i = 0; i < sounds.Length; i++)
@@ -160,8 +160,8 @@ public class AM : MonoBehaviour
         }
     }
 
-    //<summary>This method finds the specific BGM to play from the array, stops any other tracks, then plays the desired track</summary>
-    //<param name="name">This is the specific string that carries the name of the track to play</param>
+    /// <summary>This method finds the specific BGM to play from the array, stops any other tracks, then plays the desired track</summary>
+    /// <param name="name">This is the specific string that carries the name of the track to play</param>
     public void PlayBGM(string name)
     {
         Sound song = Array.Find(BGM, sound => sound.name == name);
@@ -189,8 +189,8 @@ public class AM : MonoBehaviour
 
     }
 
-    //<summary>This method finds the specific SFX to play from the array, then plays the desired track</summary>
-    //<param name="name">This is the specific string that carries the name of the track to play</param>
+    /// <summary>This method finds the specific SFX to play from the array, then plays the desired track</summary>
+    /// <param name="name">This is the specific string that carries the name of the track to play</param>
     public void PlaySFX(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -202,8 +202,8 @@ public class AM : MonoBehaviour
         s.source.Play();
     }
 
-    //<summary>This method finds the specific track within the array to stop</summary>
-    //<param name="name">This is the specific string that carries the name of the track to stop</param>
+    /// <summary>This method finds the specific track within the array to stop</summary>
+    /// <param name="name">This is the specific string that carries the name of the track to stop</param>
     public void StopSFX(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -215,8 +215,8 @@ public class AM : MonoBehaviour
         s.source.Stop();
     }
 
-    //<summary>This method finds the specific track within the array to pause</summary>
-    //<param name="name">This is the specific string that carries the name of the track to pause</param>
+    /// <summary>This method finds the specific track within the array to pause</summary>
+    /// <param name="name">This is the specific string that carries the name of the track to pause</param>
     public void PauseSFX(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -228,7 +228,7 @@ public class AM : MonoBehaviour
         s.source.Pause();
     }
 
-    //<summary>This method pauses all the tracks in the SFX array</summary>
+    /// <summary>This method pauses all the tracks in the SFX array</summary>
     public void PauseAllSFX()
     {
         for (int i = 0; i < sounds.Length - 1; i++)
@@ -237,9 +237,9 @@ public class AM : MonoBehaviour
         }
     }
 
-    //<summary>This method returns a Sound object with the desired name. Returns null if nothing found</summary>
-    //<returns>Returns a Sound object with the desired name. Returns null if nothing found</returns>
-    //<param name="name">The name of the SFX to return</param>
+    /// <summary>This method returns a Sound object with the desired name. Returns null if nothing found</summary>
+    /// <returns>Returns a Sound object with the desired name. Returns null if nothing found</returns>
+    /// <param name="name">The name of the SFX to return</param>
     public Sound GetSFX(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -256,8 +256,8 @@ public class AM : MonoBehaviour
 
     ///////////////////////////////////New Addition 12 Jul 2022////////////////////////
 
-    //<summary>This method was intended to fade in a SFX track</summary>
-    //<param name="name">This is the name of the track to fade in and play</param>
+    /// <summary>This method was intended to fade in a SFX track</summary>
+    /// <param name="name">This is the name of the track to fade in and play</param>
     public void PlayFadeIn(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -271,8 +271,8 @@ public class AM : MonoBehaviour
         //StartCoroutine(FadeAudioSource.StartFade(s.source, (float)0.2, 1));
     }
 
-    //<summary>This method was intended to fade out a SFX track</summary>
-    //<param name="name">This is the name of the track to fade out and stop</param>
+    /// <summary>This method was intended to fade out a SFX track</summary>
+    /// <param name="name">This is the name of the track to fade out and stop</param>
     public void StopFadeOut(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -291,14 +291,14 @@ public class AM : MonoBehaviour
         
     }
 
-    //<summary>This plays a random range of footstep sounds. Consider making it able to play a range of whatever sounds</summary>
+    /// <summary>This plays a random range of footstep sounds. Consider making it able to play a range of whatever sounds</summary>
     public void PlayFootsteps()
     {
         Sound stepToPlay = stepSounds[UnityEngine.Random.Range(0, stepSounds.Count)];
         stepToPlay.source.Play();
     }
 
-    ////<summary>Effects changing for sfx. Was intended for something....</summary>
+    /// <summary>Effects changing for sfx. Was intended for something....</summary>
     public void highPassFilter()
     {
         //sfxMixerGroup.

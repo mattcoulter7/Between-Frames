@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.Video;
 
-//<summary>This class controls the video that plays during the character rewind state.
-//This is because the video plays a static screen which is reminiscent of VHS rewind static, and is an image on a canvas that holds a video</summary>
+/// <summary>This class controls the video that plays during the character rewind state.
+/// This is because the video plays a static screen which is reminiscent of VHS rewind static, and is an image on a canvas that holds a video</summary>
 public class VideoController : MonoBehaviour
 {
-    //<summary>This is the video player located in the image within the canvas
+    /// <summary>This is the video player located in the image within the canvas
     public VideoPlayer videoPlayer;
     // Start is called before the first frame update
     //void Start()
@@ -23,13 +23,13 @@ public class VideoController : MonoBehaviour
         }
     }
 
-    //<summary>This method calls the pause function in the video player</summary>
+    /// <summary>This method calls the pause function in the video player</summary>
     public void PauseVideo()
     {
         videoPlayer.Pause();
     }
 
-    //<summary>This method calls the play function in the video player</summary>
+    /// <summary>This method calls the play function in the video player</summary>
     public void PlayVideo()
     {
         videoPlayer.Play();

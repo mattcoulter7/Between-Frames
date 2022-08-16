@@ -6,6 +6,7 @@ using UnityEngine;
 /// This class is responsible for updating the bone mesh based on the distance, offset and rotation.
 /// Put this component on the individual cinematic bar rectangle
 /// </summary>
+
 [RequireComponent(typeof(RectanglePoints))]
 public class CinematicBar : MonoBehaviour
 {
