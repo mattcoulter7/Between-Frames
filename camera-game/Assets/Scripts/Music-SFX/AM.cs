@@ -309,12 +309,12 @@ public class AM : MonoBehaviour
 //graveyard v2.0
 
 
-////SliderContainer = GameObject.transform.Find(MusicContainer).gameObject;
-////BGMSlider = SliderContainer.GetComponent<Slider>();
+//SliderContainer = GameObject.transform.Find(MusicContainer).gameObject;
+//BGMSlider = SliderContainer.GetComponent<Slider>();
 
 
 
-////firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+//firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
 //if (firstPlayInt == 0)
 //{

@@ -1,7 +1,7 @@
 using UnityEngine.Audio;
 using UnityEngine;
 
-///<summary>This is a custom sound class that has a name, Audioclip, A mixergroup, volume, pitch, loop boolean, a play on awake bool and an audiosource</summary>
+/// <summary>This is a custom sound class that has a name, Audioclip, A mixergroup, volume, pitch, loop boolean, a play on awake bool and an audiosource</summary>
 [System.Serializable]
 public class Sound{
 

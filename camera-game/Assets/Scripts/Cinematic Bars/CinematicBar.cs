@@ -101,7 +101,7 @@ public class CinematicBar : MonoBehaviour
         transform.rotation = Quaternion.Euler(_camera.transform.eulerAngles.x, _camera.transform.eulerAngles.y, rotation);
 
 
-        ///transform.LookAt(_camera.transform);
+        //transform.LookAt(_camera.transform);
         _rectanglePoints.backleft = worldPos; // must set last as position is determined by rotation and scale
                                               //Debug.DrawLine(transform.position,_rectanglePoints.backleft);
 
