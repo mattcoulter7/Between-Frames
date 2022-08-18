@@ -15,13 +15,13 @@ public class PlayerKiller : MonoBehaviour
     public List<KillCondition> killConditions = new List<KillCondition>();
     public UnityEvent onKill;
 
-    CapsuleCollider _myCol;
+    Collider _myCol;
     bool ready = false;
 
     public bool dead;
     void Start()
     {
-        _myCol = GetComponent<CapsuleCollider>();
+        _myCol = GetComponent<Collider>();
         //Start the coroutine we define below named ExampleCoroutine.
         StartCoroutine(ExampleCoroutine());
         dead = false;
