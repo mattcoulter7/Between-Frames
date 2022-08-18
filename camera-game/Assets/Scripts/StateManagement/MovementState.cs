@@ -33,7 +33,7 @@ public class MovementState : State
 
     // David - new input system
 
-    private ControlInput playerInput;
+    private PlayerInput playerInput;
 
     private InputAction jumpAct;
 
@@ -42,11 +42,11 @@ public class MovementState : State
         base.Awake();
         stateMachine.RegisterState("Movement", this);
 
-        //playerInput = GetComponent<ControlInput>();
-        playerInput = new ControlInput();
-        //jumpAct = playerInput.Player["Jump"];
-        jumpAct = playerInput.Player.Jump;
-        playerInput.Player.Move.performed += ctx => Move();
+        playerInput = GetComponent<PlayerInput>();
+        //playerInput = new ControlInput();
+        jumpAct = playerInput.actions["Jump"];
+        //jumpAct = playerInput.Player.Jump;
+        playerInput.actions["Move"].performed += ctx => Move();
     }
 
     protected override void Start()
@@ -60,7 +60,7 @@ public class MovementState : State
     {
         _inputs = Vector3.zero;
         //_inputs.x = Input.GetAxis("Horizontal");
-
+        _inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
 
         //_jumpInput = Input.GetButtonDown("Jump");
         _jumpInput = jumpAct.triggered;
@@ -134,7 +134,6 @@ public class MovementState : State
 
     public override void PhysicsUpdate()
     {
-
         _body.MovePosition(_body.position + _inputs * moveSpeed * Time.fixedDeltaTime);
     }
 
@@ -179,24 +178,33 @@ public class MovementState : State
         onMove.Invoke();
     }
 
-    private void Move()
+   public void Move()
     {
         //Debug.Log(playerInput.actions["Move"].ReadValue<Vector2>().x);
         //_inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
-        Debug.Log(playerInput.Player.Move.ReadValue<Vector2>().x);
-        _inputs.x = playerInput.Player.Move.ReadValue<Vector2>().x;
-       
+        //Debug.Log(playerInput.Player.Move.ReadValue<Vector2>().x);
+        
+        //_inputs.x = playerInput.Player.Move.ReadValue<Vector2>().x;
+        _inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
+        //_body.MovePosition(_body.position + _inputs * moveSpeed * Time.fixedDeltaTime);
+        //Debug.Log(_inputs.x);
+
     }
    
-    private void OnEnable()
-    {
-        playerInput.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    playerInput.Enable();
+    //}
+    //
+    //private void OnDisable()
+    //{
+    //    playerInput.Disable();
+    //}
 
-    private void OnDisable()
-    {
-        playerInput.Disable();
-    }
+    //public ControlInput GetInput()
+    //{
+    //    return playerInput;
+    //}
 }
 //if (_instance == null && Input.GetButtonDown("Flash"))
 //{

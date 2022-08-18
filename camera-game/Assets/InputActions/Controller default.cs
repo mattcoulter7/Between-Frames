@@ -29,12 +29,12 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""ae85beab-db24-4309-9f2d-cf3dc6889e31"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Look"",
@@ -325,6 +325,17 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""2fabcbba-b4ea-4ada-8671-c225e8c60367"",
                     ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdfee248-b372-48fd-8935-924e50fdbb42"",
+                    ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
