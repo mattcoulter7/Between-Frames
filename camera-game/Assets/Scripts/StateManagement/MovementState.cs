@@ -32,7 +32,6 @@ public class MovementState : State
     public UnityEvent onMove;
 
     // David - new input system
-
     private PlayerInput playerInput;
 
     private InputAction jumpAct;

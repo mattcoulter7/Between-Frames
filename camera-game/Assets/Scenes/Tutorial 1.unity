@@ -785,6 +785,17 @@ MonoBehaviour:
   defaultState: 
   history:
   - {fileID: 0}
+--- !u!114 &610152891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3321710720142114520, guid: 83c75981bb360274db693fa94981707d, type: 3}
+  m_PrefabInstance: {fileID: 5833027041737391264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7f293c45fec7042949544fdbbf1430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,40 +1481,11 @@ PrefabInstance:
       propertyPath: worldTransform
       value: 
       objectReference: {fileID: 1987697886}
-    - target: {fileID: 9095216789681332822, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: bindings.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+    - target: {fileID: 8042217558664908273, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Gamepad
       objectReference: {fileID: 0}
-    - target: {fileID: 9095216789681332822, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: bindings.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9095216789681332822, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: bindings.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1431607542}
-    - target: {fileID: 9095216789681332822, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: bindings.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9095216789681332822, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: bindings.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 9095216789681332822, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: bindings.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayBGM, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9095216789681332822, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: bindings.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: LevelMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 9095216789681332822, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: bindings.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1929704137442654919, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
 --- !u!114 &1431607540 stripped
 MonoBehaviour:
@@ -1525,17 +1507,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f8175030d83b466b93fc821a6c83812, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1431607542 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9095216789681332823, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-  m_PrefabInstance: {fileID: 1431607539}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178acad9035314dbfa3b18e4324f3ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1453131686
@@ -2248,7 +2219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: enablePan
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Enabled
@@ -2256,7 +2227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: enableRotation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
@@ -2275,7 +2246,7 @@ PrefabInstance:
     - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
       propertyPath: flash
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 610152891}
     - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
       propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.size
       value: 2
