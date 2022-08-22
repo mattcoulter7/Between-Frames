@@ -41,12 +41,15 @@ public class MovementState : State
     {
         base.Awake();
         stateMachine.RegisterState("Movement", this);
-
-        playerInput = GetComponent<PlayerInput>();
-        //playerInput = new ControlInput();
+        
+        if(playerInput == null)
+        {
+            playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        }
+        
         jumpAct = playerInput.actions["Jump"];
-        //jumpAct = playerInput.Player.Jump;
         playerInput.actions["Move"].performed += ctx => Move();
+        //playerInput.actions["Jump"].performed += ctx => Jump(ctx);
     }
 
     protected override void Start()
@@ -180,16 +183,13 @@ public class MovementState : State
 
    public void Move()
     {
-        //Debug.Log(playerInput.actions["Move"].ReadValue<Vector2>().x);
-        //_inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
-        //Debug.Log(playerInput.Player.Move.ReadValue<Vector2>().x);
-        
-        //_inputs.x = playerInput.Player.Move.ReadValue<Vector2>().x;
         _inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
-        //_body.MovePosition(_body.position + _inputs * moveSpeed * Time.fixedDeltaTime);
-        //Debug.Log(_inputs.x);
-
     }
+
+    //public void Jump(InputValue aValue)
+    //{
+    //    OnJump(aValue);
+    //}
    
     //private void OnEnable()
     //{

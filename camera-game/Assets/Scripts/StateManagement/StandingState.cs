@@ -16,7 +16,11 @@ public class StandingState : State
     {
         base.Awake();
         stateMachine.RegisterState("Standing", this);
-        playerInput = GetComponent<PlayerInput>();
+        
+        if (playerInput == null)
+        {
+            playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        }
     }
 
     public override void HandleInput()
@@ -45,7 +49,7 @@ public class StandingState : State
     }
     public override void LogicUpdate()
     {
-        Debug.Log(controllerInput);
+        //Debug.Log(controllerInput);
     }
     public override void PhysicsUpdate()
     {
