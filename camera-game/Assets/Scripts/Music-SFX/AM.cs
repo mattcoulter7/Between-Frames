@@ -31,13 +31,16 @@ public class AM : MonoBehaviour
     [SerializeField]
     private AudioMixerGroup sfxMixerGroup;
 
+    //<summary>Sound array for all the background music in the game</summary>
+    public Sound[] BGM;
+
     //<summary>This is seen in the inspector for testing purposes. It checks which footstep sounds are
     // being put in the new array to be played later</summary>
     [SerializeField]
     private List<Sound> stepSounds;
 
-    //<summary>Sound array for all the background music in the game</summary>
-    public Sound[] BGM;
+    [SerializeField]
+    private List<AudioMixerGroup> sfxGroups; 
 
     //<summary>Sound array for all the sound effects in the game/summary>
     public Sound[] sounds;
@@ -78,6 +81,8 @@ public class AM : MonoBehaviour
         stepSounds.Add(Step1);
         stepSounds.Add(Step2);
 
+
+
         foreach (Sound song in BGM)
         {
             song.source = gameObject.AddComponent<AudioSource>();
@@ -104,6 +109,12 @@ public class AM : MonoBehaviour
             s.source.playOnAwake = s.playOnAwake;
             s.mixerGroup = sfxMixerGroup;
             s.source.outputAudioMixerGroup = s.mixerGroup;
+        }
+
+        foreach (Sound step in stepSounds)
+        {
+            step.mixerGroup = sfxGroups[0];
+            step.source.outputAudioMixerGroup = step.mixerGroup;
         }
     }
 
