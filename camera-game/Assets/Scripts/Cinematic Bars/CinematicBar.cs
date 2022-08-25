@@ -66,10 +66,10 @@ public class CinematicBar : MonoBehaviour
         _rectanglePoints = GetComponent<RectanglePoints>();
         _camera = Camera.main;
         _cameraEdgeProjection = _camera.GetComponent<CameraEdgeProjection>();
-    }
 
-    // Update is called once per frame
-    private void Update()
+        Resize();
+    }
+    private void Resize()
     {
         Vector2 aspectRatio = GetAspectRatio();
         // establish target position on top, left, bottom, right of screen
@@ -104,6 +104,11 @@ public class CinematicBar : MonoBehaviour
         //transform.LookAt(_camera.transform);
         _rectanglePoints.backleft = worldPos; // must set last as position is determined by rotation and scale
                                               //Debug.DrawLine(transform.position,_rectanglePoints.backleft);
+    }
 
+    // Update is called once per frame
+    private void Update()
+    {
+        Resize();
     }
 }

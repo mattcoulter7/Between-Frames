@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPosition : FollowTransform
 {
-    void Update()
+    protected override void Follow()
     {
         Vector3 sum = target.position + offset;
         transform.position = new Vector3(
