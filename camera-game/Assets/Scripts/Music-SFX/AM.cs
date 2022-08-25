@@ -92,7 +92,9 @@ public class AM : MonoBehaviour
             song.source.loop = song.loop;
             song.source.playOnAwake = song.playOnAwake;
             song.source.volume = PlayerPrefs.GetFloat(BGMPref);
-            song.mixerGroup = musicMixerGroup;
+
+            if(song.mixerGroup == null) { song.mixerGroup = musicMixerGroup; }
+
             song.source.outputAudioMixerGroup = song.mixerGroup;
             
         }
@@ -107,7 +109,9 @@ public class AM : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
-            s.mixerGroup = sfxMixerGroup;
+
+            if (s.mixerGroup == null) { s.mixerGroup = sfxMixerGroup; }
+            
             s.source.outputAudioMixerGroup = s.mixerGroup;
         }
 
