@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+
+/// <summary>
+/// This is a generic class for easily binding UNityEvents and MonoBehaviour methods
+/// For example, you can make a sound play every time a collision happens without even writing a line of code!
+/// </summary>
 public class CustomEvent : MonoBehaviour
 {
+    /// <summary>
+    /// The enum for MonoBehaviour methods which values are chosen from in the inspector
+    /// </summary>
     public enum Event {
         OnAwake=0,
         OnStart=1,
@@ -17,15 +25,27 @@ public class CustomEvent : MonoBehaviour
         OnTriggerStay=8
     }
 
+    /// <summary>
+    /// This class handles linking of the Event enum trigger (MonoBehaviour method) and an action (UnityEvent) that is configured in the inspector
+    /// </summary>
     [System.Serializable]
     public class EventBind {
+        /// <summary>
+        /// The Event method chosen from the enum which lines up with a MonoBehaviour method
+        /// </summary>
         public Event eventType;
+        /// <summary>
+        /// The UnityEvent which is a set of actions that happen when the method is called
+        /// </summary>
         public UnityEvent unityEvent; 
     }
 
+    /// <summary>
+    /// The list of bindings to be configured in the inspector (because dictionaries don't show in the inspector!)
+    /// </summary>
     public List<EventBind> bindings = new List<EventBind>();
 
-    UnityEvent GetUnityEvent(Event eventType) {
+    private UnityEvent GetUnityEvent(Event eventType) {
         foreach(var binding in bindings) {
             if (binding.eventType == eventType)
             {
@@ -35,8 +55,7 @@ public class CustomEvent : MonoBehaviour
         return null;
         
     }
-
-    void HandleInvoke(Event eventType){
+    private void HandleInvoke(Event eventType){
         UnityEvent e = GetUnityEvent(eventType);
         if (e != null){ 
             e.Invoke();
@@ -60,24 +79,22 @@ public class CustomEvent : MonoBehaviour
     {
         HandleInvoke(Event.OnUpdate);
     }
-
-    void OnTriggerEnter(Collider other){
+    private void OnTriggerEnter(Collider other){
         HandleInvoke(Event.OnTriggerEnter);
     }
-    void OnTriggerExit(Collider other){
+    private void OnTriggerExit(Collider other){
         HandleInvoke(Event.OnTriggerExit);
     }
-    void OnTriggerStay(Collider other){
+    private void OnTriggerStay(Collider other){
         HandleInvoke(Event.OnTriggerStay);
     }
-
-    void OnCollisionEnter(Collision other){
+    private void OnCollisionEnter(Collision other){
         HandleInvoke(Event.OnCollisionEnter);
     }
-    void OnCollisionExit(Collision other){
+    private void OnCollisionExit(Collision other){
         HandleInvoke(Event.OnCollisionExit);
     }
-    void OnCollisionStay(Collision other){
+    private void OnCollisionStay(Collision other){
         HandleInvoke(Event.OnCollisionStay);
     }
 }

@@ -3,14 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// This class is responsible for updating variables of the CinematicBarManager based on user controls
+/// </sumary>
 public class CinematicBarController : MonoBehaviour
 {
+    /// <summary>CinematicBarManager distance can be controlled if true</summary>
     public bool enableZoom = true;
-    public bool enableIndividualZoom = true;
+    
+    /// <summary>CinematicBarManager offset can be controlled if true</summary>
     public bool enablePan = true;
+    
+    /// <summary>CinematicBarManager rotation can be controlled if true</summary>
     public bool enableRotation = true;
+    
+    /// <summary>The speed scale for updating CinematicBarManager distance</summary>
     public float zoomSpeed = 1f;
+    
+    /// <summary>This curve enables the zooming to become non-linear</summary>
     public AnimationCurve zoomSpeedCurve;
+    
+    /// <summary>The non-linear calculation of the zoom amount</summary>
     public float scaledZoomSpeed
     {
         get
@@ -18,7 +31,11 @@ public class CinematicBarController : MonoBehaviour
             return zoomSpeed * zoomSpeedCurve.Evaluate(_cinematicBars.normalizedDistance);
         }
     }
-    public float rotateSpeed = 1.0f;
+
+    /// <summary>The speed scale for updating CinematicBarManager rotation</summary>
+    public float rotateSpeed = 1f;
+    
+    /// <summary>The speed scale for updating CinematicBarManager offset</summary>
     public float moveSpeed = 1f;
     public float controllerZoomSpeed = 0.1f;
     public float controllerRotationSpeed = 1.8f;
@@ -32,8 +49,6 @@ public class CinematicBarController : MonoBehaviour
     private InputAction rotateLAct;
     private InputAction ShiftCamXY;
 
-
-
     private bool isShrinking = false;
     private bool isExpanding = false;
     private bool isRotatingR = false;
@@ -41,7 +56,7 @@ public class CinematicBarController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _cinematicBars = GetComponent<CinematicBarManager>();
 
@@ -70,7 +85,7 @@ public class CinematicBarController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float zoomFrame = Input.GetAxis("ZoomFrame");
         float shiftFrameX = Input.GetButton("ShiftFrameX") ? Input.GetAxis("ShiftFrameX") : 0;
