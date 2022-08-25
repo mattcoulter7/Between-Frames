@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class FollowScale : FollowTransform
 {
-
-    void Update()
+    protected override void Follow()
     {
         Vector3 sum = target.localScale + offset;
         transform.localScale = new Vector3(
