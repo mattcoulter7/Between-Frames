@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
 
 public class MovementState : State
 {
@@ -27,12 +29,26 @@ public class MovementState : State
 
     public UnityEvent onJump;
     public UnityEvent onLand;
+    public UnityEvent onMove;
+
+    // David - new input system
+    private PlayerInput playerInput;
+
+    private InputAction jumpAct;
 
     protected override void Awake()
     {
         base.Awake();
         stateMachine.RegisterState("Movement", this);
-
+        
+        if(playerInput == null)
+        {
+            playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        }
+        
+        jumpAct = playerInput.actions["Jump"];
+        playerInput.actions["Move"].performed += ctx => Move();
+        //playerInput.actions["Jump"].performed += ctx => Jump(ctx);
     }
 
     protected override void Start()
@@ -45,8 +61,11 @@ public class MovementState : State
     public override void HandleInput()
     {
         _inputs = Vector3.zero;
-        _inputs.x = Input.GetAxis("Horizontal");
-        _jumpInput = Input.GetButtonDown("Jump");
+        //_inputs.x = Input.GetAxis("Horizontal");
+        _inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
+
+        //_jumpInput = Input.GetButtonDown("Jump");
+        _jumpInput = jumpAct.triggered;
     }
     public override void HandleShouldChangeState()
     {
@@ -61,6 +80,8 @@ public class MovementState : State
     }
     public override void LogicUpdate()
     {
+  
+
         // look at downwards raycast for grounding
         _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
 
@@ -120,7 +141,7 @@ public class MovementState : State
 
     IEnumerator DoLand()
     {
-        
+
         onLand.Invoke();
 
         //yield on a new YieldInstruction that waits for 5 seconds.
@@ -130,6 +151,59 @@ public class MovementState : State
         _instance = null;
     }
 
+    //IEnumerator OnJump()
+    //{
+    //    onJump.Invoke();
+    //    Debug.Log("A test");
+    //    yield return null;
+    //}
+
+    private void OnJump(InputValue aValue)
+    {
+        if (_isGrounded)
+        {
+            if (_jumpInput) // if jumping
+            {
+                onJump.Invoke();
+                _body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
+                _isGrounded = false;
+                if (animator != null)
+                {
+                    animator.SetBool(jumpingAnimationVariable, true);
+                }
+            }
+        }
+    }
+
+    private void OnMove(InputValue aValue)
+    {
+        onMove.Invoke();
+    }
+
+   public void Move()
+    {
+        _inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
+    }
+
+    //public void Jump(InputValue aValue)
+    //{
+    //    OnJump(aValue);
+    //}
+   
+    //private void OnEnable()
+    //{
+    //    playerInput.Enable();
+    //}
+    //
+    //private void OnDisable()
+    //{
+    //    playerInput.Disable();
+    //}
+
+    //public ControlInput GetInput()
+    //{
+    //    return playerInput;
+    //}
 }
 //if (_instance == null && Input.GetButtonDown("Flash"))
 //{

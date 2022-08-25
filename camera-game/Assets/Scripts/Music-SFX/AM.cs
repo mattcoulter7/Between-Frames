@@ -296,6 +296,26 @@ public class AM : MonoBehaviour
     {
         Sound stepToPlay = stepSounds[UnityEngine.Random.Range(0, stepSounds.Count)];
         stepToPlay.source.Play();
+
+    }
+
+    //<summary>Ensures that the sound is not already playing before calling the play function</summary>
+    //<param name="name">This is the name of the track to play</param>
+    public void PlayWholeClip(string name)
+    {
+
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return;
+        }
+
+        if (!s.source.isPlaying)
+        {
+            s.source.Play();
+        }
+
     }
 
     /// <summary>Effects changing for sfx. Was intended for something....</summary>

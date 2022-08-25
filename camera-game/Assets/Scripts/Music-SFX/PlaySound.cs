@@ -29,15 +29,17 @@ public class PlaySound : MonoBehaviour
     /// <param name="name">This is the specific sound to play</param>
     public void PlayLooped(string name)
     {
+
         if (!startedPlaying)
         {
-            AM.Instance.PlaySFX(name);
             startedPlaying = true;
+            AM.Instance.PlaySFX(name);
+            startedPlaying = false;
         }
-        else
-        {
-            return;
-        }
+        //else
+        //{
+        //    return;
+        //}
        
     }
 
@@ -52,7 +54,13 @@ public class PlaySound : MonoBehaviour
             startedPlaying = true;
         }
 
+    }
 
+    /// <summary>Ensures the sound finishes playing before calling the play function againe</summary>
+    /// <param name="name">This is the specific sound to play</param>
+    public void PlayWholeClip(string name)
+    {
+        AM.Instance.PlayWholeClip(name);
     }
 
     /// <summary>This method was intended to force a looped sound to stop playing. There are easier ways to achieve

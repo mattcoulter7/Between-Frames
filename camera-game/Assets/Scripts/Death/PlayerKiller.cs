@@ -59,7 +59,8 @@ public class PlayerKiller : MonoBehaviour
         {
             Vector3 direction;
             float distance;
-            Physics.ComputePenetration(
+            //temp fix
+            /*Physics.ComputePenetration(
                 condition.col,
                 condition.col.transform.position,
                 condition.col.transform.rotation,
@@ -72,7 +73,7 @@ public class PlayerKiller : MonoBehaviour
             //Debug.Log(distance);
             if (distance > condition.squishTolerance){
                 kill = true;
-            }
+            }*/
         }
 
         if (kill && !dead)
