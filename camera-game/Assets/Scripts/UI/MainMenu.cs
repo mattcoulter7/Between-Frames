@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
+    public EventSystem eventSystem;
     public GameObject mainMenuUI;
     public GameObject options;
     public GameObject credits;
@@ -34,5 +36,18 @@ public class MainMenu : MonoBehaviour
         options.SetActive(false);
         credits.SetActive(false);
         mainMenuUI.SetActive(true);
+    }
+
+    private void Awake()
+    {
+        if(eventSystem.currentSelectedGameObject == null)
+        {
+            eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
+        }
+    }
+
+    private void Update()
+    {
+        eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
     }
 }
