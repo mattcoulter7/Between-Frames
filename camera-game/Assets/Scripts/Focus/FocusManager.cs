@@ -3,18 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+/// <summary>
+/// This class handles updating the post processing effects module Depth of field value
+/// Since the values are global in post processing module, having a script to control it for each game instance is necessary
+/// </summary>
 public class FocusManager : MonoBehaviour
 {
+    /// <summary>
+    /// The maximum focus amount
+    /// </summary>
     public float focusDistanceMax;
+
+    /// <summary>
+    /// The minimum focus amount
+    /// </summary>
     public float focusDistanceMin;
+
+    /// <summary>
+    /// The current focus amount
+    /// </summary>
     public float currentFocus;
+
+    /// <summary>
+    /// Reference to the post processing layer so that the focus variable can be applied
+    /// </summary>
     public PostProcessLayer postProcessLayer;
 
-    List<PostProcessVolume> volList = new List<PostProcessVolume>();
-    DepthOfField dph;
+    private List<PostProcessVolume> volList = new List<PostProcessVolume>();
+    private DepthOfField dph;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         PostProcessManager.instance.GetActiveVolumes(postProcessLayer, volList, true, true);
         //
@@ -29,7 +48,7 @@ public class FocusManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         dph.focusDistance.value = currentFocus;
     }

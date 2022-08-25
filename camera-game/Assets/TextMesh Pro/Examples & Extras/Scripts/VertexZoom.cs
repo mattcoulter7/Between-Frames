@@ -171,7 +171,7 @@ namespace TMPro.Examples
                 // Push changes into meshes
                 for (int i = 0; i < textInfo.meshInfo.Length; i++)
                 {
-                    //// Sort Quads based modified scale
+                    // Sort Quads based modified scale
                     scaleSortingOrder.Sort((a, b) => modifiedCharScale[a].CompareTo(modifiedCharScale[b]));
 
                     textInfo.meshInfo[i].SortGeometry(scaleSortingOrder);
