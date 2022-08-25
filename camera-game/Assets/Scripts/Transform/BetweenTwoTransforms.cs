@@ -14,9 +14,18 @@ public class BetweenTwoTransforms : MonoBehaviour
 
     public float displacement = 0.5f;
 
+    void Reposition()
+    {
+        transform.position = transform1.position + (span * displacement);
+    }
+
+    private void Start()
+    {
+        Reposition();
+    }
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform1.position + (span * displacement);
+        Reposition();
     }
 }

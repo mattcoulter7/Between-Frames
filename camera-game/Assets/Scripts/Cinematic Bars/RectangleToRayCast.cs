@@ -2,10 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This enabled 3D bounds of a 2D face to be calculated. 
+/// This works by casting rays from Camera.main to each of the 4 edges of a rectangle.
+/// Then, using the Depth and Distance variables, the front and back points can all be calculated along the rays
+/// </summary>
 public class RectangleToRayCast : BoneWeightedBoxController
 {
+    /// <summary>The distance refers to how far on the ray is the first front face</summary>
     public float distance = 10f;
+
+    /// <summary>The depth referes to how far from the front face along the rays is the rear face</summary>
     public float depth = 5f;
+
+    /// <summary>rectanglePoints is a reference to the RectanglePoints component which determine the current point vectors of a Rectangular Prism</summary>
     public RectanglePoints rectanglePoints;
 
     private float getScaledDistance(Ray ray)
@@ -16,7 +26,7 @@ public class RectangleToRayCast : BoneWeightedBoxController
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector3 targetTopLeft = rectanglePoints.frontTopLeft;
         Vector3 targetBottomLeft = rectanglePoints.frontBottomLeft;

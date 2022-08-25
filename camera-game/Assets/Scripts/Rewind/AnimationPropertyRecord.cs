@@ -3,19 +3,42 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-// OBSERVES FLOAT VALUES
+/// <summary>
+/// Observes float values for realtime recording of of an Animation Component
+/// </summary>
 [System.Serializable]
 public class AnimationPropertyRecord : AnimationRecord
 {
+    /// <summary>
+    /// The name of the property, i.e. position.x
+    /// This property name must line up with Unity's Aniamtion property naming convention
+    /// </summary>
     public string animationProperty;
-    public AnimationCurve timeline = new AnimationCurve(); // holds ongoing history of animation property change
-    public AnimationCurve rewind = new AnimationCurve(); // holds reversed instance of timeline until rewind stops
+
+    /// <summary>
+    /// Ths timeline holds the keyframes from start of the level to current time
+    /// As rewind occur, keyframes are extracted from timeline and put into rewind
+    /// </summary>
+    public AnimationCurve timeline = new AnimationCurve();
+
+    /// <summary>
+    /// Holds reversed instance of timeline until rewind stops then the keyframes are cleared
+    /// </summary>
+    public AnimationCurve rewind = new AnimationCurve();
+
+    /// <summary>
+    /// The last value from the keyframe stored
+    /// </summary>
+    public override object lastValue => timeline.length > 0 ? timeline[timeline.length - 1].value : null;
+
+    /// <summary>
+    /// The amount of keyframes the have been saved in the timeline
+    /// </summary>
+    public override int frameCount => timeline.length;
 
     private string[] _unityPropertyArray;
     private float changeTolerance = 0.001f; // change needs to be greater than this for a keyframe to be recorded
 
-    public override object lastValue => timeline.length > 0 ? timeline[timeline.length - 1].value : null;
-    public override int frameCount => timeline.length;
 
     // debug properties
     private float _timelineStartTime;
@@ -25,6 +48,10 @@ public class AnimationPropertyRecord : AnimationRecord
     private float _rewindEndTime;
     private float _rewindDuration;
 
+    /// <summary>
+    /// Record a single keyframe of the configured aniamtionproperty value into the timeline
+    /// </summary>
+    /// <param name="optimise">Enabled this option will only record keyframes when the value changes, as opposed to every single frame</param>
     public override void Record(bool optimise = true)
     {
         float value = (float)valueGetter.GetValue();
@@ -42,6 +69,10 @@ public class AnimationPropertyRecord : AnimationRecord
         }
     }
 
+    /// <summary>
+    /// Saves the rewind animation
+    /// </summary>
+    /// <param name="clip"></param>
     public override void Apply(AnimationClip clip)
     {
         System.Type type = valueGetter.objectReference.GetType();
