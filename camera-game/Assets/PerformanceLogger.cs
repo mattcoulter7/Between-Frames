@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Linq;
@@ -47,6 +48,9 @@ public class PerformanceLogger : MonoBehaviour
     public float recordDuration = 60f;
     public float recordInterval = 0.25f;
 
+    private int accumFrames = 0;
+    private float accumTime = 0f;
+
     private float fps { get { return Time.frameCount / Time.time; } }
 
     private bool recording = true;
@@ -55,7 +59,10 @@ public class PerformanceLogger : MonoBehaviour
 
     public void Record()
     {
-        PerformanceCapture pc = new PerformanceCapture(Time.time, fps);
+        PerformanceCapture pc = new PerformanceCapture(Time.time, accumFrames / accumTime);
+        accumFrames = 0;
+        accumTime = 0f;
+
         performanceCaptures.Add(pc);
     }
 
@@ -63,6 +70,11 @@ public class PerformanceLogger : MonoBehaviour
     {
         StartCoroutine(FinishedRecording());
         StartCoroutine(RecordLoop());
+    }
+    private void Update()
+    {
+        accumFrames += 1;
+        accumTime += Time.deltaTime;
     }
 
     private IEnumerator FinishedRecording()
@@ -79,6 +91,35 @@ public class PerformanceLogger : MonoBehaviour
             Record();
         }
     }
+    
+    /*private void SaveProfilerData()
+    {
+
+        var firstFrameIndex = ProfilerDriver.firstFrameIndex;
+        var lastFrameIndex = ProfilerDriver.lastFrameIndex;
+        var profilerSortColumn = ProfilerColumn.TotalTime;
+        var viewType = ProfilerViewType.Hierarchy;
+
+        var profilerData = new ProfilerData();
+        for (int frameIndex = firstFrameIndex; frameIndex <= lastFrameIndex; ++frameIndex)
+        {
+            var property = new ProfilerProperty();
+            property.SetRoot(frameIndex, profilerSortColumn, viewType);
+            property.onlyShowGPUSamples = false;
+            bool enterChildren = true;
+
+            while (property.Next(enterChildren))
+            {
+                // get all the desired ProfilerColumn
+                var name = property.GetColumn(ProfilerColumn.FunctionName);
+                var totalTime = property.GetColumn(ProfilerColumn.TotalTime);
+                // store values somewhere
+            }
+
+            property.Cleanup();
+        }
+    }
+    */
 
     private async Task PostData()
     {
