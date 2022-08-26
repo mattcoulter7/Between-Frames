@@ -9,18 +9,18 @@ using UnityEngine.Events;
 public class TimedTrigger : Trigger
 {
     public float duration;
-    public override void OnTriggerStart()
+    public override void OnTriggerBegin()
     {
-        base.OnTriggerStart();
+        base.OnTriggerBegin();
         StartCoroutine(Timer());
     }
-    public override void OnTriggerExit()
+    public override void OnTriggerEnd()
     {
-        base.OnTriggerExit();
+        base.OnTriggerEnd();
     }
     IEnumerator Timer(){
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(duration);
-        OnTriggerExit();
+        OnTriggerEnd();
     }
 }

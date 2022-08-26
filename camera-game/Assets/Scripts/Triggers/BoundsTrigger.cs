@@ -8,19 +8,31 @@ public class BoundsTrigger : Trigger
     public Collider myCollider;
     public float penetrationDepth = 0.5f;
     public bool automaticInvokation = false;
+
     private bool _inBounds;
+    private Dictionary<Collider, bool> collisionStates = new Dictionary<Collider, bool>();
     void Start()
     {
-        if (myCollider == null) myCollider = GetComponent<Collider>();
+        // Register Each collider with a state to avoid checking collision penetration of colliders which aren't colliding
+        foreach (Collider bound in bounds)
+        {
+            collisionStates.Add(bound, false);
+        }
+        if (myCollider == null)
+        {
+            myCollider = GetComponent<Collider>();
+        }
+
     }
     public override void Update()
     {
         base.Update();
 
-        bool sufficientPenetration = false;
         foreach (Collider bound in bounds)
         {
-            if (sufficientPenetration) continue;
+            // Don't check penetration if the objects aren't touching, 0 is implied.
+            if (!collisionStates[bound]) continue;
+
             Vector3 direction;
             float distance;
             Physics.ComputePenetration(
@@ -33,12 +45,15 @@ public class BoundsTrigger : Trigger
                 out direction,
                 out distance
             );
-            sufficientPenetration = (distance > penetrationDepth);
+            if (distance > penetrationDepth)
+            {
+                SetInBounds(true);
+                return;
+            }
         }
-        
-        SetInBounds(sufficientPenetration);
+        SetInBounds(false);
     }
-
+    
     public void SetInBounds(bool inBounds)
     {
         bool shouldTrigger = automaticInvokation && _inBounds != inBounds;
@@ -47,22 +62,37 @@ public class BoundsTrigger : Trigger
         if (shouldTrigger) // values is changing
         {
             if (_inBounds){
-                OnTriggerStart();
+                OnTriggerBegin();
             } else {
-                OnTriggerExit();
+                OnTriggerEnd();
             }
         }
     }
 
-    public override void OnTriggerStart()
+    public override void OnTriggerBegin()
     {
         if (_inBounds)
         {
-            base.OnTriggerStart();
+            base.OnTriggerBegin();
         }
     }
-    public override void OnTriggerExit()
+    public override void OnTriggerEnd()
     {
-        base.OnTriggerExit();
+        base.OnTriggerEnd();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        collisionStates[other] = true;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        collisionStates[other] = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        collisionStates[other] = false;
     }
 }

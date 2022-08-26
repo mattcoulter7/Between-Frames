@@ -22,13 +22,13 @@ public class Trigger : MonoBehaviour
     public virtual void WhileTrigger(){
         whileTrigger.Invoke();
     }
-    public virtual void OnTriggerStart()
+    public virtual void OnTriggerBegin()
     {
         _activated = true;
         onTriggerEnter.Invoke();
     }
 
-    public virtual void OnTriggerExit(){
+    public virtual void OnTriggerEnd(){
         _activated = false;
         onTriggerExit.Invoke();
     }
@@ -36,9 +36,9 @@ public class Trigger : MonoBehaviour
     public virtual void OnTriggerToggle(){
         _activated = !_activated;
         if (_activated){
-            OnTriggerStart();
+            OnTriggerBegin();
         } else {
-            OnTriggerExit();
+            OnTriggerEnd();
         }
     }
 }

@@ -19,7 +19,7 @@ public class VisibleTimerTrigger : TimedTrigger
     {
         if (_currentlyVisible)
         {
-            OnTriggerStart();
+            OnTriggerBegin();
         }
     }
 

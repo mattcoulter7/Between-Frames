@@ -9,6 +9,8 @@ using UnityEngine;
 /// </summary>
 public class RectangleToRayCast : BoneWeightedBoxController
 {
+    public Camera sourceCamera;
+
     /// <summary>The distance refers to how far on the ray is the first front face</summary>
     public float distance = 10f;
 
@@ -25,6 +27,15 @@ public class RectangleToRayCast : BoneWeightedBoxController
         return scaledDistance;
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        if (sourceCamera == null)
+        {
+            sourceCamera = Camera.main;
+        }   
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -33,17 +44,17 @@ public class RectangleToRayCast : BoneWeightedBoxController
         Vector3 targetTopRight = rectanglePoints.frontTopRight;
         Vector3 targetBottomRight = rectanglePoints.frontBottomRight;
 
-        Ray topLeftRay = Camera.main.ViewportPointToRay(
-            Camera.main.WorldToViewportPoint(targetTopLeft)
+        Ray topLeftRay = sourceCamera.ViewportPointToRay(
+            sourceCamera.WorldToViewportPoint(targetTopLeft)
         );
-        Ray topRightRay = Camera.main.ViewportPointToRay(
-            Camera.main.WorldToViewportPoint(targetTopRight)
+        Ray topRightRay = sourceCamera.ViewportPointToRay(
+            sourceCamera.WorldToViewportPoint(targetTopRight)
         );
-        Ray bottomLeftRay = Camera.main.ViewportPointToRay(
-            Camera.main.WorldToViewportPoint(targetBottomLeft)
+        Ray bottomLeftRay = sourceCamera.ViewportPointToRay(
+            sourceCamera.WorldToViewportPoint(targetBottomLeft)
         );
-        Ray bottomRightRay = Camera.main.ViewportPointToRay(
-            Camera.main.WorldToViewportPoint(targetBottomRight)
+        Ray bottomRightRay = sourceCamera.ViewportPointToRay(
+            sourceCamera.WorldToViewportPoint(targetBottomRight)
         );
 
         float topLeftDist = getScaledDistance(topLeftRay);
@@ -60,9 +71,9 @@ public class RectangleToRayCast : BoneWeightedBoxController
         bottomRightFront.position = bottomRightRay.GetPoint(bottomRight);
         bottomRightBack.position = bottomRightRay.GetPoint(bottomRight + depth);
 
-        Debug.DrawLine(Camera.main.transform.position, targetTopLeft);
-        Debug.DrawLine(Camera.main.transform.position, targetBottomLeft);
-        Debug.DrawLine(Camera.main.transform.position, targetTopRight);
-        Debug.DrawLine(Camera.main.transform.position, targetBottomRight);
+        Debug.DrawLine(sourceCamera.transform.position, targetTopLeft);
+        Debug.DrawLine(sourceCamera.transform.position, targetBottomLeft);
+        Debug.DrawLine(sourceCamera.transform.position, targetTopRight);
+        Debug.DrawLine(sourceCamera.transform.position, targetBottomRight);
     }
 }

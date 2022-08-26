@@ -599,7 +599,7 @@ Transform:
   m_GameObject: {fileID: 630763613562749388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 5}
+  m_LocalScale: {x: 10, y: 30, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 630763613258248156}
@@ -801,6 +801,7 @@ MonoBehaviour:
   topRightBack: {fileID: 8401504570509252040}
   topLeftFront: {fileID: 4313078896707402405}
   topRightFront: {fileID: 5497810298510292366}
+  sourceCamera: {fileID: 0}
   distance: 5
   depth: 100
   rectanglePoints: {fileID: 630763613562749386}
@@ -929,6 +930,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   rotateSpeed: 0.05
   moveSpeed: 1
+  controllerZoomSpeed: 0.1
+  controllerRotationSpeed: 1.8
 --- !u!114 &630763613663510496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,6 +1592,7 @@ MonoBehaviour:
   topRightBack: {fileID: 630763614108652214}
   topLeftFront: {fileID: 630763613957775582}
   topRightFront: {fileID: 630763613813726697}
+  sourceCamera: {fileID: 0}
   distance: 5
   depth: 100
   rectanglePoints: {fileID: 7659145190825004609}
@@ -2255,6 +2259,7 @@ MonoBehaviour:
   topRightBack: {fileID: 8401504570825862124}
   topLeftFront: {fileID: 4313078896407430273}
   topRightFront: {fileID: 5497810297749212074}
+  sourceCamera: {fileID: 0}
   distance: 5
   depth: 100
   rectanglePoints: {fileID: 630763615036267149}
@@ -2300,7 +2305,7 @@ Transform:
   m_GameObject: {fileID: 630763615036267139}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 5}
+  m_LocalScale: {x: 10, y: 30, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 630763613258248156}

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 125980247}
   - component: {fileID: 125980242}
   - component: {fileID: 125980243}
-  - component: {fileID: 125980244}
   - component: {fileID: 125980245}
   - component: {fileID: 125980246}
   - component: {fileID: 6050128738885814211}
@@ -137,51 +136,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   toggledAnimationVariable: ButtonPressed
---- !u!114 &125980244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7791512904423854005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f218a8482a749478c6704031c46e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onTriggerEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 125980245}
-        m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
-        m_MethodName: ChangeState
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Open
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTriggerExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 125980245}
-        m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
-        m_MethodName: ChangeState
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Close
-          m_BoolArgument: 0
-        m_CallState: 2
-  whileTrigger:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &125980245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,32 +168,32 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 125980244}
-          m_TargetAssemblyTypeName: Trigger, Assembly-CSharp
-          m_MethodName: OnTriggerStart
-          m_Mode: 1
+        - m_Target: {fileID: 125980245}
+          m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
+          m_MethodName: ChangeState
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Open
             m_BoolArgument: 0
           m_CallState: 2
   - eventType: 6
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 125980244}
-          m_TargetAssemblyTypeName: Trigger, Assembly-CSharp
-          m_MethodName: OnTriggerExit
-          m_Mode: 1
+        - m_Target: {fileID: 125980245}
+          m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
+          m_MethodName: ChangeState
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Close
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &6050128738885814211

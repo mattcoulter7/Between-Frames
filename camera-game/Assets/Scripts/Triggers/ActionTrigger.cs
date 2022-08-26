@@ -18,7 +18,7 @@ public class ActionTrigger : Trigger
 
         if (Input.GetAxis(actionString) != 0){
 
-            OnTriggerStart();
+            OnTriggerBegin();
 
         }
 

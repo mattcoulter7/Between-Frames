@@ -79,7 +79,7 @@ public class BoneWeightedBoxController : MonoBehaviour
     {
         ShiftPoints(pointGroups[group], amount);
     }
-    private void Start()
+    protected virtual void Start()
     {
         // define all of the relevant point groups
         pointGroups.Add(PointGroup.LEFT, new Transform[4] { bottomLeftBack, bottomLeftFront, topLeftBack, topLeftFront });
