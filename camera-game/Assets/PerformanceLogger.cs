@@ -45,37 +45,42 @@ public class PerformanceLogger : MonoBehaviour
     /// Duration (in seconds) of performance monitoring
     /// </summary>
     public float recordDuration = 60f;
+    public float recordInterval = 0.25f;
+
+    private float fps { get { return Time.frameCount / Time.time; } }
+
     private bool recording = true;
     private List<PerformanceCapture> performanceCaptures = new List<PerformanceCapture>();
     private static readonly HttpClient client = new HttpClient();
 
-    private void Start()
+    public void Record()
     {
-        StartCoroutine(Timer());
-    }
-
-    void Update()
-    {
-        if (recording)
-        {
-            Record();
-        }
-    }
-
-    void Record()
-    {
-        PerformanceCapture pc = new PerformanceCapture ( Time.time, 1/Time.deltaTime );
+        PerformanceCapture pc = new PerformanceCapture(Time.time, fps);
         performanceCaptures.Add(pc);
     }
 
-    IEnumerator Timer()
+    private void Start()
+    {
+        StartCoroutine(FinishedRecording());
+        StartCoroutine(RecordLoop());
+    }
+
+    private IEnumerator FinishedRecording()
     {
         yield return new WaitForSeconds(recordDuration);
         recording = false;
         PostData();
     }
+    private IEnumerator RecordLoop()
+    {
+        while (recording)
+        {
+            yield return new WaitForSeconds(recordInterval);
+            Record();
+        }
+    }
 
-    async Task PostData()
+    private async Task PostData()
     {
         string content = "[" + string.Join(",\n", performanceCaptures.Select(pc => pc.toJSONString())) + "]";
 
@@ -85,9 +90,10 @@ public class PerformanceLogger : MonoBehaviour
             }
         );
 
-        var endpoint = "https://script.google.com/macros/s/AKfycbydgqil1iZ_xQzxC7SI_dejPYgVoTz8UVue0agNg7tY5BvYoxKRPTQmXImqSvp6TI8q/exec";
+        var endpoint = "https://script.google.com/macros/s/AKfycbw154TEOX1M7i3zROsQlrh53TYsMFnZLHk06p2Tz26x9pAvaBWlhCapcX2xUlHlYvM/exec";
         var response = await client.PostAsync(endpoint, data);
 
         var responseString = await response.Content.ReadAsStringAsync();
+        Debug.Log(responseString);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MouseOperations
 {
@@ -86,6 +87,16 @@ public class Benchmark : MonoBehaviour
     public List<Frame> frames = new List<Frame>();
     public bool recording = false;
 
+    private void Start()
+    {
+        StartCoroutine(StopRecording());
+    }
+
+    IEnumerator StopRecording()
+    {
+        yield return new WaitForSeconds(5);
+        recording = false;
+    }
 
     // Update is called once per frame
     private void Update()
