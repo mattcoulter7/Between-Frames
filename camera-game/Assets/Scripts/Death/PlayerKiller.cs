@@ -56,7 +56,6 @@ public class PlayerKiller : MonoBehaviour
                 out direction,
                 out distance
             );
-            //Debug.Log(distance);
             if (distance > condition.squishTolerance){
                 kill = true;
             }
