@@ -3,19 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// This class is responsible for calling UnityEvents for when changes in
+/// CinematicBarManagers rotation, move and zoom
+/// </summary>
 public class CinematicBarEvents : MonoBehaviour
 {
+
+    /// <summary>The configured event for what happens when the rotation changes</summary>
     public UnityEvent onRotate;
+    
+    /// <summary>The configured event for what happens when the offset changes</summary>
     public UnityEvent onMove;
+    
+    /// <summary>The configured event for what happens when the distance changes</summary>
     public UnityEvent onDistance;
 
     private float _lastDistance;
     private Vector3 _lastOffset;
     private float _lastRotation;
 
-    CinematicBarManager cinematicBarManager;
+    private CinematicBarManager cinematicBarManager;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         cinematicBarManager = GetComponent<CinematicBarManager>();
         _lastDistance = cinematicBarManager.distanceSnapped;
@@ -24,7 +34,7 @@ public class CinematicBarEvents : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float distance = cinematicBarManager.distance;
         Vector3 offset  = cinematicBarManager.offset;

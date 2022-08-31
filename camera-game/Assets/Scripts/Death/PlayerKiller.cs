@@ -4,40 +4,54 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class handles determining if a player is killed by configuring kill conditions
+/// </summary>
 public class PlayerKiller : MonoBehaviour
 {
     [System.Serializable]
+    /// <summary>Determines how far an object needs to be within a collider for a kill to occur</summary>
     public class KillCondition
     {
         public Collider col;
         public float squishTolerance = 10f;
     }
+
+    /// <summary>The list of kill conditions which will trigger a kill if any one of them are true</summary>
     public List<KillCondition> killConditions = new List<KillCondition>();
+
+    /// <summary>Unity Event for what else will happen on kill such as a death sound playing</summary>
     public UnityEvent onKill;
 
-    Collider _myCol;
-    bool ready = false;
 
+    /// <summary>True if the player is dead</summary>
     public bool dead;
-    void Start()
+
+    private Collider _myCol;
+    private bool ready = false;
+
+    /// <summary>Sets dead back to false</summary>
+    public void Reset()
+    {
+        dead = false;
+    }
+
+    private void Start()
     {
         _myCol = GetComponent<Collider>();
         //Start the coroutine we define below named ExampleCoroutine.
         StartCoroutine(ExampleCoroutine());
         dead = false;
     }
-    public void Reset()
-    {
-        dead = false;
-    }
-    IEnumerator ExampleCoroutine()
+
+    private IEnumerator ExampleCoroutine()
     {
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(0.1f);
         ready = true;
     }
 
-    void Update()
+    private void Update()
     {
         if (!ready) return;
         bool kill = false;
@@ -46,6 +60,7 @@ public class PlayerKiller : MonoBehaviour
         {
             Vector3 direction;
             float distance;
+            
             Physics.ComputePenetration(
                 condition.col,
                 condition.col.transform.position,

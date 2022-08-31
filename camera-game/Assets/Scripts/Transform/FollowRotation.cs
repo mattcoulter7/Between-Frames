@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowRotation : FollowTransform
 {
-    void Update()
+    protected override void Follow()
     {
         Vector3 sum = target.eulerAngles + offset;
         transform.rotation = Quaternion.Euler(
