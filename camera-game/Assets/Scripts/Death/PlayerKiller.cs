@@ -23,10 +23,11 @@ public class PlayerKiller : MonoBehaviour
     /// <summary>Unity Event for what else will happen on kill such as a death sound playing</summary>
     public UnityEvent onKill;
 
+
     /// <summary>True if the player is dead</summary>
     public bool dead;
 
-    private CapsuleCollider _myCol;
+    private Collider _myCol;
     private bool ready = false;
 
     /// <summary>Sets dead back to false</summary>
@@ -37,7 +38,7 @@ public class PlayerKiller : MonoBehaviour
 
     private void Start()
     {
-        _myCol = GetComponent<CapsuleCollider>();
+        _myCol = GetComponent<Collider>();
         //Start the coroutine we define below named ExampleCoroutine.
         StartCoroutine(ExampleCoroutine());
         dead = false;
@@ -59,8 +60,8 @@ public class PlayerKiller : MonoBehaviour
         {
             Vector3 direction;
             float distance;
-            //temp fix
-            /*Physics.ComputePenetration(
+            
+            Physics.ComputePenetration(
                 condition.col,
                 condition.col.transform.position,
                 condition.col.transform.rotation,
@@ -70,10 +71,9 @@ public class PlayerKiller : MonoBehaviour
                 out direction,
                 out distance
             );
-            //Debug.Log(distance);
             if (distance > condition.squishTolerance){
                 kill = true;
-            }*/
+            }
         }
 
         if (kill && !dead)
