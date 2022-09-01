@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is responsible for showing debug information related to the
+/// Cinematic Bars for debug purposes only
+/// </summary>
 public class CinematicBarDebug : MonoBehaviour
 {
+    /// <summary>Draws lines from camera to the back bottom 2 points of the bars</summary>
     public bool logBottomBack = false;
+    
+    /// <summary>Reference to the Top Cinematic Bar Target gameObject
     public GameObject top;
-    public GameObject bottom;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+    /// <summary>Reference to the Bottom Cinematic Bar Target gameObject
+    public GameObject bottom;
+
+    /// <summary>
+    /// Calculates the point inbetween two inner middle points of both cinematic bars
+    /// </summary>
+    /// <returns>The Vector3 of middle point between inner points of the cinematic bars</returns>
     public Vector3 GetMiddlePoint(){
         RectanglePoints topRectanglePoints = top.GetComponent<RectanglePoints>();
         RectanglePoints bottomRectanglePoints = bottom.GetComponent<RectanglePoints>();
@@ -21,7 +29,7 @@ public class CinematicBarDebug : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         RectanglePoints topRectanglePoints = top.GetComponent<RectanglePoints>();
         RectanglePoints bottomRectanglePoints = bottom.GetComponent<RectanglePoints>();

@@ -96,7 +96,7 @@ public class PlayBarSound : MonoBehaviour
         // get the distance to main camera
         //float camDist = (Camera.main.transform.position - transform.position).sqrMagnitude;
 
-        //// stop sound if the object is beyond the maximum roll off distance
+        // stop sound if the object is beyond the maximum roll off distance
         //if (BarMoving && camDist > maxRolloffDistance * maxRolloffDistance)
         //{
         //    StopSound();
@@ -126,37 +126,37 @@ public class PlayBarSound : MonoBehaviour
             }
             else
             {
-                //// for 4 channel engine sound, it's a little more complex:
+                // for 4 channel engine sound, it's a little more complex:
 
-                //// adjust the pitches based on the multipliers
+                // adjust the pitches based on the multipliers
                 //m_LowAccel.pitch = pitch * pitchMultiplier;
                 //m_LowDecel.pitch = pitch * pitchMultiplier;
                 //m_HighAccel.pitch = pitch * highPitchMultiplier * pitchMultiplier;
                 //m_HighDecel.pitch = pitch * highPitchMultiplier * pitchMultiplier;
                 //float accFade = 0;
-                //// get values for fading the sounds based on the acceleration
+                // get values for fading the sounds based on the acceleration
 
                 //accFade = Mathf.Abs((InputManager.vertical > 0 && !m_CarController.test) ? InputManager.vertical : 0);
 
                 //float decFade = 1 - accFade;
 
-                //// get the high fade value based on the cars revs
+                // get the high fade value based on the cars revs
                 //float highFade = Mathf.InverseLerp(0.2f, 0.8f, m_CarController.engineRPM / 10000);
                 //float lowFade = 1 - highFade;
 
-                //// adjust the values to be more realistic
+                // adjust the values to be more realistic
                 //highFade = 1 - ((1 - highFade) * (1 - highFade));
                 //lowFade = 1 - ((1 - lowFade) * (1 - lowFade));
                 //accFade = 1 - ((1 - accFade) * (1 - accFade));
                 //decFade = 1 - ((1 - decFade) * (1 - decFade));
 
-                //// adjust the source volumes based on the fade values
+                // adjust the source volumes based on the fade values
                 //m_LowAccel.volume = lowFade * accFade;
                 //m_LowDecel.volume = lowFade * decFade;
                 //m_HighAccel.volume = highFade * accFade;
                 //m_HighDecel.volume = highFade * decFade;
 
-                //// adjust the doppler levels
+                // adjust the doppler levels
                 //m_HighAccel.dopplerLevel = useDoppler ? dopplerLevel : 0;
                 //m_LowAccel.dopplerLevel = useDoppler ? dopplerLevel : 0;
                 //m_HighDecel.dopplerLevel = useDoppler ? dopplerLevel : 0;
