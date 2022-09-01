@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenuUI;
     public GameObject options;
     public GameObject credits;
+    public GameObject myobj;
+
     public void OnPlay(){
         SceneManager.LoadScene("JacksonTests2");
     }
@@ -40,14 +42,17 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        if(eventSystem.currentSelectedGameObject == null)
-        {
-            eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
-        }
+        eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
+
     }
 
     private void Update()
     {
-        eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
+        if (eventSystem.currentSelectedGameObject == null)
+        {
+            eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
+        }
+
+        myobj = eventSystem.currentSelectedGameObject;
     }
 }
