@@ -41,10 +41,10 @@ public class MovementState : State
         base.Awake();
         stateMachine.RegisterState("Movement", this);
         
-        //if(playerInput == null)
-        //{
-        playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-        //}
+        if(playerInput == null)
+        {
+            playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        }
         
         jumpAct = playerInput.actions["Jump"];
         playerInput.actions["Move"].performed += ctx => Move();
@@ -182,6 +182,10 @@ public class MovementState : State
 
    public void Move()
     {
+        if (playerInput == null)
+        {
+            playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        }
         _inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
     }
 
