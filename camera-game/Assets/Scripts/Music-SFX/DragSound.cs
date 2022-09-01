@@ -6,87 +6,73 @@ using UnityEngine.Events;
 public class DragSound : MonoBehaviour
 {
     public LayerMask ground;
-    //;public string soundEffect;
     public float groundDistance = 0.2f;
     public bool _isGrounded = false;
-    public float minBoxSpeed;
-    float prevCurrent = 0;
+
+    public float speedDragThreshold = 1f;
+    public float horizontalDragThreshold = 0.1f;
+
+    private bool _isDragging = false;
 
     [SerializeField]
     private Transform[] groundCheckers;
 
     private Rigidbody _body;
 
-    //public UnityEvent onDrag;
     public UnityEvent onDragStart;
+    public UnityEvent onDrag;
     public UnityEvent onDragEnd;
 
-   
     // Start is called before the first frame update
     void Start()
     {
         _body = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //Debug.Log("Mag: " + _body.velocity.magnitude);
-        
-       // _isGrounded = IsGrounded();
+        _isGrounded = IsGrounded();
 
-        // Change is state detected ||Try again later
-        //if (prevIsGrounded != _isGrounded && _body.velocity.magnitude > minBoxSpeed) {
-        //    if (_isGrounded) onDragStart.Invoke();
-        //    else onDragEnd.Invoke();
-        //}
+        Vector2 velocity = _body.velocity;
+        float speed = Mathf.Abs(velocity.magnitude);
+        float horizontalSpeed = Mathf.Abs(velocity.x);
 
-        //new idea.
-        //if()
-       
+        if (_isDragging)
+        {
+            // while the drag is happening
+            Drag();
+
+            // check if dragging has stopped
+            if (!_isGrounded || (speed < speedDragThreshold && horizontalSpeed < horizontalDragThreshold))
+            {
+                DragEnd();
+            }
+        } 
+        else
+        {
+            // check if dragging has started
+            if (_isGrounded && (speed >= speedDragThreshold && horizontalSpeed >= horizontalDragThreshold))
+            {
+                DragStart();
+            }
+        }
     }
 
-    private void FixedUpdate()
-    {//Vector3 remember
-        //Debug.Log("Mag: " + _body.velocity.magnitude);
-        bool prevIsGrounded = _isGrounded;
+    private void DragStart()
+    {
+        onDragStart.Invoke();
+        _isDragging = true;
+    }
 
-        _isGrounded = IsGrounded();
-        //Vector2 vel = _body.velocity;
+    private void DragEnd()
+    {
+        onDragEnd.Invoke();
+        _isDragging = false;
+    }
 
-        //if (prevIsGrounded != _isGrounded)
-        //{
-
-        //    _body.velocity = vel.normalized;
-
-        //}
-
-        //if (_isGrounded)
-        //{
-        //    _body.velocity = 0;
-        //}
-
-        // Change is state detected ||Try again later
-        if (prevIsGrounded != _isGrounded && (_body.velocity.x > minBoxSpeed) || (_body.velocity.x < (minBoxSpeed * -1)))
-        {
-            if (_isGrounded) onDragStart.Invoke();
-            else onDragEnd.Invoke();
-        }
-
-        //////////FIND THE HIGHEST
-        
-        float current;
-
-        current = _body.velocity.magnitude;
-        if (current > prevCurrent)
-        {
-            prevCurrent = current;
-            Debug.Log("Highest Mag: " + prevCurrent);
-        }
-        
-
-
-
+    private void Drag()
+    {
+        onDrag.Invoke();
     }
 
     private bool IsGrounded()
@@ -97,48 +83,4 @@ public class DragSound : MonoBehaviour
         }
         return false;
     }
-
-
-
-    //private void OnCollisionEnter(Collision col)
-    //{
-    //    Debug.Log("Collided!");
-    //    bool prevIsGrounded = _isGrounded;
-
-       
-    //    //if (prevIsGrounded != _isGrounded)
-    //    //{
-    //    //    Debug.Log("Tag: " + col.gameObject.tag);
-    //    //    if (col.gameObject.CompareTag("Player"))
-    //    //    {
-               
-    //    //        onDragStart.Invoke();
-    //    //    }
-
-    //    //}
-
-    //    if (col.gameObject.tag == ("Player"))
-    //    {
-    //        //if (prevIsGrounded != _isGrounded)
-    //        //{
-
-    //            onDragStart.Invoke();
-    //        //}
-    //    }
-
-
-    //}
-
-    //private void OnCollisionExit(Collision col)
-    //{
-
-
-
-    //    if (col.gameObject.tag == ("Player"))
-    //    {
-    //        onDragEnd.Invoke();
-    //    }
-
-
-    //}
 }

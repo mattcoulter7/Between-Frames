@@ -106,11 +106,10 @@ GameObject:
   - component: {fileID: 6758134818991948531}
   - component: {fileID: 6534370897048142500}
   - component: {fileID: 4304681127460560670}
+  - component: {fileID: 5606864576341262300}
   - component: {fileID: 1578869926982069449}
   - component: {fileID: 1260505080855395040}
   - component: {fileID: 1124469022717649649}
-  - component: {fileID: 8297279780175038221}
-  - component: {fileID: 8645530404389326326}
   m_Layer: 0
   m_Name: TestCrate
   m_TagString: Untagged
@@ -210,47 +209,6 @@ MonoBehaviour:
         paramSet:
           parameters: []
         targetSetIndex: 0
-  - getter:
-      objectReference: {fileID: 1124469022717649649}
-      targets:
-      - name: currentState
-        paramSet:
-          parameters: []
-        targetSetIndex: 0
-    setter:
-      objectReference: {fileID: 1124469022717649649}
-      targets:
-      - name: ChangeState
-        paramSet:
-          parameters:
-          - paramType: 0
-            floatParameter: 0
-            stringParameter: 
-            intParameter: 0
-            boolParameter: 0
-            customGetter:
-              objectReference: {fileID: 0}
-              targets: []
-            objectParameter: {fileID: 0}
-            initialiseParameter:
-              typeName: 
-              paramSet:
-                parameters: []
-        targetSetIndex: 0
-  - getter:
-      objectReference: {fileID: 8297279780175038221}
-      targets:
-      - name: dead
-        paramSet:
-          parameters: []
-        targetSetIndex: 0
-    setter:
-      objectReference: {fileID: 8297279780175038221}
-      targets:
-      - name: dead
-        paramSet:
-          parameters: []
-        targetSetIndex: 0
   onRewindStart:
     m_PersistentCalls:
       m_Calls:
@@ -301,8 +259,7 @@ MonoBehaviour:
     m_Bits: 641
   groundDistance: 0.2
   _isGrounded: 0
-  speedDragThreshold: 1
-  horizontalDragThreshold: 0.1
+  minBoxSpeed: 0
   groundCheckers:
   - {fileID: 8818766293191567317}
   - {fileID: 2452504648516499082}
@@ -323,9 +280,6 @@ MonoBehaviour:
           m_StringArgument: BoxDrag
           m_BoolArgument: 0
         m_CallState: 2
-  onDrag:
-    m_PersistentCalls:
-      m_Calls: []
   onDragEnd:
     m_PersistentCalls:
       m_Calls:
@@ -341,188 +295,6 @@ MonoBehaviour:
           m_StringArgument: BoxDrag
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1578869926982069449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758134818991948525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb767dcd647fae2438b4b9f2cdfc8ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6758134818991948531}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_detectCollisions
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6758134819300249100}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6758134818991948531}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_isKinematic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  OnExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  stateName: Dead
---- !u!114 &1260505080855395040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758134818991948525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb767dcd647fae2438b4b9f2cdfc8ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6758134818991948531}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_detectCollisions
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 6758134819300249100}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 6758134818991948531}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
-        m_MethodName: set_isKinematic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  stateName: Alive
---- !u!114 &1124469022717649649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758134818991948525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultState: Alive
-  history:
-  - {fileID: 0}
---- !u!114 &8297279780175038221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758134818991948525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81997db9b8bac134e982612f3f235a84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  killConditions:
-  - col: {fileID: 0}
-    squishTolerance: 0.1
-  - col: {fileID: 0}
-    squishTolerance: 0.1
-  onKill:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1124469022717649649}
-        m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
-        m_MethodName: ChangeState
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Dead
-          m_BoolArgument: 0
-        m_CallState: 2
-  dead: 0
---- !u!114 &8645530404389326326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758134818991948525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ce64ac303641e4c825d28cbea39fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6758134819300249100
 GameObject:
   m_ObjectHideFlags: 0
