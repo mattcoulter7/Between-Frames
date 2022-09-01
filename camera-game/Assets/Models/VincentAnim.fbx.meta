@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: b3c5b1166f7a1a445974ce42b453cf6c
 ModelImporter:
-  serializedVersion: 21202
+  serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: 4781951162920444690
@@ -172,14 +172,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0.12552902
-        functionName: Step
+        functionName: PlayStep
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.62643224
-        functionName: Step
+        functionName: PlayStep
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -686,6 +686,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
