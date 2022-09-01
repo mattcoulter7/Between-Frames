@@ -10,7 +10,7 @@ public class DragSound : MonoBehaviour
     public float groundDistance = 0.2f;
     public bool _isGrounded = false;
     public float minBoxSpeed;
-
+    float prevCurrent = 0;
 
     [SerializeField]
     private Transform[] groundCheckers;
@@ -52,22 +52,41 @@ public class DragSound : MonoBehaviour
         bool prevIsGrounded = _isGrounded;
 
         _isGrounded = IsGrounded();
-        Vector2 vel = _body.velocity;
+        //Vector2 vel = _body.velocity;
 
-        if (prevIsGrounded != _isGrounded)
-        {
+        //if (prevIsGrounded != _isGrounded)
+        //{
 
-            _body.velocity = vel.normalized;
+        //    _body.velocity = vel.normalized;
 
-        }
-       
+        //}
 
+        //if (_isGrounded)
+        //{
+        //    _body.velocity = 0;
+        //}
 
         // Change is state detected ||Try again later
-        //if (prevIsGrounded != _isGrounded && _body.velocity.magnitude > minBoxSpeed) {
-        //    if (_isGrounded) onDragStart.Invoke();
-        //    else onDragEnd.Invoke();
-        //}
+        if (prevIsGrounded != _isGrounded && (_body.velocity.x > minBoxSpeed) || (_body.velocity.x < (minBoxSpeed * -1)))
+        {
+            if (_isGrounded) onDragStart.Invoke();
+            else onDragEnd.Invoke();
+        }
+
+        //////////FIND THE HIGHEST
+        
+        float current;
+
+        current = _body.velocity.magnitude;
+        if (current > prevCurrent)
+        {
+            prevCurrent = current;
+            Debug.Log("Highest Mag: " + prevCurrent);
+        }
+        
+
+
+
     }
 
     private bool IsGrounded()
@@ -78,6 +97,7 @@ public class DragSound : MonoBehaviour
         }
         return false;
     }
+
 
 
     //private void OnCollisionEnter(Collision col)

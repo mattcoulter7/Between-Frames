@@ -180,6 +180,14 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: BoxDrag
+    clip: {fileID: 8300000, guid: 1f0f58188ba944a45a28b135d025efed, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &2346111616123011502
 MonoBehaviour:
   m_ObjectHideFlags: 0
