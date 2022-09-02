@@ -58,8 +58,6 @@ public class PlayerKiller : MonoBehaviour
 
         foreach (KillCondition condition in killConditions)
         {
-            if (condition.col == null) continue;
-
             Vector3 direction;
             float distance;
             
@@ -73,9 +71,8 @@ public class PlayerKiller : MonoBehaviour
                 out direction,
                 out distance
             );
-            if (distance > condition.squishTolerance) {
+            if (distance > condition.squishTolerance){
                 kill = true;
-                break;
             }
         }
 
