@@ -6516,8 +6516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a356f432789a194688da85e2bb4277b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomLeft: {fileID: 0}
-  bottomRight: {fileID: 0}
+  bottomLeft: {fileID: 1834434493}
+  bottomRight: {fileID: 2146874637}
   topLeft: {fileID: 361182353}
   topRight: {fileID: 1924387985}
   height: 0
@@ -6548,8 +6548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   A: {fileID: 361182353}
   B: {fileID: 1924387985}
-  C: {fileID: 0}
-  D: {fileID: 0}
+  C: {fileID: 2146874637}
+  D: {fileID: 1834434493}
   isRectangle: 0
 --- !u!1001 &1288629007
 PrefabInstance:
@@ -7988,6 +7988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2146874637}
+  - component: {fileID: 2146874638}
   m_Layer: 6
   m_Name: BBL_Aligned
   m_TagString: Untagged
@@ -8010,6 +8011,22 @@ Transform:
   m_Father: {fileID: 618503008}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2146874638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146874636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9781e3c21013cf9428d9168750b28897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPoint: {fileID: 1924387985}
+  relativeLine:
+    A: {fileID: 147279646}
+    B: {fileID: 1340013467}
 --- !u!4 &543450652542984415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6341846085515681001, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
@@ -8027,6 +8044,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383566624}
     m_Modifications:
+    - target: {fileID: 630763613659912225, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 630763613659912226, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 630763613663510500, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Name
       value: CinematicBars
@@ -8146,6 +8171,10 @@ PrefabInstance:
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: zoomSpeedScale.m_Curve.Array.data[1].outSlope
       value: 0.02059831
+      objectReference: {fileID: 0}
+    - target: {fileID: 630763614980866948, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8256659717833503505, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Materials.Array.data[0]
