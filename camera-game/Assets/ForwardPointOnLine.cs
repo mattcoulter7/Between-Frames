@@ -10,23 +10,36 @@ public class ForwardPointOnLine : MonoBehaviour
         public Transform A;
         public Transform B;
 
-        public Vector3 GetPoint(float x)
+        public Vector3 GetPoint(Vector2 position,float rotation)
         {
+            float xScalar = Mathf.Cos(Mathf.Deg2Rad * rotation);
+            float yScalar = Mathf.Sin(Mathf.Deg2Rad * rotation);
+
             Vector3 AB = B.position - A.position;
-            float distance = Mathf.Abs(AB.x);
+            float distanceX = Mathf.Abs(AB.x);
+            float distanceY = Mathf.Abs(AB.y);
 
-            float relX = x - A.position.x;
+            float relX = position.x - A.position.x;
+            float relY = position.y - A.position.y;
 
-            float scaleFactor = relX / distance;
+            float scaleFactorX = relX / distanceX;
+            float scaleFactorY = relY / distanceY;
 
-            Vector3 newPoint = A.position + AB * scaleFactor;
+            Vector3 newPointX = A.position + AB * scaleFactorX;
+            Vector3 newPointY = A.position + AB * scaleFactorY;
 
-            return newPoint;
+            return Time.frameCount % 2 == 0 ? newPointX : newPointY;
         }
     }
 
     public Transform initialPoint;
     public Line relativeLine;
+    public DynamicModifier rotationGetter;
+
+    private void Start()
+    {
+        rotationGetter.OnInitialise();
+    }
 
     // Update is called once per frame
     void Update()
@@ -39,7 +52,10 @@ public class ForwardPointOnLine : MonoBehaviour
             relativeLine.B = tempA;
         }
 
+        float rotation = (float)rotationGetter.GetValue() + 90;
+        Debug.Log(rotation);
+
         // find the intersection between ray Vector3.Forward from initalPoint and relative Line
-        transform.position = relativeLine.GetPoint(initialPoint.position.x);
+        transform.position = relativeLine.GetPoint(initialPoint.position, rotation);
     }
 }
