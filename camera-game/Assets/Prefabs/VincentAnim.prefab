@@ -1547,6 +1547,20 @@ MonoBehaviour:
         paramSet:
           parameters: []
         targetSetIndex: 0
+  - getter:
+      objectReference: {fileID: 6883886270383592237}
+      targets:
+      - name: dead
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 6883886270383592237}
+      targets:
+      - name: dead
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
   onRewindStart:
     m_PersistentCalls:
       m_Calls:

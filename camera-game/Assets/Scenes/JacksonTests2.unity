@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45140028, g: 0.50089264, b: 0.5723171, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140094, g: 0.50089335, b: 0.5723181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -884,7 +884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7291891200236580036, guid: fc9bf806b8a72b545997ac7e9fbf4f0e, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7291891200236580036, guid: fc9bf806b8a72b545997ac7e9fbf4f0e, type: 3}
       propertyPath: m_LocalScale.y
@@ -6337,7 +6337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7291891200236580036, guid: fc9bf806b8a72b545997ac7e9fbf4f0e, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7291891200236580036, guid: fc9bf806b8a72b545997ac7e9fbf4f0e, type: 3}
       propertyPath: m_LocalScale.y
@@ -6416,11 +6416,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!23 &1004040103 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 323363467862819136, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-  m_PrefabInstance: {fileID: 6758134818278192419}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1058324831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e118b97e1e2c9d64c884460c68069b3d, type: 3}
@@ -6595,7 +6590,7 @@ RectTransform:
   - {fileID: 368323910}
   - {fileID: 2069757761}
   m_Father: {fileID: 1383566624}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6639,11 +6634,11 @@ Transform:
   - {fileID: 705507995}
   - {fileID: 1571298428}
   - {fileID: 1916885117}
+  - {fileID: 1320370130}
   - {fileID: 1839036367}
   - {fileID: 919827298}
   - {fileID: 2107608212}
   - {fileID: 543450652542984415}
-  - {fileID: 1320370130}
   - {fileID: 630763614009910341}
   - {fileID: 5833027041737391265}
   - {fileID: 86956933}
@@ -7994,7 +7989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510501, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510501, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8378,10 +8373,6 @@ PrefabInstance:
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 519925530}
-    - target: {fileID: 3593841970290568968, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: onContinue.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 6883886270487624759}
     - target: {fileID: 4199817371661778019, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_Name
       value: Generic
@@ -8476,7 +8467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5833027042163560916, guid: 83c75981bb360274db693fa94981707d, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5833027042163560916, guid: 83c75981bb360274db693fa94981707d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8536,30 +8527,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top
       objectReference: {fileID: 0}
-    - target: {fileID: 1260505080855395040, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1004040103}
-    - target: {fileID: 1260505080855395040, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 1260505080855395040, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Renderer, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1578869926982069449, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1004040103}
-    - target: {fileID: 1578869926982069449, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 1578869926982069449, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Renderer, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2286498681325008001, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: m_Name
       value: Right
@@ -8572,9 +8539,6 @@ PrefabInstance:
       propertyPath: dragThreshold
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4403445076186403657, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: maxDepenetrationVelocity
-      value: 500
     - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: ground.m_Bits
       value: 833
@@ -8590,6 +8554,10 @@ PrefabInstance:
     - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: onDragStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayWholeClip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403445076186403657, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: maxDepenetrationVelocity
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4727765878758174535, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: m_Name
@@ -8894,19 +8862,12 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4199817370362505145}
+    - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
+      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RewindForSeconds
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
---- !u!114 &6883886270487624759 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-  m_PrefabInstance: {fileID: 6883886270487624758}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81997db9b8bac134e982612f3f235a84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
