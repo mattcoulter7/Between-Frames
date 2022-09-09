@@ -20,6 +20,7 @@ public class PlayerKiller : MonoBehaviour
 
     /// <summary>The list of kill conditions which will trigger a kill if any one of them are true</summary>
     public List<KillCondition> killConditions = new List<KillCondition>();
+    private List<Collider> killColliders;
 
     /// <summary>Unity Event for what else will happen on kill such as a death sound playing</summary>
     public UnityEvent onKill;
@@ -42,6 +43,7 @@ public class PlayerKiller : MonoBehaviour
         _myCol = GetComponent<Collider>();
         //Start the coroutine we define below named ExampleCoroutine.
         dead = false;
+        killColliders = killConditions.Select(kc => kc.col).ToList();
     }
 
     private void FixedUpdate()
@@ -86,16 +88,19 @@ public class PlayerKiller : MonoBehaviour
     }
     private void OnCollisionEnter(Collision col)
     {
+        if (!killColliders.Contains(col.collider)) return; // only track colliders which can kill the object
         collisionStates[col.collider] = true;
     }
 
     private void OnCollisionStay(Collision col)
     {
+        if (!killColliders.Contains(col.collider)) return; // only track colliders which can kill the object
         collisionStates[col.collider] = true;
     }
 
     private void OnCollisionExit(Collision col)
     {
+        if (!killColliders.Contains(col.collider)) return; // only track colliders which can kill the object
         collisionStates[col.collider] = false;
     }
 }
