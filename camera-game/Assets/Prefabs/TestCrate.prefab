@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 1124469022717649649}
   - component: {fileID: 8297279780175038221}
   - component: {fileID: 8645530404389326326}
+  - component: {fileID: 4403445076186403657}
   m_Layer: 0
   m_Name: TestCrate
   m_TagString: Untagged
@@ -166,7 +167,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 56
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &6534370897048142500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,10 +299,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground:
     serializedVersion: 2
-    m_Bits: 641
+    m_Bits: 320
   groundDistance: 0.2
   _isGrounded: 0
-  speedDragThreshold: 1
+  speedDragThreshold: 0.1
   horizontalDragThreshold: 0.1
   groundCheckers:
   - {fileID: 8818766293191567317}
@@ -368,9 +369,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 323363467862819136}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -387,6 +388,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8645530404389326326}
+        m_TargetAssemblyTypeName: PrefabFactory, Assembly-CSharp
+        m_MethodName: InstantiatePrefab
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 503186050489954152, guid: be1681f07f1d81e488d426e307891f10, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -435,9 +448,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 323363467862819136}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -523,6 +536,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ce64ac303641e4c825d28cbea39fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4403445076186403657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758134818991948525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14f863a60894994c809ffb5438cb040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDepenetrationVelocity: 1000
 --- !u!1 &8412644821046243095
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f89f4b997aa2cd4587a9b1cc99c6108, type: 3}
+--- !u!23 &323363467862819136 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 9f89f4b997aa2cd4587a9b1cc99c6108, type: 3}
+  m_PrefabInstance: {fileID: 1422368913050557892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1456911734824679983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f89f4b997aa2cd4587a9b1cc99c6108, type: 3}
