@@ -1257,6 +1257,7 @@ GameObject:
   - component: {fileID: 6883886270383592232}
   - component: {fileID: 605915792}
   - component: {fileID: 5348601996008822011}
+  - component: {fileID: 318137688328937807}
   m_Layer: 8
   m_Name: VincentAnim
   m_TagString: Player
@@ -1362,8 +1363,6 @@ MonoBehaviour:
   killConditions:
   - col: {fileID: 0}
     squishTolerance: 0.25
-  - col: {fileID: 0}
-    squishTolerance: 0.5
   - col: {fileID: 0}
     squishTolerance: 0.5
   - col: {fileID: 0}
@@ -1474,6 +1473,9 @@ MonoBehaviour:
           m_StringArgument: Land
           m_BoolArgument: 0
         m_CallState: 2
+  onMove:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &605915792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1625,6 +1627,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &318137688328937807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001349722020595283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14f863a60894994c809ffb5438cb040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDepenetrationVelocity: 100
 --- !u!1 &6009013861926000700
 GameObject:
   m_ObjectHideFlags: 0

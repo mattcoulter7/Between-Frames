@@ -14,13 +14,13 @@ public class TimedTrigger : Trigger
         base.OnTriggerStart();
         StartCoroutine(Timer());
     }
-    public override void OnTriggerExit()
+    public override void OnTriggerEnd()
     {
-        base.OnTriggerExit();
+        base.OnTriggerEnd();
     }
     IEnumerator Timer(){
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(duration);
-        OnTriggerExit();
+        OnTriggerEnd();
     }
 }
