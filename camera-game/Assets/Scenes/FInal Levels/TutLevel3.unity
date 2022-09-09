@@ -199,6 +199,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 829771387}
     - target: {fileID: 8297279780175038221, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: killConditions.Array.data[1].squishTolerance
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297279780175038221, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: killConditions.Array.data[2].squishTolerance
       value: 0.1
       objectReference: {fileID: 0}
@@ -2330,22 +2334,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383566624}
     m_Modifications:
-    - target: {fileID: 630763613663510497, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510497, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510497, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlaySound, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510497, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Bar
-      objectReference: {fileID: 0}
     - target: {fileID: 630763613663510500, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Name
       value: CinematicBars
@@ -2393,18 +2381,6 @@ PrefabInstance:
     - target: {fileID: 630763613663510501, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: enablePan
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: enableRotation
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
