@@ -12,6 +12,8 @@ public class DragSound : MonoBehaviour
     public float speedDragThreshold = 1f;
     public float horizontalDragThreshold = 0.1f;
 
+    //public float testValue;
+
     private bool _isDragging = false;
 
     [SerializeField]
@@ -23,13 +25,16 @@ public class DragSound : MonoBehaviour
     public UnityEvent onDrag;
     public UnityEvent onDragEnd;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {
         _body = GetComponent<Rigidbody>();
+        
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _isGrounded = IsGrounded();
 
@@ -47,7 +52,7 @@ public class DragSound : MonoBehaviour
             {
                 DragEnd();
             }
-        } 
+        }
         else
         {
             // check if dragging has started
@@ -83,4 +88,7 @@ public class DragSound : MonoBehaviour
         }
         return false;
     }
+
+    
+
 }
