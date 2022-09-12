@@ -1257,6 +1257,7 @@ GameObject:
   - component: {fileID: 6883886270383592232}
   - component: {fileID: 605915792}
   - component: {fileID: 5348601996008822011}
+  - component: {fileID: 318137688328937807}
   m_Layer: 8
   m_Name: VincentAnim
   m_TagString: Player
@@ -1317,7 +1318,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 88
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &6883886270383592215
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1366,27 +1367,25 @@ MonoBehaviour:
     squishTolerance: 0.5
   - col: {fileID: 0}
     squishTolerance: 0.5
-  - col: {fileID: 0}
-    squishTolerance: 0.5
   onKill:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Rewinder2, Assembly-CSharp
-        m_MethodName: RewindForSeconds
-        m_Mode: 1
+      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Dead
+          m_StringArgument: DeathSound
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
-        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Rewinder2, Assembly-CSharp
+        m_MethodName: RewindForSeconds
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1438,6 +1437,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 833
+  _isWalking: 0
   _isGrounded: 1
   _isGroundedLastFrame: 1
   timeBetweenLandSFX: 0.5
@@ -1474,6 +1474,9 @@ MonoBehaviour:
           m_StringArgument: Land
           m_BoolArgument: 0
         m_CallState: 2
+  onMove:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &605915792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,6 +1544,20 @@ MonoBehaviour:
       objectReference: {fileID: 6341846085515681001}
       targets:
       - name: rotation
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+  - getter:
+      objectReference: {fileID: 6883886270383592237}
+      targets:
+      - name: dead
+        paramSet:
+          parameters: []
+        targetSetIndex: 0
+    setter:
+      objectReference: {fileID: 6883886270383592237}
+      targets:
+      - name: dead
         paramSet:
           parameters: []
         targetSetIndex: 0
@@ -1625,6 +1642,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &318137688328937807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001349722020595283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14f863a60894994c809ffb5438cb040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDepenetrationVelocity: 100000
 --- !u!1 &6009013861926000700
 GameObject:
   m_ObjectHideFlags: 0
