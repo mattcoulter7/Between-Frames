@@ -508,6 +508,10 @@ MonoBehaviour:
     squishTolerance: 0.1
   - col: {fileID: 0}
     squishTolerance: 0.1
+  - col: {fileID: 0}
+    squishTolerance: 0.1
+  - col: {fileID: 0}
+    squishTolerance: 0.1
   onKill:
     m_PersistentCalls:
       m_Calls:
@@ -651,22 +655,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f89f4b997aa2cd4587a9b1cc99c6108, type: 3}
   m_PrefabInstance: {fileID: 1422368913050557892}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2268737981133283477 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f89f4b997aa2cd4587a9b1cc99c6108, type: 3}
-  m_PrefabInstance: {fileID: 1422368913050557892}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1978619070623104782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2268737981133283477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55ae2df027576aa48b7509ee1c2e9035, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliderObject: {fileID: 6758134818991948530}
-  targetLayer: 9
