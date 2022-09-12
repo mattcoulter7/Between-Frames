@@ -28,7 +28,7 @@ public class Trigger : MonoBehaviour
         onTriggerEnter.Invoke();
     }
 
-    public virtual void OnTriggerEnd(){
+    public virtual void OnTriggerExit(){
         _activated = false;
         onTriggerExit.Invoke();
     }
@@ -38,7 +38,7 @@ public class Trigger : MonoBehaviour
         if (_activated){
             OnTriggerStart();
         } else {
-            OnTriggerEnd();
+            OnTriggerExit();
         }
     }
 }

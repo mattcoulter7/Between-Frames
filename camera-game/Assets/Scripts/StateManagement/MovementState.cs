@@ -16,7 +16,6 @@ public class MovementState : State
     private Rigidbody _body;
     private Vector3 _inputs = Vector3.zero;
     private bool _jumpInput = false;
-    public bool _isWalking = false;
     public bool _isGrounded = false;
     //Testing
     public bool _isGroundedLastFrame = false;
@@ -99,7 +98,6 @@ public class MovementState : State
             animator.SetBool(jumpingAnimationVariable, false);
             if (_inputs != Vector3.zero) // is walking
             {
-                _isWalking = true;
                 transform.forward = _inputs;
                 if (animator != null)
                 {
@@ -108,7 +106,6 @@ public class MovementState : State
             }
             else
             { // is not walking
-                _isWalking = false;
                 animator.SetBool(walkingAnimationVariable, false);
             }
 
