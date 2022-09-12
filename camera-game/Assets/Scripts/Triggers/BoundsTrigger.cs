@@ -9,6 +9,7 @@ public class BoundsTrigger : Trigger
     public float penetrationDepth = 0.5f;
     public bool automaticInvokation = false;
     private bool _inBounds;
+    private Dictionary<Collider, bool> collisionStates = new Dictionary<Collider, bool>();
     void Start()
     {
         if (myCollider == null) myCollider = GetComponent<Collider>();
@@ -17,10 +18,8 @@ public class BoundsTrigger : Trigger
     {
         base.Update();
 
-        bool sufficientPenetration = false;
         foreach (Collider bound in bounds)
         {
-            if (sufficientPenetration) continue;
             Vector3 direction;
             float distance;
             Physics.ComputePenetration(
@@ -33,10 +32,13 @@ public class BoundsTrigger : Trigger
                 out direction,
                 out distance
             );
-            sufficientPenetration = (distance > penetrationDepth);
+            if (distance > penetrationDepth)
+            {
+                SetInBounds(true);
+                return;
+            }
         }
-        
-        SetInBounds(sufficientPenetration);
+        SetInBounds(false);
     }
 
     public void SetInBounds(bool inBounds)
@@ -49,7 +51,7 @@ public class BoundsTrigger : Trigger
             if (_inBounds){
                 OnTriggerStart();
             } else {
-                OnTriggerExit();
+                OnTriggerEnd();
             }
         }
     }
@@ -61,8 +63,8 @@ public class BoundsTrigger : Trigger
             base.OnTriggerStart();
         }
     }
-    public override void OnTriggerExit()
+    public override void OnTriggerEnd()
     {
-        base.OnTriggerExit();
+        base.OnTriggerEnd();
     }
 }
