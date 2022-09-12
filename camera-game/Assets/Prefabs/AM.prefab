@@ -167,7 +167,7 @@ MonoBehaviour:
   - name: RewindSFX
     clip: {fileID: 8300000, guid: 3b7f3972f38bf4009a41351a79d2b700, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0.701
+    volume: 0.643
     pitch: 1
     loop: 1
     playOnAwake: 0
@@ -184,6 +184,38 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 14fbf7e7e4a9f43459ed513a003567b7, type: 3}
     mixerGroup: {fileID: -2404330892344851914, guid: 31eb0796e967646e596919438baa35f5, type: 2}
     volume: 0.1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ButtonOn
+    clip: {fileID: 8300000, guid: cbb90611c6ccb419bb0b95967df33fe5, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.795
+    pitch: 0.73
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ButtonOff
+    clip: {fileID: 8300000, guid: d124aa9e1f5664624bf2137635164764, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.795
+    pitch: 0.74
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Zoom1
+    clip: {fileID: 8300000, guid: b34b2f52fa15141f881f7ee283145058, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.795
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Zoom2
+    clip: {fileID: 8300000, guid: a1cdbb11cba1742a099ccfae89a88636, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.795
     pitch: 1
     loop: 1
     playOnAwake: 0
