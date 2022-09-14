@@ -188,6 +188,14 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Ambience
+    clip: {fileID: 8300000, guid: 142156758a0404e63b078a227b1ee51c, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.312
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &2346111616123011502
 MonoBehaviour:
   m_ObjectHideFlags: 0
