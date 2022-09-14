@@ -188,6 +188,30 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Ambience
+    clip: {fileID: 8300000, guid: 142156758a0404e63b078a227b1ee51c, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.038
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ButtonOn
+    clip: {fileID: 8300000, guid: f7e5c057c94964173a342a223cf35f76, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.53
+    pitch: 0.85
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ButtonOff
+    clip: {fileID: 8300000, guid: d89ce012357074c04aa068c149a14a4e, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.53
+    pitch: 0.85
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &2346111616123011502
 MonoBehaviour:
   m_ObjectHideFlags: 0
