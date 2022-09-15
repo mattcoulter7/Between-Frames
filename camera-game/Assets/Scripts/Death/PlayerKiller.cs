@@ -8,99 +8,114 @@ using System.Linq;
 /// <summary>
 /// This class handles determining if a player is killed by configuring kill conditions
 /// </summary>
+[RequireComponent(typeof(Collider))]
 public class PlayerKiller : MonoBehaviour
 {
-    [System.Serializable]
-    /// <summary>Determines how far an object needs to be within a collider for a kill to occur</summary>
-    public class KillCondition
-    {
-        public Collider col;
-        public float squishTolerance = 10f;
-    }
-
-    /// <summary>The list of kill conditions which will trigger a kill if any one of them are true</summary>
-    public List<KillCondition> killConditions = new List<KillCondition>();
-    private List<Collider> killColliders;
-
     /// <summary>Unity Event for what else will happen on kill such as a death sound playing</summary>
     public UnityEvent onKill;
 
     /// <summary>True if the player is dead</summary>
     public bool dead;
 
-    private Dictionary<Collider, bool> collisionStates = new Dictionary<Collider, bool>();
+    /// <summary>
+    /// Minimum distance between object to each opposite collider to trigger a kill
+    /// X represents horizontal tolerance
+    /// Y represents vertical tolerance
+    /// </summary>
+    public Vector2 squishTolerances;
 
-    private Collider _myCol;
+    /// <summary>
+    /// Layers which the object can be squished by
+    /// </summary>
+    public LayerMask validSquishLayers;
+
+
+    /// <summary>
+    /// The minimum distance the object needs to be inside of a collider by to trigger a kill
+    /// </summary>
+    public float penetrationTolerance;
+
+    /// <summary>
+    /// Layers which the object can be penetrating inside of can trigger a kill
+    /// </summary>
+    public LayerMask validPenetrateLayers;
+
+    private Collider myCollider;
 
     /// <summary>Sets dead back to false</summary>
     public void Reset()
     {
         dead = false;
     }
+    private void Kill()
+    {
+        dead = true;
+        onKill.Invoke();
+    }
 
     private void Start()
     {
-        _myCol = GetComponent<Collider>();
-        //Start the coroutine we define below named ExampleCoroutine.
         dead = false;
-        killColliders = killConditions.Select(kc => kc.col).ToList();
+        myCollider = GetComponent<Collider>();
     }
 
-    private void FixedUpdate()
+    private void CheckForDeath(Collision col)
     {
-        // No need to check for death if already dead
+        CheckForSquish(col);
+        CheckForPenetration(col);
+    }
+
+    private void CheckForSquish(Collision col)
+    {
         if (dead) return;
+        if (!validSquishLayers.HasLayer(col.collider.gameObject.layer)) return;
 
-        bool kill = false;
+        Vector2 direction = col.GetContact(0).normal;
+        direction = direction.normalized; // re-normalize the vector is it is 2D not 3D
+        Vector2 relativeSquishTolernaces = direction * squishTolerances;
 
-        // need to have at least 2 colliders for a squish to happen
-        int collisionCount = collisionStates.Values.Where(col => col == true).ToList().Count;
-        if (collisionCount < 2) return;
+        RaycastHit hit;
+        Physics.Raycast(transform.position, direction, out hit, relativeSquishTolernaces.magnitude, validSquishLayers);
 
-        foreach (KillCondition condition in killConditions)
+        if (hit.collider != null && hit.collider != col.collider && hit.collider.isTrigger == false)
         {
-            if (condition.col == null) continue; // no collider configured, ignore null error
-
-            bool currentlyColliding = false;
-            collisionStates.TryGetValue(condition.col, out currentlyColliding);
-            if (!currentlyColliding) continue; // not currently colliding with the collider, don't care
-
-            Vector3 direction;
-            float distance;
-            
-            Physics.ComputePenetration(
-                condition.col,
-                condition.col.transform.position,
-                condition.col.transform.rotation,
-                _myCol,
-                _myCol.transform.position,
-                _myCol.transform.rotation,
-                out direction,
-                out distance
-            );
-            if (distance > condition.squishTolerance)
-            {
-                dead = true;
-                onKill.Invoke();
-                return;
-            }
+            Kill();
         }
     }
+
+    private void CheckForPenetration(Collision col)
+    {
+        if (dead) return;
+        if (!validPenetrateLayers.HasLayer(col.collider.gameObject.layer)) return;
+
+        Vector3 direction;
+        float distance;
+
+        Physics.ComputePenetration(
+            col.collider,
+            col.collider.transform.position,
+            col.collider.transform.rotation,
+
+            myCollider,
+            myCollider.transform.position,
+            myCollider.transform.rotation,
+
+            out direction,
+            out distance
+        );
+        if (distance > penetrationTolerance)
+        {
+            Kill();
+        }
+    }
+
     private void OnCollisionEnter(Collision col)
     {
-        if (!killColliders.Contains(col.collider)) return; // only track colliders which can kill the object
-        collisionStates[col.collider] = true;
+        CheckForDeath(col);
     }
 
     private void OnCollisionStay(Collision col)
     {
-        if (!killColliders.Contains(col.collider)) return; // only track colliders which can kill the object
-        collisionStates[col.collider] = true;
-    }
-
-    private void OnCollisionExit(Collision col)
-    {
-        if (!killColliders.Contains(col.collider)) return; // only track colliders which can kill the object
-        collisionStates[col.collider] = false;
+        CheckForDeath(col);
     }
 }

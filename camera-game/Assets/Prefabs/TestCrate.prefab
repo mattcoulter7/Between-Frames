@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground:
     serializedVersion: 2
-    m_Bits: 833
+    m_Bits: 769
   groundDistance: 0.2
   _isGrounded: 0
   speedDragThreshold: 0.1
@@ -503,15 +503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81997db9b8bac134e982612f3f235a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killConditions:
-  - col: {fileID: 0}
-    squishTolerance: 0.1
-  - col: {fileID: 0}
-    squishTolerance: 0.1
-  - col: {fileID: 0}
-    squishTolerance: 0.1
-  - col: {fileID: 0}
-    squishTolerance: 0.1
   onKill:
     m_PersistentCalls:
       m_Calls:
@@ -528,6 +519,14 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   dead: 0
+  squishTolerances: {x: 0.4, y: 0.4}
+  validSquishLayers:
+    serializedVersion: 2
+    m_Bits: 768
+  penetrationTolerance: 0.2
+  validPenetrateLayers:
+    serializedVersion: 2
+    m_Bits: 257
 --- !u!114 &8645530404389326326
 MonoBehaviour:
   m_ObjectHideFlags: 0
