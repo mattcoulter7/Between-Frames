@@ -61,6 +61,7 @@ public class PlayerKiller : MonoBehaviour
 
     private void CheckForDeath(Collision col)
     {
+        if (!enabled) return;
         CheckForSquish(col);
         CheckForPenetration(col);
     }
@@ -70,12 +71,13 @@ public class PlayerKiller : MonoBehaviour
         if (dead) return;
         if (!validSquishLayers.HasLayer(col.collider.gameObject.layer)) return;
 
-        Vector2 direction = col.GetContact(0).normal;
+        ContactPoint contact = col.GetContact(0);
+        Vector2 direction = contact.normal;
         direction = direction.normalized; // re-normalize the vector is it is 2D not 3D
         Vector2 relativeSquishTolernaces = direction * squishTolerances;
 
         RaycastHit hit;
-        Physics.Raycast(transform.position, direction, out hit, relativeSquishTolernaces.magnitude, validSquishLayers);
+        Physics.Raycast(contact.point, direction, out hit, relativeSquishTolernaces.magnitude, validSquishLayers);
 
         if (hit.collider != null && hit.collider != col.collider && hit.collider.isTrigger == false)
         {

@@ -8931,6 +8931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right
       objectReference: {fileID: 0}
+    - target: {fileID: 2501814464160054335, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: destroyedPrefab
+      value: 
+      objectReference: {fileID: 2400757224569358960, guid: a44613b0b1ac4274bb416e164f4944d2, type: 3}
     - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: testValue
       value: 0.0001
@@ -8940,24 +8944,8 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: ground.m_Bits
-      value: 833
-      objectReference: {fileID: 0}
-    - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: speedDragThreshold
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: horizontalDragThreshold
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: onDragStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayWholeClip
-      objectReference: {fileID: 0}
-    - target: {fileID: 4403445076186403657, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: maxDepenetrationVelocity
-      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4727765878758174535, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: m_Name
@@ -9015,10 +9003,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Pushable
       objectReference: {fileID: 0}
-    - target: {fileID: 6758134818991948531, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
-      propertyPath: m_Mass
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6758134819300249106, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -9055,8 +9039,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1978619070623104782, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
 --- !u!1001 &6883886270487624758
 PrefabInstance:
@@ -9104,10 +9087,6 @@ PrefabInstance:
     - target: {fileID: 6001349722020595283, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: m_Name
       value: VincentAnim
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001349722020595283, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6341846085515681001, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: m_RootOrder
