@@ -40,6 +40,21 @@ public class PlayerKiller : MonoBehaviour
     /// </summary>
     public LayerMask validPenetrateLayers;
 
+    /// <summary>
+    /// triggers the death UnityEvent when dead changes from false to true
+    /// </summary>
+    public bool automaticallyKill = true;
+
+    /// <summary>
+    /// continue to check if player shoudl be dead, even if it is already dead
+    /// </summary>
+    public bool checkDespiteDead = false;
+
+    /// <summary>
+    /// boolean represents whether the player should be dead, only valid if checkDespiteDead is true
+    /// </summary>
+    public bool deadTrigger = false;
+
     private Collider myCollider;
 
     /// <summary>Sets dead back to false</summary>
@@ -55,21 +70,43 @@ public class PlayerKiller : MonoBehaviour
 
     private void Start()
     {
-        dead = false;
         myCollider = GetComponent<Collider>();
     }
 
-    private void CheckForDeath(Collision col)
+    public void HandleDeath(Collision col)
     {
-        if (!enabled) return;
-        CheckForSquish(col);
-        CheckForPenetration(col);
+        Debug.Log("3. Collision Events Occurred, Checking for death");
+        if (dead)
+        {
+            if (checkDespiteDead)
+            {
+                deadTrigger = CheckForDeath(col);
+            }
+        }
+        else
+        {
+            deadTrigger = CheckForDeath(col);
+            if (deadTrigger && automaticallyKill)
+            {
+                Kill();
+            }
+        }
     }
 
-    private void CheckForSquish(Collision col)
+    public bool CheckForDeath(Collision col)
     {
-        if (dead) return;
-        if (!validSquishLayers.HasLayer(col.collider.gameObject.layer)) return;
+        if (col == null) return false;
+        if (!enabled) return false;
+
+        if (CheckForSquish(col)) return true;
+        if (CheckForPenetration(col)) return true;
+
+        return false;
+    }
+
+    private bool CheckForSquish(Collision col)
+    {
+        if (!validSquishLayers.HasLayer(col.collider.gameObject.layer)) return false;
 
         ContactPoint contact = col.GetContact(0);
         Vector2 direction = contact.normal;
@@ -79,16 +116,12 @@ public class PlayerKiller : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(contact.point, direction, out hit, relativeSquishTolernaces.magnitude, validSquishLayers);
 
-        if (hit.collider != null && hit.collider != col.collider && hit.collider.isTrigger == false)
-        {
-            Kill();
-        }
+        return hit.collider != null && hit.collider != col.collider && hit.collider.isTrigger == false;
     }
 
-    private void CheckForPenetration(Collision col)
+    private bool CheckForPenetration(Collision col)
     {
-        if (dead) return;
-        if (!validPenetrateLayers.HasLayer(col.collider.gameObject.layer)) return;
+        if (!validPenetrateLayers.HasLayer(col.collider.gameObject.layer)) return false;
 
         Vector3 direction;
         float distance;
@@ -105,19 +138,16 @@ public class PlayerKiller : MonoBehaviour
             out direction,
             out distance
         );
-        if (distance > penetrationTolerance)
-        {
-            Kill();
-        }
+        return distance > penetrationTolerance;
     }
 
     private void OnCollisionEnter(Collision col)
     {
-        CheckForDeath(col);
+        HandleDeath(col);
     }
 
     private void OnCollisionStay(Collision col)
     {
-        CheckForDeath(col);
+        HandleDeath(col);
     }
 }

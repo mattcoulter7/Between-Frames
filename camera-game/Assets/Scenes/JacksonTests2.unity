@@ -8063,6 +8063,17 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 6883886270383592215, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
   m_PrefabInstance: {fileID: 6883886270487624758}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &543450652542984427 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
+  m_PrefabInstance: {fileID: 6883886270487624758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81997db9b8bac134e982612f3f235a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &630763614009910340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8201,6 +8212,10 @@ PrefabInstance:
     - target: {fileID: 630763613663510502, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: distanceSnapCurve.m_Curve.Array.data[0].outWeight
       value: 0.10289937
+      objectReference: {fileID: 0}
+    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: keepAlive
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: zoomSpeedScale.m_Curve.Array.size
@@ -8445,6 +8460,26 @@ PrefabInstance:
     - target: {fileID: 5824898651215085481, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964564738978627159, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964564738978627159, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: maxNumSolverIterations
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964564738978627159, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: solverDepenetrationVelocityScalar
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964564738978627159, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: conditions.Array.data[0].objectReference
+      value: 
+      objectReference: {fileID: 543450652542984427}
+    - target: {fileID: 5964564738978627159, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: conditions.Array.data[0].targets.Array.data[0].name
+      value: deadTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 6300949470205539675, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer
@@ -9075,10 +9110,6 @@ PrefabInstance:
     - target: {fileID: 605915792, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: Step.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 318137688328937807, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: maxDepenetrationVelocity
-      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 5756649170321893028, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: m_RootOrder

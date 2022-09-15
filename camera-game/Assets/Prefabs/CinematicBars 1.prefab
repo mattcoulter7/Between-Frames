@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 630763613663510496}
   - component: {fileID: 630763613663510497}
   - component: {fileID: 1138631152560989959}
+  - component: {fileID: 5964564738978627159}
   m_Layer: 9
   m_Name: CinematicBars 1
   m_TagString: Untagged
@@ -948,6 +949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRewinding: 0
   isRecording: 0
+  canConsumeRewind: 1
   rewindProperties:
   - getter:
       objectReference: {fileID: 630763613663510502}
@@ -1063,6 +1065,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &5964564738978627159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630763613663510500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2fe10cf8dd0074a81023b1a803982b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditions:
+  - objectReference: {fileID: 0}
+    targets:
+    - name: CheckForDeath
+      paramSet:
+        parameters: []
+      targetSetIndex: 0
+  lastRotation: 0
+  lastOffset: {x: 0.5, y: 0.5}
+  lastDistance: 0
 --- !u!1 &630763613680638194
 GameObject:
   m_ObjectHideFlags: 0

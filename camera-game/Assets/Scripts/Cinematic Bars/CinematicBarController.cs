@@ -58,7 +58,18 @@ public class CinematicBarController : MonoBehaviour
     private Vector2 lastMousePosition;
     private Vector2 mouseMovement;
 
+    float prevDistance;
+    Vector2 prevOffset;
+    float prevRotation;
 
+    public PlayerKiller keepAlive;
+
+    private CinematicBarConditions cinematicBarConditions;
+
+    private void Awake()
+    {
+        cinematicBarConditions = GetComponent<CinematicBarConditions>();
+    }
     // Start is called before the first frame update
     private void Start()
     {
@@ -101,7 +112,6 @@ public class CinematicBarController : MonoBehaviour
         return segment;
     }
 
-
     private float GetCircularMotion()
     {
         Vector2 mouseSegment = GetMouseSegment();
@@ -139,12 +149,22 @@ public class CinematicBarController : MonoBehaviour
         return rotation;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         lastMousePosition = mousePosition != null ? mousePosition : Input.mousePosition; // initial frame default to mouse position
         mousePosition = Input.mousePosition;
         mouseMovement = mousePosition - lastMousePosition;
+
+        if (keepAlive != null && !keepAlive.deadTrigger)
+        {
+            prevDistance = _cinematicBars.distance;
+            prevOffset = _cinematicBars.offset;
+            prevRotation = _cinematicBars.rotation;
+        }
+
+        float newDistance = _cinematicBars.distance;
+        Vector2 newOffset = _cinematicBars.offset;
+        float newRotation = _cinematicBars.rotation;
 
         float zoomFrame = Input.GetAxis("ZoomFrame");
         float shiftFrameX = Input.GetButton("ShiftFrameX") ? Input.GetAxis("ShiftFrameX") : 0;
@@ -162,7 +182,7 @@ public class CinematicBarController : MonoBehaviour
             zoomFrame += controllerZoomSpeed;
         }
 
-        if(isRotatingR) // Right
+        if (isRotatingR) // Right
         {
             rotateFrame -= controllerRotationSpeed;
         }
@@ -172,7 +192,7 @@ public class CinematicBarController : MonoBehaviour
             rotateFrame += controllerRotationSpeed;
         }
 
-        if(ShiftCamXY.ReadValue<Vector2>() != Vector2.zero)
+        if (ShiftCamXY.ReadValue<Vector2>() != Vector2.zero)
         {
             shiftFrame = ShiftCamXY.ReadValue<Vector2>();
         }
@@ -181,20 +201,51 @@ public class CinematicBarController : MonoBehaviour
         if (enableZoom && zoomFrame != 0f)
         {
             // if it is one of the black bars, chane that instead of both
-            _cinematicBars.distance += zoomFrame * scaledZoomSpeed;
+            newDistance += zoomFrame * scaledZoomSpeed;
         }
-
 
         // click and drag left mouse button to move origin
         if (enablePan && shiftFrame != Vector2.zero)
         {
-            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed); ;
+            newOffset -= (Vector2)Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed); ;
         }
 
         // move mouse right whilst holding left mouse button to rotate
         if (enableRotation && rotateFrame != 0)
         {
-            _cinematicBars.rotation += rotateFrame * rotateSpeed;
+            newRotation += rotateFrame * rotateSpeed;
+        }
+
+        Debug.Log("1. Setting new values");
+
+        _cinematicBars.distance = newDistance;
+        _cinematicBars.offset = newOffset;
+        _cinematicBars.rotation = newRotation;
+
+        if (keepAlive != null)
+        {
+            StartCoroutine(RevertChangesIfPlayerKilled());
+        }
+    }
+
+    IEnumerator RevertChangesIfPlayerKilled()
+    {
+        Debug.Log("2. Waiting For Collision Events");
+        // Wait until collision events have occured from the new values
+        yield return new WaitForFixedUpdate();
+
+        Debug.Log("4. Checking to see if the values killed the player");
+        // Death triggered... revert changes back
+        if (keepAlive.deadTrigger)
+        {
+            Debug.Log("5. Values killed the player, reverting to previous values");
+            _cinematicBars.distance = prevDistance;
+            _cinematicBars.offset = prevOffset;
+            _cinematicBars.rotation = prevRotation;
+        }
+        else
+        {
+            Debug.Log("5. Values are good!");
         }
     }
 }

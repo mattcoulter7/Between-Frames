@@ -1396,6 +1396,9 @@ MonoBehaviour:
   validPenetrateLayers:
     serializedVersion: 2
     m_Bits: 257
+  automaticallyKill: 0
+  checkDespiteDead: 1
+  deadTrigger: 0
 --- !u!114 &6883886270383592234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,6 +1522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRewinding: 0
   isRecording: 0
+  canConsumeRewind: 1
   rewindProperties:
   - getter:
       objectReference: {fileID: 6341846085515681001}
