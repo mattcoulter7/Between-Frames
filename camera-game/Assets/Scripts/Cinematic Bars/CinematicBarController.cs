@@ -54,6 +54,10 @@ public class CinematicBarController : MonoBehaviour
     private bool isRotatingR = false;
     private bool isRotatingL = false;
 
+    private Vector2 mousePosition;
+    private Vector2 lastMousePosition;
+    private Vector2 mouseMovement;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -84,14 +88,69 @@ public class CinematicBarController : MonoBehaviour
         rotateLAct.canceled += _ => isRotatingL = false;
     }
 
+    private Vector2 GetMouseSegment()
+    {
+        Vector2 mousePosition = Input.mousePosition;
+        Vector2 viewportMousePosition = Camera.main.ScreenToViewportPoint(mousePosition);
+        Vector2 middle = _cinematicBars.offsetSnapped;
+
+        Vector2 segment = Vector2.zero;
+        segment.x = viewportMousePosition.x > middle.x ? 1 : 0;
+        segment.y = viewportMousePosition.y > middle.y ? 1 : 0;
+
+        return segment;
+    }
+
+
+    private float GetCircularMotion()
+    {
+        Vector2 mouseSegment = GetMouseSegment();
+        Vector2 rotationInput = mouseMovement;
+
+        // < 0: clockwise, > 0: anticlockwise
+        float rotation = 0f;
+
+        // METHOD 1: only care about the more significant direction
+        // *Top Left[0, 1](Clockwise: Right / Up, Counterclockwise: Left / Down)
+        if (mouseSegment.Equals(new Vector2(0,1)))
+        {
+            rotation -= rotationInput.x;
+            rotation -= rotationInput.y;
+        }
+        // *Top Right[1, 1](Clockwise: Right / Down, Counterclockwise: Left / Up)
+        else if (mouseSegment.Equals(new Vector2(1,1)))
+        {
+            rotation -= rotationInput.x;
+            rotation += rotationInput.y;
+        }
+        // *Bottom Left[0, 0](Clockwise: Left / Up, Counterclockwise: Right / Down)
+        else if (mouseSegment.Equals(new Vector2(0,0)))
+        {
+            rotation += rotationInput.x;
+            rotation -= rotationInput.y;
+        }
+        // *Bottom Right[1, 0](Clockwise: Left / Down, Counterclockwise: Right / Up)
+        else if (mouseSegment.Equals(new Vector2(1,0)))
+        {
+            rotation += rotationInput.x;
+            rotation += rotationInput.y;
+        }
+
+        return rotation;
+    }
+
     // Update is called once per frame
     private void Update()
     {
+        lastMousePosition = mousePosition != null ? mousePosition : Input.mousePosition; // initial frame default to mouse position
+        mousePosition = Input.mousePosition;
+        mouseMovement = mousePosition - lastMousePosition;
+
         float zoomFrame = Input.GetAxis("ZoomFrame");
         float shiftFrameX = Input.GetButton("ShiftFrameX") ? Input.GetAxis("ShiftFrameX") : 0;
         float shiftFrameY = Input.GetButton("ShiftFrameY") ? Input.GetAxis("ShiftFrameY") : 0;
         Vector2 shiftFrame = new Vector2(shiftFrameX, shiftFrameY);
-        float rotateFrame = Input.GetButton("RotateFrame") ? Input.GetAxis("RotateFrame") : 0;
+        float rotateFrame = Input.GetButton("RotateFrame") ? GetCircularMotion() : 0;
 
         if (isShrinking) // shrink
         {
@@ -138,5 +197,4 @@ public class CinematicBarController : MonoBehaviour
             _cinematicBars.rotation += rotateFrame * rotateSpeed;
         }
     }
-
 }
