@@ -27,6 +27,7 @@ public class RewindInstance2 : MonoBehaviour
     }
     public bool isRewinding = false;
     public bool isRecording = false;
+    public bool canConsumeRewind = true;
     public List<RewindProperty> rewindProperties = new List<RewindProperty> { };
     public List<FrameCollection> frames = new List<FrameCollection> { };
 
@@ -50,7 +51,10 @@ public class RewindInstance2 : MonoBehaviour
         onContinue.Invoke();
         isRecording = true;
     }
-
+    private void Awake()
+    {
+        EventDispatcher.Instance.Dispatch("RegisterRewindInstance", this);
+    }
     // Start is called before the first frame update
     private void Start()
     {
@@ -88,7 +92,7 @@ public class RewindInstance2 : MonoBehaviour
 
     private void Rewind()
     {
-        if (frames.Count == 0)
+        if (canConsumeRewind && frames.Count == 0)
         {
             EventDispatcher.Instance.Dispatch("RewindConsumed", this);
             return;
@@ -100,5 +104,10 @@ public class RewindInstance2 : MonoBehaviour
             frame.property.setter.SetValue(frame.value);
         }
         frames.RemoveAt(0);
+    }
+    
+    private void OnDestroy()
+    {
+        EventDispatcher.Instance.Dispatch("RemoveRewindInstance", this);
     }
 }
