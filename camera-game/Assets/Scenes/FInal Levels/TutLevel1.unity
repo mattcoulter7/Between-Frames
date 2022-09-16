@@ -835,6 +835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AM
       objectReference: {fileID: 0}
+    - target: {fileID: 5476640189305926663, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BGM.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
 --- !u!1001 &1011069099
@@ -1407,22 +1411,6 @@ PrefabInstance:
     - target: {fileID: 630763613659912231, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510497, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510497, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510497, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlaySound, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510497, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: onRotate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Bar
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510500, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Name
