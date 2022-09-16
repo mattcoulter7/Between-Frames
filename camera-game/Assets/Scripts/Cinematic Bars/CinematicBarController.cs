@@ -62,7 +62,7 @@ public class CinematicBarController : MonoBehaviour
     Vector2 prevOffset;
     float prevRotation;
 
-    public PlayerKiller keepAlive;
+    public PlayerKiller2 keepAlive;
 
     private CinematicBarConditions cinematicBarConditions;
 
@@ -157,9 +157,9 @@ public class CinematicBarController : MonoBehaviour
 
         if (keepAlive != null && !keepAlive.deadTrigger)
         {
-            prevDistance = _cinematicBars.distance;
-            prevOffset = _cinematicBars.offset;
-            prevRotation = _cinematicBars.rotation;
+            prevDistance = _cinematicBars._distance;
+            prevOffset = _cinematicBars._offset;
+            prevRotation = _cinematicBars._rotation;
         }
 
         float newDistance = _cinematicBars.distance;
@@ -222,9 +222,25 @@ public class CinematicBarController : MonoBehaviour
         _cinematicBars.offset = newOffset;
         _cinematicBars.rotation = newRotation;
 
-        if (keepAlive != null)
+        // if (keepAlive != null)
+        // {
+        //     StartCoroutine(RevertChangesIfPlayerKilled());
+        // }
+    }
+
+    private void LateUpdate()
+    {
+        // Death triggered... revert changes back
+        if (keepAlive.deadTrigger)
         {
-            StartCoroutine(RevertChangesIfPlayerKilled());
+            Debug.Log("5. Values killed the player, reverting to previous values");
+            _cinematicBars._distance = prevDistance;
+            _cinematicBars._offset = prevOffset;
+            _cinematicBars._rotation = prevRotation;
+        }
+        else
+        {
+            Debug.Log("5. Values are good!");
         }
     }
 
