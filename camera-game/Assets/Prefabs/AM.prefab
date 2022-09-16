@@ -199,17 +199,33 @@ MonoBehaviour:
   - name: ButtonOn
     clip: {fileID: 8300000, guid: f7e5c057c94964173a342a223cf35f76, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0.53
-    pitch: 0.85
+    volume: 0.715
+    pitch: 0.75
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: ButtonOff
     clip: {fileID: 8300000, guid: d89ce012357074c04aa068c149a14a4e, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0.53
-    pitch: 0.85
+    volume: 0.715
+    pitch: 0.75
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PressurePlateReel
+    clip: {fileID: 8300000, guid: c174bec788fa0479dbeb37e6d4204343, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.305
+    pitch: 1
     loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Zoom
+    clip: {fileID: 8300000, guid: 28bec8b8fe7444dca9468bb6d16d2114, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.305
+    pitch: 1
+    loop: 0
     playOnAwake: 0
     source: {fileID: 0}
 --- !u!114 &2346111616123011502
