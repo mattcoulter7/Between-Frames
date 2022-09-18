@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "MouseZoom",
+                    "type": "Value",
+                    "id": "9e038266-68e8-4e9d-83f4-bf6d19fdc796",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -351,6 +360,17 @@
                     "processors": "InvertVector2",
                     "groups": "Keyboard&Mouse;Gamepad",
                     "action": "ShiftCamXY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "edfc6605-c2d6-49a4-a253-fe514837f049",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MouseZoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -2142,6 +2142,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 630763613663510502, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: enableDistanceSnapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: enablePan
       value: 0
@@ -2149,6 +2153,10 @@ PrefabInstance:
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: moveSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: enableRotation
