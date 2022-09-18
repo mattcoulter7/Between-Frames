@@ -47,12 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMixerGroup: {fileID: -433832731802775027, guid: 4540d3e97719d4c84b8419baee6451c4, type: 2}
   sfxMixerGroup: {fileID: -2059971006042182522, guid: 4540d3e97719d4c84b8419baee6451c4, type: 2}
-  stepSounds: []
   BGM:
   - name: LevelMusic
     clip: {fileID: 8300000, guid: f41fe67021ebd4617bdf2a42bd13e3cf, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0.5
+    volume: 0.35
     pitch: 1
     loop: 1
     playOnAwake: 0
@@ -65,6 +64,9 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     source: {fileID: 0}
+  stepSounds: []
+  sfxGroups:
+  - {fileID: -287768231422235358, guid: 31eb0796e967646e596919438baa35f5, type: 2}
   sounds:
   - name: PuzzleSolved
     clip: {fileID: 8300000, guid: 77047252f793d410e98eb8d5a84dca5a, type: 3}
@@ -115,8 +117,8 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: Jump
-    clip: {fileID: 8300000, guid: e67728701ac9a41bfbdbff1f654faef9, type: 3}
-    mixerGroup: {fileID: 0}
+    clip: {fileID: 8300000, guid: 51b66ac0a9a424fb29ca00150d552737, type: 3}
+    mixerGroup: {fileID: 8012691287570452066, guid: 31eb0796e967646e596919438baa35f5, type: 2}
     volume: 0.5
     pitch: 1
     loop: 0
@@ -124,7 +126,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Land
     clip: {fileID: 8300000, guid: eee9dbeadca12419da779404a7583d01, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 8012691287570452066, guid: 31eb0796e967646e596919438baa35f5, type: 2}
     volume: 0.5
     pitch: 1
     loop: 0
@@ -174,6 +176,54 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 09aa219c143bf45f99e7deb8eb034525, type: 3}
     mixerGroup: {fileID: 0}
     volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: BoxDrag
+    clip: {fileID: 8300000, guid: 14fbf7e7e4a9f43459ed513a003567b7, type: 3}
+    mixerGroup: {fileID: -2404330892344851914, guid: 31eb0796e967646e596919438baa35f5, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ambience
+    clip: {fileID: 8300000, guid: 142156758a0404e63b078a227b1ee51c, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.038
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ButtonOn
+    clip: {fileID: 8300000, guid: f7e5c057c94964173a342a223cf35f76, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.715
+    pitch: 0.75
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ButtonOff
+    clip: {fileID: 8300000, guid: d89ce012357074c04aa068c149a14a4e, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.715
+    pitch: 0.75
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PressurePlateReel
+    clip: {fileID: 8300000, guid: c174bec788fa0479dbeb37e6d4204343, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.305
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Zoom
+    clip: {fileID: 8300000, guid: 28bec8b8fe7444dca9468bb6d16d2114, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.305
     pitch: 1
     loop: 0
     playOnAwake: 0

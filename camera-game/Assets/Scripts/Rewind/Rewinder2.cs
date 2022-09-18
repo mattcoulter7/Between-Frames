@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 public class Rewinder2 : MonoBehaviour
 {
@@ -20,18 +21,40 @@ public class Rewinder2 : MonoBehaviour
 
     public string rewindInputBind;
 
-    private RewindInstance2[] _rewindInstances;
+    private List<RewindInstance2> _rewindInstances = new List<RewindInstance2>();
     private Coroutine rewindCoroutine = null;
+
+    private void Awake()
+    {
+        EventDispatcher.Instance.AddEventListener("RewindConsumed", (Action<RewindInstance2>)RewindConsumed);
+        EventDispatcher.Instance.AddEventListener("RegisterRewindInstance", (Action<RewindInstance2>)RegisterRewindInstance);
+        EventDispatcher.Instance.AddEventListener("RemoveRewindInstance", (Action<RewindInstance2>)RemoveRewindInstance);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        EventDispatcher.Instance.AddEventListener("RewindConsumed", (Action<RewindInstance2>)RewindConsumed);
-        _rewindInstances = FindObjectsOfType<RewindInstance2>();
         if (automaticallyStartRecording)
         {
             StartRecording();
         }
     }
+
+    private void RegisterRewindInstance(RewindInstance2 ri)
+    {
+        if (!_rewindInstances.Contains(ri))
+        {
+            ri.isRecording = isRecording;
+            ri.isRewinding = isRewinding;
+            _rewindInstances.Add(ri);
+        }
+    }
+
+    private void RemoveRewindInstance(RewindInstance2 ri)
+    {
+        _rewindInstances.Remove(ri);
+    }
+
     void RewindConsumed(RewindInstance2 rewindInstance)
     {
         if (rewindCoroutine != null)
