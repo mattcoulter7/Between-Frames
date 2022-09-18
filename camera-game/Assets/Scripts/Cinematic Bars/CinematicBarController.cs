@@ -36,7 +36,7 @@ public class CinematicBarController : MonoBehaviour
     public float rotateSpeed = 1f;
     
     /// <summary>The speed scale for updating CinematicBarManager offset</summary>
-    public float moveSpeed = 1f;
+    public float moveSpeed = 0.1f;
     public float controllerZoomSpeed = 0.1f;
     public float controllerRotationSpeed = 1.8f;
     private CinematicBarManager _cinematicBars;
@@ -65,6 +65,7 @@ public class CinematicBarController : MonoBehaviour
             playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
         }
 
+        //mouseZoom = 
         shrinkAct = playerInput.actions["Shrink"];
         expandAct = playerInput.actions["Expand"];
         rotateRAct = playerInput.actions["RotateRight"];
@@ -87,7 +88,10 @@ public class CinematicBarController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        float zoomFrame = Input.GetAxis("ZoomFrame");
+        //float zoomFrame = Input.GetAxis("ZoomFrame");
+        float zoomFrame = playerInput.actions["MouseZoom"].ReadValue<Vector2>().normalized.y;
+        //zoomFrame = Normalize(zoomFrame).y
+        //Debug.Log(zoomFrame);
         float shiftFrameX = Input.GetButton("ShiftFrameX") ? Input.GetAxis("ShiftFrameX") : 0;
         float shiftFrameY = Input.GetButton("ShiftFrameY") ? Input.GetAxis("ShiftFrameY") : 0;
         Vector2 shiftFrame = new Vector2(shiftFrameX, shiftFrameY);
