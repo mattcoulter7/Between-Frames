@@ -98,6 +98,15 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseZoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""9e038266-68e8-4e9d-83f4-bf6d19fdc796"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -373,6 +382,17 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""processors"": ""InvertVector2"",
                     ""groups"": ""Keyboard&Mouse;Gamepad"",
                     ""action"": ""ShiftCamXY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""edfc6605-c2d6-49a4-a253-fe514837f049"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MouseZoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1001,6 +1021,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         m_Player_RotateRight = m_Player.FindAction("RotateRight", throwIfNotFound: true);
         m_Player_RotateLeft = m_Player.FindAction("RotateLeft", throwIfNotFound: true);
         m_Player_ShiftCamXY = m_Player.FindAction("ShiftCamXY", throwIfNotFound: true);
+        m_Player_MouseZoom = m_Player.FindAction("MouseZoom", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1080,6 +1101,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RotateRight;
     private readonly InputAction m_Player_RotateLeft;
     private readonly InputAction m_Player_ShiftCamXY;
+    private readonly InputAction m_Player_MouseZoom;
     public struct PlayerActions
     {
         private @ControlInput m_Wrapper;
@@ -1092,6 +1114,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         public InputAction @RotateRight => m_Wrapper.m_Player_RotateRight;
         public InputAction @RotateLeft => m_Wrapper.m_Player_RotateLeft;
         public InputAction @ShiftCamXY => m_Wrapper.m_Player_ShiftCamXY;
+        public InputAction @MouseZoom => m_Wrapper.m_Player_MouseZoom;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1125,6 +1148,9 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @ShiftCamXY.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
                 @ShiftCamXY.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
                 @ShiftCamXY.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
+                @MouseZoom.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
+                @MouseZoom.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
+                @MouseZoom.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1153,6 +1179,9 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @ShiftCamXY.started += instance.OnShiftCamXY;
                 @ShiftCamXY.performed += instance.OnShiftCamXY;
                 @ShiftCamXY.canceled += instance.OnShiftCamXY;
+                @MouseZoom.started += instance.OnMouseZoom;
+                @MouseZoom.performed += instance.OnMouseZoom;
+                @MouseZoom.canceled += instance.OnMouseZoom;
             }
         }
     }
@@ -1317,6 +1346,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         void OnRotateRight(InputAction.CallbackContext context);
         void OnRotateLeft(InputAction.CallbackContext context);
         void OnShiftCamXY(InputAction.CallbackContext context);
+        void OnMouseZoom(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
