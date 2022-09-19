@@ -143,16 +143,13 @@ public class CinematicBarController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //float zoomFrame = Input.GetAxis("ZoomFrame");
         float zoomFrame = playerInput.actions["MouseZoom"].ReadValue<Vector2>().normalized.y;
-        //zoomFrame = Normalize(zoomFrame).y
-        //Debug.Log(zoomFrame);
 
         lastMousePosition = mousePosition != null ? mousePosition : Input.mousePosition; // initial frame default to mouse position
         mousePosition = Input.mousePosition;
         mouseMovement = mousePosition - lastMousePosition;
 
-        float zoomFrame = Input.GetAxis("ZoomFrame");
+        //float zoomFrame = Input.GetAxis("ZoomFrame");
         float shiftFrameX = Input.GetButton("ShiftFrameX") ? Input.GetAxis("ShiftFrameX") : 0;
         float shiftFrameY = Input.GetButton("ShiftFrameY") ? Input.GetAxis("ShiftFrameY") : 0;
         Vector2 shiftFrame = new Vector2(shiftFrameX, shiftFrameY);
