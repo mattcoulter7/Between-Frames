@@ -63,13 +63,12 @@ public class PlaySound : MonoBehaviour
         AM.Instance.PlayWholeClip(name);
     }
 
-    /// <summary>This method was intended to force a looped sound to stop playing. There are easier ways to achieve
-    /// this but this was made for testing purposes</summary>
-    /// <param name="name">This is the specific sound to stop</param>
-    public void StopLooped(string name)
+    /// <summary>This method stops all looped sounds</summary>
+    // <param name="name">This is the specific sound to stop</param>
+    public void StopLooped()
     {
-        startedPlaying = false;
-        AM.Instance.StopSFX(name);
+        //startedPlaying = false;
+        AM.Instance.StopLooped();
 
     }
 
@@ -93,5 +92,9 @@ public class PlaySound : MonoBehaviour
         AM.Instance.StopFadeOut(name);
     }
 
+    public void PauseAllSFX()
+    {
+        AM.Instance.PauseAllSFX();
+    }
 
 }
