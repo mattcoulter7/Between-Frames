@@ -252,6 +252,15 @@ public class AM : MonoBehaviour
         }
     }
 
+    //<summary>This method stops any looping tracks in the SFX array</summary>
+    public void StopLooped()
+    {
+        for (int i = 0; i < sounds.Length - 1; i++)
+        {
+            if(sounds[i].loop) sounds[i].source.Pause();
+        }
+    }
+
     //<summary>This method returns a Sound object with the desired name. Returns null if nothing found</summary>
     //<returns>Returns a Sound object with the desired name. Returns null if nothing found</returns>
     //<param name="name">The name of the SFX to return</param>
