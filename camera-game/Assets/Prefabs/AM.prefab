@@ -212,7 +212,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: PressurePlateReel
+  - name: Reel
     clip: {fileID: 8300000, guid: c174bec788fa0479dbeb37e6d4204343, type: 3}
     mixerGroup: {fileID: 0}
     volume: 0.305
@@ -224,6 +224,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 28bec8b8fe7444dca9468bb6d16d2114, type: 3}
     mixerGroup: {fileID: 0}
     volume: 0.305
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: BoxDestroy
+    clip: {fileID: 8300000, guid: eae93df1cbfee470c840e0374e03ee28, type: 3}
+    mixerGroup: {fileID: -287768231422235358, guid: 31eb0796e967646e596919438baa35f5, type: 2}
+    volume: 0.755
     pitch: 1
     loop: 0
     playOnAwake: 0
