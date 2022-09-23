@@ -6,6 +6,7 @@ public static class FadeMixerGroup
 {
     public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
     {
+        Debug.Log("Called!");
         float currentTime = 0;
         float currentVol;
         audioMixer.GetFloat(exposedParam, out currentVol);

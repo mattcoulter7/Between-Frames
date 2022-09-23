@@ -23,6 +23,9 @@ public class AM : MonoBehaviour
     //<summary>This makes the AM a singleton</summary>
     public static AM Instance;
 
+    [SerializeField]
+    private AudioMixer sfxMixer;
+
     //<summary>The mixer group for all music tracks</summary>
     [SerializeField]
     private AudioMixerGroup musicMixerGroup;
@@ -40,7 +43,9 @@ public class AM : MonoBehaviour
     private List<Sound> stepSounds;
 
     [SerializeField]
-    private List<AudioMixerGroup> sfxGroups; 
+    private List<AudioMixerGroup> sfxGroups;
+
+    const string FADE_GROUP = "TestFadeVol";
 
     //<summary>Sound array for all the sound effects in the game/summary>
     public Sound[] sounds;
@@ -284,15 +289,18 @@ public class AM : MonoBehaviour
     //<param name="name">This is the name of the track to fade in and play</param>
     public void PlayFadeIn(string name)
     {
+        //Debug.Log("Called!");
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + "not found");
             return;
         }
-        //s.source.volume = 0;
+        sfxMixer.SetFloat(FADE_GROUP, -80f);
         s.source.Play();
-        //StartCoroutine(FadeAudioSource.StartFade(s.source, (float)0.2, 1));
+        StartCoroutine(FadeMixerGroup.StartFade(sfxMixer, FADE_GROUP, 1f, 1f));
+        
+        
     }
 
     //<summary>This method was intended to fade out a SFX track</summary>
