@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: c213ec6d8b64d2746bf5565d14aee6e9, type: 3}
+        m_Texture: {fileID: 2800000, guid: e85e41c0128758e428ff96f085c7ee58, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ClearCoatFallback:
@@ -279,7 +279,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b3d547dbe71881e4f94006ad9deaf629, type: 3}
+        m_Texture: {fileID: 2800000, guid: 682ab7f9f1f861d498358803b7e4f085, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Matcap:
@@ -618,7 +618,7 @@ Material:
     - _BlueColorThemeIndex: 0
     - _BlueTextureUV: 0
     - _BumpMapUV: 0
-    - _BumpScale: 1.5
+    - _BumpScale: 0.64
     - _CCIgnoreCastedShadows: 0
     - _CameraAngleMax: 90
     - _CameraAngleMin: 45
