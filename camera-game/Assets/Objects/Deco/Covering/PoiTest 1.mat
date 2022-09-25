@@ -7,9 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DefaultMaterial_Base_color
+  m_Name: PoiTest 1
   m_Shader: {fileID: 4800000, guid: 231d95ff7213dd74f82af136b256fb32, type: 3}
   m_ValidKeywords:
+  - MOCHIE_PBR
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
@@ -59,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4f20b357ea6b3964cb3d01babca08696, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ClearCoatFallback:
@@ -279,7 +280,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2e9d63ecd3cc5e142988c2da0567667e, type: 3}
+        m_Texture: {fileID: 2800000, guid: bfd0df7e32667784b88765e51faedd8e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Matcap:
@@ -618,7 +619,7 @@ Material:
     - _BlueColorThemeIndex: 0
     - _BlueTextureUV: 0
     - _BumpMapUV: 0
-    - _BumpScale: 1
+    - _BumpScale: 2.81
     - _CCIgnoreCastedShadows: 0
     - _CameraAngleMax: 90
     - _CameraAngleMin: 45
@@ -1032,7 +1033,7 @@ Material:
     - _GlitterUV: 0
     - _GlitterUseSurfaceColor: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GreenAlphaAdd: 0
     - _GreenColorThemeIndex: 0
@@ -1105,10 +1106,10 @@ Material:
     - _LightingForcedColorThemeIndex: 0
     - _LightingGradientEnd: 0.5
     - _LightingGradientStart: 0
-    - _LightingIgnoreAmbientColor: 1
+    - _LightingIgnoreAmbientColor: 0.693
     - _LightingIndirectUsesNormals: 0
     - _LightingMapMode: 0
-    - _LightingMinLightBrightness: 0.5
+    - _LightingMinLightBrightness: 0
     - _LightingMode: 6
     - _LightingMonochromatic: 0
     - _LightingMulitlayerNonLinear: 1
@@ -1237,7 +1238,7 @@ Material:
     - _Metallic: 0
     - _Mirror: 0
     - _MirrorTextureUV: 0
-    - _MochieBRDF: 0
+    - _MochieBRDF: 1
     - _MochieForceFallback: 0
     - _MochieGSAAEnabled: 1
     - _MochieLitFallback: 0
@@ -1246,13 +1247,13 @@ Material:
     - _MochieMetallicMasksUV: 0
     - _MochieMetallicMultiplier: 0
     - _MochieReflectionMaskInvert: 0
-    - _MochieReflectionStrength: 1
+    - _MochieReflectionStrength: 0
     - _MochieReflectionTintThemeIndex: 0
     - _MochieRoughnessMapInvert: 0
-    - _MochieRoughnessMultiplier: 1
+    - _MochieRoughnessMultiplier: 0.463
     - _MochieRoughnessMultiplier2: 1
     - _MochieSpecularMaskInvert: 0
-    - _MochieSpecularStrength: 1
+    - _MochieSpecularStrength: 0.398
     - _MochieSpecularStrength2: 1
     - _MochieSpecularTintThemeIndex: 0
     - _Mode: 0
@@ -1407,8 +1408,8 @@ Material:
     - _ShadowBorder: 0.5
     - _ShadowBorderRange: 0
     - _ShadowColorTexUV: 0
-    - _ShadowOffset: 0
-    - _ShadowStrength: 1
+    - _ShadowOffset: -0.495
+    - _ShadowStrength: 0.586
     - _SmoothnessTextureChannel: 0
     - _Specular2ndLayer: 0
     - _SpecularHighlights: 1
@@ -1669,7 +1670,7 @@ Material:
     - m_start_audioLink: 0
     - m_start_backFace: 0
     - m_start_blending: 0
-    - m_start_brdf: 0
+    - m_start_brdf: 1
     - m_start_clearCoat: 0
     - m_start_depthFX: 0
     - m_start_dissolve: 0
