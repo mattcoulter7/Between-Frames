@@ -275,7 +275,9 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 57647a39c82e64f4497c9f0ffab4d73c
+    name: TestFadeVol
   m_AudioMixerGroupViews:
   - guids:
     - e92ce8d76509b4ab28b5f6ea22cf88c2
@@ -363,6 +365,7 @@ AudioMixerSnapshotController:
     379896e8462df4b789797ec35b904119: -0.43201253
     d108c4f865c604ee3ab2c940a054e346: 1
     d96c9a190db46493eb8dcf1138ac44e2: -10000
+    57647a39c82e64f4497c9f0ffab4d73c: 0
     eff4cc69c77484a479a1c2fa8de11592: 122.6
     d5d3f73a668e74b6385437638ea5a183: 0.335
     bd07357ac08934fd6b5826f611297aa3: 2.750018

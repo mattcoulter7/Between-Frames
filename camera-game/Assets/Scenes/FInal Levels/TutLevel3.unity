@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383566624}
     m_Modifications:
+    - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: speedDragThreshold
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: horizontalDragThreshold
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: onDragStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeInLoop
+      objectReference: {fileID: 0}
     - target: {fileID: 6758134818991948524, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1504,6 +1516,10 @@ PrefabInstance:
       propertyPath: onRewindFinish.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6883886270383592232, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
+      propertyPath: timeBetweenLandSFX
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6883886270383592235, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: OnExit.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -2056,6 +2072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AM
       objectReference: {fileID: 0}
+    - target: {fileID: 5476640189305926663, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: sounds.Array.data[14].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 986cc836ec8824567a546ee057cb1ce5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
 --- !u!114 &1094832896 stripped
