@@ -1441,7 +1441,7 @@ MonoBehaviour:
   _isWalking: 0
   _isGrounded: 1
   _isGroundedLastFrame: 1
-  timeBetweenLandSFX: 6
+  timeBetweenLandSFX: 0.5
   walkingAnimationVariable: isWalking
   jumpingAnimationVariable: isJumping
   fallingAnimationVariable: isFalling
@@ -1519,7 +1519,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRewinding: 0
   isRecording: 0
-  canConsumeRewind: 1
   rewindProperties:
   - getter:
       objectReference: {fileID: 6341846085515681001}
