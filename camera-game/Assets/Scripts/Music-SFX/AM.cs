@@ -39,7 +39,7 @@ public class AM : MonoBehaviour
 
     //<summary>This is seen in the inspector for testing purposes. It checks which footstep sounds are
     // being put in the new array to be played later</summary>
-    [SerializeField]
+    //[SerializeField]
     private List<Sound> stepSounds;
 
     [SerializeField]
@@ -85,6 +85,7 @@ public class AM : MonoBehaviour
         Sound Step2 = GetSFX("Step2");
         stepSounds.Add(Step1);
         stepSounds.Add(Step2);
+        //stepSounds.AddRange
 
 
 
@@ -355,61 +356,11 @@ public class AM : MonoBehaviour
     {
         //sfxMixerGroup.
     }
+
+
+    private void StepGather()
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+    }
+
 }
-
-
-//graveyard v2.0
-
-
-////SliderContainer = GameObject.transform.Find(MusicContainer).gameObject;
-////BGMSlider = SliderContainer.GetComponent<Slider>();
-
-
-
-////firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
-
-//if (firstPlayInt == 0)
-//{
-//    //BGMFloat = 1f;
-//    //SFXFloat = 0.108f;
-
-//    //BGMSlider.value = BGMFloat;
-//    //SFXSlider.value = SFXFloat;
-//   // PlayerPrefs.SetFloat(BGMPref, BGMFloat);
-//   // PlayerPrefs.SetFloat(SFXPref, SFXFloat);
-//   // PlayerPrefs.SetInt(FirstPlay, -1);
-//}
-//else
-//{
-//   // BGMFloat = PlayerPrefs.GetFloat(BGMPref);
-//   // BGMSlider.value = BGMFloat;
-
-//   // SFXFloat = PlayerPrefs.GetFloat(SFXPref);
-//   // SFXSlider.value = SFXFloat;
-//}
-
-
-
-
-//Scene currentScene = SceneManager.GetActiveScene();
-//string sceneName = currentScene.name;
-//if (sceneName == "MenuTest")
-//{
-//    PlayBGM("MenuMusic");
-//    Debug.Log("Menu should be playing");
-//}
-//else //(sceneName != "MenuTest")
-//{
-
-//    for (int i = 0; i < BGM.Length; i++)
-//    {
-//        if (BGM[i].source.isPlaying)
-//        {
-
-//            BGM[i].source.Stop();
-//            Debug.Log("Something should have stopped");
-
-//        }
-
-//    }
-//}
