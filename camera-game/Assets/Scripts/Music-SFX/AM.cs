@@ -194,7 +194,7 @@ public class AM : MonoBehaviour
 
         for (int i = 0; i < BGM.Length; i++)
         {
-            Debug.Log("ARRAY POS " + i);
+            //Debug.Log("ARRAY POS " + i);
 
             if (!BGM[i].Equals(song) && BGM[i].source.isPlaying)
             {

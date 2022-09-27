@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SurfaceMaterialIdentifier : MonoBehaviour
 {
-    private static readonly string layerToCastTo = "Ground";
+    //public bool _isGrounded = false;
     public LayerMask ground;
-    private static readonly float maxCastDistance = 10f;
-
+    public float maxCastDistance = 5f;
+    
     [SerializeField] private SurfaceMaterialData _surfaceData = null;
 
+
+   
     public SurfaceMaterial Cast(Ray r)
     {
         Debug.Log("A Cast called");
@@ -26,6 +28,10 @@ public class SurfaceMaterialIdentifier : MonoBehaviour
                     SurfaceMaterial material = _surfaceData.FindSurfaceMaterial(id.id);
                     if (material != null) return material;
                 }
+                else
+                {
+                    Debug.Log("A id of target null");
+                }
 
             }
         }
@@ -36,3 +42,5 @@ public class SurfaceMaterialIdentifier : MonoBehaviour
         return null;
     }
 }
+
+//Physics.CheckSphere(_groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
