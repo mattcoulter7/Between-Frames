@@ -39,7 +39,7 @@ public class AM : MonoBehaviour
 
     //<summary>This is seen in the inspector for testing purposes. It checks which footstep sounds are
     // being put in the new array to be played later</summary>
-    //[SerializeField]
+    [SerializeField]
     private List<Sound> stepSounds;
 
     [SerializeField]
@@ -355,12 +355,6 @@ public class AM : MonoBehaviour
     public void highPassFilter()
     {
         //sfxMixerGroup.
-    }
-
-
-    private void StepGather()
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
     }
 
 }

@@ -5,22 +5,25 @@ using UnityEngine;
 public class SurfaceMaterialIdentifier : MonoBehaviour
 {
     private static readonly string layerToCastTo = "Ground";
+    public LayerMask ground;
     private static readonly float maxCastDistance = 10f;
 
     [SerializeField] private SurfaceMaterialData _surfaceData = null;
 
     public SurfaceMaterial Cast(Ray r)
     {
+        Debug.Log("A Cast called");
         if (_surfaceData != null)
         {
-            RaycastHit hitInfo;
-            if (Physics.Raycast(r, out hitInfo, maxCastDistance, LayerMask.GetMask(layerToCastTo), QueryTriggerInteraction.Ignore))
+            Debug.Log("A SD not null");
+            if (Physics.Raycast(r, out RaycastHit hitInfo, maxCastDistance, ground, QueryTriggerInteraction.Ignore))
             {
+                Debug.Log("A If statement true");
 
-                SurfaceMaterial id = hitInfo.transform.GetComponent<SurfaceMaterial>();
-                if(id != null)      
+                SurfaceMaterialId id = hitInfo.transform.GetComponent<SurfaceMaterialId>();
+                if (id != null)
                 {
-                    SurfaceMaterial material = _surfaceData.FindSurfaceMaterial(id.identity);
+                    SurfaceMaterial material = _surfaceData.FindSurfaceMaterial(id.id);
                     if (material != null) return material;
                 }
 

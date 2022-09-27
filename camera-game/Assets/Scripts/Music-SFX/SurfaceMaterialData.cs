@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Audio/SurfaceMaterialData")]
-public class SurfaceMaterialData : ScriptableObject
+//[CreateAssetMenu(fileName = "SurfaceMaterialData", menuName = "Surface/Material/Data", order = 100)]
+public class SurfaceMaterialData : MonoBehaviour
 {
     [SerializeField]
     private List<SurfaceMaterial> surfaceMaterials = new();
