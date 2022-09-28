@@ -37,7 +37,7 @@ public class SurfaceMaterialIdentifier : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Surface Data not assigned", this);
+            Debug.Log("Surface Data not assigned", this);
         }
         return null;
     }

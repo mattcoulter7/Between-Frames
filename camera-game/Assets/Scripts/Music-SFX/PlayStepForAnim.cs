@@ -8,15 +8,15 @@ using UnityEngine.Events;
 [RequireComponent(typeof(SurfaceMaterialIdentifier))]
 public class PlayStepForAnim : MonoBehaviour
 {
-    private Rigidbody _rb;
+   // private Rigidbody _rb;
     private Transform _groundChecker;
 
-    //<summary>This is the SoundEvent that is found in every scene. This holds the method to play the steps</summary>
+    //<summary>This is the SoundEvent that\ is found in every scene. This holds the method to play the steps</summary>
     public UnityEvent Step;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
+       // _rb = GetComponent<Rigidbody>();
         _groundChecker = transform.GetChild(0);
         
     }
