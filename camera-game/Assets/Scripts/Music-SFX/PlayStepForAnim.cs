@@ -32,25 +32,27 @@ public class PlayStepForAnim : MonoBehaviour
 
         if(castResult != null)
         {
-            switch (castResult.identity)
-            {
-                default:
-                case SurfaceIdentity.Linoleum:
-                    Check();
+            AM.Instance.PlayFootsteps(castResult);
+            //switch (castResult.identity)
+            //{
+            //    default:
+            //    case SurfaceIdentity.Linoleum:
+            //        //Check();
 
-                    Step.Invoke();
+            //        AM.Instance.Pla
+            //        //Step.Invoke();//SoundEvent.PlaySound
 
-                    break;
-                case SurfaceIdentity.Wood:
-                    Check();
-                    break;
-                case SurfaceIdentity.Carpet:
-                    Check();
-                    break;
-                case SurfaceIdentity.Grass:
-                    Check();
-                    break;
-            }
+            //        break;
+            //    case SurfaceIdentity.Wood:
+            //        Check();
+            //        break;
+            //    case SurfaceIdentity.Carpet:
+            //        Check();
+            //        break;
+            //    case SurfaceIdentity.Grass:
+            //        Check();
+            //        break;
+            //}
         }
         else
         {
