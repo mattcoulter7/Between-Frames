@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MenuTest.unity
     guid: 8835a021dae0948b29e0ccca25d57dda
   - enabled: 0
@@ -29,19 +29,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Under Development.unity
     guid: 5add8231c4be87d40bf0f462ff2c237d
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/PAXMenu.unity
+    guid: 1ec7946f9f4a22945bc69dac0e72e121
+  - enabled: 1
     path: Assets/Scenes/FInal Levels/TutLevel1.unity
     guid: 51dcdf82bc1a75440ac464789af5fc2a
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/FInal Levels/TutLevel2.unity
     guid: f3d847560c88bbf408aab43825035846
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/FInal Levels/TutLevel3.unity
     guid: 6f3e0dff6a2247744b2f549c9d8dba76
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/FInal Levels/TutLevel4.unity
     guid: fba5c9e7f20b80e419b0a7e1cf92c181
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/FInal Levels/TutLevel5.unity
     guid: ef981b964f53e2049b27ac8d8bfb7340
   - enabled: 1
