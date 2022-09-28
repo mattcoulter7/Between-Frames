@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Tutorial : MonoBehaviour
 {
     PlayerInput myInput;
-
+    bool bDestroyed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class Tutorial : MonoBehaviour
 
     private void OnDisable()
     {
-        myInput.actions["Submit"].performed -= ctx => OnSubmit();
+        
     }
 
     // Update is called once per frame
@@ -39,7 +39,27 @@ public class Tutorial : MonoBehaviour
 
     public void OnSubmit()
     {
-        myInput.SwitchCurrentActionMap("Player");
-        this.gameObject.SetActive(false);
-    }
+        if (bDestroyed != true)
+        {
+            if (myInput == null)
+            {
+                myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+            }
+            myInput.SwitchCurrentActionMap("Player");
+            myInput.actions["Submit"].performed -= ctx => OnSubmit();
+
+            if (gameObject != null)
+            {
+                bDestroyed = true;
+                this.gameObject.SetActive(false);
+                
+                //if (gameObject.transform.GetChild(0).gameObject != null)
+                //{
+                //    gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                //    
+                //}
+            }
+
+        }
+    }   
 }

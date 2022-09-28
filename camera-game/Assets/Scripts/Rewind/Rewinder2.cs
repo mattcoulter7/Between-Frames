@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using System.Linq;
 
 public class Rewinder2 : MonoBehaviour
@@ -24,11 +25,21 @@ public class Rewinder2 : MonoBehaviour
     private List<RewindInstance2> _rewindInstances = new List<RewindInstance2>();
     private Coroutine rewindCoroutine = null;
 
+    private PlayerInput myInput;
+
     private void Awake()
     {
         EventDispatcher.Instance.AddEventListener("RewindConsumed", (Action<RewindInstance2>)RewindConsumed);
         EventDispatcher.Instance.AddEventListener("RegisterRewindInstance", (Action<RewindInstance2>)RegisterRewindInstance);
         EventDispatcher.Instance.AddEventListener("RemoveRewindInstance", (Action<RewindInstance2>)RemoveRewindInstance);
+        
+        //Controller input      
+        if(myInput == null) // find inputsystem 
+        {
+            myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        }
+
+        myInput.actions["Rewind"].performed += ctx => OnRewind(); // add input context for rewind
     }
 
     // Start is called before the first frame update
@@ -140,5 +151,11 @@ public class Rewinder2 : MonoBehaviour
                 rewindInstance.Continue();
             }
         }
+    }
+
+    public void OnRewind() 
+    {
+        RewindForSeconds();
+        myInput.SwitchCurrentActionMap("UI");
     }
 }
