@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using System;
 
 public class Tutorial : MonoBehaviour
 {
@@ -17,13 +18,13 @@ public class Tutorial : MonoBehaviour
 
     void Awake()
     {
+        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        myInput.SwitchCurrentActionMap("UI");
+        myInput.actions["Submit"].performed += ctx => OnSubmit();
     }
 
     private void OnEnable()
     {
-        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-        myInput.SwitchCurrentActionMap("UI");
-        myInput.actions["Submit"].performed += ctx => OnSubmit();
     }
 
     private void OnDisable()
@@ -39,27 +40,42 @@ public class Tutorial : MonoBehaviour
 
     public void OnSubmit()
     {
-        if (bDestroyed != true)
+        try
         {
-            if (myInput == null)
+            if (bDestroyed != true)
             {
-                myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-            }
-            myInput.SwitchCurrentActionMap("Player");
-            myInput.actions["Submit"].performed -= ctx => OnSubmit();
+                Debug.Log("Destroy check passed");
+                if (myInput == null)
+                {
+                    myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+                }
+                myInput.SwitchCurrentActionMap("Player");
+                myInput.actions["Submit"].performed -= ctx => OnSubmit();
 
-            if (gameObject != null)
-            {
-                bDestroyed = true;
-                this.gameObject.SetActive(false);
-                
-                //if (gameObject.transform.GetChild(0).gameObject != null)
-                //{
-                //    gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                //    
-                //}
-            }
+                Debug.Log("input check passed");
+                if (bDestroyed)
+                {
+                    return;
+                }
+                else if (gameObject != null)
+                {
+                    Debug.Log("Null check passed");
+                    bDestroyed = true;
+                    gameObject.SetActive(false);
+                    //Destroy(this);
 
+                    //if (gameObject.transform.GetChild(0).gameObject != null)
+                    //{
+                    //    gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    //    
+                    //}
+                }
+
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e);
         }
     }   
 }
