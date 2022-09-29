@@ -57,7 +57,7 @@ public class Tutorial : MonoBehaviour
                 {
                     return;
                 }
-                else if (gameObject != null)
+                else if (this != null)
                 {
                     Debug.Log("Null check passed");
                     bDestroyed = true;
