@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 /// <summary>
 /// helper functions to easily set children based on interaction object
 /// </summary>
 public class InteractionMenuLine : MonoBehaviour
 {
+    private Interaction interaction = null;
+    private InteractionUIBindings interactionUIBindings;
     private TextMeshProUGUI label;
     private Image icon;
 
@@ -19,19 +22,31 @@ public class InteractionMenuLine : MonoBehaviour
     /// <param name="interaction">The configured interaction of label, input method and onInteraction sequence</param>
     public void OnInitialise(Interaction interaction)
     {
-        InteractionUIBindings interactionUIBindings = GetComponentInParent<InteractionUIBindings>();
-
-        // set the text
-        label.text = interaction.label;
-
-        // set the sprite
-        Sprite boundSprite = interactionUIBindings.GetSprite(interaction.method);
-        icon.sprite = boundSprite;
+        this.interaction = interaction;
+        SetText();
+        SetIcon(InputDeviceChangeHandler.currentDeviceType);
     }
     // Start is called before the first frame update
     private void Awake()
     {
+        EventDispatcher.Instance.AddEventListener("OnInputDeviceChange",(Action<string>)SetIcon);
+        interactionUIBindings = FindObjectOfType<InteractionUIBindings>();
         label = GetComponentInChildren<TextMeshProUGUI>();
         icon = GetComponentInChildren<Image>();
+    }
+
+    private void SetText()
+    {
+        // set the text
+        label.text = interaction.label;
+    }
+    private void SetIcon(string deviceType)
+    {
+        if (this != null)
+        {
+            // set the sprite
+            Sprite boundSprite = interactionUIBindings.GetSprite(interaction.method, deviceType);
+            icon.sprite = boundSprite;
+        }
     }
 }
