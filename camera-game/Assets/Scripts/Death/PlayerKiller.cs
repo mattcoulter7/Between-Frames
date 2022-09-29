@@ -40,6 +40,15 @@ public class PlayerKiller : MonoBehaviour
     /// </summary>
     public LayerMask validPenetrateLayers;
 
+    [System.Serializable]
+    public class ConditionalPenetrateLayerMask
+    {
+        public LayerMask penetrateLayer;
+        public LayerMask mustBeTouchingLayer;
+    }
+    public ConditionalPenetrateLayerMask[] conditionalPenetrateLayers;
+    private List<Collider> currentCollisions = new List<Collider>();
+
     private Collider myCollider;
 
     /// <summary>Sets dead back to false</summary>
@@ -59,11 +68,13 @@ public class PlayerKiller : MonoBehaviour
         myCollider = GetComponent<Collider>();
     }
 
+
     private void CheckForDeath(Collision col)
     {
         if (!enabled) return;
         CheckForSquish(col);
         CheckForPenetration(col);
+        CheckForConditionalPenetration(col);
     }
 
     private void CheckForSquish(Collision col)
@@ -110,14 +121,67 @@ public class PlayerKiller : MonoBehaviour
             Kill();
         }
     }
+    private void CheckForConditionalPenetration(Collision col)
+    {
+        if (dead) return;
+
+        LayerMask currentCollisionsLayerMask = CurrentCollisionsLayerMask();
+        
+        foreach (ConditionalPenetrateLayerMask condition in conditionalPenetrateLayers)
+        {
+            if (!currentCollisionsLayerMask.HasLayer(condition.mustBeTouchingLayer)) continue;
+            if (!currentCollisionsLayerMask.HasLayer(col.gameObject.layer)) continue;
+
+            Vector3 direction;
+            float distance;
+
+            Physics.ComputePenetration(
+                col.collider,
+                col.collider.transform.position,
+                col.collider.transform.rotation,
+
+                myCollider,
+                myCollider.transform.position,
+                myCollider.transform.rotation,
+
+                out direction,
+                out distance
+            );
+            if (distance > penetrationTolerance)
+            {
+                Kill();
+                return;
+            }
+        }
+    }
+    
+    private LayerMask CurrentCollisionsLayerMask()
+    {
+        List<int> currentCollisionLayers = new List<int>();
+        foreach (Collider col in currentCollisions)
+        {
+            if (!currentCollisionLayers.Contains(col.gameObject.layer))
+            {
+                currentCollisionLayers.Add(col.gameObject.layer);
+            }
+        }
+        string[] currentCollisionLayerNames = currentCollisionLayers.Select(l => LayerMask.LayerToName(l)).ToArray();
+        return LayerMask.GetMask(currentCollisionLayerNames);
+    }
 
     private void OnCollisionEnter(Collision col)
     {
+        currentCollisions.Add(col.collider);
         CheckForDeath(col);
     }
 
     private void OnCollisionStay(Collision col)
     {
         CheckForDeath(col);
+    }
+
+    private void OnCollisionExit(Collision col)
+    {
+        currentCollisions.Remove(col.collider);
     }
 }
