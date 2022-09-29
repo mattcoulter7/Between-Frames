@@ -1392,11 +1392,18 @@ MonoBehaviour:
   squishTolerances: {x: 0.4, y: 0.8}
   validSquishLayers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 4864
   penetrationTolerance: 0.2
   validPenetrateLayers:
     serializedVersion: 2
-    m_Bits: 4353
+    m_Bits: 257
+  conditionalPenetrateLayers:
+  - penetrateLayer:
+      serializedVersion: 2
+      m_Bits: 4096
+    mustBeTouchingLayer:
+      serializedVersion: 2
+      m_Bits: 256
 --- !u!114 &6883886270383592234
 MonoBehaviour:
   m_ObjectHideFlags: 0
