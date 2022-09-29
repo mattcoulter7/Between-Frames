@@ -28,6 +28,14 @@ public class StateMachine : MonoBehaviour
     {
         selectedLayer = layer;
     }
+    public void ChangeState(State stateObj) // overrides the current state
+    {
+        if (currentState == stateObj) return; // can't re-enter the current state
+
+        if (currentState != null) currentState.Exit();
+        currentState = stateObj;
+        if (currentState != null) currentState.Enter();
+    }
     public void ChangeState(string state) // overrides the current state
     {
         if (selectedLayer == "")
@@ -128,15 +136,10 @@ public class StateMachine : MonoBehaviour
     private StateMachineLayer GetStateMachineLayer(string name)
     {
         StateMachineLayer layer = layers.Find(x => x.name == name);
-        if (layer == null) throw new Exception("Layer '" + name + "' does not exist on " + gameObject.name);
+        if (layer == null)
+        {
+            throw new Exception("Layer '" + name + "' does not exist on " + gameObject.name);
+        }
         return layer;
-    }
-    private void ChangeState(State stateObj) // overrides the current state
-    {
-        if (currentState == stateObj) return; // can't re-enter the current state
-
-        if (currentState != null) currentState.Exit();
-        currentState = stateObj;
-        if (currentState != null) currentState.Enter();
     }
 }

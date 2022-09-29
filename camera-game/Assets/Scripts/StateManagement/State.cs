@@ -9,7 +9,7 @@ public abstract class State : MonoBehaviour
 {
     public UnityEvent OnEnter;
     public UnityEvent OnExit;
-    public string layer;
+    public string layer = "";
     protected StateMachine stateMachine;
     protected Animator animator;
     protected virtual void Awake(){
