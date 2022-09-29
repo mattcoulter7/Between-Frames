@@ -3064,6 +3064,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8883890442412190607, guid: a30020ce5eb1df14c8086266b02813a5, type: 3}
+--- !u!114 &1495752656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495752649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d4670655404482f9c92986d296ee43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!1 &1524962388 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4497823854578233151, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
@@ -3146,19 +3159,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c08b79e10ed45714592a09bd2bc101e3, type: 3}
---- !u!114 &1495752656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495752649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d4670655404482f9c92986d296ee43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 1
 --- !u!1001 &1613260234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3267,10 +3267,6 @@ PrefabInstance:
     - target: {fileID: 2358184377992666820, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_Name
       value: Tutorial Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2358184377992666820, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2358184378672751775, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_AnchorMax.x
