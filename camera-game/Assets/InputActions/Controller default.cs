@@ -107,6 +107,24 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rewind"",
+                    ""type"": ""Button"",
+                    ""id"": ""6209ff97-53e0-456d-9a2f-3242d7547080"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""019b4344-3870-4a4d-88ff-053ede8c75fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -393,6 +411,28 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MouseZoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""020c1878-00b1-4826-b563-58ebd6a01771"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Rewind"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ad219e1-c8bb-44a3-9172-e92b8cd51909"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1022,6 +1062,8 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         m_Player_RotateLeft = m_Player.FindAction("RotateLeft", throwIfNotFound: true);
         m_Player_ShiftCamXY = m_Player.FindAction("ShiftCamXY", throwIfNotFound: true);
         m_Player_MouseZoom = m_Player.FindAction("MouseZoom", throwIfNotFound: true);
+        m_Player_Rewind = m_Player.FindAction("Rewind", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1102,6 +1144,8 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RotateLeft;
     private readonly InputAction m_Player_ShiftCamXY;
     private readonly InputAction m_Player_MouseZoom;
+    private readonly InputAction m_Player_Rewind;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @ControlInput m_Wrapper;
@@ -1115,6 +1159,8 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         public InputAction @RotateLeft => m_Wrapper.m_Player_RotateLeft;
         public InputAction @ShiftCamXY => m_Wrapper.m_Player_ShiftCamXY;
         public InputAction @MouseZoom => m_Wrapper.m_Player_MouseZoom;
+        public InputAction @Rewind => m_Wrapper.m_Player_Rewind;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1151,6 +1197,12 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @MouseZoom.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
                 @MouseZoom.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
                 @MouseZoom.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
+                @Rewind.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRewind;
+                @Rewind.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRewind;
+                @Rewind.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRewind;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1182,6 +1234,12 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @MouseZoom.started += instance.OnMouseZoom;
                 @MouseZoom.performed += instance.OnMouseZoom;
                 @MouseZoom.canceled += instance.OnMouseZoom;
+                @Rewind.started += instance.OnRewind;
+                @Rewind.performed += instance.OnRewind;
+                @Rewind.canceled += instance.OnRewind;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -1347,6 +1405,8 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         void OnRotateLeft(InputAction.CallbackContext context);
         void OnShiftCamXY(InputAction.CallbackContext context);
         void OnMouseZoom(InputAction.CallbackContext context);
+        void OnRewind(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

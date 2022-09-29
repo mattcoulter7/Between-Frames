@@ -1258,6 +1258,7 @@ GameObject:
   - component: {fileID: 605915792}
   - component: {fileID: 5348601996008822011}
   - component: {fileID: 318137688328937807}
+  - component: {fileID: 1318523980367315641}
   m_Layer: 8
   m_Name: VincentAnim
   m_TagString: Player
@@ -1391,11 +1392,18 @@ MonoBehaviour:
   squishTolerances: {x: 0.4, y: 0.8}
   validSquishLayers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 4864
   penetrationTolerance: 0.2
   validPenetrateLayers:
     serializedVersion: 2
     m_Bits: 257
+  conditionalPenetrateLayers:
+  - penetrateLayer:
+      serializedVersion: 2
+      m_Bits: 4096
+    mustBeTouchingLayer:
+      serializedVersion: 2
+      m_Bits: 256
 --- !u!114 &6883886270383592234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,7 +1449,7 @@ MonoBehaviour:
   _isWalking: 0
   _isGrounded: 1
   _isGroundedLastFrame: 1
-  timeBetweenLandSFX: 0.5
+  timeBetweenLandSFX: 6
   walkingAnimationVariable: isWalking
   jumpingAnimationVariable: isJumping
   fallingAnimationVariable: isFalling
@@ -1519,6 +1527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRewinding: 0
   isRecording: 0
+  canConsumeRewind: 1
   rewindProperties:
   - getter:
       objectReference: {fileID: 6341846085515681001}
@@ -1656,6 +1665,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDepenetrationVelocity: 100000
+--- !u!114 &1318523980367315641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001349722020595283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa2756fa70a742279d3ea32d5ccfc8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ground:
+    serializedVersion: 2
+    m_Bits: 769
+  maxCastDistance: 5
+  _surfaceData: {fileID: 2621357980791144126, guid: 4496e0914ba7d4f2ea54c6f747eabe90, type: 3}
 --- !u!1 &6009013861926000700
 GameObject:
   m_ObjectHideFlags: 0

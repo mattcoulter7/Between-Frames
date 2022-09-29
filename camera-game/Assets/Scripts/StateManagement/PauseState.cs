@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PauseState : State
 {
+    public EventSystem eventSystem;
     bool shouldUnpause = false;
     public GameObject pauseMenuUI;
+    public GameObject optionMenuUI;
     protected override void Awake()
     {
         base.Awake();
@@ -17,11 +20,37 @@ public class PauseState : State
         base.Enter();
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
+
     }
     public override void Exit()
     {
         base.Exit();
         pauseMenuUI.SetActive(false);
+    }
+
+    public void Update()
+    {
+        if(pauseMenuUI.active)
+        {
+            if (eventSystem == null)
+            {
+                eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
+            }
+            
+            //if (eventSystem.firstSelectedGameObject == null && optionMenuUI.active == false)
+            //{
+            //    eventSystem.firstSelectedGameObject = GameObject.FindGameObjectWithTag("DefaultSelected");
+            //}
+            //else if (eventSystem.firstSelectedGameObject == null && optionMenuUI.active)
+            //{
+            //    eventSystem.firstSelectedGameObject = GameObject.FindGameObjectWithTag("DefaultOption");
+            //}
+
+            if (eventSystem.currentSelectedGameObject == null)
+            {
+                eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
+            }
+        }
     }
 
     public override void HandleInput()
