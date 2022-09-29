@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,13 @@ public class InteractionUIBindings : MonoBehaviour
         /// The sprite which represents that input method
         /// </summary>
         public Sprite sprite;
+
+        /// <summary>
+        /// The sprite which represents that input method for controller
+        /// </summary>
+        public Sprite controllerSprite;
     }
+
     /// <summary>
     /// The list of bindings between key input and sprite representation (because dictionaries don't show in the inspector!)
     /// </summary>
@@ -34,13 +41,13 @@ public class InteractionUIBindings : MonoBehaviour
     /// </summary>
     /// <param name="keyCode">The InputManager key identifier</param>
     /// <returns>The sprite that represents the key, as long as it has been assigned in the inspector</returns>
-    public Sprite GetSprite(string keyCode)
+    public Sprite GetSprite(string keyCode,string deviceType)
     {
         foreach (Binding binding in bindings)
         {
             if (binding.keyCode == keyCode)
             {
-                return binding.sprite;
+                return deviceType == "Gamepad" ? binding.controllerSprite : binding.sprite;
             }
         }
         return null;

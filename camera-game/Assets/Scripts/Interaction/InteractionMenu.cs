@@ -41,7 +41,6 @@ public class InteractionMenu : MonoBehaviour
             Vector3 targetPos = new Vector3(rectTransform.position.x,targetHeight,rectTransform.position.z);
             GameObject interactionLineObject = Instantiate(interactionLinePrefab);
             
-            
             RectTransform t = interactionLineObject.transform as RectTransform;
             t.SetParent(transform);
             t.anchoredPosition = targetPos;
