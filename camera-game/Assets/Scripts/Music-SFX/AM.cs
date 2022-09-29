@@ -31,7 +31,7 @@ public class AM : MonoBehaviour
     private AudioMixerGroup musicMixerGroup;
 
     //<summary>The mixer group for all SFX tracks</summary>
-    [SerializeField]
+    //[SerializeField]
     private AudioMixerGroup sfxMixerGroup;
 
     //<summary>Sound array for all the background music in the game</summary>
@@ -39,11 +39,11 @@ public class AM : MonoBehaviour
 
     //<summary>This is seen in the inspector for testing purposes. It checks which footstep sounds are
     // being put in the new array to be played later</summary>
-    [SerializeField]
-    private List<Sound> stepSounds;
+    //[SerializeField]
+    private AMSteps stepSounds;
 
-    [SerializeField]
-    private List<AudioMixerGroup> sfxGroups;
+    //[SerializeField]
+    public List<AudioMixerGroup> sfxGroups;
 
     const string FADE_GROUP = "TestFadeVol";
 
@@ -80,13 +80,10 @@ public class AM : MonoBehaviour
 
         Instance = this;
 
-        //adding footsteps to array
-        Sound Step1 = GetSFX("Step1");
-        Sound Step2 = GetSFX("Step2");
-        stepSounds.Add(Step1);
-        stepSounds.Add(Step2);
-        //stepSounds.AddRange
-
+        stepSounds = GetComponent<AMSteps>();
+        InitSteps();
+        
+        
 
 
         foreach (Sound song in BGM)
@@ -121,11 +118,9 @@ public class AM : MonoBehaviour
             s.source.outputAudioMixerGroup = s.mixerGroup;
         }
 
-        foreach (Sound step in stepSounds)
-        {
-            step.mixerGroup = sfxGroups[0];
-            step.source.outputAudioMixerGroup = step.mixerGroup;
-        }
+    
+
+        
     }
 
     void Update()
@@ -325,11 +320,32 @@ public class AM : MonoBehaviour
     }
 
     //<summary>This plays a random range of footstep sounds. Consider making it able to play a range of whatever sounds</summary>
-    public void PlayFootsteps()
+    public void PlayFootsteps(SurfaceMaterial material)
     {
-        Sound stepToPlay = stepSounds[UnityEngine.Random.Range(0, stepSounds.Count)];
+        //Sound stepToPlay = material.identity switch
+        Sound[] stepArray = material.identity switch
+        {
+            SurfaceIdentity.Wood => stepSounds.WoodSteps,//stepSounds.WoodSteps[UnityEngine.Random.Range(0, stepSounds.WoodSteps.Length)],
+            SurfaceIdentity.Carpet => stepSounds.CarpetSteps,//[UnityEngine.Random.Range(0, stepSounds.CarpetSteps.Length)],
+            SurfaceIdentity.Metal => stepSounds.MetalSteps,//[UnityEngine.Random.Range(0, stepSounds.MetalSteps.Length)],
+            SurfaceIdentity.Grass => stepSounds.GrassSteps,//[UnityEngine.Random.Range(0, stepSounds.GrassSteps.Length)],
+            _ => stepSounds.LinolSteps,//[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)],//Check();
+        };
+
+        Sound stepToPlay = GetStepArray(stepArray);
+        if (material == null)
+        {
+            stepToPlay = stepSounds.LinolSteps[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)];
+            Debug.LogWarning("No material assigned");
+        }
+
         stepToPlay.source.Play();
 
+    }
+
+    private Sound GetStepArray(Sound[] stepArray)
+    {
+        return stepArray[UnityEngine.Random.Range(0, stepArray.Length)];
     }
 
     //<summary>Ensures that the sound is not already playing before calling the play function</summary>
@@ -355,6 +371,15 @@ public class AM : MonoBehaviour
     public void highPassFilter()
     {
         //sfxMixerGroup.
+    }
+
+    private void InitSteps()
+    {
+        foreach (Sound s in stepSounds.LinolSteps)
+        {
+            s.mixerGroup = sfxGroups[0];
+            s.source.outputAudioMixerGroup = s.mixerGroup;
+        }
     }
 
 }

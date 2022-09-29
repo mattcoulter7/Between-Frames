@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 605915792}
   - component: {fileID: 5348601996008822011}
   - component: {fileID: 318137688328937807}
-  - component: {fileID: 3754229787791907764}
+  - component: {fileID: 1318523980367315641}
   m_Layer: 8
   m_Name: VincentAnim
   m_TagString: Player
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDepenetrationVelocity: 100000
---- !u!114 &3754229787791907764
+--- !u!114 &1318523980367315641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1679,9 +1679,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 769
   maxCastDistance: 5
-  _surfaceData: {fileID: 0}
+  _surfaceData: {fileID: 2621357980791144126, guid: 4496e0914ba7d4f2ea54c6f747eabe90, type: 3}
 --- !u!1 &6009013861926000700
 GameObject:
   m_ObjectHideFlags: 0

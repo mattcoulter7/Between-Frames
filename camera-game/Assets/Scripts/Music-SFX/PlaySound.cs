@@ -75,7 +75,7 @@ public class PlaySound : MonoBehaviour
     /// <summary>This was made to play the footsteps by cycling through the footstep sound array randomly</summary>
     public void PlaySteps()
     {
-        AM.Instance.PlayFootsteps();
+        //AM.Instance.PlayFootsteps();
     }
 
     /// <summary>Fading into a loop (hopefully)</summary>

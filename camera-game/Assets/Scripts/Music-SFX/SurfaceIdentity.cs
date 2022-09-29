@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum SurfaceIdentity 
 {
-    Linoleum, Wood, Carpet, Grass
+    Linoleum, Wood, Carpet, Metal, Grass
 }
