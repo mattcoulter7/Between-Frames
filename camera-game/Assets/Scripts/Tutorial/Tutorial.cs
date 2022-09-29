@@ -41,6 +41,7 @@ public class Tutorial : MonoBehaviour
     {
         if (bDestroyed != true)
         {
+            Debug.Log("Destroy check passed");
             if (myInput == null)
             {
                 myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
@@ -48,8 +49,11 @@ public class Tutorial : MonoBehaviour
             myInput.SwitchCurrentActionMap("Player");
             myInput.actions["Submit"].performed -= ctx => OnSubmit();
 
+            Debug.Log("input check passed");
+
             if (gameObject != null)
             {
+                Debug.Log("Null check passed");
                 bDestroyed = true;
                 this.gameObject.SetActive(false);
                 
