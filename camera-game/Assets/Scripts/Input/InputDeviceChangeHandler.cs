@@ -47,6 +47,7 @@ public class InputDeviceChangeHandler : MonoBehaviour
 
     private bool AnyGamepadInput()
     {
+        if (Gamepad.current == null) return false;
         return Gamepad.current.allControls.Any(x => (x.IsPressed() || x.IsActuated()) && !x.synthetic);
     }
 
