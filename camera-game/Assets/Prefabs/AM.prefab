@@ -283,19 +283,67 @@ MonoBehaviour:
     source: {fileID: 0}
   WoodSteps:
   - name: WoodStep1
-    clip: {fileID: 8300000, guid: 7d0f13cafa130422cae026ca26e044e5, type: 3}
+    clip: {fileID: 8300000, guid: 82cda171cac4b44bf87278fa7e336227, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: WoodStep2
+    clip: {fileID: 8300000, guid: b8e58bf940b5b40478c2bd42ee3a5622, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: WoodStep3
+    clip: {fileID: 8300000, guid: d9c538d7dc2cf41a98afc02907cf4d44, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: WoodStep4
+    clip: {fileID: 8300000, guid: 210ae991335494816976198ebb4f2908, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   CarpetSteps:
   - name: CarpetStep1
-    clip: {fileID: 8300000, guid: 1cd21acbb4e00490f970100a7e94dece, type: 3}
+    clip: {fileID: 8300000, guid: 395c33f1bfeb04e4fa9757f4256aea9e, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CarpetStep2
+    clip: {fileID: 8300000, guid: 4384b40d988f046938bc42b7cd16844c, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CarpetStep3
+    clip: {fileID: 8300000, guid: c5770bba909ea4716b92563649568398, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CarpetStep4
+    clip: {fileID: 8300000, guid: dcd7b02f153a14881aa6be73d14531e2, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -312,8 +360,8 @@ MonoBehaviour:
   - name: GrassStep1
     clip: {fileID: 8300000, guid: a1768ee7d8e2a4b28b45fb8fc63e148b, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}

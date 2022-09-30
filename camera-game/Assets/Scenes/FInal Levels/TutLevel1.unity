@@ -2475,27 +2475,59 @@ PrefabInstance:
       value: AM
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[0].pitch
+      propertyPath: CarpetSteps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: CarpetSteps.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 395c33f1bfeb04e4fa9757f4256aea9e, type: 3}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: CarpetSteps.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4384b40d988f046938bc42b7cd16844c, type: 3}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: CarpetSteps.Array.data[1].name
+      value: CarpetStep2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: CarpetSteps.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c5770bba909ea4716b92563649568398, type: 3}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: CarpetSteps.Array.data[2].name
+      value: CarpetStep3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: CarpetSteps.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dcd7b02f153a14881aa6be73d14531e2, type: 3}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: CarpetSteps.Array.data[3].name
+      value: CarpetStep4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: CarpetSteps.Array.data[1].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: GrassSteps.Array.data[0].pitch
+      propertyPath: CarpetSteps.Array.data[2].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[0].volume
+      propertyPath: CarpetSteps.Array.data[3].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: CarpetSteps.Array.data[0].pitch
+      propertyPath: CarpetSteps.Array.data[1].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: GrassSteps.Array.data[0].volume
+      propertyPath: CarpetSteps.Array.data[2].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: CarpetSteps.Array.data[0].volume
+      propertyPath: CarpetSteps.Array.data[3].volume
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
