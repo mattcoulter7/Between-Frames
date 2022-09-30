@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material 3
+  m_Name: PoiTest 2
   m_Shader: {fileID: 4800000, guid: 231d95ff7213dd74f82af136b256fb32, type: 3}
   m_ValidKeywords:
-  - COLOR_GRADING_HDR
+  - MOCHIE_PBR
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: ab49eab04c227f041996f5c097192eb1, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ClearCoatFallback:
@@ -280,9 +280,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 872ff6c9d644a4a4188b1458458d6dc5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: 43b00f88b32eb644f82a7f33d8cb7505, type: 3}
+        m_Scale: {x: 4.11, y: 4.94}
+        m_Offset: {x: -0.62, y: 0.03}
     - _Matcap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -619,7 +619,7 @@ Material:
     - _BlueColorThemeIndex: 0
     - _BlueTextureUV: 0
     - _BumpMapUV: 0
-    - _BumpScale: 1.5
+    - _BumpScale: 1.39
     - _CCIgnoreCastedShadows: 0
     - _CameraAngleMax: 90
     - _CameraAngleMin: 45
@@ -669,7 +669,7 @@ Material:
     - _CurvFix: 1
     - _CurvatureU: 0
     - _CurvatureV: 0
-    - _Cutoff: 0.513
+    - _Cutoff: 0.5
     - _Decal0Depth: 0
     - _Decal0HueAngleStrength: 0
     - _Decal0MaskChannel: 0
@@ -1106,10 +1106,10 @@ Material:
     - _LightingForcedColorThemeIndex: 0
     - _LightingGradientEnd: 0.5
     - _LightingGradientStart: 0
-    - _LightingIgnoreAmbientColor: 1
+    - _LightingIgnoreAmbientColor: 0.693
     - _LightingIndirectUsesNormals: 0
     - _LightingMapMode: 0
-    - _LightingMinLightBrightness: 0
+    - _LightingMinLightBrightness: 0.5
     - _LightingMode: 6
     - _LightingMonochromatic: 0
     - _LightingMulitlayerNonLinear: 1
@@ -1124,9 +1124,9 @@ Material:
     - _LockTooltip: 0
     - _MainALHueShiftBand: 0
     - _MainALHueShiftCTIndex: 0
-    - _MainBrightness: 0.354
+    - _MainBrightness: 0
     - _MainColorAdjustTextureUV: 0
-    - _MainColorAdjustToggle: 1
+    - _MainColorAdjustToggle: 0
     - _MainHueALCTEnabled: 0
     - _MainHueALMotionSpeed: 1
     - _MainHueShift: 0
@@ -1238,7 +1238,7 @@ Material:
     - _Metallic: 0
     - _Mirror: 0
     - _MirrorTextureUV: 0
-    - _MochieBRDF: 0
+    - _MochieBRDF: 1
     - _MochieForceFallback: 0
     - _MochieGSAAEnabled: 1
     - _MochieLitFallback: 0
@@ -1247,13 +1247,13 @@ Material:
     - _MochieMetallicMasksUV: 0
     - _MochieMetallicMultiplier: 0
     - _MochieReflectionMaskInvert: 0
-    - _MochieReflectionStrength: 1
+    - _MochieReflectionStrength: 0
     - _MochieReflectionTintThemeIndex: 0
     - _MochieRoughnessMapInvert: 0
-    - _MochieRoughnessMultiplier: 1
+    - _MochieRoughnessMultiplier: 0.463
     - _MochieRoughnessMultiplier2: 1
     - _MochieSpecularMaskInvert: 0
-    - _MochieSpecularStrength: 1
+    - _MochieSpecularStrength: 0.398
     - _MochieSpecularStrength2: 1
     - _MochieSpecularTintThemeIndex: 0
     - _Mode: 0
@@ -1408,8 +1408,8 @@ Material:
     - _ShadowBorder: 0.5
     - _ShadowBorderRange: 0
     - _ShadowColorTexUV: 0
-    - _ShadowOffset: 0
-    - _ShadowStrength: 1
+    - _ShadowOffset: -0.495
+    - _ShadowStrength: 0.586
     - _SmoothnessTextureChannel: 0
     - _Specular2ndLayer: 0
     - _SpecularHighlights: 1
@@ -1644,13 +1644,13 @@ Material:
     - m_start_GlobalThemes: 0
     - m_start_Iridescence: 0
     - m_start_IridescenceAudioLink: 0
-    - m_start_MainHueShift: 1
+    - m_start_MainHueShift: 0
     - m_start_MainVertexColors: 0
     - m_start_Matcap2: 0
     - m_start_Matcap3: 0
     - m_start_Matcap4: 0
     - m_start_PathAudioLink: 0
-    - m_start_PoiLightData: 0
+    - m_start_PoiLightData: 1
     - m_start_PoiShading: 1
     - m_start_RGBMask: 0
     - m_start_RimAudioLink: 0
@@ -1670,7 +1670,7 @@ Material:
     - m_start_audioLink: 0
     - m_start_backFace: 0
     - m_start_blending: 0
-    - m_start_brdf: 0
+    - m_start_brdf: 1
     - m_start_clearCoat: 0
     - m_start_depthFX: 0
     - m_start_dissolve: 0
