@@ -8555,8 +8555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: Close
-  history:
-  - {fileID: 0}
+  layers: []
 --- !u!114 &1042956548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8575,6 +8574,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!114 &1042956549
 MonoBehaviour:
@@ -8594,6 +8594,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!1001 &1047626274
 PrefabInstance:
