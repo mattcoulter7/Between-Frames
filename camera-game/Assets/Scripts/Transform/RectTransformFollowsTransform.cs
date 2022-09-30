@@ -10,6 +10,7 @@ public class RectTransformFollowsTransform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (worldTransform == null) return;
         transform.position = Camera.main.WorldToScreenPoint(worldTransform.position);
     }
 }
