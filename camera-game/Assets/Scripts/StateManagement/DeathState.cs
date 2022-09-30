@@ -34,6 +34,7 @@ public class DeathState : State
 
     private void OnRewindContinue()
     {
-        stateMachine.RemoveState();
+        if (stateMachine.currentState == this)
+            stateMachine.RemoveState();
     }
 }
