@@ -168,7 +168,6 @@ public class PlayerKiller : MonoBehaviour
         string[] currentCollisionLayerNames = currentCollisionLayers.Select(l => LayerMask.LayerToName(l)).ToArray();
         return LayerMask.GetMask(currentCollisionLayerNames);
     }
-
     private void OnCollisionEnter(Collision col)
     {
         currentCollisions.Add(col.collider);
