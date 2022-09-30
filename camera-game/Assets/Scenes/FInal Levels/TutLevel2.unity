@@ -2833,6 +2833,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f9ddf737112c5474eaee8d0f8faebec9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9ddf737112c5474eaee8d0f8faebec9, type: 3}
 --- !u!1 &1438493665 stripped
@@ -3856,6 +3860,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4245003183059363207, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4762396024020318349, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -3880,6 +3888,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5658222788418865244, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5761545282234716213, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -3896,6 +3908,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5866407216513485783, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6300949470205539675, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -3911,6 +3927,10 @@ PrefabInstance:
     - target: {fileID: 6634246154180499832, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878282833072319934, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6911460780496116343, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer

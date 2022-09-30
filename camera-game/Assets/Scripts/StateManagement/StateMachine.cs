@@ -58,6 +58,7 @@ public class StateMachine : MonoBehaviour
             if (currentState != null) currentState.Exit();
 
             State stateObj = states[state];
+            if (currentState == stateObj) return; // can't re-enter the current state
             if (currentState == null) currentState = stateObj;
             else history.Insert(0, stateObj);
 

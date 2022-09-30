@@ -256,6 +256,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!114 &125456596
 MonoBehaviour:
@@ -275,6 +276,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!114 &125456597
 MonoBehaviour:
@@ -289,8 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: Close
-  history:
-  - {fileID: 0}
+  layers: []
 --- !u!1001 &149522164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2595,8 +2596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: Close
-  history:
-  - {fileID: 0}
+  layers: []
 --- !u!114 &1192654016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2615,6 +2615,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!114 &1192654017
 MonoBehaviour:
@@ -2634,6 +2635,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!95 &1192654018
 Animator:
@@ -3266,6 +3268,10 @@ PrefabInstance:
     - target: {fileID: -5588673713773027346, guid: e483edf1741d7144a836ae94e73b93b9, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5588673713773027346, guid: e483edf1741d7144a836ae94e73b93b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 882129737928793925, guid: e483edf1741d7144a836ae94e73b93b9, type: 3}
       propertyPath: m_Materials.Array.data[0]
