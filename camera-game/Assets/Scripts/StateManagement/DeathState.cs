@@ -5,19 +5,18 @@ using System.Collections;
 using System.Collections.Generic;
 public class DeathState : State
 {
-    public string deathAnimationVariable = "isDead";
     protected override void Awake()
     {
         base.Awake();
         stateMachine.RegisterState("Dead", this);
+        EventDispatcher.Instance.AddEventListener("OnRewindContinue",(Action)OnRewindContinue);
     }
 
     public override void Enter()
     {
         base.Enter();
-        if (animator != null){
-        animator.SetBool(deathAnimationVariable,true);
-        }
+        Rewinder2 rewinder = FindObjectOfType<Rewinder2>();
+        rewinder.RewindForSeconds();
     }
 
     public override void HandleInput()
@@ -25,12 +24,16 @@ public class DeathState : State
     }
     public override void HandleShouldChangeState()
     {
-        //stateMachine.ChangeState("Rewind");
     }
     public override void LogicUpdate()
     {
     }
     public override void PhysicsUpdate()
     {
+    }
+
+    private void OnRewindContinue()
+    {
+        stateMachine.RemoveState();
     }
 }

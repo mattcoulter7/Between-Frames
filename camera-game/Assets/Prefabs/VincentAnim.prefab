@@ -1259,6 +1259,8 @@ GameObject:
   - component: {fileID: 5348601996008822011}
   - component: {fileID: 318137688328937807}
   - component: {fileID: 1318523980367315641}
+  - component: {fileID: 9056682716119637816}
+  - component: {fileID: 808736227774052184}
   m_Layer: 10
   m_Name: VincentAnim
   m_TagString: Player
@@ -1317,7 +1319,7 @@ Rigidbody:
   m_AngularDrag: 100
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 88
   m_CollisionDetection: 1
 --- !u!136 &6883886270383592215
@@ -1347,8 +1349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: Standing
-  history:
-  - {fileID: 0}
+  layers: []
 --- !u!114 &6883886270383592237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,28 +1365,16 @@ MonoBehaviour:
   onKill:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
-        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 6883886270383592236}
+        m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
+        m_MethodName: AddState
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DeathSound
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Rewinder2, Assembly-CSharp
-        m_MethodName: RewindForSeconds
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: DeathSound
+          m_StringArgument: Dead
           m_BoolArgument: 0
         m_CallState: 2
   dead: 0
@@ -1422,6 +1411,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
 --- !u!114 &6883886270383592232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,6 +1430,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   moveSpeed: 1.6
   jumpHeight: 0.85
   groundDistance: 0.075
@@ -1682,6 +1673,65 @@ MonoBehaviour:
     m_Bits: 769
   maxCastDistance: 5
   _surfaceData: {fileID: 2621357980791144126, guid: 4496e0914ba7d4f2ea54c6f747eabe90, type: 3}
+--- !u!114 &9056682716119637816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001349722020595283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa351c6d2333f7d49a918b3485dcfbf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DeathSound
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DeathChime
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  layer: 
+--- !u!114 &808736227774052184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001349722020595283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea055fa456ebaa43ab7a2d2f3f8ecf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layers:
+    serializedVersion: 2
+    m_Bits: 256
+  ignoreVerticalChecks: 1
 --- !u!1 &6009013861926000700
 GameObject:
   m_ObjectHideFlags: 0

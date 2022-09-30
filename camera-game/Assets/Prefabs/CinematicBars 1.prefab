@@ -2529,6 +2529,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   rechargeTime: 5
 --- !u!114 &7576030161290898667
 MonoBehaviour:
@@ -2543,8 +2544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: 
-  history:
-  - {fileID: 0}
+  layers: []
 --- !u!1 &2909481630622220424
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,6 +3884,7 @@ GameObject:
   - component: {fileID: 5976699479601972153}
   - component: {fileID: 1906545465909343778}
   - component: {fileID: 4041254926164345228}
+  - component: {fileID: 3929781572991522010}
   m_Layer: 9
   m_Name: Reticle2 (1)
   m_TagString: Untagged
@@ -3976,7 +3977,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: -90}
   xMultiplier: 0
   yMultiplier: 0
-  zMultiplier: 1
+  zMultiplier: -1
 --- !u!114 &5976699479601972153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4007,8 +4008,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: 
-  history:
-  - {fileID: 0}
+  layers:
+  - name: Motion
+    defaultState: 
 --- !u!114 &4041254926164345228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4027,7 +4029,28 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   stateName: Recharge
+--- !u!114 &3929781572991522010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7823732548164008702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb767dcd647fae2438b4b9f2cdfc8ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  layer: Motion
+  stateName: Zoom
 --- !u!1 &7890499087546119772
 GameObject:
   m_ObjectHideFlags: 0
