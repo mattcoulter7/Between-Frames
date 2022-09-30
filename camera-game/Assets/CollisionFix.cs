@@ -13,7 +13,7 @@ public class CollisionFix : MonoBehaviour
         
         Vector3 direction = transform.position - lastPosition;
         if (ignoreVerticalChecks) direction.y = 0;
-         Ray ray = new Ray(lastPosition, direction);
+        Ray ray = new Ray(lastPosition, direction);
         RaycastHit hit;
         Physics.Raycast(ray, out hit,direction.magnitude, layers);
         if (hit.collider && !hit.collider.isTrigger)
