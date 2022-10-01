@@ -13,9 +13,9 @@ public class VisibleTimerTrigger : TimedTrigger
     void Start()
     {
         // listen to the flash event
-        EventDispatcher.Instance.AddEventListener("Flash", (Action<Image>)OnFlash);
+        EventDispatcher.Instance.AddEventListener("OnFlash", (Action)OnFlash);
     }
-    void OnFlash(Image image)
+    void OnFlash()
     {
         if (_currentlyVisible)
         {

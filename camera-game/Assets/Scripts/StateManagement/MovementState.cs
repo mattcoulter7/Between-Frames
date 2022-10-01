@@ -81,8 +81,6 @@ public class MovementState : State
     }
     public override void LogicUpdate()
     {
-  
-
         // look at downwards raycast for grounding
         _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
 
