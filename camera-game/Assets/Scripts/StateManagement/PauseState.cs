@@ -20,7 +20,7 @@ public class PauseState : State
         base.Enter();
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
-
+        EventDispatcher.Instance.Dispatch("OnPause");
     }
     public override void Exit()
     {

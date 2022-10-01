@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5833027041462291649}
   - component: {fileID: 5833027041462291652}
   - component: {fileID: 5833027041462291651}
+  - component: {fileID: 8486231668911223133}
   m_Layer: 0
   m_Name: CameraFXController
   m_TagString: Untagged
@@ -202,18 +203,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
-        m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
-        m_MethodName: ChangeState
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Recharge
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
         m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 5
@@ -223,18 +212,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Flash
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BoundsTrigger, Assembly-CSharp
-        m_MethodName: OnTriggerStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &5833027041462291652
@@ -266,6 +243,51 @@ MonoBehaviour:
   focusDistanceMin: 9
   currentFocus: 9
   postProcessLayer: {fileID: 5833027042163560920}
+--- !u!114 &8486231668911223133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833027041462291648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5202973ba9049774bb5f1c8883ae7263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeners:
+  - eventName: OnPause
+    onCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5833027041462291649}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: OnPlay
+    onCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5833027041462291649}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &5833027042163560913
 GameObject:
   m_ObjectHideFlags: 0
