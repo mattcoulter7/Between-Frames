@@ -1695,34 +1695,6 @@ PrefabInstance:
       propertyPath: killConditions.Array.data[3].squishTolerance
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
-    - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: PlaySound, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: DeathChime
-      objectReference: {fileID: 0}
-    - target: {fileID: 6883886270383592237, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
-      propertyPath: onKill.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6903824682685281937, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -1786,17 +1758,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6341846085515681001, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
   m_PrefabInstance: {fileID: 605915788}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &610152891 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3321710720142114520, guid: 83c75981bb360274db693fa94981707d, type: 3}
-  m_PrefabInstance: {fileID: 5833027041737391264}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d7f293c45fec7042949544fdbbf1430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &633987839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4644,94 +4605,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383566624}
     m_Modifications:
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: flash
-      value: 
-      objectReference: {fileID: 610152891}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ChangeState
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ChangeState
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlaySound, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: StateMachine, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: StateMachine, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Flash
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Recharge
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Recharge
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833027041462291649, guid: 83c75981bb360274db693fa94981707d, type: 3}
-      propertyPath: onFlash.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5833027041462291651, guid: 83c75981bb360274db693fa94981707d, type: 3}
       propertyPath: currentFocus
       value: 4
