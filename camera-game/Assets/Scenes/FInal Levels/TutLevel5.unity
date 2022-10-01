@@ -11690,8 +11690,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1383566624}
     m_Modifications:
     - target: {fileID: 4304681127460560670, guid: c2cb2fdce51511a4e8fc68308fee7d6f, type: 3}
+      propertyPath: onDragEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: TireRoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 4304681127460560670, guid: c2cb2fdce51511a4e8fc68308fee7d6f, type: 3}
       propertyPath: onDragStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: WheelRoll
+      value: TireRoll
       objectReference: {fileID: 0}
     - target: {fileID: 6758134818991948524, guid: c2cb2fdce51511a4e8fc68308fee7d6f, type: 3}
       propertyPath: m_RootOrder

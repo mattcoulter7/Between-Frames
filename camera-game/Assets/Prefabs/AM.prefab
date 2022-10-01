@@ -236,6 +236,14 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: TireRoll
+    clip: {fileID: 8300000, guid: 25c2ee8d7dc674db6b3ca7ecc1385f68, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &8968179445483975649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,7 +366,31 @@ MonoBehaviour:
     source: {fileID: 0}
   GrassSteps:
   - name: GrassStep1
-    clip: {fileID: 8300000, guid: a1768ee7d8e2a4b28b45fb8fc63e148b, type: 3}
+    clip: {fileID: 8300000, guid: 89883c8f1c902457c80201e1c5096ebd, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: GrassStep2
+    clip: {fileID: 8300000, guid: 4d61af775f53a495fb2dda5dbbf5171f, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: GrassStep3
+    clip: {fileID: 8300000, guid: 8439866425d864010b34091ddf88a7ad, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: GrassStep4
+    clip: {fileID: 8300000, guid: 154e65b9e8b2c4e1588bf77fd150587d, type: 3}
     mixerGroup: {fileID: 0}
     volume: 1
     pitch: 1
