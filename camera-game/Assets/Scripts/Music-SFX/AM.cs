@@ -323,23 +323,28 @@ public class AM : MonoBehaviour
     public void PlayFootsteps(SurfaceMaterial material)
     {
         //Sound stepToPlay = material.identity switch
-        Sound[] stepArray = material.identity switch
+        if (material != null)
         {
-            SurfaceIdentity.Wood => stepSounds.WoodSteps,//stepSounds.WoodSteps[UnityEngine.Random.Range(0, stepSounds.WoodSteps.Length)],
-            SurfaceIdentity.Carpet => stepSounds.CarpetSteps,//[UnityEngine.Random.Range(0, stepSounds.CarpetSteps.Length)],
-            SurfaceIdentity.Metal => stepSounds.MetalSteps,//[UnityEngine.Random.Range(0, stepSounds.MetalSteps.Length)],
-            SurfaceIdentity.Grass => stepSounds.GrassSteps,//[UnityEngine.Random.Range(0, stepSounds.GrassSteps.Length)],
-            _ => stepSounds.LinolSteps,//[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)],//Check();
-        };
+            Sound[] stepArray = material.identity switch
+            {
+                SurfaceIdentity.Wood => stepSounds.WoodSteps,//stepSounds.WoodSteps[UnityEngine.Random.Range(0, stepSounds.WoodSteps.Length)],
+                SurfaceIdentity.Carpet => stepSounds.CarpetSteps,//[UnityEngine.Random.Range(0, stepSounds.CarpetSteps.Length)],
+                SurfaceIdentity.Metal => stepSounds.MetalSteps,//[UnityEngine.Random.Range(0, stepSounds.MetalSteps.Length)],
+                SurfaceIdentity.Grass => stepSounds.GrassSteps,//[UnityEngine.Random.Range(0, stepSounds.GrassSteps.Length)],
+                _ => stepSounds.LinolSteps,//[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)],//Check();
+            };
 
-        Sound stepToPlay = GetStepArray(stepArray);
-        if (material == null)
+            Sound stepToPlay = GetStepArray(stepArray);
+            stepToPlay.source.Play();
+        }
+        else if(material == null)
         {
-            stepToPlay = stepSounds.LinolSteps[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)];
-            Debug.LogWarning("No material assigned");
+            Sound stepToPlay = stepSounds.LinolSteps[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)];
+            Debug.LogWarning("No material assigned or material is null");
+            stepToPlay.source.Play();
         }
 
-        stepToPlay.source.Play();
+        //stepToPlay.source.Play();
 
     }
 
