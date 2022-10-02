@@ -641,8 +641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: Close
-  history:
-  - {fileID: 0}
+  layers: []
 --- !u!114 &7100714312915181495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,6 +660,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!114 &8075895498397243570
 MonoBehaviour:
@@ -680,6 +680,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!4 &6488202019081509344 stripped
 Transform:
