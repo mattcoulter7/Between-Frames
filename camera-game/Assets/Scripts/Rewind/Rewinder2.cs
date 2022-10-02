@@ -26,8 +26,8 @@ public class Rewinder2 : MonoBehaviour
     private List<RewindInstance2> _rewindInstances = new List<RewindInstance2>();
     private Coroutine rewindCoroutine = null;
 
-    private PlayerInput myInput;
-    private EventSystem eventSystem;
+    public PlayerInput myInput;
+    public EventSystem eventSystem;
 
     private void Awake()
     {
@@ -35,13 +35,7 @@ public class Rewinder2 : MonoBehaviour
         EventDispatcher.Instance.AddEventListener("RegisterRewindInstance", (Action<RewindInstance2>)RegisterRewindInstance);
         EventDispatcher.Instance.AddEventListener("RemoveRewindInstance", (Action<RewindInstance2>)RemoveRewindInstance);
         
-        //Controller input      
-        if(myInput == null) // find inputsystem 
-        {
-            myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-        }
 
-        myInput.actions["Rewind"].performed += ctx => OnRewind(); // add input context for rewind
     }
 
     // Start is called before the first frame update
@@ -51,6 +45,14 @@ public class Rewinder2 : MonoBehaviour
         {
             StartRecording();
         }
+
+        //Controller input      
+        if (myInput == null) // find inputsystem 
+        {
+            myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        }
+        //myInput.actions["Rewind"].performed -= ctx => OnRewind();
+        myInput.actions["Rewind"].performed += ctx => OnRewind(); // add input context for rewind
     }
 
     private void RegisterRewindInstance(RewindInstance2 ri)
@@ -162,9 +164,17 @@ public class Rewinder2 : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        myInput.actions["Rewind"].performed -= ctx => OnRewind();
+    }
+
     public void OnRewind() 
     {
-        RewindForSeconds();
-        myInput.SwitchCurrentActionMap("UI");
+        if (this != null)
+        {
+            RewindForSeconds();
+            myInput.SwitchCurrentActionMap("UI");
+        }
     }
 }
