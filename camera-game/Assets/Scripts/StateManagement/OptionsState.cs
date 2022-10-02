@@ -3,46 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PauseState : State
+public class OptionsState : State
 {
     public EventSystem eventSystem;
-    bool shouldUnpause = false;
-    public GameObject pauseMenuUI;
-    public GameObject optionMenuUI;
+    bool shouldExit = false;
+    public GameObject menuUI;
+    
     protected override void Awake()
     {
         base.Awake();
-        stateMachine.RegisterState("Pause", this);
+        stateMachine.RegisterState("Option", this);
     }
 
     public override void Enter()
     {
         base.Enter();
         Time.timeScale = 0f;
-        pauseMenuUI.SetActive(true);
-        EventDispatcher.Instance.Dispatch("OnPause");
+        menuUI.SetActive(true);
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
-        eventSystem.SetSelectedGameObject(GameObject.FindGameObjectWithTag("DefaultSelected"));
-        eventSystem.firstSelectedGameObject = GameObject.FindGameObjectWithTag("DefaultSelected");
+        eventSystem.SetSelectedGameObject(GameObject.FindGameObjectWithTag("DefaultOption"));
+        eventSystem.firstSelectedGameObject = GameObject.FindGameObjectWithTag("DefaultOption");
     }
     public override void Exit()
     {
         base.Exit();
-        pauseMenuUI.SetActive(false);
-    }
-
-    public void Update()
-    {
-
+        menuUI.SetActive(false);
     }
 
     public override void HandleInput()
     {
-        shouldUnpause = Input.GetButtonDown("Cancel");
+        shouldExit = Input.GetButtonDown("Cancel");
     }
     public override void HandleShouldChangeState()
     {
-        if (shouldUnpause){
+        if (shouldExit)
+        {
             stateMachine.RemoveState();
         }
     }
@@ -51,9 +46,5 @@ public class PauseState : State
     }
     public override void PhysicsUpdate()
     {
-    }
-    public void OnOptions()
-    {
-        stateMachine.AddState("Option");
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using System.Linq;
 
 public class Rewinder2 : MonoBehaviour
@@ -26,6 +27,7 @@ public class Rewinder2 : MonoBehaviour
     private Coroutine rewindCoroutine = null;
 
     private PlayerInput myInput;
+    private EventSystem eventSystem;
 
     private void Awake()
     {
@@ -134,6 +136,9 @@ public class Rewinder2 : MonoBehaviour
         EventDispatcher.Instance.Dispatch("OnRewindStop");
         isRewinding = false;
         onRewindStop.Invoke();
+        eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
+        eventSystem.firstSelectedGameObject = GameObject.FindGameObjectWithTag("DefaultRewindOp1");
+        eventSystem.SetSelectedGameObject(GameObject.FindGameObjectWithTag("DefaultRewindOp1"));
         foreach (RewindInstance2 rewindInstance in _rewindInstances)
         {
             if (rewindInstance.isActiveAndEnabled)
@@ -147,6 +152,7 @@ public class Rewinder2 : MonoBehaviour
         EventDispatcher.Instance.Dispatch("OnRewindContinue");
         isRecording = true;
         onContinue.Invoke();
+        myInput.SwitchCurrentActionMap("Player");
         foreach (RewindInstance2 rewindInstance in _rewindInstances)
         {
             if (rewindInstance.isActiveAndEnabled)
