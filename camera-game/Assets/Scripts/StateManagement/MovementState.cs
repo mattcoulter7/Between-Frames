@@ -81,8 +81,6 @@ public class MovementState : State
     }
     public override void LogicUpdate()
     {
-  
-
         // look at downwards raycast for grounding
         _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
 
@@ -114,13 +112,13 @@ public class MovementState : State
 
             if (_jumpInput) // if jumping
             {
-                onJump.Invoke();
                 _body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
                 _isGrounded = false;
                 if (animator != null)
                 {
                     animator.SetBool(jumpingAnimationVariable, true);
                 }
+                onJump.Invoke();
             }
         }
         else // in air
@@ -167,13 +165,13 @@ public class MovementState : State
         {
             if (_jumpInput) // if jumping
             {
-                onJump.Invoke();
                 _body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
                 _isGrounded = false;
                 if (animator != null)
                 {
                     animator.SetBool(jumpingAnimationVariable, true);
                 }
+                onJump.Invoke();
             }
         }
     }

@@ -15,6 +15,7 @@ public class GameplayState : State
     {
         base.Enter();
         Time.timeScale = 1f;
+        EventDispatcher.Instance.Dispatch("OnPlay");
     }
     public override void Exit()
     {

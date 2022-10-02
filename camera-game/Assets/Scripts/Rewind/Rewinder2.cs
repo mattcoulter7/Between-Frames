@@ -116,6 +116,7 @@ public class Rewinder2 : MonoBehaviour
 
     public void StartRewind()
     {
+        EventDispatcher.Instance.Dispatch("OnRewindStart");
         isRewinding = true;
         isRecording = false;
         onRewindStart.Invoke();
@@ -130,6 +131,7 @@ public class Rewinder2 : MonoBehaviour
 
     public void StopRewind()
     {
+        EventDispatcher.Instance.Dispatch("OnRewindStop");
         isRewinding = false;
         onRewindStop.Invoke();
         foreach (RewindInstance2 rewindInstance in _rewindInstances)
@@ -142,6 +144,7 @@ public class Rewinder2 : MonoBehaviour
     }
     public void Continue()
     {
+        EventDispatcher.Instance.Dispatch("OnRewindContinue");
         isRecording = true;
         onContinue.Invoke();
         foreach (RewindInstance2 rewindInstance in _rewindInstances)
