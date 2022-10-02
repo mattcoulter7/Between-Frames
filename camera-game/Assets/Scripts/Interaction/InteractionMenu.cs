@@ -9,7 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(ActionUIBindings))]
 public class InteractionMenu : MonoBehaviour
 {
-    public ActionUIBindings actionUIBindings;
+    private ActionUIBindings actionUIBindings;
 
     // Start is called before the first frame update
     private void Start()
