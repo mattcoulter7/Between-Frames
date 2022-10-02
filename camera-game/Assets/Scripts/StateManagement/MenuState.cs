@@ -18,6 +18,7 @@ public class MenuState : State
         base.Enter();
         Time.timeScale = 0f;
         menuUI.SetActive(true);
+        
     }
     public override void Exit()
     {

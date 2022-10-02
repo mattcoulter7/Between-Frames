@@ -29,13 +29,13 @@ public class Tutorial : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnSubmit()
@@ -67,7 +67,7 @@ public class Tutorial : MonoBehaviour
                     //if (gameObject.transform.GetChild(0).gameObject != null)
                     //{
                     //    gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    //    
+                    //
                     //}
                 }
 
@@ -77,5 +77,5 @@ public class Tutorial : MonoBehaviour
         {
             Debug.Log(e);
         }
-    }   
+    }
 }

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameplayState : State
 {
-    bool shouldPause = false;
+    public bool shouldPause = false;
     protected override void Awake()
     {
         base.Awake();
@@ -15,6 +16,7 @@ public class GameplayState : State
     {
         base.Enter();
         Time.timeScale = 1f;
+        shouldPause = false;
         EventDispatcher.Instance.Dispatch("OnPlay");
     }
     public override void Exit()
@@ -24,7 +26,7 @@ public class GameplayState : State
 
     public override void HandleInput()
     {
-        shouldPause = Input.GetButtonDown("Cancel");
+        //shouldPause = Input.GetButtonDown("Cancel");
     }
     public override void HandleShouldChangeState()
     {
@@ -37,5 +39,10 @@ public class GameplayState : State
     }
     public override void PhysicsUpdate()
     {
+    }
+
+    public void OnPause()
+    {
+        shouldPause = true;
     }
 }
