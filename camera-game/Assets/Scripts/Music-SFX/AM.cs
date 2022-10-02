@@ -205,6 +205,19 @@ public class AM : MonoBehaviour
 
     }
 
+    public void StopBGM(string name)
+    {
+        Sound song = Array.Find(BGM, sound => sound.name == name);
+        if (song == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return;
+        }
+
+        song.source.Stop();
+
+    }
+
     //<summary>This method finds the specific SFX to play from the array, then plays the desired track</summary>
     //<param name="name">This is the specific string that carries the name of the track to play</param>
     public void PlaySFX(string name)
