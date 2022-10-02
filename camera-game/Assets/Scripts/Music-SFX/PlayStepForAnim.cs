@@ -26,45 +26,13 @@ public class PlayStepForAnim : MonoBehaviour
         //Debug.Log("PlayStep called");
         Ray r = new(_groundChecker.position + Vector3.up, Vector3.down);
         SurfaceMaterial castResult = GetComponent<SurfaceMaterialIdentifier>().Cast(r);
-        Debug.DrawRay(transform.position, r.direction, Color.red, 10f);
+        Debug.DrawRay(transform.position, r.direction, Color.red, 1f);
 
-       
-
-        if(castResult != null)
-        {
-            AM.Instance.PlayFootsteps(castResult);
-            //switch (castResult.identity)
-            //{
-            //    default:
-            //    case SurfaceIdentity.Linoleum:
-            //        //Check();
-
-            //        AM.Instance.Pla
-            //        //Step.Invoke();//SoundEvent.PlaySound
-
-            //        break;
-            //    case SurfaceIdentity.Wood:
-            //        Check();
-            //        break;
-            //    case SurfaceIdentity.Carpet:
-            //        Check();
-            //        break;
-            //    case SurfaceIdentity.Grass:
-            //        Check();
-            //        break;
-            //}
-        }
-        else
+        if(castResult == null)
         {
             Debug.Log("Cast Result null");
+            
         }
-
-       
+        AM.Instance.PlayFootsteps(castResult);
     }
-
-    private void Check()
-    {
-        Debug.Log("Worked :)");
-    }
-
 }

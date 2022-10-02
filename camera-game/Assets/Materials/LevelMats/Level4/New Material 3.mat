@@ -10,6 +10,7 @@ Material:
   m_Name: New Material 3
   m_Shader: {fileID: 4800000, guid: 231d95ff7213dd74f82af136b256fb32, type: 3}
   m_ValidKeywords:
+  - COLOR_GRADING_HDR
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
@@ -1123,9 +1124,9 @@ Material:
     - _LockTooltip: 0
     - _MainALHueShiftBand: 0
     - _MainALHueShiftCTIndex: 0
-    - _MainBrightness: 0
+    - _MainBrightness: 0.354
     - _MainColorAdjustTextureUV: 0
-    - _MainColorAdjustToggle: 0
+    - _MainColorAdjustToggle: 1
     - _MainHueALCTEnabled: 0
     - _MainHueALMotionSpeed: 1
     - _MainHueShift: 0
@@ -1643,7 +1644,7 @@ Material:
     - m_start_GlobalThemes: 0
     - m_start_Iridescence: 0
     - m_start_IridescenceAudioLink: 0
-    - m_start_MainHueShift: 0
+    - m_start_MainHueShift: 1
     - m_start_MainVertexColors: 0
     - m_start_Matcap2: 0
     - m_start_Matcap3: 0

@@ -45,7 +45,7 @@ public class Flash : MonoBehaviour
         flashing = true;
 
         StartCoroutine(FlashCoroutine());
-        EventDispatcher.Instance.Dispatch("Flash", flashImage);
+        EventDispatcher.Instance.Dispatch("OnFlash");
     }
     private void Start()
     {
