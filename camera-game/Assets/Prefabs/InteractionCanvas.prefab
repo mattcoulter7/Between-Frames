@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8202625043506973510}
   - component: {fileID: 8202625043506973511}
   - component: {fileID: 8202625043506973528}
+  - component: {fileID: 4373723295343974813}
   - component: {fileID: 8419325619510804830}
   m_Layer: 5
   m_Name: InteractionContainer
@@ -74,8 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e065e74baa6b9064d9bc1aeab66c1847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionLinePrefab: {fileID: 7358306908419807124, guid: 48280365112dc4d4e9417fc506ba5a28, type: 3}
-  heightStep: 50
+  actionUIBindings: {fileID: 0}
 --- !u!114 &8202625043506973528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +91,22 @@ MonoBehaviour:
   bindings:
   - keyCode: Interact
     sprite: {fileID: 21300000, guid: 5e1bfa0c1b852b444be464f198f16562, type: 3}
-    controllerSprite: {fileID: 21300000, guid: 09db2ba66a582604db7180eb2bc6903d, type: 3}
+    controllerSprite: {fileID: 21300000, guid: afe713b3c04cce543a26333af6303569, type: 3}
+--- !u!114 &4373723295343974813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202625043506973530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7580b8c60bdb3f44097ca838786d186a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionUIBindings:
+  - action: Open Door
+    prefab: {fileID: 7358306908419807124, guid: 2d5dd253fe0d8cf4f9413eeb8ec76a21, type: 3}
 --- !u!114 &8419325619510804830
 MonoBehaviour:
   m_ObjectHideFlags: 0
