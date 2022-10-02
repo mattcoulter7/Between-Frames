@@ -658,6 +658,75 @@ MonoBehaviour:
       m_Calls: []
   layer: 
   toggledAnimationVariable: isActive
+--- !u!114 &9012471658392443228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2630523508456407203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230d419e87f2540cb8285f42f2043436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEventEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LightBuzz
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEventExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LightBuzz
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8058744461467444512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2630523508456407203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18434f94f6c6d45929dcbf73b14980f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenDestroyed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LightBuzz
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &6488202019081509344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -447275898630060098, guid: 2fbfb00d79cab4643a2bfb5d41dee1a4, type: 3}
