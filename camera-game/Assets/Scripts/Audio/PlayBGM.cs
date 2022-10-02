@@ -9,5 +9,10 @@ public class PlayBGM : MonoBehaviour
     {
         AM.Instance.PlayBGM(name);
     }
-    
+
+    public void Stop(string name)
+    {
+        AM.Instance.StopBGM(name);
+    }
+
 }

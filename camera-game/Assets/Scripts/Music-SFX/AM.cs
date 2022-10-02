@@ -205,6 +205,19 @@ public class AM : MonoBehaviour
 
     }
 
+    public void StopBGM(string name)
+    {
+        Sound song = Array.Find(BGM, sound => sound.name == name);
+        if (song == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return;
+        }
+
+        song.source.Stop();
+
+    }
+
     //<summary>This method finds the specific SFX to play from the array, then plays the desired track</summary>
     //<param name="name">This is the specific string that carries the name of the track to play</param>
     public void PlaySFX(string name)
@@ -329,7 +342,8 @@ public class AM : MonoBehaviour
             {
                 SurfaceIdentity.Wood => stepSounds.WoodSteps,//stepSounds.WoodSteps[UnityEngine.Random.Range(0, stepSounds.WoodSteps.Length)],
                 SurfaceIdentity.Carpet => stepSounds.CarpetSteps,//[UnityEngine.Random.Range(0, stepSounds.CarpetSteps.Length)],
-                SurfaceIdentity.Metal => stepSounds.MetalSteps,//[UnityEngine.Random.Range(0, stepSounds.MetalSteps.Length)],
+                SurfaceIdentity.Metal => stepSounds.MetalSteps,
+                SurfaceIdentity.Bars => stepSounds.BarSteps,//[UnityEngine.Random.Range(0, stepSounds.MetalSteps.Length)],
                 SurfaceIdentity.Grass => stepSounds.GrassSteps,//[UnityEngine.Random.Range(0, stepSounds.GrassSteps.Length)],
                 _ => stepSounds.LinolSteps,//[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)],//Check();
             };
