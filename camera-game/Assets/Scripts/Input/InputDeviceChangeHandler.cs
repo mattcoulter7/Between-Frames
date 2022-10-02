@@ -4,28 +4,39 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 using System.Linq;
 using UnityEngine.InputSystem.Controls;
+using System.Collections.Generic;
+using System.Collections;
 
 public class InputDeviceChangeHandler : MonoBehaviour
 {
     public static string currentDeviceType { get; private set; } = "MouseKeyboard";
+    public float checkInterval = 2f;
     private Vector3 lastMouseCoordinate = Vector3.zero;
-    private void Update()
+    private void Start()
     {
-        if (currentDeviceType == "MouseKeyboard")
+        StartCoroutine(CheckForDeviceChange());
+    }
+    private IEnumerator CheckForDeviceChange()
+    {
+        while (true)
         {
-            if (AnyGamepadInput())
+            if (currentDeviceType == "MouseKeyboard")
             {
-                HandleDeviceChange("Gamepad");
-                return;
+                if (AnyGamepadInput())
+                {
+                    HandleDeviceChange("Gamepad");
+                    yield return new WaitForSeconds(checkInterval);
+                }
             }
-        }
-        else if (currentDeviceType == "Gamepad")
-        {
-            if (AnyKeyboardInput() || AnyMouseInput())
+            else if (currentDeviceType == "Gamepad")
             {
-                HandleDeviceChange("MouseKeyboard");
-                return;
+                if (AnyKeyboardInput() || AnyMouseInput())
+                {
+                    HandleDeviceChange("MouseKeyboard");
+                    yield return new WaitForSeconds(checkInterval);
+                }
             }
+            yield return new WaitForSeconds(checkInterval);
         }
     }
 
