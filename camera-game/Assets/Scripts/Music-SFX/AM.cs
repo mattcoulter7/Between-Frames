@@ -329,7 +329,8 @@ public class AM : MonoBehaviour
             {
                 SurfaceIdentity.Wood => stepSounds.WoodSteps,//stepSounds.WoodSteps[UnityEngine.Random.Range(0, stepSounds.WoodSteps.Length)],
                 SurfaceIdentity.Carpet => stepSounds.CarpetSteps,//[UnityEngine.Random.Range(0, stepSounds.CarpetSteps.Length)],
-                SurfaceIdentity.Metal => stepSounds.MetalSteps,//[UnityEngine.Random.Range(0, stepSounds.MetalSteps.Length)],
+                SurfaceIdentity.Metal => stepSounds.MetalSteps,
+                SurfaceIdentity.Bars => stepSounds.BarSteps,//[UnityEngine.Random.Range(0, stepSounds.MetalSteps.Length)],
                 SurfaceIdentity.Grass => stepSounds.GrassSteps,//[UnityEngine.Random.Range(0, stepSounds.GrassSteps.Length)],
                 _ => stepSounds.LinolSteps,//[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)],//Check();
             };

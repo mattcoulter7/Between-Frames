@@ -8,6 +8,7 @@ public class AMSteps : MonoBehaviour
     public Sound[] WoodSteps;
     public Sound[] CarpetSteps;
     public Sound[] MetalSteps;
+    public Sound[] BarSteps;
     public Sound[] GrassSteps;
 
     private void Awake()
@@ -26,6 +27,10 @@ public class AMSteps : MonoBehaviour
             Init(s);
         }
         foreach (Sound s in MetalSteps)
+        {
+            Init(s);
+        }
+        foreach (Sound s in BarSteps)
         {
             Init(s);
         }
