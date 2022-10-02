@@ -6,21 +6,16 @@ using UnityEngine;
 /// <summary>
 /// handles display all the current interactions from InteractionManager onto the Panel
 /// </summary>
+[RequireComponent(typeof(ActionUIBindings))]
 public class InteractionMenu : MonoBehaviour
 {
-    /// <summary>
-    /// Reference to the UI prefab display a single interaction option
-    /// </summary>
-    public GameObject interactionLinePrefab;
+    public ActionUIBindings actionUIBindings;
 
-    /// <summary>
-    /// The vertical line spacing between to interaciton line prefabs
-    /// </summary>
-    public float heightStep = 50;
     // Start is called before the first frame update
     private void Start()
     {
         EventDispatcher.Instance.AddEventListener("InteractionsChanged", (Action<InteractionManager>)OnInteractionsChanged);
+        actionUIBindings = GetComponent<ActionUIBindings>();
     }
 
     private void ClearAllInteractions()
@@ -33,22 +28,21 @@ public class InteractionMenu : MonoBehaviour
 
     private void ShowAllInteractions(InteractionManager interactionManager)
     {
-        RectTransform rectTransform = interactionLinePrefab.GetComponent<RectTransform>();
+        RectTransform rectTransform = (RectTransform)transform;
         float targetHeight = rectTransform.position.y;
         
         foreach (Interaction interaction in interactionManager.currentInteractions)
         {
+            GameObject interactionPrefab = actionUIBindings.GetPrefab(interaction.label);
+            if (interactionPrefab == null) continue;
+
             Vector3 targetPos = new Vector3(rectTransform.position.x,targetHeight,rectTransform.position.z);
-            GameObject interactionLineObject = Instantiate(interactionLinePrefab);
-            
-            RectTransform t = interactionLineObject.transform as RectTransform;
-            t.SetParent(transform);
-            t.anchoredPosition = targetPos;
+            GameObject interactionInstance = Instantiate(interactionPrefab,transform);
+            interactionInstance.transform.position = targetPos;
 
-            InteractionMenuLine helper = interactionLineObject.GetComponent<InteractionMenuLine>();
-            helper.OnInitialise(interaction);
+            float height = ((RectTransform)interactionInstance.transform).rect.height;
 
-            targetHeight -= heightStep;
+            targetHeight -= height;
         }
     }
 
