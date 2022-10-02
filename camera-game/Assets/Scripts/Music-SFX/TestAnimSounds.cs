@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TestAnimSounds : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public UnityEvent onEventEnter;
+    public UnityEvent onEventExit;
+
+    public void onTrigger()
     {
-        
+        onEventEnter.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void offTrigger()
     {
-        
+        onEventExit.Invoke();
     }
 }
