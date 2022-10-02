@@ -2342,6 +2342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AM
       objectReference: {fileID: 0}
+    - target: {fileID: 5476640189305926663, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: sounds.Array.data[22].volume
+      value: 0.166
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
 --- !u!1001 &975627523
@@ -3628,17 +3632,91 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b787644e7554fd4089753fbc893d932, type: 3}
+--- !u!1 &1723587134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2630523508456407203, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
+  m_PrefabInstance: {fileID: 162602459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1755085787 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4827391524613745188, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
   m_PrefabInstance: {fileID: 162602459}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1723587134}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1755085795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723587134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230d419e87f2540cb8285f42f2043436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEventEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LightBuzz
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEventExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LightBuzz
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1755085796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723587134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18434f94f6c6d45929dcbf73b14980f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenDestroyed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LightBuzz
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1774327873
 PrefabInstance:
   m_ObjectHideFlags: 0
