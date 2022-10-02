@@ -589,41 +589,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 417436678}
     - target: {fileID: 6334324276854503510, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
-      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6334324276854503510, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1502072204}
+      objectReference: {fileID: 630763614009910344}
     - target: {fileID: 6334324276854503510, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
       propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1502072204}
+      objectReference: {fileID: 630763614009910344}
     - target: {fileID: 6334324276854503510, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1502072204}
+      objectReference: {fileID: 630763614009910344}
     - target: {fileID: 6334324276854503510, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1502072204}
-    - target: {fileID: 6334324276854503510, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
-      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectLayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 6334324276854503510, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
-      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ChangeState
-      objectReference: {fileID: 0}
-    - target: {fileID: 6334324276854503510, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
-      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectLayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 6334324276854503510, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
-      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ChangeState
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 630763614009910344}
     - target: {fileID: 6884304176713521631, guid: d1c407ced9b4747459c1dae1128c26d8, type: 3}
       propertyPath: rewindProperties.Array.data[0].getter.objectReference
       value: 
@@ -3384,17 +3364,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b742ddf1b686fe248993d493f135a0bb, type: 3}
---- !u!114 &1502072204 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5110536912876927864, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-  m_PrefabInstance: {fileID: 630763614009910340}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1568744441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4348,6 +4317,17 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 1192640738998099476, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
   m_PrefabInstance: {fileID: 630763614009910340}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &630763614009910344 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2281646509628698346, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
+  m_PrefabInstance: {fileID: 630763614009910340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5833027041737391264
 PrefabInstance:
   m_ObjectHideFlags: 0

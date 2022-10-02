@@ -3382,6 +3382,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2376160764055889318}
   - component: {fileID: 7324322355762775578}
+  - component: {fileID: 2281646509628698346}
+  - component: {fileID: 5704634717541233631}
+  - component: {fileID: 1664653181959029691}
   m_Layer: 9
   m_Name: Reticle
   m_TagString: Untagged
@@ -3429,6 +3432,70 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2281646509628698346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753219631809038577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: 
+  layers: []
+--- !u!114 &5704634717541233631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753219631809038577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c839f450846c8c43816c37b0a8032a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  layer: 
+  stateName: Focus
+  animationBool: isFocused
+--- !u!114 &1664653181959029691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753219631809038577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5202973ba9049774bb5f1c8883ae7263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeners:
+  - eventName: OnFlash
+    onCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7324322355762775578}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Flash
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5761545282234716213
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,10 +3569,6 @@ GameObject:
   - component: {fileID: 6583473103715937701}
   - component: {fileID: 4918587057414408670}
   - component: {fileID: 3087479290360354276}
-  - component: {fileID: 5110536912876927864}
-  - component: {fileID: 7154352106421696476}
-  - component: {fileID: 3474388855989615203}
-  - component: {fileID: 6721498952044306889}
   m_Layer: 9
   m_Name: Reticle4
   m_TagString: Untagged
@@ -3564,91 +3627,6 @@ MonoBehaviour:
   xMultiplier: 1
   yMultiplier: 1
   zMultiplier: 1
---- !u!114 &5110536912876927864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771047657613293343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb47239039b82bb46bc15a49d3fa4f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultState: 
-  layers:
-  - name: Motion
-    defaultState: 
---- !u!114 &7154352106421696476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771047657613293343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb767dcd647fae2438b4b9f2cdfc8ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  layer: 
-  stateName: Recharge
---- !u!114 &3474388855989615203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771047657613293343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb767dcd647fae2438b4b9f2cdfc8ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  layer: Motion
-  stateName: Zoom
---- !u!114 &6721498952044306889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771047657613293343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5202973ba9049774bb5f1c8883ae7263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listeners:
-  - eventName: OnFlash
-    onCallback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5110536912876927864}
-          m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
-          m_MethodName: ChangeState
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Recharge
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &5824898650919174541
 GameObject:
   m_ObjectHideFlags: 0
