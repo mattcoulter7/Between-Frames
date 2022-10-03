@@ -843,7 +843,159 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1568473155
+--- !u!114 &1196990202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196990198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+--- !u!1001 &1720287333
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 657384701706288468, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_ActionId
+      value: deef3619-174a-4c34-b4a2-fa8a3b9123d9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_ActionId
+      value: f5b5c76a-18bc-415f-8f37-2b317c009b44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_ActionName
+      value: UI/Debug[/Keyboard/backquote]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_ActionName
+      value: UI/Pause[/XInputControllerWindows/start,/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1823543719}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPause
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayState, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778019, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_Name
+      value: Generic
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 582.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 327.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976654511928723694, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: menuUI
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+--- !u!114 &1823543719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1876799665310684256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+  m_PrefabInstance: {fileID: 1720287333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a836f5083fed0459299df4c5662154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1969798259
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2

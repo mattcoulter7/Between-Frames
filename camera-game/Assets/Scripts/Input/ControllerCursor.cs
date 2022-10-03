@@ -12,6 +12,7 @@ public class ControllerCursor : MonoBehaviour
     public GameObject myselected;
     public GameObject myfirstoption;
     public string ControllerType;
+    public string currentLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +23,16 @@ public class ControllerCursor : MonoBehaviour
     {
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
         playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-        deviceChangeHandler = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<InputDeviceChangeHandler>(); 
+        deviceChangeHandler = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<InputDeviceChangeHandler>();
         //playerInput.actions["Navigate"].performed += ctx => OnNavigate(); // add input context for rewind
+        currentLayer = playerInput.currentActionMap.name;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(this != null)
+        currentLayer = playerInput.currentActionMap.name;
+        if (this != null)
         {
             if (eventSystem == null)
             {
