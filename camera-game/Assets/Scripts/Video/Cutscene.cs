@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -14,16 +15,23 @@ public class Cutscene : MonoBehaviour
 
     private VideoPlayer video;
     private PlayerInput playerInput;
+    private EventSystem eventSystem;
 
     private void Awake()
     {
         playerInput = FindObjectOfType<PlayerInput>();
+        eventSystem = FindObjectOfType<EventSystem>();
         playerInput.SwitchCurrentActionMap("UI");
         playerInput.actions["Submit"].performed += ShowSkipButton;
 
         video = GetComponent<VideoPlayer>();
         video.Play();
         video.loopPointReached += OnCutsceneEnd;
+    }
+
+    private void Update()
+    {
+        playerInput.SwitchCurrentActionMap("UI");
     }
 
     private void OnCutsceneEnd(VideoPlayer vp)
