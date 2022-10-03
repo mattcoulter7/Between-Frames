@@ -57,14 +57,14 @@ MonoBehaviour:
   canConsumeRewind: 1
   rewindProperties:
   - getter:
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6596590436944042488}
       targets:
       - name: currentState
         paramSet:
           parameters: []
         targetSetIndex: 0
     setter:
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6596590436944042488}
       targets:
       - name: ChangeState
         paramSet:
