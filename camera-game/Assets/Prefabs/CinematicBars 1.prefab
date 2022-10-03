@@ -859,7 +859,7 @@ MonoBehaviour:
   enableZoom: 1
   enablePan: 1
   enableRotation: 1
-  zoomSpeed: 0.25
+  zoomSpeed: 25
   zoomSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -884,10 +884,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotateSpeed: 0.05
-  moveSpeed: 1
+  rotateSpeed: 0.2
+  moveSpeed: 100
   controllerZoomSpeed: 0.1
-  controllerRotationSpeed: 1.8
+  controllerRotationSpeed: 100
 --- !u!114 &630763613663510496
 MonoBehaviour:
   m_ObjectHideFlags: 0
