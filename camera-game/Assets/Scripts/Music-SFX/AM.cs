@@ -83,9 +83,6 @@ public class AM : MonoBehaviour
         stepSounds = GetComponent<AMSteps>();
         InitSteps();
         
-        
-
-
         foreach (Sound song in BGM)
         {
             song.source = gameObject.AddComponent<AudioSource>();
@@ -116,16 +113,7 @@ public class AM : MonoBehaviour
             if (s.mixerGroup == null) { s.mixerGroup = sfxMixerGroup; }
             
             s.source.outputAudioMixerGroup = s.mixerGroup;
-        }
-
-    
-
-        
-    }
-
-    void Update()
-    {
-        
+        }   
     }
 
     // Start is called before the first frame update

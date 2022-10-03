@@ -33,7 +33,7 @@ public class AMAssist : MonoBehaviour
     /// <summary>This method will change the sub-group mixer value to a log number that never reaches 0.
     //This ensures that the volume reaches levels quiet enough its unheard, but won't reach 0 to avoid reaching 0 decibels.</summary>
     /// <param name="value">This is the the user wishes the music to be changed to</param>
-    void SetMusicVolume(float value)
+    public void SetMusicVolume(float value)
     {
         mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20);
     }
@@ -41,7 +41,7 @@ public class AMAssist : MonoBehaviour
     /// <summary>This method will change the sub-group mixer value to a log number that never reaches 0.
     //This ensures that the volume reaches levels quiet enough its unheard, but won't reach 0 to avoid reaching 0 decibels.</summary>
     /// <param name="value">This is the the user wishes the SFX to be changed to</param>
-    void SetSFXVolume(float value)
+    public void SetSFXVolume(float value)
     {
         mixer.SetFloat(MIXER_SFX, Mathf.Log10(value) * 20);
     }
@@ -52,15 +52,7 @@ public class AMAssist : MonoBehaviour
         UpdateSFXVol(PlayerPrefs.GetFloat(AM.SFXPref));
         BGMSlider.value = PlayerPrefs.GetFloat(AM.BGMPref);
         SFXSlider.value = PlayerPrefs.GetFloat(AM.SFXPref);
-        //if (PlayerPrefs.HasKey("VolVal"))
-        //{
-        //    LoadValues();
-        //}
-        //else
-        //{
-        //    volSlider.value = 1.0f;
-        //}
-        //Debug.Log("vol is:" + volSlider.value);
+       
     }
 
     /// <summary>This method saves the settings of the BGM and SFX sliders and volumes to carry over between scenes and game sessions.</summary>
@@ -68,25 +60,6 @@ public class AMAssist : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BGMPref, BGMSlider.value);
         PlayerPrefs.SetFloat(SFXPref, SFXSlider.value);
-    }
-
-
-    void Update()
-    {
-        //BGM.volume = BGM.source.volume;
-        //BGM.pitch = BGM.source.pitch;
-        //BGM.loop = BGM.source.loop;
-        //BGM.playOnAwake = BGM.source.playOnAwake;
-
-        //foreach (Sound s in sounds)
-        //{
-
-        //    s.source.volume = s.volume;
-        //    s.source.volume = SFXSlider.value;
-        //    s.source.pitch = s.pitch;
-        //    s.source.loop = s.loop;
-        //    s.source.playOnAwake = s.playOnAwake;
-        //}
     }
 
     /// <summary>This method initialises the BGM slider value to whatever is saved in the BGMPref</summary>
