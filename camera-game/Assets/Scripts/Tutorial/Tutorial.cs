@@ -7,75 +7,23 @@ using System;
 
 public class Tutorial : MonoBehaviour
 {
-    PlayerInput myInput;
-    bool bDestroyed = false;
+    private PlayerInput playerInput;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnSubmit(InputAction.CallbackContext ctx)
     {
-        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        playerInput.actions["Submit"].performed -= OnSubmit;
+        playerInput.SwitchCurrentActionMap("Player");
+        Destroy(gameObject);
     }
-
-    void Awake()
-    {
-        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-        myInput.SwitchCurrentActionMap("UI");
-        myInput.actions["Submit"].performed += ctx => OnSubmit();
-    }
-
     private void OnEnable()
     {
+        playerInput = FindObjectOfType<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("UI");
+        playerInput.actions["Submit"].performed += OnSubmit;
     }
 
     private void OnDisable()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void OnSubmit()
-    {
-        try
-        {
-            if (bDestroyed != true)
-            {
-                Debug.Log("Destroy check passed");
-                if (myInput == null)
-                {
-                    myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-                }
-                myInput.SwitchCurrentActionMap("Player");
-                myInput.actions["Submit"].performed -= ctx => OnSubmit();
-
-                Debug.Log("input check passed");
-                if (bDestroyed)
-                {
-                    return;
-                }
-                else if (this != null)
-                {
-                    Debug.Log("Null check passed");
-                    bDestroyed = true;
-                    gameObject.SetActive(false);
-                    //Destroy(this);
-
-                    //if (gameObject.transform.GetChild(0).gameObject != null)
-                    //{
-                    //    gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    //
-                    //}
-                }
-
-            }
-        }
-        catch(Exception e)
-        {
-            Debug.Log(e);
-        }
+        playerInput.actions["Submit"].performed -= OnSubmit;
     }
 }
