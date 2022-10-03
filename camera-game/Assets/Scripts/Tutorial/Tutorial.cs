@@ -9,15 +9,9 @@ public class Tutorial : MonoBehaviour
 {
     private PlayerInput playerInput;
 
-    public void OnSubmit(InputAction.CallbackContext ctx)
-    {
-        playerInput.actions["Submit"].performed -= OnSubmit;
-        playerInput.SwitchCurrentActionMap("Player");
-        Destroy(gameObject);
-    }
     private void OnEnable()
     {
-        playerInput = FindObjectOfType<PlayerInput>();
+        playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
         playerInput.SwitchCurrentActionMap("UI");
         playerInput.actions["Submit"].performed += OnSubmit;
     }
@@ -25,5 +19,26 @@ public class Tutorial : MonoBehaviour
     private void OnDisable()
     {
         playerInput.actions["Submit"].performed -= OnSubmit;
+    }
+
+    public void OnSubmit(InputAction.CallbackContext context)
+    {
+        try
+        {
+                if (playerInput == null)
+                {
+                    playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+                }
+                playerInput.SwitchCurrentActionMap("Player");
+
+                if (this != null)
+                {
+                    Destroy(gameObject);
+                }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e);
+        }
     }
 }
