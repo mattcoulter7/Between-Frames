@@ -358,12 +358,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1898903957859678269, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_text
-      value: 'The Wonders of Technology! #1
+      value: '"Be Kind; Rewind"
 
-        This world is full of strange
-        technology ready to be experimented with. That box seems like it could be
-        pretty useful! Don''t worry about being rough with the box, if something
-        happens to it you can rewind time!'
+
+        That box could be useful...
+
+        It
+        is ok to be rough with it;
+
+        If something happens you can always rewind
+        the tape...'
       objectReference: {fileID: 0}
     - target: {fileID: 1898903957859678269, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -2273,17 +2277,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81997db9b8bac134e982612f3f235a84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &610152891 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3321710720142114520, guid: 83c75981bb360274db693fa94981707d, type: 3}
-  m_PrefabInstance: {fileID: 5833027041737391264}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d7f293c45fec7042949544fdbbf1430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &663600365
