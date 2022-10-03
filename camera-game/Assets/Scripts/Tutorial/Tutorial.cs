@@ -18,31 +18,23 @@ public class Tutorial : MonoBehaviour
 
     private void OnDisable()
     {
-        myInput.actions["Submit"].performed -= OnSubmit;
+        playerInput.actions["Submit"].performed -= OnSubmit;
     }
 
     public void OnSubmit(InputAction.CallbackContext context)
     {
         try
         {
-            if (bDestroyed != true)
-            {
-                if (myInput == null)
+                if (playerInput == null)
                 {
-                    myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+                    playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
                 }
-                myInput.SwitchCurrentActionMap("Player");
+                playerInput.SwitchCurrentActionMap("Player");
 
-                if (bDestroyed)
-                {
-                    return;
-                }
-                else if (this != null)
+                if (this != null)
                 {
                     Destroy(gameObject);
                 }
-
-            }
         }
         catch(Exception e)
         {
