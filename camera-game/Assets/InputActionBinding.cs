@@ -26,6 +26,7 @@ public class InputActionBinding : MonoBehaviour
 
     public void Callback(InputAction.CallbackContext ctx)
     {
+        if (this == null) return;
         callback.Invoke();
     }
 }
