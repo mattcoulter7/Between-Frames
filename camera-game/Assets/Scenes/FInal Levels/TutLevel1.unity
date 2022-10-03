@@ -3224,17 +3224,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c08b79e10ed45714592a09bd2bc101e3, type: 3}
---- !u!114 &1317420295 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1876799665310684256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-  m_PrefabInstance: {fileID: 1431607539}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6a836f5083fed0459299df4c5662154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1317420296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 140129610468363203, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
@@ -3604,44 +3593,8 @@ PrefabInstance:
       value: Player/Pause[/XInputControllerWindows/start]
       objectReference: {fileID: 0}
     - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1317420295}
-    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPause
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameplayState, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3424216045427975546, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_Colors.m_NormalColor.a

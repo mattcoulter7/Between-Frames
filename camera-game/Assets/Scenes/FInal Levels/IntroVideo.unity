@@ -855,6 +855,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_ActionId
+      value: deef3619-174a-4c34-b4a2-fa8a3b9123d9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_ActionName
+      value: UI/Debug[/Keyboard/backquote]
+      objectReference: {fileID: 0}
     - target: {fileID: 4199817371661778019, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_Name
       value: Generic
@@ -902,6 +914,10 @@ PrefabInstance:
     - target: {fileID: 4199817371661778020, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976654511928723694, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: menuUI
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
