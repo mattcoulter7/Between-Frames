@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PauseState : State
 {
@@ -9,10 +10,12 @@ public class PauseState : State
     bool shouldUnpause = false;
     public GameObject pauseMenuUI;
     public GameObject optionMenuUI;
+    private PlayerInput playerInput;
     protected override void Awake()
     {
         base.Awake();
         stateMachine.RegisterState("Pause", this);
+        playerInput = FindObjectOfType<PlayerInput>();
     }
 
     public override void Enter()
@@ -24,11 +27,13 @@ public class PauseState : State
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
         eventSystem.SetSelectedGameObject(GameObject.FindGameObjectWithTag("DefaultSelected"));
         eventSystem.firstSelectedGameObject = GameObject.FindGameObjectWithTag("DefaultSelected");
+        playerInput.SwitchCurrentActionMap("UI");
     }
     public override void Exit()
     {
         base.Exit();
         pauseMenuUI.SetActive(false);
+        playerInput.SwitchCurrentActionMap("Player");
     }
 
     public void Update()

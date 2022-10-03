@@ -857,15 +857,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_ActionEvents.Array.data[21].m_ActionId
       value: deef3619-174a-4c34-b4a2-fa8a3b9123d9
       objectReference: {fileID: 0}
     - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_ActionId
+      value: f5b5c76a-18bc-415f-8f37-2b317c009b44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_ActionEvents.Array.data[21].m_ActionName
       value: UI/Debug[/Keyboard/backquote]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_ActionName
+      value: UI/Pause[/XInputControllerWindows/start,/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1823543719}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPause
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayState, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054737550012458796, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4199817371661778019, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_Name
@@ -921,6 +957,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+--- !u!114 &1823543719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1876799665310684256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+  m_PrefabInstance: {fileID: 1720287333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a836f5083fed0459299df4c5662154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1969798259
 PrefabInstance:
   m_ObjectHideFlags: 0

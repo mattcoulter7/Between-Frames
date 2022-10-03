@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class GameplayState : State
 {
@@ -26,10 +26,6 @@ public class GameplayState : State
 
     public override void HandleInput()
     {
-        if (Input.GetButtonDown("Cancel"))
-        {
-            OnPause();
-        }
     }
     public override void HandleShouldChangeState()
     {

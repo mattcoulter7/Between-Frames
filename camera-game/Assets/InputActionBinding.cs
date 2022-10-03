@@ -19,6 +19,10 @@ public class InputActionBinding : MonoBehaviour
     {
         playerInput.actions[inputAction].performed -= Callback;
     }
+    private void OnDestroy()
+    {
+        playerInput.actions[inputAction].performed -= Callback;
+    }
 
     public void Callback(InputAction.CallbackContext ctx)
     {
