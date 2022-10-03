@@ -1245,6 +1245,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 0}
+  playerInput: {fileID: 0}
+  deviceChangeHandler: {fileID: 0}
+  myselected: {fileID: 0}
+  myfirstoption: {fileID: 0}
+  ControllerType: 
 --- !u!4 &3054737550012458795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6331263196616324511, guid: ed649e12997ef4a4da38e6a30fce5752, type: 3}
