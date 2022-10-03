@@ -1078,11 +1078,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c08b79e10ed45714592a09bd2bc101e3, type: 3}
---- !u!1 &445895240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 96084710128617288, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-  m_PrefabInstance: {fileID: 1431607539}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &532414746
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,17 +3224,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c08b79e10ed45714592a09bd2bc101e3, type: 3}
---- !u!1 &1317420290 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 96084708495364582, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
-  m_PrefabInstance: {fileID: 1431607539}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1317420295 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1876799665310684256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
   m_PrefabInstance: {fileID: 1431607539}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317420290}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a836f5083fed0459299df4c5662154, type: 3}
@@ -3250,33 +3240,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 140129610468363203, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
   m_PrefabInstance: {fileID: 1431607539}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317420290}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5270cae61a181f344bb5692aa7da8bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1317420302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317420290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c59258025f98c8c4ab2a4a51dfb62c5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  layer: 
-  eventSystem: {fileID: 0}
-  menuUI: {fileID: 445895240}
 --- !u!1 &1370881733
 GameObject:
   m_ObjectHideFlags: 0

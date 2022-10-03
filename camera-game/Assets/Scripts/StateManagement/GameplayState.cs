@@ -26,7 +26,10 @@ public class GameplayState : State
 
     public override void HandleInput()
     {
-        //shouldPause = Input.GetButtonDown("Cancel");
+        if (Input.GetButtonDown("Cancel"))
+        {
+            OnPause();
+        }
     }
     public override void HandleShouldChangeState()
     {
