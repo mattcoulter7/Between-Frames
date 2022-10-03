@@ -9,18 +9,29 @@ using System.Collections;
 
 public class InputDeviceChangeHandler : MonoBehaviour
 {
-    public static string currentDeviceType { get; private set; } = "MouseKeyboard";
+    public static string currentDeviceType { get; private set; } = "Keyboard&Mouse";
     public float checkInterval = 2f;
-    private Vector3 lastMouseCoordinate = Vector3.zero;
+    private PlayerInput playerInput;
     private void Start()
     {
-        StartCoroutine(CheckForDeviceChange());
+        playerInput = FindObjectOfType<PlayerInput>();
+        if (playerInput == null)
+        {
+            StartCoroutine(CheckForDeviceChange());
+        }
+    }
+    private void Update()
+    {
+        if (playerInput.currentControlScheme != currentDeviceType)
+        {
+            HandleDeviceChange(playerInput.currentControlScheme);
+        }
     }
     private IEnumerator CheckForDeviceChange()
     {
         while (true)
         {
-            if (currentDeviceType == "MouseKeyboard")
+            if (currentDeviceType == "Keyboard&Mouse")
             {
                 if (AnyGamepadInput())
                 {
@@ -32,7 +43,7 @@ public class InputDeviceChangeHandler : MonoBehaviour
             {
                 if (AnyKeyboardInput() || AnyMouseInput())
                 {
-                    HandleDeviceChange("MouseKeyboard");
+                    HandleDeviceChange("Keyboard&Mouse");
                     yield return new WaitForSeconds(checkInterval);
                 }
             }

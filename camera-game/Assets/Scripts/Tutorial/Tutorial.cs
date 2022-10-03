@@ -7,71 +7,34 @@ using System;
 
 public class Tutorial : MonoBehaviour
 {
-    PlayerInput myInput;
-    bool bDestroyed = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-    }
-
-    void Awake()
-    {
-        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-        myInput.SwitchCurrentActionMap("UI");
-        myInput.actions["Submit"].performed += ctx => OnSubmit();
-    }
+    private PlayerInput playerInput;
 
     private void OnEnable()
     {
+        playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("UI");
+        playerInput.actions["Submit"].performed += OnSubmit;
     }
 
     private void OnDisable()
     {
-
+        playerInput.actions["Submit"].performed -= OnSubmit;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void OnSubmit()
+    public void OnSubmit(InputAction.CallbackContext context)
     {
         try
         {
-            if (bDestroyed != true)
-            {
-                Debug.Log("Destroy check passed");
-                if (myInput == null)
+                if (playerInput == null)
                 {
-                    myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+                    playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
                 }
-                myInput.SwitchCurrentActionMap("Player");
-                myInput.actions["Submit"].performed -= ctx => OnSubmit();
+                playerInput.SwitchCurrentActionMap("Player");
 
-                Debug.Log("input check passed");
-                if (bDestroyed)
+                if (this != null)
                 {
-                    return;
+                    Destroy(gameObject);
                 }
-                else if (this != null)
-                {
-                    Debug.Log("Null check passed");
-                    bDestroyed = true;
-                    gameObject.SetActive(false);
-                    //Destroy(this);
-
-                    //if (gameObject.transform.GetChild(0).gameObject != null)
-                    //{
-                    //    gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    //
-                    //}
-                }
-
-            }
         }
         catch(Exception e)
         {
