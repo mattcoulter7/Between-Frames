@@ -189,8 +189,8 @@ public class AM : MonoBehaviour
             }
 
         }
-        song.source.Play();
-
+        if (!song.source.isPlaying)
+            song.source.Play();
     }
 
     public void StopBGM(string name)
@@ -248,7 +248,7 @@ public class AM : MonoBehaviour
     //<summary>This method pauses all the tracks in the SFX array</summary>
     public void PauseAllSFX()
     {
-        for (int i = 0; i < sounds.Length - 1; i++)
+        for (int i = 0; i < sounds.Length; i++)
         {
             sounds[i].source.Pause();
         }
@@ -257,9 +257,12 @@ public class AM : MonoBehaviour
     //<summary>This method stops any looping tracks in the SFX array</summary>
     public void StopLooped()
     {
-        for (int i = 0; i < sounds.Length - 1; i++)
+        for (int i = 0; i < sounds.Length; i++)
         {
-            if(sounds[i].loop) sounds[i].source.Pause();
+            if (sounds[i].loop && sounds[i].stopLoopOnAwake)
+            {
+                sounds[i].source.Pause();
+            }
         }
     }
 
@@ -293,11 +296,10 @@ public class AM : MonoBehaviour
             Debug.LogWarning("Sound: " + name + "not found");
             return;
         }
+        if (s.source.isPlaying) return;
         sfxMixer.SetFloat(FADE_GROUP, -80f);
         s.source.Play();
         StartCoroutine(FadeMixerGroup.StartFade(sfxMixer, FADE_GROUP, 1f, 1f));
-        
-        
     }
 
     //<summary>This method was intended to fade out a SFX track</summary>

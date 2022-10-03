@@ -30,13 +30,7 @@ public class Door : MonoBehaviour
     /// </summary>
     public void EnterDoor()
     {
-        StartCoroutine(openScene(targetSceneName));
         onDoorEnter.Invoke();
-    }
-
-    private IEnumerator openScene(string sceneName)
-    {
-        yield return new WaitForSeconds(waitTime);
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
     }
 }

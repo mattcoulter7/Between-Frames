@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,131 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &3642051
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 752440896475815532, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_Name
-      value: InitialSounds
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 906.8099
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 406.48022
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.0488424
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 38901963, guid: 44c79d601d5394f9db2159df7d8301e1, type: 3}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Stop
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Stop
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PlaySound, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: PlaySound, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: MenuMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Ambience
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: CutsceneAudio
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
 --- !u!1 &128878376
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +387,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &612199231
 GameObject:
@@ -922,6 +797,22 @@ PrefabInstance:
     - target: {fileID: 7038893124904707916, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: MenuMusic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}

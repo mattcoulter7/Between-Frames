@@ -135,6 +135,7 @@ public class Rewinder2 : MonoBehaviour
 
     public void StopRewind()
     {
+        Time.timeScale = 0f;
         EventDispatcher.Instance.Dispatch("OnRewindStop");
         isRewinding = false;
         onRewindStop.Invoke();
@@ -151,6 +152,7 @@ public class Rewinder2 : MonoBehaviour
     }
     public void Continue()
     {
+        Time.timeScale = 1f;
         EventDispatcher.Instance.Dispatch("OnRewindContinue");
         isRecording = true;
         onContinue.Invoke();
