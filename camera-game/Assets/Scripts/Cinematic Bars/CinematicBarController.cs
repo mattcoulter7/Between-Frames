@@ -184,20 +184,20 @@ public class CinematicBarController : MonoBehaviour
         if (enableZoom && zoomFrame != 0f)
         {
             // if it is one of the black bars, chane that instead of both
-            _cinematicBars.distance += zoomFrame * scaledZoomSpeed;
+            _cinematicBars.distance += zoomFrame * scaledZoomSpeed * Time.deltaTime;
         }
 
 
         // click and drag left mouse button to move origin
         if (enablePan && shiftFrame != Vector2.zero)
         {
-            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed); ;
+            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed * Time.deltaTime); ;
         }
 
         // move mouse right whilst holding left mouse button to rotate
         if (enableRotation && rotateFrame != 0)
         {
-            _cinematicBars.rotation += rotateFrame * rotateSpeed;
+            _cinematicBars.rotation += rotateFrame * rotateSpeed * Time.deltaTime;
         }
     }
 }
