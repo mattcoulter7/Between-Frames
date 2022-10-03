@@ -24,6 +24,7 @@ public class Cutscene : MonoBehaviour
         video = GetComponent<VideoPlayer>();
         video.Play();
         video.loopPointReached += OnCutsceneEnd;
+
     }
 
     private void OnCutsceneEnd(VideoPlayer vp)

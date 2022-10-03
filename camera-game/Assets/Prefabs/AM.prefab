@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxMixer: {fileID: 24100000, guid: 31eb0796e967646e596919438baa35f5, type: 2}
   musicMixerGroup: {fileID: -433832731802775027, guid: 4540d3e97719d4c84b8419baee6451c4, type: 2}
+  sfxMixerGroup: {fileID: -2059971006042182522, guid: 4540d3e97719d4c84b8419baee6451c4, type: 2}
   BGM:
   - name: LevelMusic
     clip: {fileID: 8300000, guid: f41fe67021ebd4617bdf2a42bd13e3cf, type: 3}
@@ -372,6 +373,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  BarSteps: []
   GrassSteps:
   - name: GrassStep1
     clip: {fileID: 8300000, guid: 89883c8f1c902457c80201e1c5096ebd, type: 3}

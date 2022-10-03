@@ -31,7 +31,7 @@ public class AM : MonoBehaviour
     private AudioMixerGroup musicMixerGroup;
 
     //<summary>The mixer group for all SFX tracks</summary>
-    //[SerializeField]
+    [SerializeField]
     private AudioMixerGroup sfxMixerGroup;
 
     //<summary>Sound array for all the background music in the game</summary>
@@ -83,9 +83,6 @@ public class AM : MonoBehaviour
         stepSounds = GetComponent<AMSteps>();
         InitSteps();
         
-        
-
-
         foreach (Sound song in BGM)
         {
             song.source = gameObject.AddComponent<AudioSource>();
@@ -116,16 +113,7 @@ public class AM : MonoBehaviour
             if (s.mixerGroup == null) { s.mixerGroup = sfxMixerGroup; }
             
             s.source.outputAudioMixerGroup = s.mixerGroup;
-        }
-
-    
-
-        
-    }
-
-    void Update()
-    {
-        
+        }   
     }
 
     // Start is called before the first frame update
@@ -149,7 +137,7 @@ public class AM : MonoBehaviour
             setSFXLevel(PlayerPrefs.GetFloat(SFXPref));
         }
 
-        EventDispatcher.Instance.AddEventListener("OnSceneLoad", (Action<Scene>)OnSceneLoad);
+        //EventDispatcher.Instance.AddEventListener("OnSceneLoad", (Action<Scene>)OnSceneLoad);
        
     }
 
