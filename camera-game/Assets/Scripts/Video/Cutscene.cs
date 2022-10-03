@@ -32,6 +32,7 @@ public class Cutscene : MonoBehaviour
     }
     public void ShowSkipButton(InputAction.CallbackContext context)
     {
+        if (this == null) return;
         skipButton.SetActive(true);
         playerInput.actions["Submit"].performed -= ShowSkipButton;
         playerInput.actions["Submit"].performed += OnSkip;
@@ -49,6 +50,7 @@ public class Cutscene : MonoBehaviour
 
     public void OnSkip(InputAction.CallbackContext context)
     {
+        if (this == null) return;
         playerInput.actions["Submit"].performed -= OnSkip;
         OnCutsceneEnd(video);
     }

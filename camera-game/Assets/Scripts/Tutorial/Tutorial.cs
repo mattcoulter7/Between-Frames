@@ -23,6 +23,7 @@ public class Tutorial : MonoBehaviour
 
     public void OnSubmit(InputAction.CallbackContext context)
     {
+        if (this == null) return;
         try
         {
                 if (playerInput == null)
