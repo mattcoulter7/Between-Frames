@@ -7,36 +7,18 @@ using System;
 
 public class Tutorial : MonoBehaviour
 {
-    PlayerInput myInput;
-    bool bDestroyed = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-    }
-
-    void Awake()
-    {
-
-    }
+    private PlayerInput playerInput;
 
     private void OnEnable()
     {
-        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-        myInput.SwitchCurrentActionMap("UI");
-        myInput.actions["Submit"].performed += OnSubmit;
+        playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("UI");
+        playerInput.actions["Submit"].performed += OnSubmit;
     }
 
     private void OnDisable()
     {
         myInput.actions["Submit"].performed -= OnSubmit;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void OnSubmit(InputAction.CallbackContext context)
@@ -57,15 +39,7 @@ public class Tutorial : MonoBehaviour
                 }
                 else if (this != null)
                 {
-                    bDestroyed = true;
-                    gameObject.SetActive(false);
-                    //Destroy(this);
-
-                    //if (gameObject.transform.GetChild(0).gameObject != null)
-                    //{
-                    //    gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    //
-                    //}
+                    Destroy(gameObject);
                 }
 
             }
