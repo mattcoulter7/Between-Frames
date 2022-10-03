@@ -75,7 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e065e74baa6b9064d9bc1aeab66c1847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionUIBindings: {fileID: 0}
 --- !u!114 &8202625043506973528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,8 +89,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bindings:
   - keyCode: Interact
-    sprite: {fileID: 21300000, guid: 5e1bfa0c1b852b444be464f198f16562, type: 3}
-    controllerSprite: {fileID: 21300000, guid: afe713b3c04cce543a26333af6303569, type: 3}
+    sprite: {fileID: 21300000, guid: dafea4dc836d96e45bcd9dd50767b45e, type: 3}
+    controllerSprite: {fileID: 21300000, guid: 055ffd0a8db233442b7d4168c352b81c, type: 3}
 --- !u!114 &4373723295343974813
 MonoBehaviour:
   m_ObjectHideFlags: 0
