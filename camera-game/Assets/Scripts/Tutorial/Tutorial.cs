@@ -18,18 +18,19 @@ public class Tutorial : MonoBehaviour
 
     void Awake()
     {
-        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-        myInput.SwitchCurrentActionMap("UI");
-        myInput.actions["Submit"].performed += ctx => OnSubmit();
+
     }
 
     private void OnEnable()
     {
+        myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
+        myInput.SwitchCurrentActionMap("UI");
+        myInput.actions["Submit"].performed += OnSubmit;
     }
 
     private void OnDisable()
     {
-
+        myInput.actions["Submit"].performed -= OnSubmit;
     }
 
     // Update is called once per frame
@@ -38,28 +39,24 @@ public class Tutorial : MonoBehaviour
 
     }
 
-    public void OnSubmit()
+    public void OnSubmit(InputAction.CallbackContext context)
     {
         try
         {
             if (bDestroyed != true)
             {
-                Debug.Log("Destroy check passed");
                 if (myInput == null)
                 {
                     myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
                 }
                 myInput.SwitchCurrentActionMap("Player");
-                myInput.actions["Submit"].performed -= ctx => OnSubmit();
 
-                Debug.Log("input check passed");
                 if (bDestroyed)
                 {
                     return;
                 }
                 else if (this != null)
                 {
-                    Debug.Log("Null check passed");
                     bDestroyed = true;
                     gameObject.SetActive(false);
                     //Destroy(this);
