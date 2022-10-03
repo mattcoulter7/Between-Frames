@@ -51,8 +51,8 @@ public class Rewinder2 : MonoBehaviour
         {
             myInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
         }
-        //myInput.actions["Rewind"].performed -= ctx => OnRewind();
-        myInput.actions["Rewind"].performed += ctx => OnRewind(); // add input context for rewind
+        //myInput.actions["Rewind"].performed += ctx => OnRewind(); // add input context for rewind
+        myInput.actions["Rewind"].performed += OnRewind;
     }
 
     private void RegisterRewindInstance(RewindInstance2 ri)
@@ -166,12 +166,13 @@ public class Rewinder2 : MonoBehaviour
 
     private void OnDestroy()
     {
-        myInput.actions["Rewind"].performed -= ctx => OnRewind();
+        //myInput.actions["Rewind"].performed -= ctx => OnRewind();
+        myInput.actions["Rewind"].performed -= OnRewind;
     }
 
-    public void OnRewind() 
+    public void OnRewind(InputAction.CallbackContext context) 
     {
-        if (this != null)
+        if (this != null && !isRewinding)
         {
             RewindForSeconds();
             myInput.SwitchCurrentActionMap("UI");
