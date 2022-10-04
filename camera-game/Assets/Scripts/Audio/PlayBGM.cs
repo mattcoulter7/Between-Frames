@@ -15,4 +15,9 @@ public class PlayBGM : MonoBehaviour
         AM.Instance.StopBGM(name);
     }
 
+    public void PlaySequence()
+    {
+        AM.Instance.StartSequence();
+    }
+
 }

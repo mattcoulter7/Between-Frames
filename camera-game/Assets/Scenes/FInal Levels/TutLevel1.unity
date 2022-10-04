@@ -2610,46 +2610,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AM
       objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b04af2f78d109478ea8f4fa439534cc9, type: 3}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.data[1].name
-      value: BarStep2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.data[1].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.data[1].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[0].volume
-      value: 0.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[1].volume
-      value: 0.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[2].volume
-      value: 0.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[3].volume
-      value: 0.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.data[0].mixerGroup
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
 --- !u!1001 &994582568
@@ -3710,6 +3670,14 @@ PrefabInstance:
     - target: {fileID: 7157180884030637806, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySequence
       objectReference: {fileID: 0}
     - target: {fileID: 8042217558664908273, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_DefaultControlScheme
@@ -5096,10 +5064,6 @@ PrefabInstance:
     - target: {fileID: 5761545283058970129, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798622337155195178, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: id
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5824898650919174541, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer

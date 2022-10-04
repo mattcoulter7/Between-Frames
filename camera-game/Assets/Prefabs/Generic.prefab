@@ -565,10 +565,6 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.a
       value: 0.50980395
       objectReference: {fileID: 0}
-    - target: {fileID: 6622424115088379610, guid: ce03fd29cfb174365992fe26d76b587b, type: 3}
-      propertyPath: m_Colors.m_NormalColor.a
-      value: 0.50980395
-      objectReference: {fileID: 0}
     - target: {fileID: 6622424115088379615, guid: ce03fd29cfb174365992fe26d76b587b, type: 3}
       propertyPath: m_TagString
       value: DefaultOption
@@ -1076,7 +1072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
       propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: LevelMusic
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
       propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
