@@ -41,6 +41,7 @@ public class AM : MonoBehaviour
     // being put in the new array to be played later</summary>
     //[SerializeField]
     private AMSteps stepSounds;
+    private BGMSequencer sequence;
 
     //[SerializeField]
     public List<AudioMixerGroup> sfxGroups;
@@ -81,6 +82,7 @@ public class AM : MonoBehaviour
         Instance = this;
 
         stepSounds = GetComponent<AMSteps>();
+        sequence = GetComponent<BGMSequencer>();
         InitSteps();
         
         foreach (Sound song in BGM)
@@ -205,6 +207,26 @@ public class AM : MonoBehaviour
         song.source.Stop();
 
     }
+
+    public Sound GetBGM(string name)
+    {
+        Sound song = Array.Find(BGM, sound => sound.name == name);
+        if (song == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return null;
+        }
+
+        return song;
+
+    }
+
+    public void StartSequence()
+    {
+        sequence.OnStart();
+
+    }
+
 
     //<summary>This method finds the specific SFX to play from the array, then plays the desired track</summary>
     //<param name="name">This is the specific string that carries the name of the track to play</param>
@@ -337,9 +359,10 @@ public class AM : MonoBehaviour
                 SurfaceIdentity.Grass => stepSounds.GrassSteps,//[UnityEngine.Random.Range(0, stepSounds.GrassSteps.Length)],
                 _ => stepSounds.LinolSteps,//[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)],//Check();
             };
-
-            Sound stepToPlay = GetStepArray(stepArray);
-            stepToPlay.source.Play();
+            stepArray[UnityEngine.Random.Range(0, stepArray.Length)].source.Play();
+           // stepArray[UnityEngine.Random.Range(0, stepArray.Length)].source.time;
+            //Sound stepToPlay = GetStepArray(stepArray);
+            //stepToPlay.source.Play();
         }
         else if(material == null)
         {
@@ -352,10 +375,10 @@ public class AM : MonoBehaviour
 
     }
 
-    private Sound GetStepArray(Sound[] stepArray)
-    {
-        return stepArray[UnityEngine.Random.Range(0, stepArray.Length)];
-    }
+    //private Sound GetStepArray(Sound[] stepArray)
+    //{
+    //    return stepArray[UnityEngine.Random.Range(0, stepArray.Length)];
+    //}
 
     //<summary>Ensures that the sound is not already playing before calling the play function</summary>
     //<param name="name">This is the name of the track to play</param>
@@ -389,6 +412,23 @@ public class AM : MonoBehaviour
             s.mixerGroup = sfxGroups[0];
             s.source.outputAudioMixerGroup = s.mixerGroup;
         }
+
+        foreach (Sound s in stepSounds.WoodSteps)
+        {
+            s.mixerGroup = sfxGroups[0];
+            s.source.outputAudioMixerGroup = s.mixerGroup;
+        }
+        foreach (Sound s in stepSounds.CarpetSteps)
+        {
+            s.mixerGroup = sfxGroups[0];
+            s.source.outputAudioMixerGroup = s.mixerGroup;
+        }
+        foreach (Sound s in stepSounds.GrassSteps)
+        {
+            s.mixerGroup = sfxGroups[0];
+            s.source.outputAudioMixerGroup = s.mixerGroup;
+        }
+
     }
 
 }

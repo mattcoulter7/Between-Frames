@@ -13,18 +13,18 @@ public class PlayStepForAnim : MonoBehaviour
 
     //<summary>This is the SoundEvent that\ is found in every scene. This holds the method to play the steps</summary>
     public UnityEvent Step;
-
+    Ray r;
     private void Awake()
     {
        // _rb = GetComponent<Rigidbody>();
         _groundChecker = transform.GetChild(0);
-        
+         r = new(_groundChecker.position + Vector3.up, Vector3.down); //Ray
     }
 
     public void PlayStep()
     {
         //Debug.Log("PlayStep called");
-        Ray r = new(_groundChecker.position + Vector3.up, Vector3.down);
+        
         SurfaceMaterial castResult = GetComponent<SurfaceMaterialIdentifier>().Cast(r);
         Debug.DrawRay(transform.position, r.direction, Color.red, 1f);
 

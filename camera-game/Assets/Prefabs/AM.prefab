@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5476640189305926663}
   - component: {fileID: 8968179445483975649}
   - component: {fileID: 2346111616123011502}
+  - component: {fileID: 8008393415451528061}
   m_Layer: 0
   m_Name: AM
   m_TagString: AudioList
@@ -63,6 +64,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 38363358bf46849f7b45e14acad2196f, type: 3}
     mixerGroup: {fileID: 0}
     volume: 0.7
+    pitch: 1
+    loop: 1
+    stopLoopOnAwake: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: LevelIntro
+    clip: {fileID: 8300000, guid: a4785e2c649774b93b2247c6c71bdb02, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    stopLoopOnAwake: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: LevelLoop
+    clip: {fileID: 8300000, guid: f954d41d07fea4de7a5f8d5c79d01f6a, type: 3}
+    mixerGroup: {fileID: 0}
+    volume: 0.4
     pitch: 1
     loop: 1
     stopLoopOnAwake: 0
@@ -137,24 +156,6 @@ MonoBehaviour:
   - name: Land
     clip: {fileID: 8300000, guid: eee9dbeadca12419da779404a7583d01, type: 3}
     mixerGroup: {fileID: 8012691287570452066, guid: 31eb0796e967646e596919438baa35f5, type: 2}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    stopLoopOnAwake: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Step1
-    clip: {fileID: 8300000, guid: 77f2003777d824c1fbd2c12b45029e94, type: 3}
-    mixerGroup: {fileID: 0}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    stopLoopOnAwake: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Step2
-    clip: {fileID: 8300000, guid: 1973bbafaf7a744b0b6bfefffd839f8a, type: 3}
-    mixerGroup: {fileID: 0}
     volume: 0.5
     pitch: 1
     loop: 0
@@ -403,45 +404,36 @@ MonoBehaviour:
     source: {fileID: 0}
   MetalSteps:
   - name: MetalStep1
-    clip: {fileID: 8300000, guid: 77f2003777d824c1fbd2c12b45029e94, type: 3}
-    mixerGroup: {fileID: 0}
+    clip: {fileID: 8300000, guid: 76d62e577adcf4298b7641eddc15c504, type: 3}
+    mixerGroup: {fileID: -5007285508416816529, guid: 31eb0796e967646e596919438baa35f5, type: 2}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    stopLoopOnAwake: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: MetalStep3
+    clip: {fileID: 8300000, guid: 1bdb025cb8a22488e94c022307beebe8, type: 3}
+    mixerGroup: {fileID: -5007285508416816529, guid: 31eb0796e967646e596919438baa35f5, type: 2}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    stopLoopOnAwake: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  BarSteps:
+  - name: BarStep1
+    clip: {fileID: 8300000, guid: fed8d7265bd614958a46a427a1bc4d84, type: 3}
+    mixerGroup: {fileID: -287768231422235358, guid: 31eb0796e967646e596919438baa35f5, type: 2}
     volume: 1
     pitch: 1
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
     source: {fileID: 0}
-  BarSteps: []
   GrassSteps:
   - name: GrassStep1
-    clip: {fileID: 8300000, guid: 89883c8f1c902457c80201e1c5096ebd, type: 3}
-    mixerGroup: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    stopLoopOnAwake: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: GrassStep2
-    clip: {fileID: 8300000, guid: 4d61af775f53a495fb2dda5dbbf5171f, type: 3}
-    mixerGroup: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    stopLoopOnAwake: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: GrassStep3
-    clip: {fileID: 8300000, guid: 8439866425d864010b34091ddf88a7ad, type: 3}
-    mixerGroup: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    stopLoopOnAwake: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: GrassStep4
-    clip: {fileID: 8300000, guid: 154e65b9e8b2c4e1588bf77fd150587d, type: 3}
+    clip: {fileID: 8300000, guid: dec4380d53c8840baa567fd306d234d5, type: 3}
     mixerGroup: {fileID: 0}
     volume: 1
     pitch: 1
@@ -461,3 +453,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27407cb3193c37047b0b7a1a7cfc8272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8008393415451528061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476640189305926657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effd1ccd999c04ed09cefe1980efd3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songsToAdd:
+  - LevelIntro
+  - LevelLoop
+  sequence: []
