@@ -2610,6 +2610,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: AM
       objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8ee7a772c18a42dba672c854ff2b970, type: 3}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[1].name
+      value: BarStep3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8ee7a772c18a42dba672c854ff2b970, type: 3}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[2].name
+      value: BarStep3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[0].volume
+      value: 0.414
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[1].mixerGroup
+      value: 
+      objectReference: {fileID: -287768231422235358, guid: 31eb0796e967646e596919438baa35f5, type: 2}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[2].mixerGroup
+      value: 
+      objectReference: {fileID: -287768231422235358, guid: 31eb0796e967646e596919438baa35f5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
 --- !u!1001 &994582568
