@@ -411,7 +411,16 @@ MonoBehaviour:
     stopLoopOnAwake: 0
     playOnAwake: 0
     source: {fileID: 0}
-  BarSteps: []
+  BarSteps:
+  - name: BarStep1
+    clip: {fileID: 8300000, guid: b04af2f78d109478ea8f4fa439534cc9, type: 3}
+    mixerGroup: {fileID: -287768231422235358, guid: 31eb0796e967646e596919438baa35f5, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    stopLoopOnAwake: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   GrassSteps:
   - name: GrassStep1
     clip: {fileID: 8300000, guid: 89883c8f1c902457c80201e1c5096ebd, type: 3}
