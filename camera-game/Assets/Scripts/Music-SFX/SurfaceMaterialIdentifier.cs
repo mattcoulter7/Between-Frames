@@ -9,8 +9,6 @@ public class SurfaceMaterialIdentifier : MonoBehaviour
     public float maxCastDistance = 5f;
     
     [SerializeField] private SurfaceMaterialData _surfaceData = null;
-
-
    
     public SurfaceMaterial Cast(Ray r)
     {
@@ -18,6 +16,7 @@ public class SurfaceMaterialIdentifier : MonoBehaviour
         if (_surfaceData != null)
         {
             Debug.Log("A SD not null");
+            
             if (Physics.Raycast(r, out RaycastHit hitInfo, maxCastDistance, ground, QueryTriggerInteraction.Ignore))
             {
                 Debug.Log("A If statement true");
@@ -50,5 +49,5 @@ public class SurfaceMaterialIdentifier : MonoBehaviour
         return null;
     }
 }
-
-//Physics.CheckSphere(_groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
+// 
+// 

@@ -10,6 +10,7 @@ public class PlayStepForAnim : MonoBehaviour
 {
    // private Rigidbody _rb;
     private Transform _groundChecker;
+    public float verticalOffset = 1f;
 
     //<summary>This is the SoundEvent that\ is found in every scene. This holds the method to play the steps</summary>
     public UnityEvent Step;
@@ -18,15 +19,15 @@ public class PlayStepForAnim : MonoBehaviour
     {
        // _rb = GetComponent<Rigidbody>();
         _groundChecker = transform.GetChild(0);
-         r = new(_groundChecker.position + Vector3.up, Vector3.down); //Ray
     }
 
     public void PlayStep()
     {
         //Debug.Log("PlayStep called");
-        
+        r = new(_groundChecker.position + Vector3.up * verticalOffset, Vector3.down); //Ray
+
         SurfaceMaterial castResult = GetComponent<SurfaceMaterialIdentifier>().Cast(r);
-        Debug.DrawRay(transform.position, r.direction, Color.red, 1f);
+        Debug.DrawRay(r.origin, r.direction, Color.red,1f);
 
         if(castResult == null)
         {
