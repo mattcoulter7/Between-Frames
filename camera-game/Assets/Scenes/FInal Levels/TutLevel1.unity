@@ -2611,21 +2611,49 @@ PrefabInstance:
       value: AM
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[0].volume
-      value: 0.76
+      propertyPath: BarSteps.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8ee7a772c18a42dba672c854ff2b970, type: 3}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[1].name
+      value: BarStep3
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[1].volume
-      value: 0.76
+      propertyPath: BarSteps.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8ee7a772c18a42dba672c854ff2b970, type: 3}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[2].name
+      value: BarStep3
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[2].volume
-      value: 0.76
+      propertyPath: BarSteps.Array.data[1].pitch
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: WoodSteps.Array.data[3].volume
-      value: 0.76
+      propertyPath: BarSteps.Array.data[2].pitch
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[0].volume
+      value: 0.414
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[1].mixerGroup
+      value: 
+      objectReference: {fileID: -287768231422235358, guid: 31eb0796e967646e596919438baa35f5, type: 2}
+    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: BarSteps.Array.data[2].mixerGroup
+      value: 
+      objectReference: {fileID: -287768231422235358, guid: 31eb0796e967646e596919438baa35f5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
 --- !u!1001 &994582568
@@ -3686,6 +3714,14 @@ PrefabInstance:
     - target: {fileID: 7157180884030637806, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySequence
       objectReference: {fileID: 0}
     - target: {fileID: 8042217558664908273, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_DefaultControlScheme
