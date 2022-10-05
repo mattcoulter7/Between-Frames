@@ -103,8 +103,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3630642579202942003}
-  - component: {fileID: 8793755297288204004}
-  - component: {fileID: 2437637364707315871}
   - component: {fileID: 8153820810760865969}
   - component: {fileID: 5943971612636913545}
   - component: {fileID: 3297487131732108359}
@@ -133,64 +131,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8793755297288204004
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3496639169591406785}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.4, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2437637364707315871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3496639169591406785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f213bcd690172443db0cb5e6a868f1d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bindings:
-  - eventType: 7
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8153820810760865969}
-          m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
-          m_MethodName: ChangeState
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Open
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventType: 6
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8153820810760865969}
-          m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
-          m_MethodName: ChangeState
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Close
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &8153820810760865969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,8 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: Close
-  history:
-  - {fileID: 0}
+  layers: []
 --- !u!114 &5943971612636913545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +211,7 @@ MonoBehaviour:
           m_StringArgument: ButtonOff
           m_BoolArgument: 0
         m_CallState: 2
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!114 &3297487131732108359
 MonoBehaviour:
@@ -315,6 +255,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   toggledAnimationVariable: isActive
 --- !u!114 &8005451172264862697
 MonoBehaviour:
@@ -504,6 +445,51 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5447036705194824928, guid: 92c05ed3cc5cc944f870554d56fab0e9, type: 3}
+--- !u!114 &1882261704151080835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748031048709810082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f213bcd690172443db0cb5e6a868f1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bindings:
+  - eventType: 7
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8153820810760865969}
+          m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
+          m_MethodName: ChangeState
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Open
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventType: 6
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8153820810760865969}
+          m_TargetAssemblyTypeName: StateMachine, Assembly-CSharp
+          m_MethodName: ChangeState
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Close
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5913515637046790129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6151980775156529361, guid: 92c05ed3cc5cc944f870554d56fab0e9, type: 3}
