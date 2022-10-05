@@ -14,19 +14,27 @@ public class SurfaceMaterialIdentifier : MonoBehaviour
    
     public SurfaceMaterial Cast(Ray r)
     {
-        //Debug.Log("A Cast called");
+        Debug.Log("A Cast called");
         if (_surfaceData != null)
         {
-            //Debug.Log("A SD not null");
+            Debug.Log("A SD not null");
             if (Physics.Raycast(r, out RaycastHit hitInfo, maxCastDistance, ground, QueryTriggerInteraction.Ignore))
             {
-                //Debug.Log("A If statement true");
+                Debug.Log("A If statement true");
 
                 SurfaceMaterialId id = hitInfo.transform.GetComponent<SurfaceMaterialId>();
                 if (id != null)
                 {
                     SurfaceMaterial material = _surfaceData.FindSurfaceMaterial(id.id);
-                    if (material != null) return material;
+                    if (material != null)
+                    {
+                        return material;
+                    }
+                    else
+                    {
+                        Debug.Log("Found:" + material);
+                    }
+
                 }
                 else
                 {

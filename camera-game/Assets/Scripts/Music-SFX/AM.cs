@@ -31,7 +31,7 @@ public class AM : MonoBehaviour
     private AudioMixerGroup musicMixerGroup;
 
     //<summary>The mixer group for all SFX tracks</summary>
-    //[SerializeField]
+    [SerializeField]
     private AudioMixerGroup sfxMixerGroup;
 
     //<summary>Sound array for all the background music in the game</summary>
@@ -41,6 +41,7 @@ public class AM : MonoBehaviour
     // being put in the new array to be played later</summary>
     //[SerializeField]
     private AMSteps stepSounds;
+    private BGMSequencer sequence;
 
     //[SerializeField]
     public List<AudioMixerGroup> sfxGroups;
@@ -81,11 +82,9 @@ public class AM : MonoBehaviour
         Instance = this;
 
         stepSounds = GetComponent<AMSteps>();
+        sequence = GetComponent<BGMSequencer>();
         InitSteps();
         
-        
-
-
         foreach (Sound song in BGM)
         {
             song.source = gameObject.AddComponent<AudioSource>();
@@ -116,16 +115,7 @@ public class AM : MonoBehaviour
             if (s.mixerGroup == null) { s.mixerGroup = sfxMixerGroup; }
             
             s.source.outputAudioMixerGroup = s.mixerGroup;
-        }
-
-    
-
-        
-    }
-
-    void Update()
-    {
-        
+        }   
     }
 
     // Start is called before the first frame update
@@ -149,7 +139,7 @@ public class AM : MonoBehaviour
             setSFXLevel(PlayerPrefs.GetFloat(SFXPref));
         }
 
-        EventDispatcher.Instance.AddEventListener("OnSceneLoad", (Action<Scene>)OnSceneLoad);
+        //EventDispatcher.Instance.AddEventListener("OnSceneLoad", (Action<Scene>)OnSceneLoad);
        
     }
 
@@ -201,8 +191,8 @@ public class AM : MonoBehaviour
             }
 
         }
-        song.source.Play();
-
+        if (!song.source.isPlaying)
+            song.source.Play();
     }
 
     public void StopBGM(string name)
@@ -217,6 +207,26 @@ public class AM : MonoBehaviour
         song.source.Stop();
 
     }
+
+    public Sound GetBGM(string name)
+    {
+        Sound song = Array.Find(BGM, sound => sound.name == name);
+        if (song == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return null;
+        }
+
+        return song;
+
+    }
+
+    public void StartSequence()
+    {
+        sequence.OnStart();
+
+    }
+
 
     //<summary>This method finds the specific SFX to play from the array, then plays the desired track</summary>
     //<param name="name">This is the specific string that carries the name of the track to play</param>
@@ -260,7 +270,7 @@ public class AM : MonoBehaviour
     //<summary>This method pauses all the tracks in the SFX array</summary>
     public void PauseAllSFX()
     {
-        for (int i = 0; i < sounds.Length - 1; i++)
+        for (int i = 0; i < sounds.Length; i++)
         {
             sounds[i].source.Pause();
         }
@@ -269,9 +279,12 @@ public class AM : MonoBehaviour
     //<summary>This method stops any looping tracks in the SFX array</summary>
     public void StopLooped()
     {
-        for (int i = 0; i < sounds.Length - 1; i++)
+        for (int i = 0; i < sounds.Length; i++)
         {
-            if(sounds[i].loop) sounds[i].source.Pause();
+            if (sounds[i].loop && sounds[i].stopLoopOnAwake)
+            {
+                sounds[i].source.Pause();
+            }
         }
     }
 
@@ -305,11 +318,10 @@ public class AM : MonoBehaviour
             Debug.LogWarning("Sound: " + name + "not found");
             return;
         }
+        if (s.source.isPlaying) return;
         sfxMixer.SetFloat(FADE_GROUP, -80f);
         s.source.Play();
         StartCoroutine(FadeMixerGroup.StartFade(sfxMixer, FADE_GROUP, 1f, 1f));
-        
-        
     }
 
     //<summary>This method was intended to fade out a SFX track</summary>
@@ -347,9 +359,10 @@ public class AM : MonoBehaviour
                 SurfaceIdentity.Grass => stepSounds.GrassSteps,//[UnityEngine.Random.Range(0, stepSounds.GrassSteps.Length)],
                 _ => stepSounds.LinolSteps,//[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)],//Check();
             };
-
-            Sound stepToPlay = GetStepArray(stepArray);
-            stepToPlay.source.Play();
+            stepArray[UnityEngine.Random.Range(0, stepArray.Length)].source.Play();
+           // stepArray[UnityEngine.Random.Range(0, stepArray.Length)].source.time;
+            //Sound stepToPlay = GetStepArray(stepArray);
+            //stepToPlay.source.Play();
         }
         else if(material == null)
         {
@@ -362,10 +375,10 @@ public class AM : MonoBehaviour
 
     }
 
-    private Sound GetStepArray(Sound[] stepArray)
-    {
-        return stepArray[UnityEngine.Random.Range(0, stepArray.Length)];
-    }
+    //private Sound GetStepArray(Sound[] stepArray)
+    //{
+    //    return stepArray[UnityEngine.Random.Range(0, stepArray.Length)];
+    //}
 
     //<summary>Ensures that the sound is not already playing before calling the play function</summary>
     //<param name="name">This is the name of the track to play</param>
@@ -399,6 +412,23 @@ public class AM : MonoBehaviour
             s.mixerGroup = sfxGroups[0];
             s.source.outputAudioMixerGroup = s.mixerGroup;
         }
+
+        foreach (Sound s in stepSounds.WoodSteps)
+        {
+            s.mixerGroup = sfxGroups[0];
+            s.source.outputAudioMixerGroup = s.mixerGroup;
+        }
+        foreach (Sound s in stepSounds.CarpetSteps)
+        {
+            s.mixerGroup = sfxGroups[0];
+            s.source.outputAudioMixerGroup = s.mixerGroup;
+        }
+        foreach (Sound s in stepSounds.GrassSteps)
+        {
+            s.mixerGroup = sfxGroups[0];
+            s.source.outputAudioMixerGroup = s.mixerGroup;
+        }
+
     }
 
 }

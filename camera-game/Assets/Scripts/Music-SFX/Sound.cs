@@ -25,6 +25,9 @@ public class Sound{
     /// <summary>This bool will loop the sound when it is enabled.</summary>
     public bool loop = false;
 
+    /// <summary>This bool will stop the looping when the scene loads.</summary>
+    public bool stopLoopOnAwake = true;
+
     /// <summary>This bool will play the sound on awake when enabled</summary>
     public bool playOnAwake = false;
 

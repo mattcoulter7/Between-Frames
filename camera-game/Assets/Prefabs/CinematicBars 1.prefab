@@ -859,7 +859,7 @@ MonoBehaviour:
   enableZoom: 1
   enablePan: 1
   enableRotation: 1
-  zoomSpeed: 0.25
+  zoomSpeed: 25
   zoomSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -884,10 +884,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotateSpeed: 0.05
-  moveSpeed: 1
+  rotateSpeed: 1
+  moveSpeed: 150
   controllerZoomSpeed: 0.1
-  controllerRotationSpeed: 1.8
+  controllerRotationSpeed: 20
 --- !u!114 &630763613663510496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2915,7 +2915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d4670655404482f9c92986d296ee43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 4
 --- !u!1 &3892872646156623855
 GameObject:
   m_ObjectHideFlags: 0

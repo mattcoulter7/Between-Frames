@@ -2347,22 +2347,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 89883c8f1c902457c80201e1c5096ebd, type: 3}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.data[0].name
-      value: Bar1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.data[0].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
-      propertyPath: BarSteps.Array.data[0].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
       propertyPath: CarpetSteps.Array.data[0].volume
       value: 0.45
       objectReference: {fileID: 0}
@@ -2915,67 +2899,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
---- !u!1001 &1425778315
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1431607541}
-    m_Modifications:
-    - target: {fileID: 752440896475815532, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_Name
-      value: InitialSounds
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815532, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 906.8099
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 406.48022
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.0488424
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 752440896475815534, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
 --- !u!1001 &1431607539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3039,6 +2962,10 @@ PrefabInstance:
       propertyPath: worldTransform
       value: 
       objectReference: {fileID: 1987697886}
+    - target: {fileID: 7936351583984961257, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8042217558664908273, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_DefaultControlScheme
       value: Gamepad
@@ -3132,10 +3059,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1898903957859678269, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_text
-      value: "The Wonders of Technology! #2\nIf you spot any objects emitting a stuttering
-        light, you can kickstart them by moving the pivot over the object and performing
-        a Flash. \n\n\n\n\n\n\nOnce kickstarted, Objects can do all sorts of helpful
-        things, give it a try!"
+      value: '"A Flash of Inspiration"
+
+
+        Flickering light can be given a
+        boost by moving the pivot over the object and Flashing it with your camera.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 1898903957859678269, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -3151,7 +3081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2358184377992666816, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2358184377992666816, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3319,7 +3249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2358184379488102166, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28.67
+      value: -65.5
       objectReference: {fileID: 0}
     - target: {fileID: 2358184379488102166, guid: 0b4998c0472a16a45b7afcbeed0c4547, type: 3}
       propertyPath: m_ConstrainProportionsScale
