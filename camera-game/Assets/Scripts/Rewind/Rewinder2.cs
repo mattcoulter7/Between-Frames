@@ -120,6 +120,7 @@ public class Rewinder2 : MonoBehaviour
 
     public void StartRewind()
     {
+        Time.timeScale = 1f;
         EventDispatcher.Instance.Dispatch("OnRewindStart");
         isRewinding = true;
         isRecording = false;
