@@ -1023,6 +1023,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
       propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -1041,6 +1045,10 @@ PrefabInstance:
     - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
       propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 752440896475815535, guid: 0c29c26474d4d47b686af5b171532ab1, type: 3}
       propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
