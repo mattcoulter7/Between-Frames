@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2501814464160054335}
   - component: {fileID: 8297279780175038221}
   - component: {fileID: 4403445076186403657}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TestCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,8 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: 
-  history:
-  - {fileID: 0}
+  layers: []
 --- !u!114 &2501814464160054335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +409,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   destroyedPrefab: {fileID: 2400757224569358960, guid: a44613b0b1ac4274bb416e164f4944d2, type: 3}
 --- !u!114 &8297279780175038221
 MonoBehaviour:
@@ -447,6 +447,7 @@ MonoBehaviour:
   validPenetrateLayers:
     serializedVersion: 2
     m_Bits: 4353
+  conditionalPenetrateLayers: []
 --- !u!114 &4403445076186403657
 MonoBehaviour:
   m_ObjectHideFlags: 0

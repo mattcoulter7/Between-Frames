@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383566624}
     m_Modifications:
+    - target: {fileID: 237883820484159867, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268737981133283477, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286498681325008001, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: speedDragThreshold
       value: 0.08
@@ -141,6 +153,10 @@ PrefabInstance:
     - target: {fileID: 4304681127460560670, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: onDragStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FadeInLoop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727765878758174535, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6758134818991948524, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
       propertyPath: m_RootOrder
@@ -206,6 +222,10 @@ PrefabInstance:
       propertyPath: killConditions.Array.data[3].col
       value: 
       objectReference: {fileID: 829771387}
+    - target: {fileID: 8412644821046243095, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc2fb0d6e2bd1f2459fec3955ebd76bb, type: 3}
 --- !u!1001 &38415157
@@ -3693,6 +3713,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383566624}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3297487131732108359, guid: 0e728d4bb11fdee43aad27043c42b06a, type: 3}
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -3836,6 +3860,10 @@ PrefabInstance:
     - target: {fileID: 5943971612636913545, guid: 0e728d4bb11fdee43aad27043c42b06a, type: 3}
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e728d4bb11fdee43aad27043c42b06a, type: 3}
