@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 8297279780175038221}
   - component: {fileID: 4403445076186403657}
   - component: {fileID: 5824876879848384318}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,8 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: 
-  history:
-  - {fileID: 0}
+  layers: []
 --- !u!114 &2501814464160054335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +396,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  layer: 
   destroyedPrefab: {fileID: 3602627610347933786, guid: 924aa2b2d75834e4cb753f092d0b99d6, type: 3}
 --- !u!114 &8297279780175038221
 MonoBehaviour:
