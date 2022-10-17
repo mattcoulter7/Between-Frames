@@ -11732,6 +11732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wheel
       objectReference: {fileID: 0}
+    - target: {fileID: 8297279780175038221, guid: c2cb2fdce51511a4e8fc68308fee7d6f, type: 3}
+      propertyPath: angleTolerance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8412644821046243095, guid: c2cb2fdce51511a4e8fc68308fee7d6f, type: 3}
       propertyPath: m_Layer
       value: 13

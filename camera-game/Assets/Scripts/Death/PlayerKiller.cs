@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System;
 
 /// <summary>
 /// This class handles determining if a player is killed by configuring kill conditions
@@ -13,6 +14,7 @@ public class PlayerKiller : MonoBehaviour
 {
     /// <summary>Unity Event for what else will happen on kill such as a death sound playing</summary>
     public UnityEvent onKill;
+    public float angleTolerance = 20f;
 
     /// <summary>True if the player is dead</summary>
     public bool dead;
@@ -77,23 +79,40 @@ public class PlayerKiller : MonoBehaviour
         CheckForConditionalPenetration(col);
     }
 
+    private List<Vector2> GetSquishDirections(Vector2 contactNormal)
+    {
+        List<Vector2> squishDirections = new();
+
+        contactNormal = contactNormal.normalized;
+        squishDirections.Add(contactNormal * squishTolerances);
+
+        if (angleTolerance != 0)
+        {
+            squishDirections.Add(contactNormal.Rotate(angleTolerance) * squishTolerances);
+            squishDirections.Add(contactNormal.Rotate(-angleTolerance) * squishTolerances);
+        }
+
+        return squishDirections;
+    }
+
     private void CheckForSquish(Collision col)
     {
         if (dead) return;
         if (!validSquishLayers.HasLayer(col.collider.gameObject.layer)) return;
 
         ContactPoint contact = col.GetContact(0);
-        Vector2 direction = contact.normal;
-        direction = direction.normalized; // re-normalize the vector is it is 2D not 3D
-        Vector2 relativeSquishTolernaces = direction * squishTolerances;
+        List<Vector2> squishDirections = GetSquishDirections(contact.normal);
 
-        RaycastHit hit;
-        Physics.Raycast(contact.point, direction, out hit, relativeSquishTolernaces.magnitude, validSquishLayers);
-
-        if (hit.collider != null && hit.collider != col.collider && hit.collider.isTrigger == false)
+        foreach (Vector2 squishDirection in squishDirections)
         {
-            Kill();
+            RaycastHit hit;
+            Physics.Raycast(contact.point, squishDirection, out hit, squishDirection.magnitude, validSquishLayers);
+
+            if (hit.collider == null || hit.collider == col.collider || hit.collider.isTrigger)
+                return;
         }
+
+        Kill();
     }
 
     private void CheckForPenetration(Collision col)
@@ -160,9 +179,17 @@ public class PlayerKiller : MonoBehaviour
         List<int> currentCollisionLayers = new List<int>();
         foreach (Collider col in currentCollisions)
         {
-            if (!currentCollisionLayers.Contains(col.gameObject.layer))
+            if (col == null) continue;
+            try
             {
-                currentCollisionLayers.Add(col.gameObject.layer);
+                if (!currentCollisionLayers.Contains(col.gameObject.layer))
+                {
+                    currentCollisionLayers.Add(col.gameObject.layer);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
             }
         }
         string[] currentCollisionLayerNames = currentCollisionLayers.Select(l => LayerMask.LayerToName(l)).ToArray();

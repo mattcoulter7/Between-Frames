@@ -96,4 +96,11 @@ public class Flash : MonoBehaviour
 
         yield break;
     }
+
+    public void ResetOpacity()
+    {
+        Color col = flashImage.color;
+        col.a = 0;
+        flashImage.color = col;
+    }
 }
