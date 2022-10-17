@@ -3804,6 +3804,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 4773849530332131779, guid: cc96a4f7e34fa7f44ad3cb8f9375442e, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 6484049651522687419, guid: cc96a4f7e34fa7f44ad3cb8f9375442e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
