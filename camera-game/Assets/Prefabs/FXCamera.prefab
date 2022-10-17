@@ -703,10 +703,34 @@ MonoBehaviour:
       m_Calls: []
   onRewindStop:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3321710720142114520}
+        m_TargetAssemblyTypeName: Flash, Assembly-CSharp
+        m_MethodName: ResetOpacity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onContinue:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3321710720142114520}
+        m_TargetAssemblyTypeName: Flash, Assembly-CSharp
+        m_MethodName: ResetOpacity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &3321710720142114503 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7662118698753256587, guid: cd2cfea3bd396db40ad831a759626ec3, type: 3}
