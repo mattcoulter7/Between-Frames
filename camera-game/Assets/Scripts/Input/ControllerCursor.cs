@@ -13,6 +13,7 @@ public class ControllerCursor : MonoBehaviour
     public GameObject myfirstoption;
     public string ControllerType;
     public string currentLayer;
+    public float timescalevalue;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +53,7 @@ public class ControllerCursor : MonoBehaviour
                 Debug.Log("Controller cursor debug move");
                 eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
             }
+            timescalevalue = Time.timeScale;
         }
 
     }
