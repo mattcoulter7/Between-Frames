@@ -14,7 +14,7 @@ public class ControllerCursorHIder : MonoBehaviour
     private void ToggleMouseVisibility(bool show)
     {
         Cursor.visible = show;
-        Cursor.lockState = show ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.lockState = show ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     private void OnInputDeviceChange(string inputDevice)

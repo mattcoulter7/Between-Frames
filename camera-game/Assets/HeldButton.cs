@@ -7,17 +7,19 @@ using UnityEngine.InputSystem;
 
 public class HeldButton : MonoBehaviour
 {
-    public float currentValue = 0f;
     public float holdTime = 2f;
     public string inputBinding;
+    public Animator buttonAnimator;
     public Action performed;
     public UnityEvent onHoldEnd;
     public UnityEvent onHoldBegin;
     public UnityEvent onHoldCancel;
 
+
     private HeldPlayerInput heldPlayerInput;
     private Coroutine heldTimer = null;
     private Coroutine valueCoroutine = null;
+    private float currentValue = 0f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,6 +30,11 @@ public class HeldButton : MonoBehaviour
     private void OnEnable()
     {
         heldPlayerInput.performed[inputBinding] += OnHoldBegin;
+    }
+
+    private void Update()
+    {
+        buttonAnimator.SetFloat("Progress", currentValue);
     }
 
     private IEnumerator HeldTimer()
@@ -71,7 +78,7 @@ public class HeldButton : MonoBehaviour
     private void StartLerpingValue()
     {
         if (valueCoroutine != null) StopLerpingValue();
-        valueCoroutine = StartCoroutine(LerpValue(0, 100, holdTime));
+        valueCoroutine = StartCoroutine(LerpValue(0, 1, holdTime));
     }
 
     private void StopLerpingValue()
