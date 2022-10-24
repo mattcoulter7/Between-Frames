@@ -8226,7 +8226,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012181631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7dccc1865f105440ade69f72eb80ad0, type: 3}
   m_Name: 
@@ -11692,10 +11692,6 @@ PrefabInstance:
     - target: {fileID: 630763613663510501, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 630763613663510503, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
-      propertyPath: controllerZoomSpeed
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 630763613680638194, guid: e4e1a849cff6ba94693f5d1f99ca55f9, type: 3}
       propertyPath: m_Layer
