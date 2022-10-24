@@ -122,7 +122,6 @@ public class HeldPlayerInput : MonoBehaviour
             }
             catch (Exception e)
             {
-                Debug.Log(e);
             }
             yield return new WaitForEndOfFrame();
         }
