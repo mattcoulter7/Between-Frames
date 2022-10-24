@@ -38,7 +38,8 @@ public class CinematicBarController : MonoBehaviour
     /// <summary>The speed scale for updating CinematicBarManager offset</summary>
     public float moveSpeed = 0.1f;
     public float controllerZoomSpeed = 0.1f;
-    public float controllerRotationSpeed = 1.8f;
+    public float controllerRotateSpeed = 1.8f;
+    public float controllerMoveSpeed = 1f;
     private CinematicBarManager _cinematicBars;
 
     // new input
@@ -47,12 +48,16 @@ public class CinematicBarController : MonoBehaviour
     private InputAction expandAct;
     private InputAction rotateRAct;
     private InputAction rotateLAct;
-    private InputAction ShiftCamXY;
+    private InputAction shiftCamXY;
+    private InputAction shiftCamXYMouse;
 
     private bool isShrinking = false;
     private bool isExpanding = false;
     private bool isRotatingR = false;
     private bool isRotatingL = false;
+    private float zoomFrame = 0f;
+    private Vector2 shiftFrame = new Vector2();
+    private float rotateFrame = 0;
 
     private Vector2 mousePosition;
     private Vector2 lastMousePosition;
@@ -74,7 +79,8 @@ public class CinematicBarController : MonoBehaviour
         expandAct = playerInput.actions["Expand"];
         rotateRAct = playerInput.actions["RotateRight"];
         rotateLAct = playerInput.actions["RotateLeft"];
-        ShiftCamXY = playerInput.actions["ShiftCamXY"];
+        shiftCamXY = playerInput.actions["ShiftCamXY"];
+        shiftCamXYMouse = playerInput.actions["shiftCamXYMouse"];
 
         shrinkAct.performed += _ => isShrinking = true;
         shrinkAct.canceled += _ => isShrinking = false;
@@ -87,6 +93,9 @@ public class CinematicBarController : MonoBehaviour
 
         rotateLAct.performed += _ => isRotatingL = true;
         rotateLAct.canceled += _ => isRotatingL = false;
+
+        shiftCamXYMouse.performed += ClickHoldRelease;
+
     }
 
     private Vector2 GetMouseSegment()
@@ -101,7 +110,6 @@ public class CinematicBarController : MonoBehaviour
 
         return segment;
     }
-
 
     private float GetCircularMotion()
     {
@@ -143,61 +151,86 @@ public class CinematicBarController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        float zoomFrame = playerInput.actions["MouseZoom"].ReadValue<Vector2>().normalized.y;
+        zoomFrame = playerInput.actions["MouseZoom"].ReadValue<Vector2>().normalized.y;
 
         lastMousePosition = mousePosition != null ? mousePosition : Input.mousePosition; // initial frame default to mouse position
         mousePosition = Input.mousePosition;
         mouseMovement = mousePosition - lastMousePosition;
 
-        //float zoomFrame = Input.GetAxis("ZoomFrame");
-        float shiftFrameX = Input.GetButton("ShiftFrameX") ? Input.GetAxis("ShiftFrameX") : 0;
-        float shiftFrameY = Input.GetButton("ShiftFrameY") ? Input.GetAxis("ShiftFrameY") : 0;
-        Vector2 shiftFrame = new Vector2(shiftFrameX, shiftFrameY);
-        float rotateFrame = Input.GetButton("RotateFrame") ? GetCircularMotion() : 0;
+        shiftFrame.x = Input.GetButton("ShiftFrameX") ? Input.GetAxis("ShiftFrameX") : 0;
+        shiftFrame.y = Input.GetButton("ShiftFrameY") ? Input.GetAxis("ShiftFrameY") : 0;
+        rotateFrame = Input.GetButton("RotateFrame") ? GetCircularMotion() : 0;
 
         if (isShrinking) // shrink
         {
-            zoomFrame -= controllerZoomSpeed;
+            zoomFrame -= controllerZoomSpeed * Time.deltaTime;
         }
 
         if (isExpanding) // expand
         {
-            zoomFrame += controllerZoomSpeed;
+            zoomFrame += controllerZoomSpeed * Time.deltaTime;
         }
 
         if(isRotatingR) // Right
         {
-            rotateFrame -= controllerRotationSpeed;
+            rotateFrame -= controllerRotateSpeed * Time.deltaTime;
         }
 
         if (isRotatingL) // Left
         {
-            rotateFrame += controllerRotationSpeed;
+            rotateFrame += controllerRotateSpeed * Time.deltaTime;
         }
 
-        if(ShiftCamXY.ReadValue<Vector2>() != Vector2.zero)
+        if(shiftCamXY.ReadValue<Vector2>() != Vector2.zero)
         {
-            shiftFrame = ShiftCamXY.ReadValue<Vector2>();
+            shiftFrame = shiftCamXY.ReadValue<Vector2>() * controllerMoveSpeed * Time.deltaTime;
         }
-
         // handle zooming to change distance
         if (enableZoom && zoomFrame != 0f)
         {
             // if it is one of the black bars, chane that instead of both
-            _cinematicBars.distance += zoomFrame * scaledZoomSpeed * Time.deltaTime;
+            _cinematicBars.distance += zoomFrame * scaledZoomSpeed;
         }
-
 
         // click and drag left mouse button to move origin
         if (enablePan && shiftFrame != Vector2.zero)
         {
-            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed * Time.deltaTime); ;
+            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed);
         }
 
         // move mouse right whilst holding left mouse button to rotate
         if (enableRotation && rotateFrame != 0)
         {
-            _cinematicBars.rotation += rotateFrame * rotateSpeed * Time.deltaTime;
+            _cinematicBars.rotation += rotateFrame * rotateSpeed;
+        }
+    }
+
+    public void ClickHoldRelease(InputAction.CallbackContext ctx)
+    {
+        string buttonControlPath = "/Mouse/leftButton";
+
+        Debug.Log(ctx.control.path);
+
+        if (ctx.started)
+        {
+            if (ctx.control.path == buttonControlPath)
+            {
+                Debug.Log("Button Pressed Down Event - called once when button pressed");
+            }
+        }
+        else if (ctx.performed)
+        {
+            if (ctx.control.path == buttonControlPath)
+            {
+                Debug.Log("Button Hold Down - called continously till the button is pressed");
+            }
+        }
+        else if (ctx.canceled)
+        {
+            if (ctx.control.path == buttonControlPath)
+            {
+                Debug.Log("Button released");
+            }
         }
     }
 }

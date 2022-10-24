@@ -91,6 +91,15 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ShiftCamXYMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""e6b8e08a-ffd0-4abb-ab90-0877a02cc315"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""ShiftCamXY"",
                     ""type"": ""Value"",
                     ""id"": ""439612b5-d6e0-40b1-8f88-1f2fa2eb4c16"",
@@ -455,6 +464,28 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse;Gamepad"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6dd2af61-0d0b-4d4a-b390-bed958f1a6b3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftCamXYMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2646bffb-0fce-458c-8e8a-6ce64f67f47d"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftCamXYMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1395,6 +1426,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         m_Player_Shrink = m_Player.FindAction("Shrink", throwIfNotFound: true);
         m_Player_RotateRight = m_Player.FindAction("RotateRight", throwIfNotFound: true);
         m_Player_RotateLeft = m_Player.FindAction("RotateLeft", throwIfNotFound: true);
+        m_Player_ShiftCamXYMouse = m_Player.FindAction("ShiftCamXYMouse", throwIfNotFound: true);
         m_Player_ShiftCamXY = m_Player.FindAction("ShiftCamXY", throwIfNotFound: true);
         m_Player_MouseZoom = m_Player.FindAction("MouseZoom", throwIfNotFound: true);
         m_Player_Rewind = m_Player.FindAction("Rewind", throwIfNotFound: true);
@@ -1480,6 +1512,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shrink;
     private readonly InputAction m_Player_RotateRight;
     private readonly InputAction m_Player_RotateLeft;
+    private readonly InputAction m_Player_ShiftCamXYMouse;
     private readonly InputAction m_Player_ShiftCamXY;
     private readonly InputAction m_Player_MouseZoom;
     private readonly InputAction m_Player_Rewind;
@@ -1495,6 +1528,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         public InputAction @Shrink => m_Wrapper.m_Player_Shrink;
         public InputAction @RotateRight => m_Wrapper.m_Player_RotateRight;
         public InputAction @RotateLeft => m_Wrapper.m_Player_RotateLeft;
+        public InputAction @ShiftCamXYMouse => m_Wrapper.m_Player_ShiftCamXYMouse;
         public InputAction @ShiftCamXY => m_Wrapper.m_Player_ShiftCamXY;
         public InputAction @MouseZoom => m_Wrapper.m_Player_MouseZoom;
         public InputAction @Rewind => m_Wrapper.m_Player_Rewind;
@@ -1529,6 +1563,9 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @RotateLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateLeft;
                 @RotateLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateLeft;
                 @RotateLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateLeft;
+                @ShiftCamXYMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
                 @ShiftCamXY.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
                 @ShiftCamXY.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
                 @ShiftCamXY.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
@@ -1566,6 +1603,9 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @RotateLeft.started += instance.OnRotateLeft;
                 @RotateLeft.performed += instance.OnRotateLeft;
                 @RotateLeft.canceled += instance.OnRotateLeft;
+                @ShiftCamXYMouse.started += instance.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.performed += instance.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.canceled += instance.OnShiftCamXYMouse;
                 @ShiftCamXY.started += instance.OnShiftCamXY;
                 @ShiftCamXY.performed += instance.OnShiftCamXY;
                 @ShiftCamXY.canceled += instance.OnShiftCamXY;
@@ -1765,6 +1805,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         void OnShrink(InputAction.CallbackContext context);
         void OnRotateRight(InputAction.CallbackContext context);
         void OnRotateLeft(InputAction.CallbackContext context);
+        void OnShiftCamXYMouse(InputAction.CallbackContext context);
         void OnShiftCamXY(InputAction.CallbackContext context);
         void OnMouseZoom(InputAction.CallbackContext context);
         void OnRewind(InputAction.CallbackContext context);

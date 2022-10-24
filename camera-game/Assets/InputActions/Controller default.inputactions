@@ -69,6 +69,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ShiftCamXYMouse",
+                    "type": "Value",
+                    "id": "e6b8e08a-ffd0-4abb-ab90-0877a02cc315",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "ShiftCamXY",
                     "type": "Value",
                     "id": "439612b5-d6e0-40b1-8f88-1f2fa2eb4c16",
@@ -433,6 +442,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6dd2af61-0d0b-4d4a-b390-bed958f1a6b3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShiftCamXYMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2646bffb-0fce-458c-8e8a-6ce64f67f47d",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShiftCamXYMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -851,7 +851,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630763613663510500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77be3a2c4db733f4ba8674f88b445326, type: 3}
   m_Name: 
@@ -859,7 +859,7 @@ MonoBehaviour:
   enableZoom: 1
   enablePan: 1
   enableRotation: 1
-  zoomSpeed: 25
+  zoomSpeed: 0.3
   zoomSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -884,10 +884,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotateSpeed: 1
-  moveSpeed: 150
-  controllerZoomSpeed: 0.1
-  controllerRotationSpeed: 20
+  rotateSpeed: 0.05
+  moveSpeed: 1.5
+  controllerZoomSpeed: 30
+  controllerRotateSpeed: 1000
+  controllerMoveSpeed: 150
 --- !u!114 &630763613663510496
 MonoBehaviour:
   m_ObjectHideFlags: 0
