@@ -69,13 +69,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ShiftCamXYMouse",
-                    "type": "Value",
-                    "id": "e6b8e08a-ffd0-4abb-ab90-0877a02cc315",
-                    "expectedControlType": "",
+                    "name": "Rotate",
+                    "type": "Button",
+                    "id": "0a6fd227-f812-4006-b2da-a4ac644613a2",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
+                    "interactions": "Hold(duration=1.401298E-45)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ShiftCamXY",
@@ -84,6 +84,15 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ShiftCamXYMouse",
+                    "type": "Button",
+                    "id": "e6b8e08a-ffd0-4abb-ab90-0877a02cc315",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1.401298E-45)",
                     "initialStateCheck": true
                 },
                 {
@@ -112,6 +121,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MouseMovement",
+                    "type": "Value",
+                    "id": "1b768f09-fcaf-4802-8bd5-8dbc17231e5d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -447,6 +465,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ff0ce6a7-67ef-4c06-a000-55ddca08f59b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6dd2af61-0d0b-4d4a-b390-bed958f1a6b3",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -458,12 +487,12 @@
                 },
                 {
                     "name": "",
-                    "id": "2646bffb-0fce-458c-8e8a-6ce64f67f47d",
+                    "id": "6957fdce-dbad-4c20-9edf-6cbb22133e62",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ShiftCamXYMouse",
+                    "action": "MouseMovement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -786,7 +786,6 @@ GameObject:
   - component: {fileID: 630763613663510496}
   - component: {fileID: 630763613663510497}
   - component: {fileID: 1138631152560989959}
-  - component: {fileID: 689044867120763385}
   m_Layer: 9
   m_Name: CinematicBars 1
   m_TagString: Untagged
@@ -851,7 +850,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630763613663510500}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77be3a2c4db733f4ba8674f88b445326, type: 3}
   m_Name: 
@@ -885,10 +884,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotateSpeed: 0.05
-  moveSpeed: 1.5
+  moveSpeed: 0.6
   controllerZoomSpeed: 30
   controllerRotateSpeed: 1000
-  controllerMoveSpeed: 150
+  controllerMoveSpeed: 500
 --- !u!114 &630763613663510496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1079,51 +1078,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &689044867120763385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630763613663510500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5202973ba9049774bb5f1c8883ae7263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listeners:
-  - eventName: OnPause
-    onCallback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 630763613663510503}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventName: OnPlay
-    onCallback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 630763613663510503}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
 --- !u!1 &630763613680638194
 GameObject:
   m_ObjectHideFlags: 0

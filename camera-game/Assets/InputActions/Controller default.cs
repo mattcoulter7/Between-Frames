@@ -91,13 +91,13 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ShiftCamXYMouse"",
-                    ""type"": ""Value"",
-                    ""id"": ""e6b8e08a-ffd0-4abb-ab90-0877a02cc315"",
-                    ""expectedControlType"": """",
+                    ""name"": ""Rotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a6fd227-f812-4006-b2da-a4ac644613a2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""ShiftCamXY"",
@@ -106,6 +106,15 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShiftCamXYMouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6b8e08a-ffd0-4abb-ab90-0877a02cc315"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
                     ""initialStateCheck"": true
                 },
                 {
@@ -134,6 +143,15 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseMovement"",
+                    ""type"": ""Value"",
+                    ""id"": ""1b768f09-fcaf-4802-8bd5-8dbc17231e5d"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -469,6 +487,17 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ff0ce6a7-67ef-4c06-a000-55ddca08f59b"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""6dd2af61-0d0b-4d4a-b390-bed958f1a6b3"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -480,12 +509,12 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2646bffb-0fce-458c-8e8a-6ce64f67f47d"",
+                    ""id"": ""6957fdce-dbad-4c20-9edf-6cbb22133e62"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ShiftCamXYMouse"",
+                    ""action"": ""MouseMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1426,11 +1455,13 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         m_Player_Shrink = m_Player.FindAction("Shrink", throwIfNotFound: true);
         m_Player_RotateRight = m_Player.FindAction("RotateRight", throwIfNotFound: true);
         m_Player_RotateLeft = m_Player.FindAction("RotateLeft", throwIfNotFound: true);
-        m_Player_ShiftCamXYMouse = m_Player.FindAction("ShiftCamXYMouse", throwIfNotFound: true);
+        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
         m_Player_ShiftCamXY = m_Player.FindAction("ShiftCamXY", throwIfNotFound: true);
+        m_Player_ShiftCamXYMouse = m_Player.FindAction("ShiftCamXYMouse", throwIfNotFound: true);
         m_Player_MouseZoom = m_Player.FindAction("MouseZoom", throwIfNotFound: true);
         m_Player_Rewind = m_Player.FindAction("Rewind", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_MouseMovement = m_Player.FindAction("MouseMovement", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1512,11 +1543,13 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shrink;
     private readonly InputAction m_Player_RotateRight;
     private readonly InputAction m_Player_RotateLeft;
-    private readonly InputAction m_Player_ShiftCamXYMouse;
+    private readonly InputAction m_Player_Rotate;
     private readonly InputAction m_Player_ShiftCamXY;
+    private readonly InputAction m_Player_ShiftCamXYMouse;
     private readonly InputAction m_Player_MouseZoom;
     private readonly InputAction m_Player_Rewind;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_MouseMovement;
     public struct PlayerActions
     {
         private @ControlInput m_Wrapper;
@@ -1528,11 +1561,13 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         public InputAction @Shrink => m_Wrapper.m_Player_Shrink;
         public InputAction @RotateRight => m_Wrapper.m_Player_RotateRight;
         public InputAction @RotateLeft => m_Wrapper.m_Player_RotateLeft;
-        public InputAction @ShiftCamXYMouse => m_Wrapper.m_Player_ShiftCamXYMouse;
+        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         public InputAction @ShiftCamXY => m_Wrapper.m_Player_ShiftCamXY;
+        public InputAction @ShiftCamXYMouse => m_Wrapper.m_Player_ShiftCamXYMouse;
         public InputAction @MouseZoom => m_Wrapper.m_Player_MouseZoom;
         public InputAction @Rewind => m_Wrapper.m_Player_Rewind;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @MouseMovement => m_Wrapper.m_Player_MouseMovement;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1563,12 +1598,15 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @RotateLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateLeft;
                 @RotateLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateLeft;
                 @RotateLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateLeft;
-                @ShiftCamXYMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
-                @ShiftCamXYMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
-                @ShiftCamXYMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
+                @Rotate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
                 @ShiftCamXY.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
                 @ShiftCamXY.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
                 @ShiftCamXY.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
+                @ShiftCamXYMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
                 @MouseZoom.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
                 @MouseZoom.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
                 @MouseZoom.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
@@ -1578,6 +1616,9 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @MouseMovement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMovement;
+                @MouseMovement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMovement;
+                @MouseMovement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMovement;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1603,12 +1644,15 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @RotateLeft.started += instance.OnRotateLeft;
                 @RotateLeft.performed += instance.OnRotateLeft;
                 @RotateLeft.canceled += instance.OnRotateLeft;
-                @ShiftCamXYMouse.started += instance.OnShiftCamXYMouse;
-                @ShiftCamXYMouse.performed += instance.OnShiftCamXYMouse;
-                @ShiftCamXYMouse.canceled += instance.OnShiftCamXYMouse;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
                 @ShiftCamXY.started += instance.OnShiftCamXY;
                 @ShiftCamXY.performed += instance.OnShiftCamXY;
                 @ShiftCamXY.canceled += instance.OnShiftCamXY;
+                @ShiftCamXYMouse.started += instance.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.performed += instance.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.canceled += instance.OnShiftCamXYMouse;
                 @MouseZoom.started += instance.OnMouseZoom;
                 @MouseZoom.performed += instance.OnMouseZoom;
                 @MouseZoom.canceled += instance.OnMouseZoom;
@@ -1618,6 +1662,9 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @MouseMovement.started += instance.OnMouseMovement;
+                @MouseMovement.performed += instance.OnMouseMovement;
+                @MouseMovement.canceled += instance.OnMouseMovement;
             }
         }
     }
@@ -1805,11 +1852,13 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         void OnShrink(InputAction.CallbackContext context);
         void OnRotateRight(InputAction.CallbackContext context);
         void OnRotateLeft(InputAction.CallbackContext context);
-        void OnShiftCamXYMouse(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
         void OnShiftCamXY(InputAction.CallbackContext context);
+        void OnShiftCamXYMouse(InputAction.CallbackContext context);
         void OnMouseZoom(InputAction.CallbackContext context);
         void OnRewind(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnMouseMovement(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

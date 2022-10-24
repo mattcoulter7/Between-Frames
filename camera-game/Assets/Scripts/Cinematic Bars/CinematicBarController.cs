@@ -46,41 +46,42 @@ public class CinematicBarController : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction shrinkAct;
     private InputAction expandAct;
+    private InputAction rotate;
     private InputAction rotateRAct;
     private InputAction rotateLAct;
     private InputAction shiftCamXY;
     private InputAction shiftCamXYMouse;
+    private InputAction mouseMovement;
 
     private bool isShrinking = false;
     private bool isExpanding = false;
     private bool isRotatingR = false;
     private bool isRotatingL = false;
+    private bool isRotatingMouse = false;
+    private bool isShiftingMouse = false;
+
     private float zoomFrame = 0f;
     private Vector2 shiftFrame = new Vector2();
     private float rotateFrame = 0;
 
-    private Vector2 mousePosition;
-    private Vector2 lastMousePosition;
-    private Vector2 mouseMovement;
-
+    private Vector2 mouseDelta;
 
     // Start is called before the first frame update
-    private void Start()
+    private void OnEnable()
     {
         _cinematicBars = GetComponent<CinematicBarManager>();
 
-        if (playerInput == null)
-        {
-            playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
-        }
+        playerInput = FindObjectOfType<PlayerInput>();
 
         //mouseZoom = 
         shrinkAct = playerInput.actions["Shrink"];
         expandAct = playerInput.actions["Expand"];
+        rotate = playerInput.actions["Rotate"];
         rotateRAct = playerInput.actions["RotateRight"];
         rotateLAct = playerInput.actions["RotateLeft"];
         shiftCamXY = playerInput.actions["ShiftCamXY"];
-        shiftCamXYMouse = playerInput.actions["shiftCamXYMouse"];
+        shiftCamXYMouse = playerInput.actions["ShiftCamXYMouse"];
+        mouseMovement = playerInput.actions["MouseMovement"];
 
         shrinkAct.performed += _ => isShrinking = true;
         shrinkAct.canceled += _ => isShrinking = false;
@@ -94,72 +95,24 @@ public class CinematicBarController : MonoBehaviour
         rotateLAct.performed += _ => isRotatingL = true;
         rotateLAct.canceled += _ => isRotatingL = false;
 
-        shiftCamXYMouse.performed += ClickHoldRelease;
+        rotate.performed += _ => isRotatingMouse = true;
+        rotate.canceled += _ => isRotatingMouse = false;
 
-    }
+        shiftCamXYMouse.performed += _ => isShiftingMouse = true;
+        shiftCamXYMouse.canceled += _ => isShiftingMouse = false;
 
-    private Vector2 GetMouseSegment()
-    {
-        Vector2 mousePosition = Input.mousePosition;
-        Vector2 viewportMousePosition = Camera.main.ScreenToViewportPoint(mousePosition);
-        Vector2 middle = _cinematicBars.offsetSnapped;
-
-        Vector2 segment = Vector2.zero;
-        segment.x = viewportMousePosition.x > middle.x ? 1 : 0;
-        segment.y = viewportMousePosition.y > middle.y ? 1 : 0;
-
-        return segment;
-    }
-
-    private float GetCircularMotion()
-    {
-        Vector2 mouseSegment = GetMouseSegment();
-        Vector2 rotationInput = mouseMovement;
-
-        // < 0: clockwise, > 0: anticlockwise
-        float rotation = 0f;
-
-        // METHOD 1: only care about the more significant direction
-        // *Top Left[0, 1](Clockwise: Right / Up, Counterclockwise: Left / Down)
-        if (mouseSegment.Equals(new Vector2(0,1)))
-        {
-            rotation -= rotationInput.x;
-            rotation -= rotationInput.y;
-        }
-        // *Top Right[1, 1](Clockwise: Right / Down, Counterclockwise: Left / Up)
-        else if (mouseSegment.Equals(new Vector2(1,1)))
-        {
-            rotation -= rotationInput.x;
-            rotation += rotationInput.y;
-        }
-        // *Bottom Left[0, 0](Clockwise: Left / Up, Counterclockwise: Right / Down)
-        else if (mouseSegment.Equals(new Vector2(0,0)))
-        {
-            rotation += rotationInput.x;
-            rotation -= rotationInput.y;
-        }
-        // *Bottom Right[1, 0](Clockwise: Left / Down, Counterclockwise: Right / Up)
-        else if (mouseSegment.Equals(new Vector2(1,0)))
-        {
-            rotation += rotationInput.x;
-            rotation += rotationInput.y;
-        }
-
-        return rotation;
+        mouseMovement.performed += _ => mouseDelta = _.ReadValue<Vector2>();
+        mouseMovement.canceled += _ => mouseDelta = _.ReadValue<Vector2>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        // reset properties
+        shiftFrame = Vector2.zero;
+        rotateFrame = 0f;
+
         zoomFrame = playerInput.actions["MouseZoom"].ReadValue<Vector2>().normalized.y;
-
-        lastMousePosition = mousePosition != null ? mousePosition : Input.mousePosition; // initial frame default to mouse position
-        mousePosition = Input.mousePosition;
-        mouseMovement = mousePosition - lastMousePosition;
-
-        shiftFrame.x = Input.GetButton("ShiftFrameX") ? Input.GetAxis("ShiftFrameX") : 0;
-        shiftFrame.y = Input.GetButton("ShiftFrameY") ? Input.GetAxis("ShiftFrameY") : 0;
-        rotateFrame = Input.GetButton("RotateFrame") ? GetCircularMotion() : 0;
 
         if (isShrinking) // shrink
         {
@@ -181,10 +134,21 @@ public class CinematicBarController : MonoBehaviour
             rotateFrame += controllerRotateSpeed * Time.deltaTime;
         }
 
-        if(shiftCamXY.ReadValue<Vector2>() != Vector2.zero)
+        if (isRotatingMouse)
+        {
+            rotateFrame += GetCircularMotion();
+        }
+
+        if (shiftCamXY.ReadValue<Vector2>() != Vector2.zero)
         {
             shiftFrame = shiftCamXY.ReadValue<Vector2>() * controllerMoveSpeed * Time.deltaTime;
         }
+
+        if (isShiftingMouse)
+        {
+            shiftFrame -= mouseDelta;
+        }
+
         // handle zooming to change distance
         if (enableZoom && zoomFrame != 0f)
         {
@@ -205,32 +169,52 @@ public class CinematicBarController : MonoBehaviour
         }
     }
 
-    public void ClickHoldRelease(InputAction.CallbackContext ctx)
+    private Vector2 GetMouseSegment()
     {
-        string buttonControlPath = "/Mouse/leftButton";
+        Vector2 mousePosition = Input.mousePosition;
+        Vector2 viewportMousePosition = Camera.main.ScreenToViewportPoint(mousePosition);
+        Vector2 middle = _cinematicBars.offsetSnapped;
 
-        //Debug.Log(ctx.control.path);
+        Vector2 segment = Vector2.zero;
+        segment.x = viewportMousePosition.x > middle.x ? 1 : 0;
+        segment.y = viewportMousePosition.y > middle.y ? 1 : 0;
 
-        if (ctx.started)
+        return segment;
+    }
+
+    private float GetCircularMotion()
+    {
+        Vector2 mouseSegment = GetMouseSegment();
+
+        // < 0: clockwise, > 0: anticlockwise
+        float rotation = 0f;
+
+        // METHOD 1: only care about the more significant direction
+        // *Top Left[0, 1](Clockwise: Right / Up, Counterclockwise: Left / Down)
+        if (mouseSegment.Equals(new Vector2(0, 1)))
         {
-            if (ctx.control.path == buttonControlPath)
-            {
-                Debug.Log("Button Pressed Down Event - called once when button pressed");
-            }
+            rotation -= mouseDelta.x;
+            rotation -= mouseDelta.y;
         }
-        else if (ctx.performed)
+        // *Top Right[1, 1](Clockwise: Right / Down, Counterclockwise: Left / Up)
+        else if (mouseSegment.Equals(new Vector2(1, 1)))
         {
-            if (ctx.control.path == buttonControlPath)
-            {
-                Debug.Log("Button Hold Down - called continously till the button is pressed");
-            }
+            rotation -= mouseDelta.x;
+            rotation += mouseDelta.y;
         }
-        else if (ctx.canceled)
+        // *Bottom Left[0, 0](Clockwise: Left / Up, Counterclockwise: Right / Down)
+        else if (mouseSegment.Equals(new Vector2(0, 0)))
         {
-            if (ctx.control.path == buttonControlPath)
-            {
-                Debug.Log("Button released");
-            }
+            rotation += mouseDelta.x;
+            rotation -= mouseDelta.y;
         }
+        // *Bottom Right[1, 0](Clockwise: Left / Down, Counterclockwise: Right / Up)
+        else if (mouseSegment.Equals(new Vector2(1, 0)))
+        {
+            rotation += mouseDelta.x;
+            rotation += mouseDelta.y;
+        }
+
+        return rotation;
     }
 }
