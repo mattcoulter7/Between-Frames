@@ -4,32 +4,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class HeldButton : MonoBehaviour
 {
     public float holdTime = 2f;
     public string inputBinding;
     public Animator buttonAnimator;
-    public Action performed;
     public UnityEvent onHoldEnd;
     public UnityEvent onHoldBegin;
     public UnityEvent onHoldCancel;
 
-
-    private HeldPlayerInput heldPlayerInput;
+    private PlayerInput playerInput;
     private Coroutine heldTimer = null;
     private Coroutine valueCoroutine = null;
     private float currentValue = 0f;
     // Start is called before the first frame update
     void Awake()
     {
-        heldPlayerInput = FindObjectOfType<HeldPlayerInput>();
-        performed = new Action(() => { });
+        playerInput = FindObjectOfType<PlayerInput>();
     }
 
     private void OnEnable()
     {
-        heldPlayerInput.performed[inputBinding] += OnHoldBegin;
+        //heldPlayerInput.performed[inputBinding] += OnHoldBegin;
+        playerInput.actions[inputBinding].performed += OnHoldBegin;
+        playerInput.actions[inputBinding].canceled += OnHoldCancel;
+    }
+
+    private void OnDisable()
+    {
+        //heldPlayerInput.performed[inputBinding] -= OnHoldBegin;
+        playerInput.actions[inputBinding].performed -= OnHoldBegin;
+        playerInput.actions[inputBinding].canceled -= OnHoldCancel;
     }
 
     private void Update()
@@ -45,33 +52,27 @@ public class HeldButton : MonoBehaviour
 
     private void OnHoldBegin(InputAction.CallbackContext ctx)
     {
-        float value = ctx.ReadValue<float>();
+        if (heldTimer != null) return;
+        heldTimer = StartCoroutine(HeldTimer());
+        onHoldBegin.Invoke();
+        StartLerpingValue();
+    }
 
-        if (value == 0) OnHoldCancel();
-        
-        if (value > 0)
+    private void OnHoldCancel(InputAction.CallbackContext ctx)
+    {
+        if (heldTimer != null)
         {
-            if (heldTimer != null) return;
-            heldTimer = StartCoroutine(HeldTimer());
-            onHoldBegin.Invoke();
-            StartLerpingValue();
+            StopCoroutine(heldTimer);
+            heldTimer = null;
         }
-    }
-
-    private void OnHoldEnd()
-    {
-        performed.Invoke();
-        onHoldEnd.Invoke();
-
-        StopLerpingValue();
-    }
-
-    private void OnHoldCancel()
-    {
-        StopCoroutine(heldTimer);
-        heldTimer = null;
 
         onHoldCancel.Invoke();
+        StopLerpingValue();
+    }
+    private void OnHoldEnd()
+    {
+        onHoldEnd.Invoke();
+
         StopLerpingValue();
     }
 

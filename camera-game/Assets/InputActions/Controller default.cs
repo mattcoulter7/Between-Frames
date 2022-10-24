@@ -91,12 +91,30 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a6fd227-f812-4006-b2da-a4ac644613a2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""ShiftCamXY"",
                     ""type"": ""Value"",
                     ""id"": ""439612b5-d6e0-40b1-8f88-1f2fa2eb4c16"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShiftCamXYMouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6b8e08a-ffd0-4abb-ab90-0877a02cc315"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
                     ""initialStateCheck"": true
                 },
                 {
@@ -125,6 +143,15 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseMovement"",
+                    ""type"": ""Value"",
+                    ""id"": ""1b768f09-fcaf-4802-8bd5-8dbc17231e5d"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -457,6 +484,39 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff0ce6a7-67ef-4c06-a000-55ddca08f59b"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6dd2af61-0d0b-4d4a-b390-bed958f1a6b3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftCamXYMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6957fdce-dbad-4c20-9edf-6cbb22133e62"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -484,11 +544,11 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""SubmitHeld"",
-                    ""type"": ""Button"",
-                    ""id"": ""27a40475-1025-49cd-bc98-2ec1acb2e7b9"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""6184095f-65ea-40d4-a6f7-4e00ee199563"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=0.1),Press(behavior=1)"",
+                    ""interactions"": ""Hold(duration=1.401298E-45)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -1080,7 +1140,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""39f45333-5b2e-449e-bafe-80092a3b18dd"",
+                    ""id"": ""eed70193-fbef-4e68-bed0-b8a07883bfae"",
                     ""path"": ""<Keyboard>/anyKey"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1091,7 +1151,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fb2faccc-5970-41bb-b9f1-9632753998f3"",
+                    ""id"": ""77247f0d-85c6-4cd1-8cff-bbde1d1a1f40"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1102,7 +1162,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2a6434a2-17db-4ec2-9704-cef99b96515b"",
+                    ""id"": ""c651c6c9-5b85-4b31-a014-d2c57013adad"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1113,7 +1173,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0755b263-f83a-4779-b1d0-481d5705399f"",
+                    ""id"": ""b45d1d19-205a-46aa-a68e-d2f15862fe63"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1124,7 +1184,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fd42b081-6f19-4529-940b-04308eadeefb"",
+                    ""id"": ""0e86902f-d99e-40c0-9af3-76b4fe553a5d"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1135,7 +1195,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fe8d533d-d4bd-40cc-92de-0e580752d870"",
+                    ""id"": ""fba3bbca-0b1c-413f-8945-4667d0b835d8"",
                     ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1146,7 +1206,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""76ba6283-55fb-4cc5-84f8-eceb69035b79"",
+                    ""id"": ""1a86f669-665f-40f8-bcb0-b76760e612a3"",
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1157,7 +1217,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bcc392ea-4902-4616-b67a-26f3c4690a0e"",
+                    ""id"": ""d2bfb791-c935-4055-bd8b-d66a1c13ea07"",
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1168,7 +1228,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""925adb59-ab9d-4721-8d7e-bd3072f77494"",
+                    ""id"": ""b01dbbe2-2af9-447e-8c2f-244206b1d1e5"",
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1179,7 +1239,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1e6011a9-5c84-40b2-871e-34dd100488ab"",
+                    ""id"": ""6e6d3a4d-0ec1-4d9d-b56e-77c9cde040c3"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1190,7 +1250,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""52f28b50-99f6-42ea-8a89-87e552ef7f97"",
+                    ""id"": ""64709d36-713b-473e-a01f-da6c3a1d847e"",
                     ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1201,7 +1261,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fb4ae043-9764-43b1-8442-a88ada6808eb"",
+                    ""id"": ""fb726552-69bb-42f3-be4c-921a4d588eb1"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1212,7 +1272,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""72e8bc2d-476e-4e81-a678-a3c706c17d07"",
+                    ""id"": ""ca02de03-0c83-4826-94c0-aae3d228035c"",
                     ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1223,7 +1283,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b2e07789-73ac-465f-938e-2c0812302ab3"",
+                    ""id"": ""1fb1e0cf-42a9-4ad0-bca3-2bb51f29f37c"",
                     ""path"": ""<Gamepad>/rightStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1234,7 +1294,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0e7efe78-c2d4-46e5-8f46-197020e6e8ef"",
+                    ""id"": ""514cee89-846f-4f61-96c1-8d7b1af46766"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1245,7 +1305,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""149170ec-968e-418b-86a5-926113bf1ff5"",
+                    ""id"": ""3f1757f1-bec2-4d7b-96da-75514aedc4f0"",
                     ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1256,7 +1316,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""81ca6595-7962-4ddd-a90d-9782523390e4"",
+                    ""id"": ""a1d20f46-5ea7-45b1-af89-31b2e12fc86d"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1267,7 +1327,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""eb25e51b-20e8-4758-9145-0abf8add2ee3"",
+                    ""id"": ""7fc74227-0bb3-4335-8039-680ec65bf7fa"",
                     ""path"": ""<Mouse>/backButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1278,7 +1338,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""56281647-534a-4a1e-bfc9-66cf1dbdc28f"",
+                    ""id"": ""aad5c4fc-29a6-4175-b970-ec5b27fd5f01"",
                     ""path"": ""<Mouse>/forwardButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1289,7 +1349,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""18c4f0a3-00ac-412a-b61c-ba83afb3a62b"",
+                    ""id"": ""69796c65-7a49-4d91-a814-c77a9a260793"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1300,7 +1360,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""65858f8d-c4b7-45f2-876a-85793387ef34"",
+                    ""id"": ""f0417de3-5be2-4f86-b64f-516d4824adb8"",
                     ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1311,7 +1371,7 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4f844f9d-517c-41a2-8786-534600df3490"",
+                    ""id"": ""40b208d8-80b4-41bf-869f-2a49d6ecc735"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1395,10 +1455,13 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         m_Player_Shrink = m_Player.FindAction("Shrink", throwIfNotFound: true);
         m_Player_RotateRight = m_Player.FindAction("RotateRight", throwIfNotFound: true);
         m_Player_RotateLeft = m_Player.FindAction("RotateLeft", throwIfNotFound: true);
+        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
         m_Player_ShiftCamXY = m_Player.FindAction("ShiftCamXY", throwIfNotFound: true);
+        m_Player_ShiftCamXYMouse = m_Player.FindAction("ShiftCamXYMouse", throwIfNotFound: true);
         m_Player_MouseZoom = m_Player.FindAction("MouseZoom", throwIfNotFound: true);
         m_Player_Rewind = m_Player.FindAction("Rewind", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_MouseMovement = m_Player.FindAction("MouseMovement", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1480,10 +1543,13 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shrink;
     private readonly InputAction m_Player_RotateRight;
     private readonly InputAction m_Player_RotateLeft;
+    private readonly InputAction m_Player_Rotate;
     private readonly InputAction m_Player_ShiftCamXY;
+    private readonly InputAction m_Player_ShiftCamXYMouse;
     private readonly InputAction m_Player_MouseZoom;
     private readonly InputAction m_Player_Rewind;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_MouseMovement;
     public struct PlayerActions
     {
         private @ControlInput m_Wrapper;
@@ -1495,10 +1561,13 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         public InputAction @Shrink => m_Wrapper.m_Player_Shrink;
         public InputAction @RotateRight => m_Wrapper.m_Player_RotateRight;
         public InputAction @RotateLeft => m_Wrapper.m_Player_RotateLeft;
+        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         public InputAction @ShiftCamXY => m_Wrapper.m_Player_ShiftCamXY;
+        public InputAction @ShiftCamXYMouse => m_Wrapper.m_Player_ShiftCamXYMouse;
         public InputAction @MouseZoom => m_Wrapper.m_Player_MouseZoom;
         public InputAction @Rewind => m_Wrapper.m_Player_Rewind;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @MouseMovement => m_Wrapper.m_Player_MouseMovement;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1529,9 +1598,15 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @RotateLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateLeft;
                 @RotateLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateLeft;
                 @RotateLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateLeft;
+                @Rotate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
                 @ShiftCamXY.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
                 @ShiftCamXY.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
                 @ShiftCamXY.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXY;
+                @ShiftCamXYMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShiftCamXYMouse;
                 @MouseZoom.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
                 @MouseZoom.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
                 @MouseZoom.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseZoom;
@@ -1541,6 +1616,9 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @MouseMovement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMovement;
+                @MouseMovement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMovement;
+                @MouseMovement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMovement;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1566,9 +1644,15 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @RotateLeft.started += instance.OnRotateLeft;
                 @RotateLeft.performed += instance.OnRotateLeft;
                 @RotateLeft.canceled += instance.OnRotateLeft;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
                 @ShiftCamXY.started += instance.OnShiftCamXY;
                 @ShiftCamXY.performed += instance.OnShiftCamXY;
                 @ShiftCamXY.canceled += instance.OnShiftCamXY;
+                @ShiftCamXYMouse.started += instance.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.performed += instance.OnShiftCamXYMouse;
+                @ShiftCamXYMouse.canceled += instance.OnShiftCamXYMouse;
                 @MouseZoom.started += instance.OnMouseZoom;
                 @MouseZoom.performed += instance.OnMouseZoom;
                 @MouseZoom.canceled += instance.OnMouseZoom;
@@ -1578,6 +1662,9 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @MouseMovement.started += instance.OnMouseMovement;
+                @MouseMovement.performed += instance.OnMouseMovement;
+                @MouseMovement.canceled += instance.OnMouseMovement;
             }
         }
     }
@@ -1765,10 +1852,13 @@ public partial class @ControlInput : IInputActionCollection2, IDisposable
         void OnShrink(InputAction.CallbackContext context);
         void OnRotateRight(InputAction.CallbackContext context);
         void OnRotateLeft(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
         void OnShiftCamXY(InputAction.CallbackContext context);
+        void OnShiftCamXYMouse(InputAction.CallbackContext context);
         void OnMouseZoom(InputAction.CallbackContext context);
         void OnRewind(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnMouseMovement(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
