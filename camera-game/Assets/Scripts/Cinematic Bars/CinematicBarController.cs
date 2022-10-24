@@ -209,7 +209,7 @@ public class CinematicBarController : MonoBehaviour
     {
         string buttonControlPath = "/Mouse/leftButton";
 
-        Debug.Log(ctx.control.path);
+        //Debug.Log(ctx.control.path);
 
         if (ctx.started)
         {
