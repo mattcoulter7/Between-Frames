@@ -10,8 +10,8 @@ public class MathUtils {
         return a - b * Mathf.Floor(a / b);
     }
 
-    static public float roundFloatToStep(float value, float step)
+    static public float RoundFloatToStep(float value, float step)
     {
-        return step * (Mathf.Ceil(value / step));
+        return step * (Mathf.Round(value / step));
     }
 }

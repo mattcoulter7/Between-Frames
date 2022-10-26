@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 /// <summary>
 /// This class is responsible for updating variables of the CinematicBarManager based on user controls
@@ -22,15 +23,6 @@ public class CinematicBarController : MonoBehaviour
     
     /// <summary>This curve enables the zooming to become non-linear</summary>
     public AnimationCurve zoomSpeedCurve;
-    
-    /// <summary>The non-linear calculation of the zoom amount</summary>
-    public float scaledZoomSpeed
-    {
-        get
-        {
-            return zoomSpeed * zoomSpeedCurve.Evaluate(_cinematicBars.normalizedDistance);
-        }
-    }
 
     /// <summary>The speed scale for updating CinematicBarManager rotation</summary>
     public float rotateSpeed = 1f;
@@ -40,6 +32,7 @@ public class CinematicBarController : MonoBehaviour
     public float controllerZoomSpeed = 0.1f;
     public float controllerRotateSpeed = 1.8f;
     public float controllerMoveSpeed = 1f;
+
     private CinematicBarManager _cinematicBars;
 
     // new input
@@ -61,7 +54,7 @@ public class CinematicBarController : MonoBehaviour
     private bool isShiftingMouse = false;
 
     private float zoomFrame = 0f;
-    private Vector2 shiftFrame = new Vector2();
+    private Vector2 shiftFrame = new Vector2(0f,0f);
     private float rotateFrame = 0;
 
     private Vector2 mouseDelta;
@@ -70,6 +63,7 @@ public class CinematicBarController : MonoBehaviour
     private void OnEnable()
     {
         _cinematicBars = GetComponent<CinematicBarManager>();
+
 
         playerInput = FindObjectOfType<PlayerInput>();
 
@@ -108,10 +102,13 @@ public class CinematicBarController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // reset properties
-        shiftFrame = Vector2.zero;
-        rotateFrame = 0f;
+        HandleDistance();
+        HandleRotation();
+        HandleOffset();
+    }
 
+    private void HandleDistance()
+    {
         zoomFrame = playerInput.actions["MouseZoom"].ReadValue<Vector2>().normalized.y;
 
         if (isShrinking) // shrink
@@ -123,8 +120,19 @@ public class CinematicBarController : MonoBehaviour
         {
             zoomFrame += controllerZoomSpeed * Time.deltaTime;
         }
+        // handle zooming to change distance
+        if (enableZoom && zoomFrame != 0f)
+        {
+            float delta = zoomFrame * GetScaledZoomSpeed();
+            _cinematicBars.SetDistance(_cinematicBars.rawDistance + delta);
+        }
+    }
 
-        if(isRotatingR) // Right
+    private void HandleRotation()
+    {
+        rotateFrame = 0f;
+
+        if (isRotatingR) // Right
         {
             rotateFrame -= controllerRotateSpeed * Time.deltaTime;
         }
@@ -139,6 +147,20 @@ public class CinematicBarController : MonoBehaviour
             rotateFrame += GetCircularMotion();
         }
 
+        // move mouse right whilst holding left mouse button to rotate
+        if (enableRotation && rotateFrame != 0)
+        {
+            float delta = rotateFrame * rotateSpeed;
+            _cinematicBars.SetRotation(_cinematicBars.rawRotation + delta);
+        }
+    }
+
+    private void HandleOffset()
+    {
+        // reset properties
+        shiftFrame = Vector2.zero;
+
+
         if (shiftCamXY.ReadValue<Vector2>() != Vector2.zero)
         {
             shiftFrame = shiftCamXY.ReadValue<Vector2>() * controllerMoveSpeed * Time.deltaTime;
@@ -149,23 +171,11 @@ public class CinematicBarController : MonoBehaviour
             shiftFrame -= mouseDelta;
         }
 
-        // handle zooming to change distance
-        if (enableZoom && zoomFrame != 0f)
-        {
-            // if it is one of the black bars, chane that instead of both
-            _cinematicBars.distance += zoomFrame * scaledZoomSpeed;
-        }
-
         // click and drag left mouse button to move origin
-        if (enablePan && shiftFrame != Vector2.zero)
+        if (enablePan && shiftFrame.magnitude != 0)
         {
-            _cinematicBars.offset -= (Vector2)Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed);
-        }
-
-        // move mouse right whilst holding left mouse button to rotate
-        if (enableRotation && rotateFrame != 0)
-        {
-            _cinematicBars.rotation += rotateFrame * rotateSpeed;
+            Vector2 delta = Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed);
+            _cinematicBars.SetOffset(_cinematicBars.rawOffset - delta);
         }
     }
 
@@ -173,7 +183,7 @@ public class CinematicBarController : MonoBehaviour
     {
         Vector2 mousePosition = Input.mousePosition;
         Vector2 viewportMousePosition = Camera.main.ScreenToViewportPoint(mousePosition);
-        Vector2 middle = _cinematicBars.offsetSnapped;
+        Vector2 middle = _cinematicBars.rawOffset;
 
         Vector2 segment = Vector2.zero;
         segment.x = viewportMousePosition.x > middle.x ? 1 : 0;
@@ -216,5 +226,11 @@ public class CinematicBarController : MonoBehaviour
         }
 
         return rotation;
+    }
+
+    /// <summary>The non-linear calculation of the zoom amount</summary>
+    public float GetScaledZoomSpeed()
+    {
+        return zoomSpeed * zoomSpeedCurve.Evaluate(_cinematicBars.normalizedDistance);
     }
 }

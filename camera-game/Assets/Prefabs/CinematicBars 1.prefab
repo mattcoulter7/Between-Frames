@@ -825,22 +825,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfcf72940301ed45a7b133e4f5ac978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotation: 0
-  enableRotationSnapping: 1
-  rotationSnap: 3
-  enableRotationLimit: 1
   maxRotation: 90
-  _offset: {x: 0.5, y: 0.5}
-  enableOffsetSnapping: 1
-  offsetSnap: {x: 0.005, y: 0.005}
-  enableOffsetLimit: 1
+  rotationSnap: 3
   minOffset: {x: 0.3, y: 0.35}
   maxOffset: {x: 0.7, y: 0.65}
-  _distance: 2.5
-  enableDistanceLimit: 1
+  offsetSnap: 0.005
   minDistance: 2.5
   maxDistance: 4.75
-  enableDistanceSnapping: 1
   distanceSnap: 0.05
   maintainPlayableArea: 1
 --- !u!114 &630763613663510503
@@ -967,17 +958,30 @@ MonoBehaviour:
   - getter:
       objectReference: {fileID: 630763613663510502}
       targets:
-      - name: offset
+      - name: rawOffset
         paramSet:
           parameters: []
         targetSetIndex: 0
     setter:
       objectReference: {fileID: 630763613663510502}
       targets:
-      - name: offset
+      - name: SetOffset
         paramSet:
           parameters:
           - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+          - paramType: 4
             floatParameter: 0
             stringParameter: 
             intParameter: 0
@@ -994,17 +998,30 @@ MonoBehaviour:
   - getter:
       objectReference: {fileID: 630763613663510502}
       targets:
-      - name: distance
+      - name: rawDistance
         paramSet:
           parameters: []
         targetSetIndex: 0
     setter:
       objectReference: {fileID: 630763613663510502}
       targets:
-      - name: distance
+      - name: SetDistance
         paramSet:
           parameters:
           - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+          - paramType: 4
             floatParameter: 0
             stringParameter: 
             intParameter: 0
@@ -1021,17 +1038,30 @@ MonoBehaviour:
   - getter:
       objectReference: {fileID: 630763613663510502}
       targets:
-      - name: rotation
+      - name: rawRotation
         paramSet:
           parameters: []
         targetSetIndex: 0
     setter:
       objectReference: {fileID: 630763613663510502}
       targets:
-      - name: rotation
+      - name: SetRotation
         paramSet:
           parameters:
           - paramType: 0
+            floatParameter: 0
+            stringParameter: 
+            intParameter: 0
+            boolParameter: 0
+            customGetter:
+              objectReference: {fileID: 0}
+              targets: []
+            objectParameter: {fileID: 0}
+            initialiseParameter:
+              typeName: 
+              paramSet:
+                parameters: []
+          - paramType: 4
             floatParameter: 0
             stringParameter: 
             intParameter: 0

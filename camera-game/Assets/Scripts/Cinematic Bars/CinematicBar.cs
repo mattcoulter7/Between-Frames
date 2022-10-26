@@ -12,36 +12,9 @@ public class CinematicBar : MonoBehaviour
 {
     /// <summary>Rotation in degrees offset from the CinematicBarManager rotation</summary>
     public float rotationOffset = 0f;
-
-    /// <summary>Rotation in degrees after rotationOffset is combined with the CinematicBarManager rotation</summary>
-    public float rotation
-    {
-        get
-        {
-            return _controller.rotationSnapped + rotationOffset;
-        }
-    }
     
     /// <summary>Distance offset from CinematicBarManager distance</summary>
     public float distanceOffset = 0f;
-    
-    /// <summary>Distance after distanceOffset is combined with the CinematicBarManager distance</summary>
-    public float distance
-    {
-        get
-        {
-            return _controller.distanceSnapped + distanceOffset;
-        }
-    }
-    
-    /// <summary>The CinematicBarManager's offset</summary>
-    public Vector2 origin
-    {
-        get
-        {
-            return _controller.offsetSnapped;
-        }
-    }
     
     /// <summary>The distance from the camera</summary>
     public float depth = 10f;
@@ -49,7 +22,6 @@ public class CinematicBar : MonoBehaviour
     private CinematicBarManager _controller;
     private RectanglePoints _rectanglePoints;
     private Camera _camera;
-    private CameraEdgeProjection _cameraEdgeProjection;
 
     private Vector2 GetAspectRatio()
     {
@@ -65,12 +37,14 @@ public class CinematicBar : MonoBehaviour
         _controller = GetComponentInParent<CinematicBarManager>();
         _rectanglePoints = GetComponent<RectanglePoints>();
         _camera = Camera.main;
-        _cameraEdgeProjection = _camera.GetComponent<CameraEdgeProjection>();
 
         Resize();
     }
     private void Resize()
     {
+        float rotation = _controller.snappedRotation + rotationOffset;
+        float distance = _controller.snappedDistance + distanceOffset;
+
         Vector2 aspectRatio = GetAspectRatio();
         // establish target position on top, left, bottom, right of screen
         // aspect ratio is used to scale the ellipse to a circle if desired
@@ -87,8 +61,8 @@ public class CinematicBar : MonoBehaviour
 
         // calculate target position based on rotation
         Vector3 target = new Vector3(
-            origin.x + radii.x * Mathf.Cos(rotation * Mathf.Deg2Rad),
-            origin.y + radii.y * Mathf.Sin(rotation * Mathf.Deg2Rad),
+            _controller.snappedOffset.x + radii.x * Mathf.Cos(rotation * Mathf.Deg2Rad),
+            _controller.snappedOffset.y + radii.y * Mathf.Sin(rotation * Mathf.Deg2Rad),
             depth
         );
 
