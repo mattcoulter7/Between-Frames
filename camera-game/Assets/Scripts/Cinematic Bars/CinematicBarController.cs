@@ -124,7 +124,7 @@ public class CinematicBarController : MonoBehaviour
         if (enableZoom && zoomFrame != 0f)
         {
             float delta = zoomFrame * GetScaledZoomSpeed();
-            _cinematicBars.SetDistance(_cinematicBars.rawDistance + delta);
+            _cinematicBars.SetDistance(_cinematicBars.rawDistance + delta, true);
         }
     }
 
@@ -151,7 +151,7 @@ public class CinematicBarController : MonoBehaviour
         if (enableRotation && rotateFrame != 0)
         {
             float delta = rotateFrame * rotateSpeed;
-            _cinematicBars.SetRotation(_cinematicBars.rawRotation + delta);
+            _cinematicBars.SetRotation(_cinematicBars.rawRotation + delta, true);
         }
     }
 
@@ -175,7 +175,7 @@ public class CinematicBarController : MonoBehaviour
         if (enablePan && shiftFrame.magnitude != 0)
         {
             Vector2 delta = Camera.main.ScreenToViewportPoint(shiftFrame * moveSpeed);
-            _cinematicBars.SetOffset(_cinematicBars.rawOffset - delta);
+            _cinematicBars.SetOffset(_cinematicBars.rawOffset - delta,true);
         }
     }
 

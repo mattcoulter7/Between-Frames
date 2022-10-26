@@ -45,10 +45,14 @@ public class CinematicBarManager : MonoBehaviour
     public float normalizedDistance { get; private set; }
     public float snappedDistance { get; private set; }
 
+    [Header("General")]
     /// <summary>Keeps the inside distance the same if true, otherwise keeps the length of the bar from edge of the screen the same</summary>
     public bool maintainPlayableArea = true;
 
-
+    [Header("Squish Prevention")]
+    public Collider topCollider;
+    public Collider bottomCollider;
+    public LayerMask crushLayers;
     private CannotKill[] cannotKills;
 
 
@@ -58,6 +62,11 @@ public class CinematicBarManager : MonoBehaviour
         SetOffset(rawOffset);
         SetDistance(rawDistance);
         SetRotation(rawRotation);
+    }
+
+    private void Update()
+    {
+
     }
 
     public void SetOffset(Vector2 value, bool validate = false)
@@ -106,8 +115,34 @@ public class CinematicBarManager : MonoBehaviour
 
     private bool ValidMove(Vector2? newSnappedOffset = null,float? newSnappedRotation = null, float? newSnappedDistance = null)
     {
+        if (bottomCollider == null) return true;
         if (newSnappedOffset.HasValue)
         {
+            if (newSnappedOffset == snappedOffset) return true;
+            // How much the bar has moved in world units
+            Vector3 previousOffset = new Vector3(snappedOffset.x, snappedOffset.y,10);
+            Vector3 newOffset = new Vector3(newSnappedOffset.Value.x, newSnappedOffset.Value.y, 10);
+            Vector3 moveDelta = Camera.main.ViewportToWorldPoint(newOffset) - Camera.main.ViewportToWorldPoint(previousOffset);
+            moveDelta.z = 0;
+
+            foreach (CannotKill ck in cannotKills)
+            {
+                Vector3 pointOnCollider = bottomCollider.ClosestPoint(ck.transform.position);
+                Debug.DrawLine(pointOnCollider, ck.transform.position,Color.green);
+                // Need to simulate the new collider point since the collider doesn't actually move
+                pointOnCollider += moveDelta;
+                Vector3 simulatedCKPos = ck.transform.position + moveDelta;
+
+                Debug.DrawLine(pointOnCollider, simulatedCKPos, Color.blue);
+                Vector3 direction = simulatedCKPos - pointOnCollider;
+                if (direction.magnitude > ck.tolerance) continue;
+                
+                RaycastHit hit;
+                direction.Normalize();
+                Physics.Raycast(simulatedCKPos, direction, out hit, ck.tolerance, crushLayers,QueryTriggerInteraction.Ignore);
+                if (hit.collider != null) return false;
+            }
+
         }
         else if (newSnappedRotation.HasValue)
         {
