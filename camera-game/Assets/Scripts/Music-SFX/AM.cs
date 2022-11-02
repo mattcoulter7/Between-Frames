@@ -23,6 +23,17 @@ public class AM : MonoBehaviour
     //<summary>This makes the AM a singleton</summary>
     public static AM Instance;
 
+    /// <summary>
+    /// to set on awake volumes
+    /// </summary>
+    [SerializeField] AudioMixer mainMixer;
+
+    /// <summary>This constant string holds the name of the sub-mixer group for all the BGMs</summary>
+    const string MIXER_MUSIC = "MusicVolume";
+
+    /// <summary>This constant string holds the name of the sub-mixer group for all the SFXs</summary>
+    const string MIXER_SFX = "SFXVolume";
+
     [SerializeField]
     private AudioMixer sfxMixer;
 
@@ -84,7 +95,8 @@ public class AM : MonoBehaviour
         stepSounds = GetComponent<AMSteps>();
         sequence = GetComponent<BGMSequencer>();
         InitSteps();
-        
+
+
         foreach (Sound song in BGM)
         {
             song.source = gameObject.AddComponent<AudioSource>();
@@ -93,15 +105,14 @@ public class AM : MonoBehaviour
             song.source.pitch = song.pitch;
             song.source.loop = song.loop;
             song.source.playOnAwake = song.playOnAwake;
-            song.source.volume = PlayerPrefs.GetFloat(BGMPref);
 
             if(song.mixerGroup == null) { song.mixerGroup = musicMixerGroup; }
 
             song.source.outputAudioMixerGroup = song.mixerGroup;
             
         }
-        //BGM
-        Debug.Log("vol shud now be  " + BGM[0].source.volume);
+        
+        //Debug.Log("vol shud now be  " + BGM[0].source.volume);
 
         foreach (Sound s in sounds)
         {
@@ -115,7 +126,9 @@ public class AM : MonoBehaviour
             if (s.mixerGroup == null) { s.mixerGroup = sfxMixerGroup; }
             
             s.source.outputAudioMixerGroup = s.mixerGroup;
-        }   
+        }
+
+        
     }
 
     // Start is called before the first frame update
@@ -151,19 +164,23 @@ public class AM : MonoBehaviour
     //<summary>This method updates all the tracks' volume in the BGM array</summary>
     public void UpdateBGMVol()
     {
-        for (int i = 0; i < BGM.Length; i++)
+        mainMixer.SetFloat(MIXER_MUSIC, Mathf.Log10(PlayerPrefs.GetFloat(BGMPref)) * 20);
+        Debug.Log("MX SFX: " + PlayerPrefs.GetFloat(BGMPref));
+        /*for (int i = 0; i < BGM.Length; i++)
         {
             BGM[i].source.volume = bgmLevel * BGM[i].volume;
-        }
+        }*/
     }
 
     //<summary>This method updates all the tracks' volume in the SFX array</summary>
     public void UpdateSFXVol()
     {
-        for (int i = 0; i < sounds.Length; i++)
+        mainMixer.SetFloat(MIXER_SFX, Mathf.Log10(PlayerPrefs.GetFloat(SFXPref)) * 20);
+        Debug.Log("MX SFX: " + PlayerPrefs.GetFloat(SFXPref));
+        /*for (int i = 0; i < sounds.Length; i++)
         {
             sounds[i].source.volume = sfxLevel * sounds[i].volume;      //eg. 0.5 x 0.5 = 0.25
-        }
+        }*/
     }
 
     //<summary>This method finds the specific BGM to play from the array, stops any other tracks, then plays the desired track</summary>
@@ -344,44 +361,35 @@ public class AM : MonoBehaviour
         
     }
 
-    //<summary>This plays a random range of footstep sounds. Consider making it able to play a range of whatever sounds</summary>
+    ///<summary>This plays a random range of footstep sounds. Consider making it able to play a range of whatever sounds</summary>
     public void PlayFootsteps(SurfaceMaterial material)
     {
-        //Sound stepToPlay = material.identity switch
         if (material != null)
         {
             Sound[] stepArray = material.identity switch
             {
-                SurfaceIdentity.Wood => stepSounds.WoodSteps,//stepSounds.WoodSteps[UnityEngine.Random.Range(0, stepSounds.WoodSteps.Length)],
-                SurfaceIdentity.Carpet => stepSounds.CarpetSteps,//[UnityEngine.Random.Range(0, stepSounds.CarpetSteps.Length)],
+                SurfaceIdentity.Wood => stepSounds.WoodSteps,
+                SurfaceIdentity.Carpet => stepSounds.CarpetSteps,
                 SurfaceIdentity.Metal => stepSounds.MetalSteps,
-                SurfaceIdentity.Bars => stepSounds.BarSteps,//[UnityEngine.Random.Range(0, stepSounds.MetalSteps.Length)],
-                SurfaceIdentity.Grass => stepSounds.GrassSteps,//[UnityEngine.Random.Range(0, stepSounds.GrassSteps.Length)],
-                _ => stepSounds.LinolSteps,//[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)],//Check();
+                SurfaceIdentity.Bars => stepSounds.BarSteps,
+                SurfaceIdentity.Grass => stepSounds.GrassSteps,
+                _ => stepSounds.LinolSteps,
             };
             stepArray[UnityEngine.Random.Range(0, stepArray.Length)].source.Play();
-           // stepArray[UnityEngine.Random.Range(0, stepArray.Length)].source.time;
-            //Sound stepToPlay = GetStepArray(stepArray);
-            //stepToPlay.source.Play();
+
         }
-        else if(material == null)
+        else if (material == null)
         {
             Sound stepToPlay = stepSounds.LinolSteps[UnityEngine.Random.Range(0, stepSounds.LinolSteps.Length)];
             Debug.LogWarning("No material assigned or material is null");
             stepToPlay.source.Play();
         }
-
-        //stepToPlay.source.Play();
-
     }
 
-    //private Sound GetStepArray(Sound[] stepArray)
-    //{
-    //    return stepArray[UnityEngine.Random.Range(0, stepArray.Length)];
-    //}
+    
 
-    //<summary>Ensures that the sound is not already playing before calling the play function</summary>
-    //<param name="name">This is the name of the track to play</param>
+    ///<summary>Ensures that the sound is not already playing before calling the play function</summary>
+    ///<param name="name">This is the name of the track to play</param>
     public void PlayWholeClip(string name)
     {
 
