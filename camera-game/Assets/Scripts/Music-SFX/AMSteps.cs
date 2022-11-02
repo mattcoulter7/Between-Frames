@@ -1,14 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that handles all the footstep sounds in the game.
+/// </summary>
 public class AMSteps : MonoBehaviour
 {
+    /// <summary>
+    /// array of steps for the linoleum/stone tag
+    /// </summary>
     public Sound[] LinolSteps;
+
+    /// <summary>
+    /// array of steps for the wood tag
+    /// </summary>
     public Sound[] WoodSteps;
+
+    /// <summary>
+    /// array of steps for the carpet tag
+    /// </summary>
     public Sound[] CarpetSteps;
+
+    /// <summary>
+    /// array of steps for the metal tag
+    /// </summary>
     public Sound[] MetalSteps;
+
+    /// <summary>
+    /// array of steps for the Bar tag
+    /// </summary>
     public Sound[] BarSteps;
+
+    /// <summary>
+    /// array of steps for the grass tag
+    /// </summary>
     public Sound[] GrassSteps;
 
     private void Awake()
@@ -42,6 +66,9 @@ public class AMSteps : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// initialises the sounds in the same way on Awake in the Audio Manager
+    /// </summary>
     void Init(Sound s)
     {
         if (s != null)

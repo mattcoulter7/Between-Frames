@@ -5,36 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MenuTest.unity
-    guid: 8835a021dae0948b29e0ccca25d57dda
-  - enabled: 0
-    path: Assets/Scenes/Tutorial 1.unity
-    guid: 14cb0a6f2a7b80f4e9b9f3472c21cc94
-  - enabled: 0
-    path: Assets/Scenes/Tutorial 2.unity
-    guid: 03660e0017f96c4408298da9119187d4
-  - enabled: 0
-    path: Assets/Scenes/Tutorial 3.unity
-    guid: ac41b5b1ec282254eb03d6571e02e288
-  - enabled: 0
-    path: Assets/Scenes/Tutorial 4.unity
-    guid: 19788c90fba2daf4193c33bf7e96b4d5
-  - enabled: 0
-    path: Assets/Scenes/Tutorial 5.unity
-    guid: 9d3403a1bd80c45ed81ba5b82d5e6349
-  - enabled: 0
-    path: Assets/Scenes/JacksonTests2.unity
-    guid: 8cdcf5f6b751ecc499bd291b4416a341
-  - enabled: 0
-    path: Assets/Scenes/Under Development.unity
-    guid: 5add8231c4be87d40bf0f462ff2c237d
   - enabled: 1
-    path: Assets/Scenes/PAXMenu.unity
-    guid: 1ec7946f9f4a22945bc69dac0e72e121
+    path: Assets/Scenes/FInal Levels/MainMenu.unity
+    guid: ee2920708a1c74dbd8cb9252ef4ae211
   - enabled: 1
     path: Assets/Scenes/FInal Levels/IntroVideo.unity
     guid: 45c7e6c0cb20ed74aa4eddd0856775bc
+  - enabled: 0
+    path: Assets/Scenes/VideoHighlightReel1.unity
+    guid: a60a8af8acd7eaa44b3197404d64b2c0
   - enabled: 1
     path: Assets/Scenes/FInal Levels/TutLevel1.unity
     guid: 51dcdf82bc1a75440ac464789af5fc2a
@@ -50,14 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FInal Levels/TutLevel5.unity
     guid: ef981b964f53e2049b27ac8d8bfb7340
-  - enabled: 0
-    path: Assets/Scenes/Under Development.unity
-    guid: 5add8231c4be87d40bf0f462ff2c237d
   - enabled: 1
     path: Assets/Scenes/FinishGame.unity
     guid: 5afabfb89c216d94cb715dce4ecbc185
-  - enabled: 0
-    path: Assets/Scenes/VideoHighlightReel1.unity
-    guid: a60a8af8acd7eaa44b3197404d64b2c0
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4d49abddd2c8a9f4e85fca8df5706cd2, type: 2}

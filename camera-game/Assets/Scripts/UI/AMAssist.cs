@@ -32,26 +32,36 @@ public class AMAssist : MonoBehaviour
 
     /// <summary>This method will change the sub-group mixer value to a log number that never reaches 0.
     //This ensures that the volume reaches levels quiet enough its unheard, but won't reach 0 to avoid reaching 0 decibels.</summary>
-    /// <param name="value">This is the the user wishes the music to be changed to</param>
+    /// <param name="value">This is the vol the user wishes the music to be changed to</param>
     public void SetMusicVolume(float value)
     {
         mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20);
+        //changes the slider and saves it to pref
+        AM.Instance.setBGMLevel(value);
+       
     }
 
     /// <summary>This method will change the sub-group mixer value to a log number that never reaches 0.
     //This ensures that the volume reaches levels quiet enough its unheard, but won't reach 0 to avoid reaching 0 decibels.</summary>
-    /// <param name="value">This is the the user wishes the SFX to be changed to</param>
+    /// <param name="value">This is the vol the user wishes the SFX to be changed to</param>
     public void SetSFXVolume(float value)
     {
+        //changes the slider and saves it to pref
+        AM.Instance.setSFXLevel(value);
+
         mixer.SetFloat(MIXER_SFX, Mathf.Log10(value) * 20);
+        
     }
 
     private void Start()
     {
-        UpdateBGMVol(PlayerPrefs.GetFloat(AM.BGMPref));
-        UpdateSFXVol(PlayerPrefs.GetFloat(AM.SFXPref));
+        //UpdateBGMVol(PlayerPrefs.GetFloat(AM.BGMPref));
+        //UpdateSFXVol(PlayerPrefs.GetFloat(AM.SFXPref));
+        SetMusicVolume(PlayerPrefs.GetFloat(AM.BGMPref));
+        SetSFXVolume(PlayerPrefs.GetFloat(AM.SFXPref));
         BGMSlider.value = PlayerPrefs.GetFloat(AM.BGMPref);
         SFXSlider.value = PlayerPrefs.GetFloat(AM.SFXPref);
+        
        
     }
 
@@ -65,6 +75,7 @@ public class AMAssist : MonoBehaviour
     /// <summary>This method initialises the BGM slider value to whatever is saved in the BGMPref</summary>
     public void InitBGMVol()
     {
+        //BGMSlider.value = mixer.
         BGMSlider.value = PlayerPrefs.GetFloat(AM.BGMPref);
     }
 
@@ -76,9 +87,11 @@ public class AMAssist : MonoBehaviour
 
     /// <summary>This method gives a value to the AM which will be used to change all the BGM volumes accordingly</summary>
     /// <param name="value">This is the value which will be passed to the AM</param>
-    public void UpdateBGMVol(float value)
+    /*public void UpdateBGMVol(float value)
     {
-        AM.Instance.setBGMLevel(value);
+        //AM.Instance.setBGMLevel(value);
+        mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat(BGMPref, BGMSlider.value);
     }
 
     /// <summary>This method gives a value to the AM which will be used to change all the SFX volumes accordingly</summary>
@@ -86,5 +99,5 @@ public class AMAssist : MonoBehaviour
     public void UpdateSFXVol(float value)
     {
         AM.Instance.setSFXLevel(value);
-    }
+    }*/
 }

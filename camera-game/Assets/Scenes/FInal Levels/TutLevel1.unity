@@ -2610,6 +2610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AM
       objectReference: {fileID: 0}
+    - target: {fileID: 8008393415451528061, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8968179445483975649, guid: e4f0a16e0ab87400fbdcc37b11f0b33a, type: 3}
       propertyPath: BarSteps.Array.data[1].clip
       value: 
@@ -3415,6 +3419,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 96084708495364582, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 96084708883591693, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_Colors.m_NormalColor.a
       value: 0.3137255
@@ -3487,6 +3495,22 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 96084709117061298, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96084709117061298, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96084709117061298, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 96084709117061298, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: StateMachine, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 96084709117061308, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_TagString
       value: DefaultSelected
@@ -3495,7 +3519,15 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.a
       value: 0.3137255
       objectReference: {fileID: 0}
+    - target: {fileID: 96084709753314222, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 96084710128617288, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381934450225841146, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
