@@ -8,12 +8,14 @@ public class SyntheticDestroyedState : State
     private Rigidbody rigidBody;
     private MeshRenderer meshRenderer;
     private GameObject destroyedInstance = null;
+    private HintUI hintUI;
+
     public void OnDestroyed()
     {
         rigidBody.detectCollisions = false;
         meshRenderer.enabled = false;
         rigidBody.isKinematic = true;
-
+        hintUI.EnableBoxHint();
         CreateDestroyedInstance();
     }
     public void OnRestored()
@@ -40,6 +42,7 @@ public class SyntheticDestroyedState : State
         stateMachine.RegisterState("SyntheticDestroyed", this);
         rigidBody = GetComponentInChildren<Rigidbody>();
         meshRenderer = GetComponentInChildren<MeshRenderer>();
+        hintUI = GameObject.FindGameObjectWithTag("HintUI").GetComponent<HintUI>();
     }
 
 
