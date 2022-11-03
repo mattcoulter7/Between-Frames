@@ -16,7 +16,7 @@ public class SurfaceMaterialData : MonoBehaviour
     /// Searches for a provided tag within the enum. If theres no tag of that name, or the tag does not exist, it will return null
     /// </summary>
     /// <param name="identity">This is the provided tag given by the material the player walks on</param>
-    /// <returns></returns>
+    /// <returns>Returns a surface Material</returns>
     public SurfaceMaterial FindSurfaceMaterial(SurfaceIdentity identity)
     {
         foreach (SurfaceMaterial s in surfaceMaterials)

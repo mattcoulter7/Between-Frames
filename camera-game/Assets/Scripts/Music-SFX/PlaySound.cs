@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -92,6 +92,9 @@ public class PlaySound : MonoBehaviour
         AM.Instance.StopFadeOut(name);
     }
 
+    /// <summary>
+    /// Pauses All SFX
+    /// </summary>
     public void PauseAllSFX()
     {
         AM.Instance.PauseAllSFX();
