@@ -361,7 +361,14 @@ public class AM : MonoBehaviour
         
     }
 
-    ///<summary>This plays a random range of footstep sounds. Consider making it able to play a range of whatever sounds</summary>
+
+
+
+
+    /// <summary>
+    /// This plays a random range of footstep sounds. Consider making it able to play a range of whatever sounds
+    /// </summary>
+    /// <param name="material"></param>
     public void PlayFootsteps(SurfaceMaterial material)
     {
         if (material != null)
@@ -413,6 +420,9 @@ public class AM : MonoBehaviour
         //sfxMixerGroup.
     }
 
+    /// <summary>
+    /// Initialises the stepsounds in regards to their audiogroups.
+    /// </summary>
     private void InitSteps()
     {
         foreach (Sound s in stepSounds.LinolSteps)

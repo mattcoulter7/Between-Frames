@@ -66,9 +66,10 @@ public class AMSteps : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// initialises the sounds in the same way on Awake in the Audio Manager
-    /// </summary>
+   /// <summary>
+   /// Initialises the sound the same way as Awake in AM
+   /// </summary>
+   /// <param name="s">The specific sound to initialise</param>
     void Init(Sound s)
     {
         if (s != null)
