@@ -10,11 +10,18 @@ public class PlayBGM : MonoBehaviour
         AM.Instance.PlayBGM(name);
     }
 
+    /// <summary>
+    /// This stops the requested BGM
+    /// </summary>
+    /// <param name="name">The name of the BGM to stop</param>
     public void Stop(string name)
     {
         AM.Instance.StopBGM(name);
     }
 
+    /// <summary>
+    /// This starts the sequence for the level music
+    /// </summary>
     public void PlaySequence()
     {
         AM.Instance.StartSequence();
