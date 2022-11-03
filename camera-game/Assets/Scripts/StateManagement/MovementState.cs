@@ -41,15 +41,14 @@ public class MovementState : State
     {
         base.Awake();
         stateMachine.RegisterState("Movement", this);
-        
-        if(playerInput == null)
+
+        if (playerInput == null)
         {
             playerInput = GameObject.FindGameObjectWithTag("InputSystem").GetComponent<PlayerInput>();
         }
-        
+
         jumpAct = playerInput.actions["Jump"];
         playerInput.actions["Move"].performed += ctx => Move();
-        //playerInput.actions["Jump"].performed += ctx => Jump(ctx);
     }
 
     protected override void Start()
@@ -62,10 +61,7 @@ public class MovementState : State
     public override void HandleInput()
     {
         _inputs = Vector3.zero;
-        //_inputs.x = Input.GetAxis("Horizontal");
         _inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
-
-        //_jumpInput = Input.GetButtonDown("Jump");
         _jumpInput = jumpAct.triggered;
     }
     public override void HandleShouldChangeState()
@@ -152,12 +148,6 @@ public class MovementState : State
         _instance = null;
     }
 
-    //IEnumerator OnJump()
-    //{
-    //    onJump.Invoke();
-    //    Debug.Log("A test");
-    //    yield return null;
-    //}
 
     private void OnJump(InputValue aValue)
     {
@@ -181,7 +171,7 @@ public class MovementState : State
         onMove.Invoke();
     }
 
-   public void Move()
+    public void Move()
     {
         if (playerInput == null)
         {
@@ -189,29 +179,4 @@ public class MovementState : State
         }
         _inputs.x = playerInput.actions["Move"].ReadValue<Vector2>().x;
     }
-
-    //public void Jump(InputValue aValue)
-    //{
-    //    OnJump(aValue);
-    //}
-   
-    //private void OnEnable()
-    //{
-    //    playerInput.Enable();
-    //}
-    //
-    //private void OnDisable()
-    //{
-    //    playerInput.Disable();
-    //}
-
-    //public ControlInput GetInput()
-    //{
-    //    return playerInput;
-    //}
 }
-//if (_instance == null && Input.GetButtonDown("Flash"))
-//{
-//    //Start the coroutine we define below named ExampleCoroutine.
-//    _instance = StartCoroutine(DoFlash());
-//}

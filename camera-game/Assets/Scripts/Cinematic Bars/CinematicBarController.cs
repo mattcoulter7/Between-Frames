@@ -35,33 +35,73 @@ public class CinematicBarController : MonoBehaviour
     /// <summary>The speed scale for updating CinematicBarManager rotation</summary>
     public float rotateSpeed = 1f;
     
-    /// <summary>The speed scale for updating CinematicBarManager offset</summary>
+    /// <summary>The movespeed scale for updating CinematicBarManager offset on mouse</summary>
     public float moveSpeed = 0.1f;
+
+    /// <summary>The movespeed scale for updating CinematicBarManager zoomspeed on controller</summary>
     public float controllerZoomSpeed = 0.1f;
+
+    /// <summary>The rotation speed scale for updating CinematicBarManager rotation on controller</summary>
     public float controllerRotateSpeed = 1.8f;
+
+    /// <summary>The movespeed scale for updating CinematicBarManager offset on controller</summary>
     public float controllerMoveSpeed = 1f;
+
+    /// <summary>Reference to CinematicBarManager Class</summary>
     private CinematicBarManager _cinematicBars;
 
-    // new input
+    /// <summary>InputAction Related variables</summary>  
+
+    /// <summary>PlayerInput class reference </summary>
     private PlayerInput playerInput;
+
+    /// <summary>PlayerInput Action reference </summary>
     private InputAction shrinkAct;
+
+    /// <summary>InputAction Related variables</summary>
     private InputAction expandAct;
+
+    /// <summary>InputAction Related variables</summary>
     private InputAction rotate;
+
+    /// <summary>InputAction Related variables</summary>
     private InputAction rotateRAct;
+
+    /// <summary>InputAction Related variables</summary>
     private InputAction rotateLAct;
+
+    /// <summary>InputAction Related variables</summary>
     private InputAction shiftCamXY;
+
+    /// <summary>InputAction Related variables</summary>
     private InputAction shiftCamXYMouse;
+
+    /// <summary>InputAction Related variables</summary>
     private InputAction mouseMovement;
 
+
+    /// <summary>Bool check if shrinking input is being pressed</summary>
     private bool isShrinking = false;
+
+    /// <summary>Bool check if expanding input is being pressed</summary>
     private bool isExpanding = false;
+
+    /// <summary>Bool check if rotating right input is being pressed</summary>
     private bool isRotatingR = false;
+
+    /// <summary>Bool check if rotating left input is being pressed</summary>
     private bool isRotatingL = false;
+
+    /// <summary>Bool check if mouse is performing rotation</summary>
     private bool isRotatingMouse = false;
+
+    /// <summary>Bool check if mouse is performing shifting</summary>
     private bool isShiftingMouse = false;
 
     private float zoomFrame = 0f;
+
     private Vector2 shiftFrame = new Vector2();
+
     private float rotateFrame = 0;
 
     private Vector2 mouseDelta;
@@ -73,31 +113,44 @@ public class CinematicBarController : MonoBehaviour
 
         playerInput = FindObjectOfType<PlayerInput>();
 
-        //mouseZoom = 
+        /// <summary>TODO</summary>
         shrinkAct = playerInput.actions["Shrink"];
+        /// <summary>TODO</summary>
         expandAct = playerInput.actions["Expand"];
+        /// <summary>TODO</summary>
         rotate = playerInput.actions["Rotate"];
+        /// <summary>TODO</summary>
         rotateRAct = playerInput.actions["RotateRight"];
+        /// <summary>TODO</summary>
         rotateLAct = playerInput.actions["RotateLeft"];
+        /// <summary>TODO</summary>
         shiftCamXY = playerInput.actions["ShiftCamXY"];
+        /// <summary>TODO</summary>
         shiftCamXYMouse = playerInput.actions["ShiftCamXYMouse"];
+        /// <summary>TODO</summary>
         mouseMovement = playerInput.actions["MouseMovement"];
 
+        /// <summary>Link the callbacks to shrinking state bools</summary>
         shrinkAct.performed += _ => isShrinking = true;
         shrinkAct.canceled += _ => isShrinking = false;
 
+        /// <summary>Link the callbacks to expanding state bools</summary>
         expandAct.performed += _ => isExpanding = true;
         expandAct.canceled += _ => isExpanding = false;
 
+        /// <summary>Link the callbacks to rotating right bools</summary>
         rotateRAct.performed += _ => isRotatingR = true;
         rotateRAct.canceled += _ => isRotatingR = false;
 
+        /// <summary>Link the callbacks to rotating left bools</summary>
         rotateLAct.performed += _ => isRotatingL = true;
         rotateLAct.canceled += _ => isRotatingL = false;
+
 
         rotate.performed += _ => isRotatingMouse = true;
         rotate.canceled += _ => isRotatingMouse = false;
 
+        /// <summary>Link the callbacks to shifting </summary>
         shiftCamXYMouse.performed += _ => isShiftingMouse = true;
         shiftCamXYMouse.canceled += _ => isShiftingMouse = false;
 
@@ -105,30 +158,34 @@ public class CinematicBarController : MonoBehaviour
         mouseMovement.canceled += _ => mouseDelta = _.ReadValue<Vector2>();
     }
 
-    // Update is called once per frame
+    /// <summary>CinematicBar Update Logic</summary>
     private void Update()
     {
-        // reset properties
+        /// <summary>Reset Input readings per frame</summary>
         shiftFrame = Vector2.zero;
         rotateFrame = 0f;
 
         zoomFrame = playerInput.actions["MouseZoom"].ReadValue<Vector2>().normalized.y;
 
-        if (isShrinking) // shrink
+        /// <summary>When isShrinking is true then shrink the zoom frame</summary>
+        if (isShrinking)
         {
             zoomFrame -= controllerZoomSpeed * Time.deltaTime;
         }
 
-        if (isExpanding) // expand
+        /// <summary>When isExpanding is true then expand the zoom frame</summary>
+        if (isExpanding)
         {
             zoomFrame += controllerZoomSpeed * Time.deltaTime;
         }
 
-        if(isRotatingR) // Right
+        /// <summary>When isRotatingR is true then rotate the zoom frame right</summary>
+        if (isRotatingR)
         {
             rotateFrame -= controllerRotateSpeed * Time.deltaTime;
         }
 
+        /// <summary>When isRotatingL is true then rotate the zoom frame Left</summary>
         if (isRotatingL) // Left
         {
             rotateFrame += controllerRotateSpeed * Time.deltaTime;
@@ -139,11 +196,12 @@ public class CinematicBarController : MonoBehaviour
             rotateFrame += GetCircularMotion();
         }
 
+        /// <summary>If shiftCamXY returns a non zero vector then adjust the shiftFrame</summary>
         if (shiftCamXY.ReadValue<Vector2>() != Vector2.zero)
         {
             shiftFrame = shiftCamXY.ReadValue<Vector2>() * controllerMoveSpeed * Time.deltaTime;
         }
-
+        /// <summary>If isShiftingMouse then adjust the shiftFrame by the inverse</summary>
         if (isShiftingMouse)
         {
             shiftFrame -= mouseDelta;
@@ -181,6 +239,7 @@ public class CinematicBarController : MonoBehaviour
 
         return segment;
     }
+
 
     private float GetCircularMotion()
     {
