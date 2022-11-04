@@ -9,6 +9,7 @@ public class MenuState : State
     bool shouldExit = false;
     public GameObject menuUI;
     public string menuName;
+    public bool stopTime = true;
     private PlayerInput playerInput;
     private EventSystem eventSystem;
     protected override void Awake()
@@ -21,7 +22,7 @@ public class MenuState : State
     public override void Enter()
     {
         base.Enter();
-        Time.timeScale = 0f;
+        Time.timeScale = stopTime ? 0f : 1f;
         menuUI.SetActive(true);
 
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
