@@ -3460,6 +3460,10 @@ PrefabInstance:
       propertyPath: worldTransform
       value: 
       objectReference: {fileID: 1987697886}
+    - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySequence
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
 --- !u!4 &1465712956 stripped
