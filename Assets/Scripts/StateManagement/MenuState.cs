@@ -10,6 +10,7 @@ public class MenuState : State
     public GameObject menuUI;
     public string menuName;
     public bool stopTime = true;
+    public bool canExit = true;
     private PlayerInput playerInput;
     private EventSystem eventSystem;
     protected override void Awake()
@@ -43,7 +44,8 @@ public class MenuState : State
     }
     public override void HandleShouldChangeState()
     {
-        if (shouldExit){
+        if (canExit && shouldExit)
+        {
             stateMachine.RemoveState();
         }
     }
