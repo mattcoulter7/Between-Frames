@@ -1657,7 +1657,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				{
 					distanceOffset *= min(distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, o.localPos).xyz), float(9999));
 				}
-				float lineWidth = float(1);
+				float lineWidth = float(0.02);
 				#ifdef POI_AUDIOLINK
 				if (float(1))
 				{
@@ -1671,7 +1671,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 					}
 				}
 				#endif
-				float3 offset = outlineNormal * (lineWidth * float(0) / 100) * outlineMask * distanceOffset;
+				float3 offset = outlineNormal * (lineWidth * float(1) / 100) * outlineMask * distanceOffset;
 				if (float(1) == 2)
 				{
 					float3 lightDirection = normalize(_WorldSpaceLightPos0 + unity_SHAr.xyz + unity_SHAg.xyz + unity_SHAb.xyz);
@@ -2738,8 +2738,8 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				poiLight.vertexNDotH = max(0.00001, dot(poiMesh.normals[0], poiLight.halfDir));
 				poiLight.lightMap = 1;
 				#endif
-				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(0.03921567,0.4987484,0.9058824,1).rgb, float(0));
-				poiFragData.alpha = mainTexture.a * float4(0.03921567,0.4987484,0.9058824,1).a;
+				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(0.03921567,0.4987484,0.9058824,0).rgb, float(0));
+				poiFragData.alpha = mainTexture.a * float4(0.03921567,0.4987484,0.9058824,0).a;
 				#if defined(PROP_CLIPPINGMASK) || !defined(OPTIMIZER_ENABLED)
 				float alphaMask = POI2D_SAMPLER_PAN(_ClippingMask, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)).r;
 				if (float(0))
@@ -2765,7 +2765,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				//ifex float(1)==0
 				#ifdef VIGNETTE_MASKED
 				#ifdef POI_PASS_OUTLINE
-				if (float(1))
+				if (float(0))
 				{
 					calculateShading(poiLight, poiFragData, poiMesh, poiCam);
 				}
@@ -4170,7 +4170,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				{
 					distanceOffset *= min(distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, o.localPos).xyz), float(9999));
 				}
-				float lineWidth = float(1);
+				float lineWidth = float(0.02);
 				#ifdef POI_AUDIOLINK
 				if (float(1))
 				{
@@ -4184,7 +4184,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 					}
 				}
 				#endif
-				float3 offset = outlineNormal * (lineWidth * float(0) / 100) * outlineMask * distanceOffset;
+				float3 offset = outlineNormal * (lineWidth * float(1) / 100) * outlineMask * distanceOffset;
 				if (float(1) == 2)
 				{
 					float3 lightDirection = normalize(_WorldSpaceLightPos0 + unity_SHAr.xyz + unity_SHAg.xyz + unity_SHAb.xyz);
@@ -4296,11 +4296,11 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 			#ifdef POI_PASS_OUTLINE
 			void applyOutlineColor(inout PoiFragData poiFragData, in PoiMesh poiMesh, in PoiLight poiLight, in PoiMods poiMods)
 			{
-				clip(float(0) - 0.01);
+				clip(float(1) - 0.01);
 				float OutlineMask = tex2D(_OutlineMask, TRANSFORM_TEX(poiMesh.uv[float(0)], _OutlineMask) + _Time.x * float4(0,0,0,0)).r;
 				if (float(0))
 				{
-					float lineWidth = float(1);
+					float lineWidth = float(0.02);
 					#ifdef POI_AUDIOLINK
 					if (poiMods.audioLinkAvailable)
 					{
@@ -4309,7 +4309,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 					#endif
 					clip(OutlineMask * lineWidth - 0.001);
 				}
-				float4 col = POI2D_SAMPLER_PAN(_OutlineTexture, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)) * float4(poiThemeColor(poiMods, float4(1,1,1,1).rgb, float(0)), float4(1,1,1,1).a);
+				float4 col = POI2D_SAMPLER_PAN(_OutlineTexture, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)) * float4(poiThemeColor(poiMods, float4(0.1933962,1,0.9356269,1).rgb, float(0)), float4(0.1933962,1,0.9356269,1).a);
 				poiFragData.baseColor = lerp(col, col * poiFragData.baseColor, float(0));
 				if (float(1) == 2)
 				{
@@ -4327,7 +4327,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				{
 					poiFragData.baseColor = hueShift(poiFragData.baseColor, float(0) +float(0) * _Time.x);
 				}
-				float emission = float(0);
+				float emission = float(2.57);
 				#ifdef POI_AUDIOLINK
 				if (poiMods.audioLinkAvailable)
 				{
@@ -5230,8 +5230,8 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				poiLight.vertexNDotH = max(0.00001, dot(poiMesh.normals[0], poiLight.halfDir));
 				poiLight.lightMap = 1;
 				#endif
-				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(0.03921567,0.4987484,0.9058824,1).rgb, float(0));
-				poiFragData.alpha = mainTexture.a * float4(0.03921567,0.4987484,0.9058824,1).a;
+				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(0.03921567,0.4987484,0.9058824,0).rgb, float(0));
+				poiFragData.alpha = mainTexture.a * float4(0.03921567,0.4987484,0.9058824,0).a;
 				#if defined(PROP_CLIPPINGMASK) || !defined(OPTIMIZER_ENABLED)
 				float alphaMask = POI2D_SAMPLER_PAN(_ClippingMask, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)).r;
 				if (float(0))
@@ -5257,7 +5257,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				//ifex float(1)==0
 				#ifdef VIGNETTE_MASKED
 				#ifdef POI_PASS_OUTLINE
-				if (float(1))
+				if (float(0))
 				{
 					calculateShading(poiLight, poiFragData, poiMesh, poiCam);
 				}
@@ -6612,7 +6612,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				{
 					distanceOffset *= min(distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, o.localPos).xyz), float(9999));
 				}
-				float lineWidth = float(1);
+				float lineWidth = float(0.02);
 				#ifdef POI_AUDIOLINK
 				if (float(1))
 				{
@@ -6626,7 +6626,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 					}
 				}
 				#endif
-				float3 offset = outlineNormal * (lineWidth * float(0) / 100) * outlineMask * distanceOffset;
+				float3 offset = outlineNormal * (lineWidth * float(1) / 100) * outlineMask * distanceOffset;
 				if (float(1) == 2)
 				{
 					float3 lightDirection = normalize(_WorldSpaceLightPos0 + unity_SHAr.xyz + unity_SHAg.xyz + unity_SHAb.xyz);
@@ -7693,8 +7693,8 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				poiLight.vertexNDotH = max(0.00001, dot(poiMesh.normals[0], poiLight.halfDir));
 				poiLight.lightMap = 1;
 				#endif
-				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(0.03921567,0.4987484,0.9058824,1).rgb, float(0));
-				poiFragData.alpha = mainTexture.a * float4(0.03921567,0.4987484,0.9058824,1).a;
+				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(0.03921567,0.4987484,0.9058824,0).rgb, float(0));
+				poiFragData.alpha = mainTexture.a * float4(0.03921567,0.4987484,0.9058824,0).a;
 				#if defined(PROP_CLIPPINGMASK) || !defined(OPTIMIZER_ENABLED)
 				float alphaMask = POI2D_SAMPLER_PAN(_ClippingMask, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)).r;
 				if (float(0))
@@ -7720,7 +7720,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				//ifex float(1)==0
 				#ifdef VIGNETTE_MASKED
 				#ifdef POI_PASS_OUTLINE
-				if (float(1))
+				if (float(0))
 				{
 					calculateShading(poiLight, poiFragData, poiMesh, poiCam);
 				}
@@ -8924,7 +8924,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				{
 					distanceOffset *= min(distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, o.localPos).xyz), float(9999));
 				}
-				float lineWidth = float(1);
+				float lineWidth = float(0.02);
 				#ifdef POI_AUDIOLINK
 				if (float(1))
 				{
@@ -8938,7 +8938,7 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 					}
 				}
 				#endif
-				float3 offset = outlineNormal * (lineWidth * float(0) / 100) * outlineMask * distanceOffset;
+				float3 offset = outlineNormal * (lineWidth * float(1) / 100) * outlineMask * distanceOffset;
 				if (float(1) == 2)
 				{
 					float3 lightDirection = normalize(_WorldSpaceLightPos0 + unity_SHAr.xyz + unity_SHAg.xyz + unity_SHAb.xyz);
@@ -9132,8 +9132,8 @@ Shader "Hidden/Locked/.poiyomi/Poiyomi 8.0/Poiyomi Outline/61d680f6efef7b442973c
 				poiCam.vDotN = abs(dot(poiCam.viewDir, poiMesh.normals[1]));
 				poiCam.clipPos = i.pos;
 				poiCam.worldDirection = i.worldDirection;
-				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(0.03921567,0.4987484,0.9058824,1).rgb, float(0));
-				poiFragData.alpha = mainTexture.a * float4(0.03921567,0.4987484,0.9058824,1).a;
+				poiFragData.baseColor = mainTexture.rgb * poiThemeColor(poiMods, float4(0.03921567,0.4987484,0.9058824,0).rgb, float(0));
+				poiFragData.alpha = mainTexture.a * float4(0.03921567,0.4987484,0.9058824,0).a;
 				#if defined(PROP_CLIPPINGMASK) || !defined(OPTIMIZER_ENABLED)
 				float alphaMask = POI2D_SAMPLER_PAN(_ClippingMask, _MainTex, poiUV(poiMesh.uv[float(0)], float4(1,1,0,0)), float4(0,0,0,0)).r;
 				if (float(0))
