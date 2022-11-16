@@ -15,6 +15,9 @@ public class GraphicsSettings : MonoBehaviour
 
     private string ResPref = "SelectedRes";
     private int selectedRes;
+
+    public static readonly string FirstScreen = "FirstScreen";
+    private int firstScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +30,13 @@ public class GraphicsSettings : MonoBehaviour
         {
             vsyncTog.isOn = true;
         }
+        firstScreen = PlayerPrefs.GetInt(FirstScreen);
 
-        if (!PlayerPrefs.HasKey(ResPref))
+        if (firstScreen == 0)
         {
-            DefaultRes();
+            InitialRes();
+
+            PlayerPrefs.SetInt(FirstScreen, -1);
         }
         else
         {
@@ -76,11 +82,37 @@ public class GraphicsSettings : MonoBehaviour
         resolutionLabel.text = resolutions[selectedRes].horizontal.ToString() + " x " + resolutions[selectedRes].vertical.ToString();
     }
 
-    private void DefaultRes()
+    private void InitialRes()
     {
-        Debug.Log("Default Called");
-        selectedRes = resolutions.Count - 1;
-        UpdateResLabel();
+        bool foundRes = false;
+        for (int i = 0; i < resolutions.Count; i++)
+        {
+            if (Screen.width == resolutions[i].horizontal && Screen.height == resolutions[i].vertical)
+            {
+
+                foundRes = true;
+                selectedRes = i;
+
+                UpdateResLabel();
+
+            }
+
+        }
+
+        if (!foundRes)
+        {
+            Resolution newRes = new();
+            newRes.horizontal = Screen.width;
+            newRes.vertical = Screen.height;
+
+            resolutions.Add(newRes);
+            //resolutions.Insert();
+            //Add(newRes);
+            selectedRes = resolutions.Count - 1;
+            UpdateResLabel();
+
+
+        }
     }
     public void ApplyGraphics()
     {
