@@ -18,11 +18,10 @@ public class GraphicsSettings : MonoBehaviour
 
     public static readonly string FirstScreen = "FirstScreen";
     private int firstScreen;
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         Debug.Log("selected res: " + selectedRes);
-        if(QualitySettings.vSyncCount == 0)
+        if (QualitySettings.vSyncCount == 0)
         {
             vsyncTog.isOn = false;
         }
@@ -43,6 +42,11 @@ public class GraphicsSettings : MonoBehaviour
             selectedRes = PlayerPrefs.GetInt(ResPref);
         }
         UpdateResLabel();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
 
     }
 
@@ -79,6 +83,7 @@ public class GraphicsSettings : MonoBehaviour
 
     public void UpdateResLabel()
     {
+        Debug.Log("res: " + selectedRes);
         resolutionLabel.text = resolutions[selectedRes].horizontal.ToString() + " x " + resolutions[selectedRes].vertical.ToString();
     }
 
