@@ -31,6 +31,11 @@ public class Sound{
     /// <summary>This bool will play the sound on awake when enabled</summary>
     public bool playOnAwake = false;
 
+    /// <summary>
+    /// will pause the sound when the game is paused
+    /// </summary>
+    public bool pauseInMenu = true;
+
     /// <summary>This holds an audio source of the sound</summmary>
     [HideInInspector]
     public AudioSource source;
