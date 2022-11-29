@@ -22,6 +22,7 @@ public class PauseState : State
     {
         base.Enter();
         Time.timeScale = 0f;
+        AudioListener.pause = true;
         pauseMenuUI.SetActive(true);
         EventDispatcher.Instance.Dispatch("OnPause");
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();

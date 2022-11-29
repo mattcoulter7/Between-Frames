@@ -60,6 +60,7 @@ MonoBehaviour:
     loop: 1
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 0
     source: {fileID: 0}
   - name: MenuMusic
     clip: {fileID: 8300000, guid: f4e2302db4b17410793aa2e232d705fd, type: 3}
@@ -69,6 +70,7 @@ MonoBehaviour:
     loop: 1
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 0
     source: {fileID: 0}
   - name: LevelIntro
     clip: {fileID: 8300000, guid: a4785e2c649774b93b2247c6c71bdb02, type: 3}
@@ -78,6 +80,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 0
     source: {fileID: 0}
   - name: LevelLoop
     clip: {fileID: 8300000, guid: f954d41d07fea4de7a5f8d5c79d01f6a, type: 3}
@@ -87,6 +90,7 @@ MonoBehaviour:
     loop: 1
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 0
     source: {fileID: 0}
   sfxGroups:
   - {fileID: -287768231422235358, guid: 31eb0796e967646e596919438baa35f5, type: 2}
@@ -99,6 +103,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: DeathSound
     clip: {fileID: 8300000, guid: 751ca5986d77b4161bcf04645c15f3a8, type: 3}
@@ -108,6 +113,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: DeathChime
     clip: {fileID: 8300000, guid: eb6ec807100204853802f86be98e50cf, type: 3}
@@ -117,6 +123,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: Bar
     clip: {fileID: 8300000, guid: 57d3ff95b12ae43f998a07674705a079, type: 3}
@@ -126,6 +133,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: Flash
     clip: {fileID: 8300000, guid: faae7e6667dc04e4db7316741725d70b, type: 3}
@@ -135,6 +143,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: HouseFootsteps
     clip: {fileID: 8300000, guid: 77f2003777d824c1fbd2c12b45029e94, type: 3}
@@ -144,6 +153,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: 51b66ac0a9a424fb29ca00150d552737, type: 3}
@@ -153,6 +163,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: Land
     clip: {fileID: 8300000, guid: eee9dbeadca12419da779404a7583d01, type: 3}
@@ -162,6 +173,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: DoorClose
     clip: {fileID: 8300000, guid: 8d31b7340b2158c4eb0ad5870f479ce6, type: 3}
@@ -171,6 +183,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: DoorOpen
     clip: {fileID: 8300000, guid: 507bb89e4ddc19145ac58bc63a26e2a1, type: 3}
@@ -180,6 +193,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: RewindSFX
     clip: {fileID: 8300000, guid: 3b7f3972f38bf4009a41351a79d2b700, type: 3}
@@ -189,6 +203,7 @@ MonoBehaviour:
     loop: 1
     stopLoopOnAwake: 1
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: LightOff
     clip: {fileID: 8300000, guid: 09aa219c143bf45f99e7deb8eb034525, type: 3}
@@ -198,6 +213,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: BoxDrag
     clip: {fileID: 8300000, guid: 986cc836ec8824567a546ee057cb1ce5, type: 3}
@@ -207,6 +223,7 @@ MonoBehaviour:
     loop: 1
     stopLoopOnAwake: 1
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: Ambience
     clip: {fileID: 8300000, guid: 142156758a0404e63b078a227b1ee51c, type: 3}
@@ -216,6 +233,7 @@ MonoBehaviour:
     loop: 1
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 0
     source: {fileID: 0}
   - name: ButtonOn
     clip: {fileID: 8300000, guid: f7e5c057c94964173a342a223cf35f76, type: 3}
@@ -225,6 +243,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: ButtonOff
     clip: {fileID: 8300000, guid: d89ce012357074c04aa068c149a14a4e, type: 3}
@@ -234,6 +253,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: Reel
     clip: {fileID: 8300000, guid: c174bec788fa0479dbeb37e6d4204343, type: 3}
@@ -243,6 +263,7 @@ MonoBehaviour:
     loop: 1
     stopLoopOnAwake: 1
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: Zoom
     clip: {fileID: 8300000, guid: 28bec8b8fe7444dca9468bb6d16d2114, type: 3}
@@ -252,6 +273,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: BoxDestroy
     clip: {fileID: 8300000, guid: eae93df1cbfee470c840e0374e03ee28, type: 3}
@@ -261,6 +283,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: TireRoll
     clip: {fileID: 8300000, guid: 25c2ee8d7dc674db6b3ca7ecc1385f68, type: 3}
@@ -270,6 +293,7 @@ MonoBehaviour:
     loop: 1
     stopLoopOnAwake: 1
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: LightBuzz
     clip: {fileID: 8300000, guid: 02a5944978c8140839b212afa3023891, type: 3}
@@ -279,6 +303,7 @@ MonoBehaviour:
     loop: 1
     stopLoopOnAwake: 1
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: MenuHover
     clip: {fileID: 8300000, guid: f73464f3e4b264bddb98fa2ef6d88176, type: 3}
@@ -288,6 +313,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 0
     source: {fileID: 0}
   - name: MenuClick
     clip: {fileID: 8300000, guid: 5a17b2c0dda3c4d10b54dfe4c5711d78, type: 3}
@@ -297,6 +323,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 0
     source: {fileID: 0}
 --- !u!114 &8968179445483975649
 MonoBehaviour:
@@ -319,6 +346,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: LinolStep2
     clip: {fileID: 8300000, guid: 7d0f13cafa130422cae026ca26e044e5, type: 3}
@@ -328,6 +356,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: LinolStep3
     clip: {fileID: 8300000, guid: 1cd21acbb4e00490f970100a7e94dece, type: 3}
@@ -337,6 +366,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: LinolStep4
     clip: {fileID: 8300000, guid: a1768ee7d8e2a4b28b45fb8fc63e148b, type: 3}
@@ -346,6 +376,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   WoodSteps:
   - name: WoodStep1
@@ -356,6 +387,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: WoodStep2
     clip: {fileID: 8300000, guid: b8e58bf940b5b40478c2bd42ee3a5622, type: 3}
@@ -365,6 +397,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: WoodStep3
     clip: {fileID: 8300000, guid: d9c538d7dc2cf41a98afc02907cf4d44, type: 3}
@@ -374,6 +407,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: WoodStep4
     clip: {fileID: 8300000, guid: 210ae991335494816976198ebb4f2908, type: 3}
@@ -383,6 +417,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   CarpetSteps:
   - name: CarpetStep1
@@ -393,6 +428,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: CarpetStep2
     clip: {fileID: 8300000, guid: 4384b40d988f046938bc42b7cd16844c, type: 3}
@@ -402,6 +438,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: CarpetStep3
     clip: {fileID: 8300000, guid: c5770bba909ea4716b92563649568398, type: 3}
@@ -411,6 +448,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: CarpetStep4
     clip: {fileID: 8300000, guid: dcd7b02f153a14881aa6be73d14531e2, type: 3}
@@ -420,6 +458,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   MetalSteps:
   - name: MetalStep1
@@ -430,6 +469,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   - name: MetalStep3
     clip: {fileID: 8300000, guid: 1bdb025cb8a22488e94c022307beebe8, type: 3}
@@ -439,6 +479,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   BarSteps:
   - name: BarStep1
@@ -449,6 +490,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
   GrassSteps:
   - name: GrassStep1
@@ -459,6 +501,7 @@ MonoBehaviour:
     loop: 0
     stopLoopOnAwake: 0
     playOnAwake: 0
+    pauseInMenu: 1
     source: {fileID: 0}
 --- !u!114 &2346111616123011502
 MonoBehaviour:

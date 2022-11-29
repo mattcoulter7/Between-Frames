@@ -16,6 +16,7 @@ public class GameplayState : State
     {
         base.Enter();
         Time.timeScale = 1f;
+        AudioListener.pause = false;
         shouldPause = false;
         EventDispatcher.Instance.Dispatch("OnPlay");
     }

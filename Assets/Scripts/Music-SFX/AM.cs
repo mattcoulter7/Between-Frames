@@ -106,6 +106,11 @@ public class AM : MonoBehaviour
             song.source.loop = song.loop;
             song.source.playOnAwake = song.playOnAwake;
 
+            if(!song.pauseInMenu)
+            {
+                song.source.ignoreListenerPause = true;
+            }
+
             if(song.mixerGroup == null) { song.mixerGroup = musicMixerGroup; }
 
             song.source.outputAudioMixerGroup = song.mixerGroup;
@@ -122,6 +127,12 @@ public class AM : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
+
+            if(!s.pauseInMenu)
+            {
+                s.source.ignoreListenerPause = true;
+            }
+
 
             if (s.mixerGroup == null) { s.mixerGroup = sfxMixerGroup; }
             
