@@ -8,21 +8,21 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material 2
-  m_Shader: {fileID: 4800000, guid: d68a0b4af3fe80e4fa1d89f595cf07d1, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords:
+  m_Shader: {fileID: 4800000, guid: c933bce24d9d90747a5def016febd042, type: 3}
+  m_ValidKeywords:
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
   - VIGNETTE_MASKED
   - _LIGHTINGMODE_REALISTIC
-  m_LightmapFlags: 4
+  - _RIMSTYLE_POIYOMI
+  m_InvalidKeywords: []
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
     OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi Toon
-    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -449,7 +449,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - DSGI: 0
     - Instancing: 0
+    - LightmapFlags: 0
     - _1st2nd_Shades_Feather: 0.0001
     - _1stShadeMapMask_Inverse: 0
     - _1st_ShadeMapUV: 0
@@ -984,6 +986,7 @@ Material:
     - _FlipbookTexArrayUV: 0
     - _FlipbookTiled: 0
     - _ForgotToLockMaterial: 1
+    - _GIEmissionMultiplier: 1
     - _GITDEMaxEmissionMultiplier: 0
     - _GITDEMaxEmissionMultiplier1: 0
     - _GITDEMaxEmissionMultiplier2: 0
@@ -1395,7 +1398,7 @@ Material:
     - _ScrollingEmission3: 0
     - _Set_HighColorMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 1
+    - _ShaderOptimizerEnabled: 0
     - _ShadingEnabled: 1
     - _ShadingShadeMapBlendType: 0
     - _Shadow2ndBlur: 0.3
@@ -1591,6 +1594,7 @@ Material:
     - m_end_UVTileDissolveRow3: 0
     - m_end_audioLink: 0
     - m_end_backFace: 0
+    - m_end_bakedLighting: 0
     - m_end_blending: 0
     - m_end_brdf: 0
     - m_end_clearCoat: 0
@@ -1669,6 +1673,7 @@ Material:
     - m_start_UVTileDissolveRow3: 0
     - m_start_audioLink: 0
     - m_start_backFace: 0
+    - m_start_bakedLighting: 1
     - m_start_blending: 0
     - m_start_brdf: 0
     - m_start_clearCoat: 0

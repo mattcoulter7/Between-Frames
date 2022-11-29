@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PoiTest 1
-  m_Shader: {fileID: 4800000, guid: 231d95ff7213dd74f82af136b256fb32, type: 3}
+  m_Shader: {fileID: 4800000, guid: c933bce24d9d90747a5def016febd042, type: 3}
   m_ValidKeywords:
   - COLOR_GRADING_HDR
   - MOCHIE_PBR
@@ -450,7 +450,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - DSGI: 0
     - Instancing: 0
+    - LightmapFlags: 0
     - _1st2nd_Shades_Feather: 0.0001
     - _1stShadeMapMask_Inverse: 0
     - _1st_ShadeMapUV: 0
@@ -985,6 +987,7 @@ Material:
     - _FlipbookTexArrayUV: 0
     - _FlipbookTiled: 0
     - _ForgotToLockMaterial: 1
+    - _GIEmissionMultiplier: 1
     - _GITDEMaxEmissionMultiplier: 0
     - _GITDEMaxEmissionMultiplier1: 0
     - _GITDEMaxEmissionMultiplier2: 0
@@ -1592,6 +1595,7 @@ Material:
     - m_end_UVTileDissolveRow3: 0
     - m_end_audioLink: 0
     - m_end_backFace: 0
+    - m_end_bakedLighting: 0
     - m_end_blending: 0
     - m_end_brdf: 0
     - m_end_clearCoat: 0
@@ -1670,6 +1674,7 @@ Material:
     - m_start_UVTileDissolveRow3: 0
     - m_start_audioLink: 0
     - m_start_backFace: 0
+    - m_start_bakedLighting: 0
     - m_start_blending: 0
     - m_start_brdf: 1
     - m_start_clearCoat: 0
