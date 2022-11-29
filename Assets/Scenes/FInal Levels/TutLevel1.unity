@@ -3900,7 +3900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3272151500214155180, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_text
-      value: 'Hint: Try using frame zoom'
+      value: Frames are adjustable and can be walked on.
       objectReference: {fileID: 0}
     - target: {fileID: 4199817371661778019, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_Name
@@ -3954,6 +3954,26 @@ PrefabInstance:
       propertyPath: worldTransform
       value: 
       objectReference: {fileID: 1987697886}
+    - target: {fileID: 4718700232961306183, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_text
+      value: '"Perspective Shapes Reality"
+
+
+        Help Vincent cross the gap and
+        reach the door using his Frames, they''re quite useful!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876608345951116648, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876608345951116648, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095756352621447604, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3c6503de1708ab64b86789678cb31895, type: 3}
     - target: {fileID: 7936351583984961256, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlaySequence

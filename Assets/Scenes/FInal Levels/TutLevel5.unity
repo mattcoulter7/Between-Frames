@@ -10381,7 +10381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3272151500214155180, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_text
-      value: 'Hint: Try tilting the frame'
+      value: Tilting the Frame is a good way to move objects
       objectReference: {fileID: 0}
     - target: {fileID: 4199817371661778019, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_Name
@@ -10444,8 +10444,8 @@ PrefabInstance:
       value: '"On A Roll"
 
 
-        Vincent''s Frame doesn''t only affect himself.
-        See what you can do with that tyre...
+        Vincent''s Frames can also be rotated, this is
+        a useful way of interacting with objects. Try it out on that tyre.
 
 '
       objectReference: {fileID: 0}
@@ -10489,6 +10489,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ec2069ac12443e542b9414b914cff01a, type: 3}
+    - target: {fileID: 8907988087783190892, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -76.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
 --- !u!4 &1493970377 stripped

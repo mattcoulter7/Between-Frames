@@ -4059,7 +4059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3272151500214155180, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_text
-      value: 'Hint: Try using flash on the light source'
+      value: Place the Pivot over the object you want to Flash
       objectReference: {fileID: 0}
     - target: {fileID: 3593841970290568968, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: onContinue.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -4122,10 +4122,14 @@ PrefabInstance:
       value: '"A Flash of Inspiration"
 
 
-        Flickering light can be given a
-        boost by moving the pivot over the object and Flashing it with your camera.
+        Vincent can power up flickering
+        lights with a flash. Powered lights can help with eliminating dark clouds.
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718700232961306183, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7936351583984961257, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_RootOrder
