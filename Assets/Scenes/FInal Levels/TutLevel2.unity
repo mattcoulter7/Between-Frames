@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: e07daa89753500742a151a042bac861e, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: bb5224853916044479ea236c929fdc17, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -186,9 +186,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -412,9 +420,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -481,9 +497,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -554,9 +578,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -1265,6 +1297,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3232047171032157972, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497823854578233151, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4892647842293227478, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -1304,6 +1344,14 @@ PrefabInstance:
     - target: {fileID: 5106589227966921408, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_Name
       value: Tree (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5106589227966921408, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511580672590722796, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7837161378456623269, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1378,9 +1426,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -1399,7 +1455,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!108 &673673802
 Light:
@@ -1452,7 +1508,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1471,7 +1527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673673801}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0.00012888853, y: -0.09884273, z: 0.021014672}
+  m_LocalPosition: {x: 0.00012888853, y: -0.0988, z: 0.0365}
   m_LocalScale: {x: 0.009999995, y: 0.009999997, z: 0.009999997}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1545,9 +1601,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -1664,9 +1728,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -1733,9 +1805,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -1871,9 +1951,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -1944,9 +2032,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -2013,9 +2109,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -2086,9 +2190,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -2159,9 +2271,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -2228,9 +2348,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -2292,6 +2420,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b2e22a831f5f9cd43b30a82a18f38244, type: 3}
       propertyPath: m_Name
       value: Level2Vines
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2e22a831f5f9cd43b30a82a18f38244, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e22a831f5f9cd43b30a82a18f38244, type: 3}
@@ -2362,9 +2494,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -2442,6 +2582,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 99ca5c3eb64a4224e9bfb33372fdf413, type: 3}
       propertyPath: m_Name
       value: lady
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 99ca5c3eb64a4224e9bfb33372fdf413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ca5c3eb64a4224e9bfb33372fdf413, type: 3}
@@ -2548,9 +2692,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -2583,7 +2735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3272151500214155180, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: m_text
-      value: 'Hint: Try moving the frame'
+      value: Adjusting the Pivot also adjust the Frames.
       objectReference: {fileID: 0}
     - target: {fileID: 3593841970290568968, guid: e21b85060e5d5894db5575bb0fe63f29, type: 3}
       propertyPath: onContinue.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -2865,9 +3017,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -2934,6 +3094,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3232047171032157972, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497823854578233151, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4892647842293227478, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -2973,6 +3141,14 @@ PrefabInstance:
     - target: {fileID: 5106589227966921408, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_Name
       value: Tree (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5106589227966921408, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511580672590722796, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7837161378456623269, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3032,7 +3208,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!108 &1753273902
 Light:
@@ -3085,7 +3261,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3199,6 +3375,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3232047171032157972, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497823854578233151, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4892647842293227478, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -3246,6 +3430,14 @@ PrefabInstance:
     - target: {fileID: 5106589227966921408, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_Name
       value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 5106589227966921408, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511580672590722796, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7837161378456623269, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3320,9 +3512,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -3393,9 +3593,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2589359246064131874, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
       propertyPath: m_Name
       value: Flowers (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377464806917201964, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edca29a4c877b94d9ff2256237be789, type: 3}
@@ -3526,6 +3734,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3232047171032157972, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497823854578233151, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4892647842293227478, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -3565,6 +3781,14 @@ PrefabInstance:
     - target: {fileID: 5106589227966921408, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_Name
       value: Tree (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5106589227966921408, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511580672590722796, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7837161378456623269, guid: 015ded6b37a6deb418d1659259a98a1a, type: 3}
       propertyPath: m_Materials.Array.data[0]

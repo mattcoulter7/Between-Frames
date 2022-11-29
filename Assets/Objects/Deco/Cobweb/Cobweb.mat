@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cobweb
-  m_Shader: {fileID: 4800000, guid: 231d95ff7213dd74f82af136b256fb32, type: 3}
+  m_Shader: {fileID: 4800000, guid: c933bce24d9d90747a5def016febd042, type: 3}
   m_ValidKeywords:
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
@@ -20,9 +20,9 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: TransparentCutout
+    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -449,7 +449,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - DSGI: 0
     - Instancing: 0
+    - LightmapFlags: 0
     - _1st2nd_Shades_Feather: 0.0001
     - _1stShadeMapMask_Inverse: 0
     - _1st_ShadeMapUV: 0
@@ -508,7 +510,7 @@ Material:
     - _AlphaFresnelWidth: 0.5
     - _AlphaMipScale: 0.25
     - _AlphaMod: 0
-    - _AlphaPremultiply: 0
+    - _AlphaPremultiply: 1
     - _AlphaSharpenedA2C: 0
     - _AlphaTextureUV: 0
     - _AlphaToCoverage: 0
@@ -669,7 +671,7 @@ Material:
     - _CurvFix: 1
     - _CurvatureU: 0
     - _CurvatureV: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _Decal0Depth: 0
     - _Decal0HueAngleStrength: 0
     - _Decal0MaskChannel: 0
@@ -819,7 +821,7 @@ Material:
     - _DistortionStrength1AudioLinkBand: 0
     - _DistortionStrengthAudioLinkBand: 0
     - _DistortionUvToDistort: 0
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _EmissionAL0Enabled: 0
     - _EmissionAL0MultipliersBand: 0
     - _EmissionAL0StrengthBand: 0
@@ -984,6 +986,7 @@ Material:
     - _FlipbookTexArrayUV: 0
     - _FlipbookTiled: 0
     - _ForgotToLockMaterial: 1
+    - _GIEmissionMultiplier: 1
     - _GITDEMaxEmissionMultiplier: 0
     - _GITDEMaxEmissionMultiplier1: 0
     - _GITDEMaxEmissionMultiplier2: 0
@@ -1256,7 +1259,7 @@ Material:
     - _MochieSpecularStrength: 1
     - _MochieSpecularStrength2: 1
     - _MochieSpecularTintThemeIndex: 0
-    - _Mode: 1
+    - _Mode: 3
     - _ModelAngleMax: 90
     - _ModelAngleMin: 45
     - _MultilayerMathBlurMapUV: 0
@@ -1537,7 +1540,7 @@ Material:
     - _VertexRoundingRangeBand: 0
     - _VertexWorldTranslationALBand: 0
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     - _glitterFrequencyLinearEmissive: 20
     - footer_discord: 0
     - footer_github: 0
@@ -1591,6 +1594,7 @@ Material:
     - m_end_UVTileDissolveRow3: 0
     - m_end_audioLink: 0
     - m_end_backFace: 0
+    - m_end_bakedLighting: 0
     - m_end_blending: 0
     - m_end_brdf: 0
     - m_end_clearCoat: 0
@@ -1669,6 +1673,7 @@ Material:
     - m_start_UVTileDissolveRow3: 0
     - m_start_audioLink: 0
     - m_start_backFace: 0
+    - m_start_bakedLighting: 0
     - m_start_blending: 0
     - m_start_brdf: 0
     - m_start_clearCoat: 0

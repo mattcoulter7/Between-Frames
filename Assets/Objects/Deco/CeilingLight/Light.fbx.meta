@@ -3,7 +3,27 @@ guid: bf5f458ae0614d848b625701c8199c44
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base
+    second: {fileID: 2100000, guid: 7d3e9cd0678d5184c85c5e4f5ae11e37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light
+    second: {fileID: 2100000, guid: 4f39afa38e46d9c429d6b21227e0b290, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightReflect
+    second: {fileID: 2100000, guid: dd5038e0fba292c49b63a94b345c79f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: String
+    second: {fileID: 2100000, guid: c164f6492b10a634c810a2fb1d62624a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
