@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PoiTest 1
-  m_Shader: {fileID: 4800000, guid: a37fba791ae0d7a458ea1a737fdda3d8, type: 3}
+  m_Shader: {fileID: 4800000, guid: 54fd3b4441daccb4d99e43b678305bd5, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - MOCHIE_PBR
@@ -1110,7 +1110,7 @@ Material:
     - _LightingIgnoreAmbientColor: 0.693
     - _LightingIndirectUsesNormals: 0
     - _LightingMapMode: 0
-    - _LightingMinLightBrightness: 0
+    - _LightingMinLightBrightness: 0.3
     - _LightingMode: 6
     - _LightingMonochromatic: 0
     - _LightingMulitlayerNonLinear: 1
