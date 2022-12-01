@@ -5006,6 +5006,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383566624}
     m_Modifications:
+    - target: {fileID: 2323167038370390544, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: b3c5b1166f7a1a445974ce42b453cf6c, type: 3}
+    - target: {fileID: 2323167038370390544, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2323167038370390574, guid: a2af479b4f557044584502e01abfabf6, type: 3}
       propertyPath: m_Name
       value: VincentAnim 1
