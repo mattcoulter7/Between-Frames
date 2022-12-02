@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &14617319 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+  m_PrefabInstance: {fileID: 1393316706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &248625327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,7 +236,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1383566624}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &256353706
 MonoBehaviour:
@@ -291,7 +296,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1383566624}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!64 &266927245
 MeshCollider:
@@ -389,7 +394,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1383566624}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -272.4, y: -89.999, z: 90.001}
 --- !u!64 &345236012
 MeshCollider:
@@ -727,7 +732,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1383566624}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: -277.969, y: 90, z: 270}
 --- !u!64 &550977109
 MeshCollider:
@@ -948,6 +953,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VincentAnim
       objectReference: {fileID: 0}
+    - target: {fileID: 6001349722020595283, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6009013861926000700, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -966,7 +975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6341846085515681001, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6341846085515681001, guid: f8cc45077fd29f24b8692fe8b71170fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2567,7 +2576,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b2e22a831f5f9cd43b30a82a18f38244, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b2e22a831f5f9cd43b30a82a18f38244, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2816,6 +2825,7 @@ Transform:
   - {fileID: 5833027041737391265}
   - {fileID: 2107608212}
   - {fileID: 630763614009910341}
+  - {fileID: 14617319}
   - {fileID: 605915789}
   - {fileID: 1709365893}
   - {fileID: 266927244}
@@ -2827,6 +2837,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1393316706
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1383566624}
+    m_Modifications:
+    - target: {fileID: 2323167038370390574, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_Name
+      value: VincentAnim 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70574796
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.708463
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131792502961928340, guid: a2af479b4f557044584502e01abfabf6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a2af479b4f557044584502e01abfabf6, type: 3}
 --- !u!1001 &1416083609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3047,7 +3114,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f9ddf737112c5474eaee8d0f8faebec9, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9ddf737112c5474eaee8d0f8faebec9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3841,7 +3908,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1383566624}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1993077277
 MonoBehaviour:
