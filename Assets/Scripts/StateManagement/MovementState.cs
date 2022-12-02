@@ -12,6 +12,7 @@ public class MovementState : State
     public float jumpHeight;
     public float groundDistance = 0.2f;
     public LayerMask ground;
+    public Transform groundChecker;
 
     private Rigidbody _body;
     private Vector3 _inputs = Vector3.zero;
@@ -78,7 +79,7 @@ public class MovementState : State
     public override void LogicUpdate()
     {
         // look at downwards raycast for grounding
-        _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
+        _isGrounded = Physics.CheckSphere(groundChecker.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
 
         //Testing
         if (_isGrounded && !_isGroundedLastFrame && _instance == null)

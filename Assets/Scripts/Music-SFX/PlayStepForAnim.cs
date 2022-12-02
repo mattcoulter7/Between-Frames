@@ -23,7 +23,7 @@ public class PlayStepForAnim : MonoBehaviour
 
     public void PlayStep()
     {
-        //Debug.Log("PlayStep called");
+        Debug.Log("PlayStep called");
         r = new(_groundChecker.position + Vector3.up * verticalOffset, Vector3.down); //Ray
 
         SurfaceMaterial castResult = GetComponent<SurfaceMaterialIdentifier>().Cast(r);
